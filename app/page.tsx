@@ -112,6 +112,9 @@ export default function HomePage() {
                 On est là<br />
                 <em className="italic text-mink">pour vous.</em>
               </h2>
+              <p className="text-xs text-cocoa/40 font-light tracking-widest">
+                Abonnements · Technique · Programmes · Cours & planning
+              </p>
             </div>
 
             <div className="flex flex-col gap-6" data-animate style={{ transitionDelay: '150ms' }}>

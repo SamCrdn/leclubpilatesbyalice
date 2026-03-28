@@ -5,6 +5,15 @@ _Rien pour l'instant_
 
 ---
 
+## Corrections UI (28 mars 2026)
+- [x] Sujets de contact ajoutés sous le titre "On est là pour vous" (homepage)
+- [x] Menu burger mobile : espacement du bandeau augmenté
+- [x] Hero : poster retiré, fond crème au chargement
+- [x] Titres h1 mobile agrandis sur `/profs` et `/contact` (clamp 2.75rem)
+- [x] Bandeau contact aligné sur le layout de la page profs
+
+---
+
 ## À faire
 
 ### Intégrations techniques
@@ -13,7 +22,8 @@ _Rien pour l'instant_
 - [ ] **Automatisation blog** — Création des pages `/blog/[slug]`, schéma de contenu Sanity, ISR pour les articles. Nécessite le branchement CMS.
 
 ### Mise en ligne
-- [ ] **Déploiement** — Connexion repo Git (GitHub), import projet sur Vercel, configuration variables d'env (`.env.local` → Vercel), domaine `leclubpilates.com`.
+- [x] **Déploiement** — Repo GitHub créé, projet importé sur Vercel, variables d'env configurées. Site live sur `leclubpilatesbyalice.vercel.app`.
+- [ ] **Domaine** — Connecter `leclubpilates.com` sur Vercel (DNS).
 - [ ] **Compléter les mentions légales** — SIRET, adresse siège social (obligatoire CNIL avant live).
 
 ### Nouvelles pages

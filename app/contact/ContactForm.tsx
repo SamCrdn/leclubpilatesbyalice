@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 
-const FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT
 
 export default function ContactForm() {
   const [form, setForm]     = useState({ name: '', email: '', subject: '', message: '' })
@@ -26,12 +25,11 @@ export default function ContactForm() {
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
     setErrors({})
-    if (!FORM_ID) { setStatus('error'); return }
     setStatus('loading')
     try {
-      const res = await fetch(`https://formspree.io/f/${FORM_ID}`, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
       if (res.ok) setStatus('success')
@@ -55,16 +53,18 @@ export default function ContactForm() {
         <p className="absolute inset-0 flex items-center justify-center font-display text-[20vw] font-light text-cream/[0.03] select-none pointer-events-none tracking-tight" aria-hidden="true">
           contact
         </p>
-        <div className="section-wrapper relative z-10">
-          <p className="eyebrow text-cream/40 mb-6" data-animate>Contact</p>
-          <h1 className="font-display font-light text-cream leading-[0.95] mb-6" data-animate style={{ transitionDelay: '100ms' }}>
-            <em className="italic text-cream/50">Parlons.</em>
-          </h1>
-          <div className="flex gap-8 text-sm font-light" data-animate style={{ transitionDelay: '200ms' }}>
-            <a href="mailto:contact@leclubpilates.com" className="text-cream/30 hover:text-cream/60 transition-colors">
+        <div className="section-wrapper relative z-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
+          <div>
+            <p className="eyebrow text-cream/40 mb-6" data-animate>Contact</p>
+            <h1 className="font-display font-light text-cream leading-[0.95] text-[clamp(2.75rem,5.5vw,5rem)]" data-animate style={{ transitionDelay: '100ms' }}>
+              <em className="italic text-cream/50">Parlons.</em>
+            </h1>
+          </div>
+          <div className="flex flex-col gap-2 text-sm font-light pb-1" data-animate style={{ transitionDelay: '200ms' }}>
+            <a href="mailto:contact@leclubpilates.com" className="text-cream/40 hover:text-cream/60 transition-colors">
               contact@leclubpilates.com
             </a>
-            <a href="https://www.instagram.com/alice.leclubpilates/" target="_blank" rel="noopener noreferrer" className="text-cream/30 hover:text-cream/60 transition-colors">
+            <a href="https://www.instagram.com/alice.leclubpilates/" target="_blank" rel="noopener noreferrer" className="text-cream/40 hover:text-cream/60 transition-colors">
               @alice.leclubpilates
             </a>
           </div>

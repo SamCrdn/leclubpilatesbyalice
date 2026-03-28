@@ -17,7 +17,7 @@ export default function HeroSection() {
         loop
         playsInline
         preload="metadata"
-        poster="/images/alice-cours-pilates-mobile.jpg"
+        poster=""
         aria-hidden="true"
       >
         <source src="/videos/video-hero-pilates.webm" type="video/webm" />

@@ -125,7 +125,7 @@ export default function ProfsPage() {
         <div className="section-wrapper relative z-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
           <div>
             <p className="eyebrow text-cream/40 mb-6" data-animate>L&apos;équipe</p>
-            <h1 className="font-display font-light text-cream leading-[0.95] max-w-lg" data-animate style={{ transitionDelay: '100ms' }}>
+            <h1 className="font-display font-light text-cream leading-[0.95] max-w-lg text-[clamp(2.75rem,5.5vw,5rem)]" data-animate style={{ transitionDelay: '100ms' }}>
               Les <em className="italic text-cream/50">professeurs.</em>
             </h1>
           </div>

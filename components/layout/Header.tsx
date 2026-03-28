@@ -163,7 +163,7 @@ export default function Header() {
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <nav aria-label="Navigation mobile" className="flex flex-col gap-6 mt-8">
+        <nav aria-label="Navigation mobile" className="flex flex-col gap-6 mt-16">
           {navLinks.map(({ href, label, external }, i) => external ? (
             <a
               key={href}
