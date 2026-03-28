@@ -31,7 +31,18 @@ export default function InstagramSection() {
         </div>
 
         <div data-animate>
-          <behold-widget feed-id="gsk2W3Na8VY7jC4jc8lG" />
+          <behold-widget feed-id={process.env.NEXT_PUBLIC_BEHOLD_FEED_ID ?? 'gsk2W3Na8VY7jC4jc8lG'} />
+        </div>
+
+        <div className="text-center mt-10" data-animate>
+          <a
+            href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=cta&utm_campaign=homepage&utm_content=instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Rejoindre le club — 7 jours gratuits
+          </a>
         </div>
 
       </div>

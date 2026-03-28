@@ -11,7 +11,7 @@ const plans = [
     period:   'mois',
     highlight: false,
     image:    '/images/plan-mensuel.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +500 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
+    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
   },
   {
     id:       'trimestriel',
@@ -21,7 +21,7 @@ const plans = [
     highlight: true,
     badge:    "15% d'économie",
     image:    '/images/plan-trimestriel.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +500 cours', 'Idéal pour s\'installer dans une routine', 'Annulation à tout moment'],
+    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Idéal pour s\'installer dans une routine', 'Annulation à tout moment'],
   },
   {
     id:       'annuel',
@@ -31,7 +31,7 @@ const plans = [
     highlight: false,
     badge:    "30% d'économie",
     image:    '/images/class-3.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +500 cours', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
+    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
   },
 ]
 

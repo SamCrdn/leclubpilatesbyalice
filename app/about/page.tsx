@@ -4,17 +4,38 @@ import { SignupCTA } from '@/components/ui/CTAButton'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
+
 export const metadata: Metadata = {
-  title: 'À propos — Alice & Le Club Pilates',
+  title: 'À propos d\'Alice — Fondatrice du Club Pilates en ligne',
   description:
     'Découvrez l\'histoire d\'Alice, fondatrice du Club Pilates. Ancienne danseuse, instructrice certifiée Polestar, elle propose des cours de Pilates en ligne depuis 2020.',
-  alternates: { canonical: '/about' },
+  alternates: { canonical: `${siteUrl}/about` },
+  openGraph: {
+    title: 'À propos d\'Alice — Fondatrice du Club Pilates en ligne',
+    description: 'Ancienne danseuse, instructrice certifiée Polestar. Découvrez l\'histoire d\'Alice et sa vision du Pilates en ligne.',
+    url: `${siteUrl}/about`,
+    images: [{ url: `${siteUrl}/images/alice-fondatrice-club-pilates.jpg`, width: 1200, height: 630, alt: 'Alice, fondatrice du Club Pilates' }],
+  },
+}
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Alice',
+  jobTitle: 'Fondatrice & Instructrice Pilates',
+  image: `${siteUrl}/images/alice-fondatrice-club-pilates.jpg`,
+  url: `${siteUrl}/about`,
+  worksFor: { '@type': 'Organization', name: 'Le Club Pilates', url: siteUrl },
+  knowsAbout: ['Pilates', 'Bien-être', 'Danse', 'Renforcement musculaire'],
+  sameAs: ['https://www.instagram.com/alice.leclubpilates/'],
 }
 
 export default function AboutPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: 'À propos', href: '/about' }]} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
 
       {/* ── HERO éditorial ── */}
       <section className="relative bg-cream overflow-hidden min-h-screen flex items-end">
@@ -126,7 +147,7 @@ export default function AboutPage() {
 
             <div className="relative aspect-[3/4] rounded-sm overflow-hidden" data-animate style={{ transitionDelay: '150ms' }}>
               <Image
-                src="/images/ALICE-5.JPG"
+                src="/images/alice-fondatrice-club-pilates.jpg"
                 alt="Alice, fondatrice du Club Pilates"
                 fill
                 className="object-cover object-top scale-x-[-1]"

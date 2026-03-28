@@ -14,9 +14,6 @@ module.exports = {
         cocoa:   { DEFAULT: '#2C1A0E', mid: '#4A2E1A', light: '#6B4226' },
         mink:    { DEFAULT: '#9B8A7A', light: '#BEB0A3' },
         chalk:   '#FAFAF7',
-        // ── Utility aliases ────────────────────────────
-        bg:      '#F5F0E8',
-        fg:      '#2C1A0E',
       },
       fontFamily: {
         display: ['var(--font-cormorant)', 'Georgia', 'serif'],

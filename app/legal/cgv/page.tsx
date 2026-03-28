@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
+
 export const metadata: Metadata = {
   title: 'Conditions Générales de Vente — Le Club Pilates',
-  description: 'Conditions générales de vente des abonnements Le Club Pilates.',
-  alternates: { canonical: '/legal/cgv' },
+  description: 'Conditions générales de vente Le Club Pilates — abonnements, modalités de résiliation, paiement sécurisé et propriété intellectuelle. Essai 7 jours sans engagement.',
+  alternates: { canonical: `${siteUrl}/legal/cgv` },
 }
 
 export default function CGVPage() {

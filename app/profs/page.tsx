@@ -3,11 +3,19 @@ import Image from 'next/image'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
+
 export const metadata: Metadata = {
-  title: 'Les Professeurs — Le Club Pilates',
+  title: 'Nos professeurs de Pilates certifiés — Le Club Pilates',
   description:
     'Découvrez l\'équipe de professeurs du Club Pilates : Alice, Athena, Maria, Vince et Elizabeth. Des instructeurs certifiés passionnés par le mouvement et le bien-être.',
-  alternates: { canonical: '/profs' },
+  alternates: { canonical: `${siteUrl}/profs` },
+  openGraph: {
+    title: 'Nos professeurs de Pilates certifiés — Le Club Pilates',
+    description: 'Alice, Athena, Maria, Vince et Elizabeth — 5 instructeurs certifiés pour vous accompagner dans votre pratique du Pilates en ligne.',
+    url: `${siteUrl}/profs`,
+    images: [{ url: `${siteUrl}/images/profs/alice-prof-pilates.jpg`, width: 1200, height: 630, alt: 'Équipe de professeurs du Club Pilates' }],
+  },
 }
 
 const profs = [
@@ -28,7 +36,7 @@ const profs = [
     name: 'Athena',
     role: 'Instructrice',
     index: '02',
-    photo: '/images/profs/f7e5e11d-113d-4c69-b7ef-296420111847.JPG',
+    photo: '/images/profs/athena-prof-pilates.jpg',
     photoAlt: 'Athena, professeure de Pilates',
     formation: 'Alyne Pilates Training · FFMP',
     bio: [
@@ -41,7 +49,7 @@ const profs = [
     name: 'Maria',
     role: 'Instructrice · Pilates prénatal',
     index: '03',
-    photo: '/images/profs/IMG_1983.JPG',
+    photo: '/images/profs/maria-prof-pilates.jpg',
     photoAlt: 'Maria, professeure de Pilates',
     formation: null,
     bio: [
@@ -54,7 +62,7 @@ const profs = [
     name: 'Vince',
     role: 'Instructeur · Yoga & Pilates',
     index: '04',
-    photo: '/images/profs/IMG_1985.JPG',
+    photo: '/images/profs/vince-prof-pilates.jpg',
     photoAlt: 'Vince, professeur de Pilates et Yoga',
     formation: null,
     bio: [
@@ -67,7 +75,7 @@ const profs = [
     name: 'Elizabeth',
     role: 'Praticienne en hypnose & bien-être',
     index: '05',
-    photo: '/images/profs/6da493b0-d501-41fb-848d-1c1d92caecf1.JPG',
+    photo: '/images/profs/elizabeth-prof-pilates.jpg',
     photoAlt: 'Elizabeth, praticienne en hypnose',
     formation: null,
     bio: [
@@ -78,19 +86,50 @@ const profs = [
   },
 ]
 
+const profsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Équipe de professeurs — Le Club Pilates',
+  itemListElement: profs.map((prof, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Person',
+      name: prof.name,
+      jobTitle: prof.role,
+      image: `https://www.leclubpilates.com${prof.photo}`,
+      description: prof.bio[0],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Le Club Pilates',
+        url: 'https://www.leclubpilates.com',
+      },
+    },
+  })),
+}
+
 export default function ProfsPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: 'Les Professeurs', href: '/profs' }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profsJsonLd) }}
+      />
 
       {/* ── HERO ── */}
-      <section className="pt-36 pb-12 bg-cream border-b border-cocoa/10">
-        <div className="section-wrapper">
-          <p className="eyebrow mb-4" data-animate>L&apos;équipe</p>
-          <h1 className="max-w-xl" data-animate style={{ transitionDelay: '100ms' }}>
-            Les <em className="italic">professeurs</em>
-          </h1>
-          <p className="mt-4 text-sm text-cocoa/60 font-light leading-relaxed max-w-sm" data-animate style={{ transitionDelay: '200ms' }}>
+      <section className="bg-cocoa pt-36 pb-16 min-h-[380px] flex flex-col justify-end relative overflow-hidden">
+        <p className="absolute inset-0 flex items-center justify-center font-display text-[20vw] font-light text-cream/[0.03] select-none pointer-events-none tracking-tight" aria-hidden="true">
+          pilates
+        </p>
+        <div className="section-wrapper relative z-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
+          <div>
+            <p className="eyebrow text-cream/40 mb-6" data-animate>L&apos;équipe</p>
+            <h1 className="font-display font-light text-cream leading-[0.95] max-w-lg" data-animate style={{ transitionDelay: '100ms' }}>
+              Les <em className="italic text-cream/50">professeurs.</em>
+            </h1>
+          </div>
+          <p className="text-sm text-cream/40 font-light max-w-xs pb-1" data-animate style={{ transitionDelay: '200ms' }}>
             Une équipe de passionnés certifiés, réunis autour d&apos;une même conviction&nbsp;: le mouvement transforme.
           </p>
         </div>

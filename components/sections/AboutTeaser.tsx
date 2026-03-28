@@ -103,7 +103,7 @@ export default function AboutTeaser() {
             </ul>
 
             {/* CTA */}
-            <div data-animate style={{ transitionDelay: '600ms' }}>
+            <div>
               <CTAButton href="https://app.leclubpilates.com/" label="Accéder au studio" external />
             </div>
           </div>

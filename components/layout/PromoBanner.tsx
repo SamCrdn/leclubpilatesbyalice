@@ -30,7 +30,7 @@ export default function PromoBanner() {
         <span className="text-base">🌸</span>
         <div className="flex flex-col items-center leading-tight">
           <span className="text-xs font-medium tracking-wide">1er mois à <strong>14,50€</strong></span>
-          <span className="text-2xs text-cream/60 tracking-wide">Résiliable à tout moment</span>
+          <span className="text-2xs text-cream/60 tracking-wide">Jusqu&apos;au 30 avril</span>
         </div>
         <a
           href={SIGNUP_URL}
@@ -49,7 +49,7 @@ export default function PromoBanner() {
           <span className="font-medium uppercase tracking-widest mr-2 text-cream">Offre Printemps</span>
           1er mois à <strong className="text-cream">14,50€</strong> au lieu de 29€
           <span className="mx-2 opacity-40">·</span>
-          Résiliable à tout moment
+          Jusqu&apos;au 30 avril
           <span className="mx-2 opacity-40">·</span>
           Sans engagement
         </p>

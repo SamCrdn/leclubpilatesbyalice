@@ -18,10 +18,11 @@ export default function NewsletterForm({ dark = false, className = '' }: Props) 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
+    if (!formId) { setStatus('error'); setMessage('Newsletter temporairement indisponible.'); return }
     setStatus('loading')
 
     try {
-      const res = await fetch(`https://formspree.io/f/${formId ?? 'placeholder'}`, {
+      const res = await fetch(`https://formspree.io/f/${formId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ email }),

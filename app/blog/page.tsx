@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { safeBgUrl } from '@/lib/safeBgUrl'
 
 export const metadata: Metadata = {
-  title: 'Blog — Conseils Pilates & Bien-être',
+  title: 'Blog Pilates — Conseils & bien-être par nos expertes',
   description:
-    'Découvrez nos articles sur le Pilates, le bien-être, la nutrition et la santé féminine. Conseils d\'expertes, guides pratiques et inspiration.',
+    'Découvrez nos articles sur le Pilates, le bien-être, la nutrition et la santé féminine. Conseils d\'expertes, guides pratiques et inspiration. Rejoignez +1 000 membres actives.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'Blog Pilates — Conseils & bien-être par nos expertes',
+    description: 'Articles Pilates, bien-être, nutrition et santé féminine par les expertes du Club Pilates.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'}/blog`,
+    images: [{ url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'}/images/blog-1.jpg`, width: 1200, height: 630, alt: 'Blog du Club Pilates — Conseils Pilates & bien-être' }],
+  },
 }
 
 const categories = ['Tous', 'Pilates', 'Nutrition', 'Bien-être', 'Conseils', 'Témoignages']
@@ -63,12 +71,36 @@ const posts = [
   },
 ]
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
+
+const blogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Blog Le Club Pilates',
+  description: 'Conseils Pilates, bien-être et nutrition par les expertes du Club Pilates',
+  url: `${siteUrl}/blog`,
+  publisher: { '@type': 'Organization', name: 'Le Club Pilates', url: siteUrl },
+  blogPost: posts.map(post => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: `${siteUrl}${post.image}`,
+    datePublished: post.date,
+    author: { '@type': 'Person', name: 'Alice', url: `${siteUrl}/about` },
+    publisher: { '@type': 'Organization', name: 'Le Club Pilates', url: siteUrl },
+  })),
+}
+
 export default function BlogPage() {
   const featured = posts.find(p => p.featured)
   const rest     = posts.filter(p => !p.featured)
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
       {/* Header */}
       <div className="pt-32 pb-16 bg-cream">
         <div className="section-wrapper">
@@ -103,7 +135,7 @@ export default function BlogPage() {
               data-animate>
               <div className="aspect-[16/10] bg-sand/30 overflow-hidden rounded-sm">
                 <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${featured.image})` }}
+                  style={{ backgroundImage: safeBgUrl(featured.image) }}
                   role="img" aria-label={featured.title} />
               </div>
               <div className="flex flex-col justify-center">
@@ -130,7 +162,7 @@ export default function BlogPage() {
                 data-animate style={{ transitionDelay: `${i * 60}ms` }}>
                 <div className="aspect-[16/10] bg-sand/30 overflow-hidden mb-4 rounded-sm">
                   <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${post.image})` }}
+                    style={{ backgroundImage: safeBgUrl(post.image) }}
                     role="img" aria-label={post.title} />
                 </div>
                 <p className="eyebrow mb-2">{post.cat}</p>

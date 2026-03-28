@@ -130,7 +130,7 @@ export default function Header() {
                 Connexion
               </a>
               <a href={`${APP_URL}/join?utm_source=site&utm_medium=nav&utm_campaign=homepage&utm_content=header`} className="btn-primary py-2.5 px-6 text-xs">
-                Commencer
+                Essai gratuit
               </a>
             </div>
 
@@ -190,7 +190,7 @@ export default function Header() {
         </nav>
         <div className="mt-auto flex flex-col gap-3">
           <a href={`${APP_URL}/join?utm_source=site&utm_medium=nav&utm_campaign=homepage&utm_content=mobile-menu`} className="btn-primary w-full text-center">
-            Commencer maintenant
+            7 jours gratuits
           </a>
           <a
             href={`${APP_URL}/login`}

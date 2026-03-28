@@ -15,7 +15,7 @@ const studioLinks = [
 const contactLinks = [
   { href: '/contact',                              label: 'Nous contacter'          },
   { href: 'mailto:contact@leclubpilates.com',      label: 'contact@leclubpilates.com', external: true },
-  { href: 'https://instagram.com/leclubpilates',   label: '@leclubpilates',            external: true },
+  { href: 'https://www.instagram.com/alice.leclubpilates/', label: '@alice.leclubpilates', external: true },
 ]
 
 const legalLinks = [

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
+
 export const metadata: Metadata = {
   title: 'Politique de confidentialité — Le Club Pilates',
-  description: 'Politique de confidentialité et protection des données personnelles du Club Pilates.',
-  alternates: { canonical: '/legal/confidentialite' },
+  description: 'Politique de confidentialité Le Club Pilates — protection RGPD de vos données personnelles, utilisation des cookies, vos droits et comment nous contacter.',
+  alternates: { canonical: `${siteUrl}/legal/confidentialite` },
 }
 
 export default function ConfidentialitePage() {

@@ -2,12 +2,15 @@ import type { Metadata } from 'next'
 import { ArrowRight } from 'lucide-react'
 import CTABanner from '@/components/sections/CTABanner'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import { safeBgUrl } from '@/lib/safeBgUrl'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
-  title: '+500 cours de Pilates en ligne — Tous niveaux',
+  title: '+350 cours de Pilates en ligne — Tous niveaux',
   description:
-    'Explorez +500 cours de Pilates en ligne : débutant, renforcement musculaire, stretching, Mama, Reformer. Guidés par Alice et ses instructrices certifiées. Essai gratuit 7 jours.',
-  alternates: { canonical: '/classes' },
+    'Explorez +350 cours de Pilates en ligne : débutant, renforcement musculaire, stretching, Mama, Reformer. Guidés par Alice et ses instructrices certifiées. Essai gratuit 7 jours.',
+  alternates: { canonical: `${siteUrl}/classes` },
 }
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
@@ -82,7 +85,7 @@ export default function ClassesPage() {
                 <div className="aspect-[4/3] bg-sand/30 overflow-hidden mb-4 rounded-sm">
                   <div
                     className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-smooth group-hover:scale-105"
-                    style={{ backgroundImage: `url(${c.image})` }}
+                    style={{ backgroundImage: safeBgUrl(c.image) }}
                     role="img"
                     aria-label={c.title}
                   />

@@ -31,7 +31,7 @@ export default function CookieBanner() {
       <div className="section-wrapper flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
         <p className="text-sm font-light text-cream/80 flex-1">
           Nous utilisons des cookies pour mesurer l&apos;audience et améliorer votre expérience.{' '}
-          <a href="/mentions-legales" className="underline underline-offset-2 hover:text-cream transition-colors">
+          <a href="/legal/confidentialite" className="underline underline-offset-2 hover:text-cream transition-colors">
             En savoir plus
           </a>
         </p>

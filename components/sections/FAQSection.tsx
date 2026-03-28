@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'Comment fonctionne l\'essai gratuit ?',
-    a: 'L\'essai gratuit de 7 jours vous donne accès à l\'intégralité de notre catalogue. Aucune carte bancaire n\'est requise pour commencer. À la fin de la période d\'essai, choisissez l\'abonnement qui vous convient.',
+    a: 'L\'essai gratuit de 7 jours vous donne accès à l\'intégralité de notre catalogue. À la fin de la période d\'essai, choisissez l\'abonnement qui vous convient ou annulez à tout moment.',
   },
   {
     q: 'Puis-je annuler à tout moment ?',
@@ -27,6 +27,18 @@ const faqs = [
   {
     q: 'Y a-t-il des cours en direct (live) ?',
     a: 'Oui ! Avec l\'abonnement annuel, vous avez accès à nos séances live, 2 fois par mois, avec possibilité d\'interagir directement avec l\'instructrice. Les replays sont disponibles 48h après.',
+  },
+  {
+    q: 'Est-ce adapté si j\'ai des douleurs dorsales ou une blessure ?',
+    a: 'Le Pilates est particulièrement recommandé pour les douleurs dorsales et la rééducation. Nos cours "Pilates Doux" et "Fondamentaux" sont conçus pour travailler en profondeur sans impact. En cas de blessure sérieuse, nous vous conseillons de consulter un professionnel de santé avant de débuter, et de commencer par les séances de niveau débutant.',
+  },
+  {
+    q: 'Combien de temps faut-il pour voir des résultats ?',
+    a: 'La plupart de nos membres ressentent une différence dès les 2 premières semaines : meilleure posture, moins de tensions, plus d\'énergie. Des résultats visibles (galbe, tonicité) apparaissent généralement après 4 à 8 semaines de pratique régulière, même à raison de 3 séances par semaine.',
+  },
+  {
+    q: 'Puis-je faire les cours si je suis enceinte ?',
+    a: 'Oui ! Notre instructrice Maria propose des cours spécialement adaptés aux femmes enceintes (Pilates Prénatal). Ces séances sont conçues pour renforcer le périnée, soulager les douleurs lombaires et préparer le corps à l\'accouchement. Consultez votre médecin avant de démarrer, par précaution.',
   },
 ]
 

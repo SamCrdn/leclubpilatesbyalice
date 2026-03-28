@@ -1,3 +1,7 @@
+'use client'
+
+import { useRef, useEffect } from 'react'
+
 const GOOGLE_REVIEWS_URL = 'https://share.google/2FofxTrt8YdrjBKRw'
 
 const testimonials = [
@@ -65,6 +69,21 @@ const testimonials = [
 
 
 export default function TestimonialsSection() {
+  const scrollRef   = useRef<HTMLDivElement>(null)
+  const cardWidthRef = useRef<number>(360)
+
+  useEffect(() => {
+    const width = scrollRef.current?.querySelector('figure')?.offsetWidth
+    if (width) cardWidthRef.current = width
+  }, [])
+
+  const scroll = (dir: 'prev' | 'next') => {
+    const el = scrollRef.current
+    if (!el) return
+    const step = cardWidthRef.current + 32
+    el.scrollBy({ left: dir === 'next' ? step : -step, behavior: 'smooth' })
+  }
+
   return (
     <section aria-labelledby="testimonials-title" className="py-section bg-cocoa text-cream">
       <div className="section-wrapper">
@@ -78,7 +97,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Cards — slider mobile / grid desktop */}
-        <div className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+        <div ref={scrollRef} className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
           {testimonials.map((t, i) => (
             <figure
               key={t.name}
@@ -114,11 +133,22 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Flèche scroll hint */}
-        <div className="flex justify-center my-6 pointer-events-none" aria-hidden="true">
-          <div className="w-8 h-8 rounded-full bg-cream/10 flex items-center justify-center animate-pulse">
+        {/* Navigation arrows */}
+        <div className="flex justify-center gap-4 my-6">
+          <button
+            onClick={() => scroll('prev')}
+            aria-label="Témoignage précédent"
+            className="w-9 h-9 rounded-full bg-cream/10 hover:bg-cream/20 transition-colors flex items-center justify-center"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button
+            onClick={() => scroll('next')}
+            aria-label="Témoignage suivant"
+            className="w-9 h-9 rounded-full bg-cream/10 hover:bg-cream/20 transition-colors flex items-center justify-center"
+          >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><path d="M9 18l6-6-6-6"/></svg>
-          </div>
+          </button>
         </div>
 
         {/* Google Reviews CTA */}

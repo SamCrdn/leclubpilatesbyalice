@@ -17,11 +17,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 export const metadata: Metadata = {
   title: 'Cours de Pilates en ligne — Le Club Pilates',
   description:
-    'Cours de Pilates en ligne guidés par des expertes. Plus de 500 cours disponibles, programmes personnalisés, essai gratuit 7 jours. Rejoignez 1 000 membres actives.',
+    'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours disponibles, programmes personnalisés, essai gratuit 7 jours. Rejoignez 1 000 membres actives.',
   alternates: { canonical: siteUrl },
   openGraph: {
     title: 'Cours de Pilates en ligne — Le Club Pilates',
-    description: 'Cours de Pilates en ligne guidés par des expertes. Plus de 500 cours, essai gratuit 7 jours.',
+    description: 'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours, essai gratuit 7 jours.',
     url: siteUrl,
     siteName: 'Le Club Pilates',
     images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Le Club Pilates' }],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Cours de Pilates en ligne — Le Club Pilates',
-    description: 'Cours de Pilates en ligne guidés par des expertes. Plus de 500 cours, essai gratuit 7 jours.',
+    description: 'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours, essai gratuit 7 jours.',
     images: [`${siteUrl}/images/og-image.jpg`],
   },
 }
@@ -59,7 +59,7 @@ const jsonLd = {
         height: 512,
       },
       sameAs: [
-        'https://instagram.com/leclubpilates',
+        'https://www.instagram.com/alice.leclubpilates/',
         'https://www.youtube.com/@leclubpilates',
       ],
     },
@@ -73,8 +73,8 @@ const jsonLd = {
       priceRange: '€€',
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '247',
+        ratingValue: '5',
+        reviewCount: '71',
         bestRating: '5',
       },
     },
@@ -93,11 +93,11 @@ export default function HomePage() {
       <HeroSection />
       <StatsBar />
       <BenefitsSection />
+      <PricingPreview />
+      <TestimonialsSection />
       <ClassesPreview />
       <AboutTeaser />
       <FounderSection />
-      <TestimonialsSection />
-      <PricingPreview />
       <FAQSection />
       <InstagramSection />
 
@@ -112,15 +112,12 @@ export default function HomePage() {
                 On est là<br />
                 <em className="italic text-mink">pour vous.</em>
               </h2>
-              <p className="text-sm text-cocoa/60 font-light leading-relaxed max-w-sm">
-                Abonnement, programme, technique — notre équipe répond sous 24h.
-              </p>
             </div>
 
             <div className="flex flex-col gap-6" data-animate style={{ transitionDelay: '150ms' }}>
               {[
                 { label: 'Email', value: 'contact@leclubpilates.com', href: 'mailto:contact@leclubpilates.com' },
-                { label: 'Instagram', value: '@leclubpilates', href: 'https://instagram.com/leclubpilates' },
+                { label: 'Instagram', value: '@alice.leclubpilates', href: 'https://www.instagram.com/alice.leclubpilates/' },
               ].map(item => (
                 <a
                   key={item.label}
@@ -136,12 +133,17 @@ export default function HomePage() {
                   <span className="text-cocoa/20 group-hover:text-mink transition-colors text-lg">→</span>
                 </a>
               ))}
-              <Link
-                href="/contact"
-                className="text-xs tracking-[0.15em] uppercase text-cocoa/40 hover:text-cocoa transition-colors font-light pt-2"
-              >
-                Formulaire de contact →
-              </Link>
+              <div className="flex flex-wrap gap-6 pt-2">
+                <Link href="/contact" className="text-xs tracking-[0.15em] uppercase text-cocoa/40 hover:text-cocoa transition-colors font-light">
+                  Formulaire de contact →
+                </Link>
+                <Link href="/profs" className="text-xs tracking-[0.15em] uppercase text-cocoa/40 hover:text-cocoa transition-colors font-light">
+                  Notre équipe →
+                </Link>
+                <Link href="/blog" className="text-xs tracking-[0.15em] uppercase text-cocoa/40 hover:text-cocoa transition-colors font-light">
+                  Notre blog →
+                </Link>
+              </div>
             </div>
 
           </div>

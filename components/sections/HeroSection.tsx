@@ -16,7 +16,9 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-aria-hidden="true"
+        preload="metadata"
+        poster="/images/alice-cours-pilates-mobile.jpg"
+        aria-hidden="true"
       >
         <source src="/videos/video-hero-pilates.webm" type="video/webm" />
         <source src="/videos/video-hero-pilates.mp4" type="video/mp4" />
@@ -47,7 +49,7 @@ aria-hidden="true"
             className="flex flex-wrap gap-4 animate-fade-up"
             style={{ animationDelay: '650ms' }}
           >
-            <CTAButton href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=cta&utm_campaign=homepage&utm_content=hero" label={<><span className="sm:hidden">Essai gratuit</span><span className="hidden sm:inline">Commencer mon essai gratuit</span></>} external />
+            <CTAButton href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=cta&utm_campaign=homepage&utm_content=hero" label={<><span className="sm:hidden">7 jours gratuits</span><span className="hidden sm:inline">Commencer — 7 jours gratuits</span></>} external />
             <a
               href="https://app.leclubpilates.com/"
               target="_blank"
@@ -59,7 +61,7 @@ aria-hidden="true"
           </div>
 
           <p
-            className="mt-10 text-xs text-cream font-light tracking-wider uppercase animate-fade-in"
+            className="mt-6 text-xs text-cream/40 font-light tracking-wider uppercase animate-fade-in"
             style={{ animationDelay: '800ms' }}
           >
             Séances entre 5 et 55 min · Challenges chaque semaine · Essai gratuit 7 jours

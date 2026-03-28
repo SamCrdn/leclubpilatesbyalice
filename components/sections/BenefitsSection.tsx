@@ -3,7 +3,7 @@ const benefits = [
     number: '01',
     title: 'Des résultats visibles.',
     body:
-      '+ de 500 cours répartis en 17 catégories pour sculpter, renforcer et assouplir ton corps, à ton rythme et où tu veux. Au fil des semaines, retrouve un corps dans lequel tu te sens bien.',
+      '+ de 350 cours répartis en 17 catégories pour sculpter, renforcer et assouplir ton corps, à ton rythme et où tu veux. Au fil des semaines, retrouve un corps dans lequel tu te sens bien.',
   },
   {
     number: '02',

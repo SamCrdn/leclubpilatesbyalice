@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     siteName: 'Le Club Pilates',
     title: 'Le Club Pilates — Studio de Pilates en ligne',
     description: 'Cours de Pilates en ligne, programmes personnalisés et abonnements flexibles.',
-    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: 'Le Club Pilates' }],
+    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Le Club Pilates' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Le Club Pilates — Studio de Pilates en ligne',
     description: 'Cours de Pilates en ligne, programmes personnalisés et abonnements flexibles.',
-    images: ['/images/og-image.jpg'],
+    images: [`${siteUrl}/images/og-image.jpg`],
   },
   robots: {
     index: true,
@@ -103,8 +103,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Google Analytics */}
         {GA_ID && (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-            <Script id="ga4-init" strategy="afterInteractive">{`
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
+            <Script id="ga4-init" strategy="lazyOnload">{`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());

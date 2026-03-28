@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
+
 export const metadata: Metadata = {
-  title: 'Mentions légales — Le Club Pilates',
-  description: 'Mentions légales du site leclubpilates.com',
-  alternates: { canonical: '/legal/mentions-legales' },
+  title: 'Mentions légales — Le Club Pilates (leclubpilates.com)',
+  description: 'Mentions légales du site leclubpilates.com — éditeur, responsable de publication, hébergement, propriété intellectuelle et informations de contact.',
+  alternates: { canonical: `${siteUrl}/legal/mentions-legales` },
 }
 
 export default function MentionsLegalesPage() {

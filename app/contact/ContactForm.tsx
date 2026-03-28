@@ -16,6 +16,7 @@ export default function ContactForm() {
     if (!form.name.trim())                                     e.name    = 'Requis'
     if (!form.email.trim())                                    e.email   = 'Requis'
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email   = 'Email invalide'
+    if (!form.subject.trim())                                  e.subject = 'Requis'
     if (!form.message.trim())                                  e.message = 'Requis'
     return e
   }
@@ -50,24 +51,21 @@ export default function ContactForm() {
       <BreadcrumbJsonLd items={[{ name: 'Contact', href: '/contact' }]} />
 
       {/* ── HEADER FONCÉ ── */}
-      <section className="bg-cocoa pt-36 pb-16 relative overflow-hidden">
+      <section className="bg-cocoa pt-36 pb-16 min-h-[380px] flex flex-col justify-end relative overflow-hidden">
         <p className="absolute inset-0 flex items-center justify-center font-display text-[20vw] font-light text-cream/[0.03] select-none pointer-events-none tracking-tight" aria-hidden="true">
           contact
         </p>
-        <div className="section-wrapper relative z-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
-          <div>
-            <p className="eyebrow text-cream/40 mb-6" data-animate>Contact</p>
-            <h1 className="font-display font-light text-cream leading-[0.95] max-w-lg" data-animate style={{ transitionDelay: '100ms' }}>
-              Écrivons-<br />
-              <em className="italic text-cream/50">nous.</em>
-            </h1>
-          </div>
-          <div className="flex flex-col gap-2 text-sm font-light pb-1" data-animate style={{ transitionDelay: '200ms' }}>
-            <a href="mailto:contact@leclubpilates.com" className="text-cream/40 hover:text-cream/70 transition-colors">
+        <div className="section-wrapper relative z-10">
+          <p className="eyebrow text-cream/40 mb-6" data-animate>Contact</p>
+          <h1 className="font-display font-light text-cream leading-[0.95] mb-6" data-animate style={{ transitionDelay: '100ms' }}>
+            <em className="italic text-cream/50">Parlons.</em>
+          </h1>
+          <div className="flex gap-8 text-sm font-light" data-animate style={{ transitionDelay: '200ms' }}>
+            <a href="mailto:contact@leclubpilates.com" className="text-cream/30 hover:text-cream/60 transition-colors">
               contact@leclubpilates.com
             </a>
-            <a href="https://instagram.com/leclubpilates" target="_blank" rel="noopener noreferrer" className="text-cream/40 hover:text-cream/70 transition-colors">
-              @leclubpilates
+            <a href="https://www.instagram.com/alice.leclubpilates/" target="_blank" rel="noopener noreferrer" className="text-cream/30 hover:text-cream/60 transition-colors">
+              @alice.leclubpilates
             </a>
           </div>
         </div>
@@ -93,7 +91,7 @@ export default function ContactForm() {
                     {errors.name && <span className="text-xs text-red-400">{errors.name}</span>}
                   </div>
                   <input id="name" name="name" type="text" value={form.name} onChange={handleChange}
-                    className={`input-base ${errors.name ? 'border-red-300' : ''}`} placeholder="Marie Dupont" />
+                    className={`input-base ${errors.name ? 'border-red-300' : ''}`} placeholder="Marie Dupont" maxLength={100} />
                 </div>
                 <div>
                   <div className="flex justify-between mb-2">
@@ -101,13 +99,16 @@ export default function ContactForm() {
                     {errors.email && <span className="text-xs text-red-400">{errors.email}</span>}
                   </div>
                   <input id="email" name="email" type="email" value={form.email} onChange={handleChange}
-                    className={`input-base ${errors.email ? 'border-red-300' : ''}`} placeholder="marie@email.com" />
+                    className={`input-base ${errors.email ? 'border-red-300' : ''}`} placeholder="marie@email.com" maxLength={254} />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="text-xs text-cocoa/40 uppercase tracking-widest block mb-2">Sujet</label>
-                <select id="subject" name="subject" value={form.subject} onChange={handleChange} className="input-base">
+                <div className="flex justify-between mb-2">
+                  <label htmlFor="subject" className="text-xs text-cocoa/40 uppercase tracking-widest">Sujet</label>
+                  {errors.subject && <span className="text-xs text-red-400">{errors.subject}</span>}
+                </div>
+                <select id="subject" name="subject" value={form.subject} onChange={handleChange} className={`input-base ${errors.subject ? 'border-red-300' : ''}`}>
                   <option value="">Choisir un sujet...</option>
                   <option value="abonnement">Question sur un abonnement</option>
                   <option value="technique">Problème technique</option>
@@ -123,7 +124,7 @@ export default function ContactForm() {
                 </div>
                 <textarea id="message" name="message" value={form.message} onChange={handleChange} rows={6}
                   className={`input-base resize-none ${errors.message ? 'border-red-300' : ''}`}
-                  placeholder="Bonjour, je souhaitais..." />
+                  placeholder="Bonjour, je souhaitais..." maxLength={5000} />
               </div>
 
               <div className="pt-2">
