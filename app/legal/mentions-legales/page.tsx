@@ -27,9 +27,9 @@ export default function MentionsLegalesPage() {
               <ul className="mt-3 space-y-1.5 pl-4 border-l border-sand">
                 <li><strong className="font-normal text-cocoa">Raison sociale :</strong> Le Club Pilates</li>
                 <li><strong className="font-normal text-cocoa">Responsable de publication :</strong> Alice Parquet</li>
-                <li><strong className="font-normal text-cocoa">SIRET :</strong> [À compléter]</li>
-                <li><strong className="font-normal text-cocoa">Siège social :</strong> [À compléter]</li>
-                <li><strong className="font-normal text-cocoa">Email :</strong> <a href="mailto:leclubpilates@gmail.com" className="underline underline-offset-2 hover:text-cocoa">leclubpilates@gmail.com</a></li>
+                <li><strong className="font-normal text-cocoa">SIRET :</strong> 83213594100025</li>
+                <li><strong className="font-normal text-cocoa">Siège social :</strong> 5 bis rue Emile Allez 75017 Paris</li>
+                <li><strong className="font-normal text-cocoa">Email :</strong> <a href="contact@leclubpilates.com" className="underline underline-offset-2 hover:text-cocoa">leclubpilates@gmail.com</a></li>
               </ul>
             </div>
 
