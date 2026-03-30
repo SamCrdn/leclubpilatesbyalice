@@ -120,7 +120,7 @@ export default function AboutPage() {
             className="font-display text-3xl md:text-5xl font-light italic text-cocoa leading-snug max-w-3xl"
             data-animate
           >
-            &ldquo;Le Pilates est bien plus qu&apos;un sport&nbsp;: c&apos;est une invitation à redéfinir son rapport au corps.&rdquo;
+            &ldquo;Le Pilates est bien plus qu&apos;un sport&nbsp;: c&apos;est une invitation à redéfinir son rapport au corps et à se reconnecter à soi-même avec patience et gratitude&rdquo;
           </p>
           <p className="mt-6 text-xs tracking-[0.2em] uppercase text-cocoa/30 font-light" data-animate style={{ transitionDelay: '150ms' }}>
             — Alice

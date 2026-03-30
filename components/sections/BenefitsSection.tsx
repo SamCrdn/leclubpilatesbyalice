@@ -13,7 +13,7 @@ const benefits = [
   },
   {
     number: '03',
-    title: 'Une plateforme claire et intuitive',
+    title: 'Une plateforme intuitive',
     body:
       'Accède facilement à ton espace membre sur le web et sur l’application mobile avec un seul compte. Ajoute tes séances en favoris pour bouger dès que tu en as envie, et pose tes questions au coach directement sous les vidéos.',
   },

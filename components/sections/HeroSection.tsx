@@ -41,8 +41,7 @@ export default function HeroSection() {
             className="text-cream/80 font-body font-light text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
             style={{ animationDelay: '500ms' }}
           >
-            Des cours de Pilates guidés par des experts, pour sculpter ton corps, te renforcer, retrouver de l&apos;énergie.{' '}
-            <br />À ton rythme, sur web et mobile.
+            Des cours de Pilates guidés par des experts, pour sculpter ton corps, à ton rythme, sur web et mobile.
           </p>
 
           <div
