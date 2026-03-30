@@ -7,6 +7,7 @@ const plans = [
   {
     id:       'mensuel',
     name:     'Mensuel',
+    tagline:  'Idéal pour découvrir',
     price:    '29',
     period:   'mois',
     highlight: false,
@@ -16,22 +17,24 @@ const plans = [
   {
     id:       'trimestriel',
     name:     'Trimestriel',
+    tagline:  'Idéal pour obtenir des résultats',
     price:    '75',
     period:   '3 mois',
     highlight: true,
     badge:    "15% d'économie",
     image:    '/images/plan-trimestriel.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Idéal pour s\'installer dans une routine', 'Annulation à tout moment'],
+    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
   },
   {
     id:       'annuel',
     name:     'Annuel',
+    tagline:  'Idéal pour transformer son corps',
     price:    '249',
     period:   'an',
     highlight: false,
     badge:    "30% d'économie",
     image:    '/images/class-3.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
+    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
   },
 ]
 
@@ -96,6 +99,9 @@ export default function PricingPreview() {
                     {f}
                   </li>
                 ))}
+                <li className={`text-xs font-light italic mt-1 ${plan.highlight ? 'text-cream/40' : 'text-mink'}`}>
+                  {plan.tagline}
+                </li>
               </ul>
 
               <SignupCTA

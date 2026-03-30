@@ -13,18 +13,15 @@ export default function NewsletterForm({ dark = false, className = '' }: Props) 
   const [status, setStatus]   = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
 
-  const formId = process.env.NEXT_PUBLIC_FORMSPREE_NEWSLETTER
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
-    if (!formId) { setStatus('error'); setMessage('Newsletter temporairement indisponible.'); return }
     setStatus('loading')
 
     try {
-      const res = await fetch(`https://formspree.io/f/${formId}`, {
+      const res = await fetch('/api/newsletter', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
       if (res.ok) {

@@ -92,7 +92,7 @@ export default function TestimonialsSection() {
         <div className="text-center mb-14" data-animate>
           <p className="eyebrow text-cream/40 mb-4">Témoignages</p>
           <h2 id="testimonials-title" className="text-cream">
-            Elles ont <em className="italic">transformé</em> leur pratique
+            Les membres <em className="italic">en parlent</em>
           </h2>
         </div>
 
