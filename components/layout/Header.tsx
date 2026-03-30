@@ -124,7 +124,7 @@ export default function Header() {
             {/* CTA */}
             <div className="hidden md:flex items-center gap-4">
               <a
-                href={`${APP_URL}/login`}
+                href={`${APP_URL}/sign_in`}
                 className={`text-xs tracking-[0.15em] uppercase transition-colors font-body font-light ${scrolled || !hasDarkHero ? 'text-cocoa/70 hover:text-cocoa' : 'text-cream/80 hover:text-cream'}`}
               >
                 Connexion
@@ -193,7 +193,7 @@ export default function Header() {
             7 jours gratuits
           </a>
           <a
-            href={`${APP_URL}/login`}
+            href={`${APP_URL}/sign_in`}
             className="text-center text-xs tracking-[0.15em] uppercase text-cocoa/60 font-body font-light py-3"
           >
             Déjà membre ? Connexion
