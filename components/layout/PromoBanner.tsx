@@ -29,7 +29,7 @@ export default function PromoBanner() {
       <div className="flex md:hidden items-center justify-center gap-3">
         <span className="text-base">🌸</span>
         <div className="flex flex-col items-center leading-tight">
-          <span className="text-xs font-medium tracking-wide">1er mois à <strong>14,50€</strong></span>
+          <span className="text-xs font-medium tracking-wide">1er mois à <strong>20€</strong></span>
           <span className="text-2xs text-cream/60 tracking-wide">Jusqu&apos;au 30 avril</span>
         </div>
         <a
@@ -47,7 +47,7 @@ export default function PromoBanner() {
         <span className="text-lg">🌸</span>
         <p className="text-xs tracking-wide text-cream/90">
           <span className="font-medium uppercase tracking-widest mr-2 text-cream">Offre Printemps</span>
-          1er mois à <strong className="text-cream">14,50€</strong> au lieu de 29€
+          1er mois à <strong className="text-cream">20€</strong> au lieu de 29€
           <span className="mx-2 opacity-40">·</span>
           Jusqu&apos;au 30 avril
           <span className="mx-2 opacity-40">·</span>

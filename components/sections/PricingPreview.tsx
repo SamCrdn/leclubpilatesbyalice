@@ -29,7 +29,7 @@ const plans = [
     id:       'annuel',
     name:     'Annuel',
     tagline:  'Idéal pour transformer son corps',
-    price:    '249',
+    price:    '229',
     period:   'an',
     highlight: false,
     badge:    "30% d'économie",
