@@ -23,6 +23,7 @@ const categories = [
 const classes = [
   {
     slug:      'pilates-debutant',
+    href:      'https://app.leclubpilates.com/programs/debutant',
     tag:       'Débutant',
     title:     'Fondamentaux du Pilates',
     weeks:     '6 semaines',
@@ -31,6 +32,7 @@ const classes = [
   },
   {
     slug:      'pilates-renforcement',
+    href:      'https://app.leclubpilates.com/programs/pilates-sculpt',
     tag:       'Sculpt',
     title:     'Full body',
     weeks:     '4 semaines',
@@ -146,7 +148,7 @@ export default function ClassesPreview() {
             ) : (
               <a
                 key={c.slug}
-                href={`${APP_URL}/classes/${c.slug}`}
+                href={c.href ?? `${APP_URL}/classes/${c.slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block overflow-hidden shrink-0 w-[65vw] md:w-auto snap-start"
