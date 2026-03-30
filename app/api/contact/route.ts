@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      sender:  { name, email },
+      sender:  { name: TO_NAME, email: TO_EMAIL },
       to:      [{ email: TO_EMAIL, name: TO_NAME }],
       replyTo: { email, name },
       subject: `[Contact] ${subjectLabels[subject] ?? subject}`,
