@@ -113,7 +113,7 @@ export default function ClassesPreview() {
           <p className="text-cocoa/60 font-light leading-relaxed text-sm max-w-2xl mb-6">
             Accède à des programmes complets : des packs de vidéos conçus autour d'un objectif ou d'une thématique, organisés sur une période définie. Chaque programme est pensé pour être suivi pas à pas, afin de rester focus, progresser efficacement et te laisser guider sans te poser de questions.
           </p>
-          <a href={`${APP_URL}/programs`} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+          <a href="https://app.leclubpilates.com/categories/programmes" target="_blank" rel="noopener noreferrer" className="btn-ghost">
             Voir tous les programmes
             <ArrowRight size={14} />
           </a>
@@ -141,6 +141,7 @@ export default function ClassesPreview() {
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
                     <p className="font-display text-3xl font-light text-cream tracking-wide">{c.tag}</p>
                     <p className="text-xs tracking-[0.25em] uppercase text-cream/70 font-light">{c.weeks}</p>
+                    <p className="text-xs tracking-[0.2em] uppercase text-cream/50 font-light mt-1">Prochainement</p>
                   </div>
                 </div>
                 <h3 className="font-display text-xl font-light mb-2">{c.title}</h3>
