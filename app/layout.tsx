@@ -85,6 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <meta name="p:domain_verify" content="74f930673b2f968c5b3134fd5377d05d" />
       </head>
       <body className="bg-cream text-cocoa antialiased">
         <a

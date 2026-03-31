@@ -1,7 +1,7 @@
 # TODO — Le Club Pilates
 
 ## En cours
-_Rien pour l'instant_
+- [ ] **Brevo domaine** — DNS DKIM en attente de propagation (ajoutés le 31 mars), relancer l'authentification Brevo une fois visible
 
 ---
 
@@ -24,7 +24,7 @@ _Rien pour l'instant_
 ### Mise en ligne
 - [x] **Déploiement** — Repo GitHub créé, projet importé sur Vercel, variables d'env configurées. Site live sur `leclubpilatesbyalice.vercel.app`.
 - [ ] **Domaine** — Connecter `leclubpilates.com` sur Vercel (DNS).
-- [ ] **Compléter les mentions légales** — SIRET, adresse siège social (obligatoire CNIL avant live).
+- [x] **Compléter les mentions légales** — SIRET, adresse siège social (obligatoire CNIL avant live).
 
 ### Nouvelles pages
 - [ ] **Page Retraite** — Présentation des retraites Pilates, dates, lieux, inscription.
@@ -41,7 +41,7 @@ _Rien pour l'instant_
 - [x] Validation et sanitisation formulaires (contact + newsletter)
 - [x] `rel="noopener noreferrer"` sur tous les liens externes
 - [x] `safeBgUrl()` pour les injections CSS backgroundImage
-- [ ] Compléter les mentions légales (SIRET, adresse) — obligatoire CNIL
+- [x] Compléter les mentions légales (SIRET, adresse) — obligatoire CNIL
 
 ### ⚡ Performance & Optimisation
 - [x] `next/image` avec `fill` + `sizes` sur toutes les images
@@ -110,3 +110,9 @@ _Rien pour l'instant_
 - [x] Cookie banner
 - [x] Page erreur 500
 - [x] Formulaire de contact (validation, maxLength)
+- [x] Formulaire de contact branché Brevo (API route `/api/contact`)
+- [x] Message de succès formulaire contact (fix data-animate)
+- [x] Message confirmation newsletter mis à jour
+- [x] Suppression "& planning" section contact homepage
+- [x] Fix artefact visuel photos abonnements (transform-gpu)
+- [x] Brevo : domaine leclubpilates.com enregistré + code TXT + DMARC vérifiés

@@ -41,6 +41,7 @@ const classes = [
   },
   {
     slug:      'pilates-mama',
+    href:      'https://app.leclubpilates.com/programs/pilates-mama',
     tag:       'Mama',
     title:     'Pilates pour femmes enceintes',
     weeks:     '12 mois',

@@ -27,8 +27,8 @@ const profs = [
     photoAlt: 'Alice, fondatrice du Club Pilates',
     formation: 'Polestar Pilates Training Mat & Machine · CQP ALS AGEE · Carte Professionnelle de coach sportif · EAT Danse Classique',
     bio: [
-      'À travers ses cours, elle propose une approche douce, précise et profondément efficace, où chaque mouvement est pensé pour engager les muscles en profondeur. Sa vision calme guide des séances à la fois fluides et exigeantes : une méthode subtile où la douceur ne remplace jamais le travail intense.',
-      'Alice accorde une grande importance à la précision du mouvement, à la fluidité des enchaînements et aime particulièrement proposer des séances ciblées, focalisées sur une zone du corps.',
+      'À travers ses cours, elle propose une approche douce, précise et efficace, où chaque séance est pensée pour sculpter le corps et se sentir bien, sans tensions. Sa voix calme guide des séances à la fois fluides et intenses, entre douceur et exigence.',
+      'Alice accorde une grande importance à la précision du mouvement et à la fluidité des enchaînements. Elle aime particulièrement proposer des séances ciblées, focalisées sur une zone du corps. Elle explique chaque exercice avec précision et donne un maximum de corrections afin que chacun puisse trouver la justesse du mouvement, corriger sans déformer.',
     ],
     imageRight: true,
   },
