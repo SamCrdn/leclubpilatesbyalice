@@ -12,11 +12,11 @@ export default function BlogPage() {
   return (
     <>
       {/* Header */}
-      <div className="pt-32 pb-16 bg-cream">
+      <div className="pt-40 pb-16 bg-cream">
         <div className="section-wrapper">
           <p className="eyebrow mb-4" data-animate>Blog</p>
           <h1 className="max-w-xl" data-animate style={{ transitionDelay: '100ms' }}>
-            Conseils, <em className="italic">inspiration</em> & bien-être
+            Conseils, <em className="italic">inspiration</em><br />& bien-être
           </h1>
         </div>
       </div>
