@@ -113,7 +113,7 @@ export default function HomePage() {
                 <em className="italic text-mink">pour vous.</em>
               </h2>
               <p className="text-xs text-cocoa/40 font-light tracking-widest">
-                Abonnements · Technique · Programmes · Cours & planning
+                Abonnements · Technique · Programmes · Cours
               </p>
             </div>
 

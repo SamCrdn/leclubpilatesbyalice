@@ -76,7 +76,7 @@ export default function ContactForm() {
         <div className="section-wrapper max-w-3xl">
 
           {status === 'success' ? (
-            <div className="flex flex-col gap-5 py-16" data-animate>
+            <div className="flex flex-col gap-5 py-16">
               <CheckCircle2 size={32} className="text-sand-dark" />
               <p className="font-display text-3xl font-light text-cocoa">Message envoyé !</p>
               <p className="text-sm text-cocoa/50 font-light">Nous vous répondrons dans les 24 heures.</p>

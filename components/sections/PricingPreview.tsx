@@ -32,7 +32,7 @@ const plans = [
     price:    '229',
     period:   'an',
     highlight: false,
-    badge:    "30% d'économie",
+    badge:    "34% d'économie",
     image:    '/images/class-3.jpg',
     features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
   },
@@ -64,7 +64,7 @@ export default function PricingPreview() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {plan.image && (
-                <div className="aspect-video relative overflow-hidden">
+                <div className="aspect-video relative overflow-hidden transform-gpu">
                   <Image
                     src={plan.image}
                     alt={`Abonnement ${plan.name}`}

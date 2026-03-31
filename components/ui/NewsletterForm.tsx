@@ -27,7 +27,7 @@ export default function NewsletterForm({ dark = false, className = '' }: Props) 
       if (res.ok) {
         setStatus('success')
         setEmail('')
-        setMessage('Merci ! Vérifiez votre boîte mail.')
+        setMessage('Inscription enregistrée, à très bientôt !')
       } else {
         throw new Error()
       }

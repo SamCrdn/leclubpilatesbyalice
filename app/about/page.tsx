@@ -82,7 +82,7 @@ export default function AboutPage() {
             {[
               { value: '10+', label: 'ans d\'expérience dans le Pilates' },
               { value: '2020', label: 'Création du studio en ligne' },
-              { value: '+40k', label: 'Followers' },
+              { value: '+42k', label: 'Followers' },
             ].map(({ value, label }) => (
               <div key={label}>
                 <p className="font-display text-2xl font-light text-cream lg:text-cocoa">{value}</p>
