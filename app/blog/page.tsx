@@ -16,7 +16,7 @@ export default function BlogPage() {
         <div className="section-wrapper">
           <p className="eyebrow mb-4" data-animate>Blog</p>
           <h1 className="max-w-xl" data-animate style={{ transitionDelay: '100ms' }}>
-            Conseils, <em className="italic">inspiration</em><br />& bien-être
+            <span className="whitespace-nowrap">Conseils, <em className="italic">inspiration</em></span><br />& bien-être
           </h1>
         </div>
       </div>
