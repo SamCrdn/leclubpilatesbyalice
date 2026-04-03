@@ -18,8 +18,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteUrl}/legal/cgv`,                      lastModified: new Date('2026-03-27'), changeFrequency: 'yearly',  priority: 0.3 },
   ]
 
-  // Blog posts depuis Sanity
-  const slugs: { slug: string }[] = await client.fetch(allSlugsQuery).catch(() => [])
+  // Blog posts depuis Sanity (guard si projectId absent)
+  const slugs: { slug: string }[] = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+    ? await client.fetch(allSlugsQuery).catch(() => [])
+    : []
   const blogRoutes: MetadataRoute.Sitemap = slugs.map(({ slug }) => ({
     url: `${siteUrl}/blog/${slug}`,
     changeFrequency: 'monthly',
