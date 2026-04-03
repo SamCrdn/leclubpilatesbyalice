@@ -12,11 +12,13 @@ export const revalidate = 3600
 type Props = { params: { slug: string } }
 
 export async function generateStaticParams() {
-  const slugs = await client.fetch(allSlugsQuery)
+  if (!client) return []
+  const slugs = await client.fetch(allSlugsQuery).catch(() => [])
   return slugs.map((s: { slug: string }) => ({ slug: s.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  if (!client) return {}
   const post = await client.fetch(postBySlugQuery, { slug: params.slug })
   if (!post) return {}
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
@@ -78,6 +80,7 @@ const ptComponents = {
 }
 
 export default async function BlogPostPage({ params }: Props) {
+  if (!client) notFound()
   const post = await client.fetch(postBySlugQuery, { slug: params.slug })
   if (!post) notFound()
 
