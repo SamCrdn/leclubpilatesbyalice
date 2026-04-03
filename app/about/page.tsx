@@ -40,32 +40,22 @@ export default function AboutPage() {
       {/* ── HERO éditorial ── */}
       <section className="relative bg-cream overflow-hidden min-h-screen flex items-end">
 
-        {/* Image mobile — pleine section */}
-        <div className="absolute inset-0 lg:hidden">
+        {/* Image — pleine largeur mobile, panneau droit 45% desktop */}
+        <div className="absolute inset-0 lg:left-[55%]">
           <Image
             src="/images/class-5.jpg"
             alt="Alice en pratique de Pilates"
             fill
             className="object-cover object-top"
             priority
+            sizes="(min-width: 1024px) 45vw, 100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-cocoa/80 via-cocoa/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-cocoa/80 via-cocoa/30 to-transparent lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/20 to-transparent hidden lg:block" />
         </div>
 
         {/* Desktop top gradient for nav visibility */}
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-cocoa/40 to-transparent hidden lg:block z-[1]" aria-hidden="true" />
-
-        {/* Image desktop — pleine hauteur à droite */}
-        <div className="absolute right-0 top-0 h-full w-[45%] hidden lg:block">
-          <Image
-            src="/images/class-5.jpg"
-            alt="Alice en pratique de Pilates"
-            fill
-            className="object-cover object-top"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/20 to-transparent" />
-        </div>
 
         <div className="section-wrapper relative z-10 pt-32 pb-16 lg:pb-24 w-full">
           <p className="eyebrow mb-6 text-left text-cream/70 lg:text-cocoa" data-animate>La fondatrice</p>
@@ -151,6 +141,7 @@ export default function AboutPage() {
                 alt="Alice, fondatrice du Club Pilates"
                 fill
                 className="object-cover object-top scale-x-[-1]"
+                sizes="(min-width: 1024px) 40vw, 100vw"
               />
             </div>
 

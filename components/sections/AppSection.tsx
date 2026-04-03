@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Infinity, CalendarClock, Monitor, Heart, Download, MessageCircle, Video, Gift, X } from 'lucide-react'
 import { SignupCTA, CTAButton } from '@/components/ui/CTAButton'
 
@@ -20,12 +21,13 @@ export default function AppSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Mockup */}
-          <div data-animate>
-            <img
-              src="/images/3iphones.JPG"
+          <div data-animate className="relative w-full aspect-[4/3]">
+            <Image
+              src="/images/mockup-application-studio-pilates.jpg"
               alt="Application Le Club Pilates sur iPhone"
-              className="w-full h-auto"
-              draggable={false}
+              fill
+              className="object-contain"
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </div>
 

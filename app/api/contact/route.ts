@@ -4,6 +4,15 @@ const BREVO_API_KEY = process.env.BREVO_API_KEY
 const TO_EMAIL      = process.env.CONTACT_TO_EMAIL ?? 'contact@leclubpilates.com'
 const TO_NAME       = 'Le Club Pilates'
 
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 export async function POST(req: NextRequest) {
   if (!BREVO_API_KEY) {
     return NextResponse.json({ error: 'Service indisponible' }, { status: 503 })
@@ -35,11 +44,11 @@ export async function POST(req: NextRequest) {
       subject: `[Contact] ${subjectLabels[subject] ?? subject}`,
       textContent: `Nom : ${name}\nEmail : ${email}\nSujet : ${subjectLabels[subject] ?? subject}\n\n${message}`,
       htmlContent: `
-        <p><strong>Nom :</strong> ${name}</p>
-        <p><strong>Email :</strong> ${email}</p>
-        <p><strong>Sujet :</strong> ${subjectLabels[subject] ?? subject}</p>
+        <p><strong>Nom :</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email :</strong> ${escapeHtml(email)}</p>
+        <p><strong>Sujet :</strong> ${escapeHtml(subjectLabels[subject] ?? subject)}</p>
         <hr />
-        <p>${message.replace(/\n/g, '<br />')}</p>
+        <p>${escapeHtml(message).replace(/\n/g, '<br />')}</p>
       `,
     }),
   })

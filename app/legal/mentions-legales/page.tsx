@@ -29,7 +29,7 @@ export default function MentionsLegalesPage() {
                 <li><strong className="font-normal text-cocoa">Responsable de publication :</strong> Alice Parquet</li>
                 <li><strong className="font-normal text-cocoa">SIRET :</strong> 83213594100025</li>
                 <li><strong className="font-normal text-cocoa">Siège social :</strong> 5 bis rue Emile Allez 75017 Paris</li>
-                <li><strong className="font-normal text-cocoa">Email :</strong> <a href="contact@leclubpilates.com" className="underline underline-offset-2 hover:text-cocoa">leclubpilates@gmail.com</a></li>
+                <li><strong className="font-normal text-cocoa">Email :</strong> <a href="mailto:contact@leclubpilates.com" className="underline underline-offset-2 hover:text-cocoa">contact@leclubpilates.com</a></li>
               </ul>
             </div>
 

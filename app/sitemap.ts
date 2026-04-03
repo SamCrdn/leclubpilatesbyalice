@@ -1,8 +1,10 @@
 import { MetadataRoute } from 'next'
+import { client } from '@/lib/sanity'
+import { allSlugsQuery } from '@/lib/sanity.queries'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static routes
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: siteUrl,                                     lastModified: new Date('2026-03-27'), changeFrequency: 'weekly',  priority: 1.0 },
@@ -16,6 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/legal/cgv`,                      lastModified: new Date('2026-03-27'), changeFrequency: 'yearly',  priority: 0.3 },
   ]
 
-  // Blog posts — à alimenter depuis le CMS (Phase 2)
-  return staticRoutes
+  // Blog posts depuis Sanity
+  const slugs: { slug: string }[] = await client.fetch(allSlugsQuery).catch(() => [])
+  const blogRoutes: MetadataRoute.Sitemap = slugs.map(({ slug }) => ({
+    url: `${siteUrl}/blog/${slug}`,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }))
+
+  return [...staticRoutes, ...blogRoutes]
 }
