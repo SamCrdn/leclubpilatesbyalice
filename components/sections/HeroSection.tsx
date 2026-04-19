@@ -16,8 +16,7 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-        preload="metadata"
-        poster=""
+        preload="auto"
         aria-hidden="true"
       >
         <source src="/videos/video-hero-pilates.webm" type="video/webm" />

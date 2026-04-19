@@ -11,7 +11,8 @@ export default function FounderSection() {
     const v = videoRef.current
     if (!v) return
     v.muted = true
-    v.play().catch(() => {})
+    // Relance la lecture si l'autoplay natif a échoué (ex : focus après navigation)
+    if (v.paused) v.play().catch(() => {})
   }, [])
 
   return (
@@ -24,6 +25,7 @@ export default function FounderSection() {
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         aria-hidden="true"
       >

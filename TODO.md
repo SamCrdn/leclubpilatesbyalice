@@ -2,6 +2,8 @@
 
 ## En cours
 - [ ] **Brevo domaine** — DNS DKIM en attente de propagation (ajoutés le 31 mars), relancer l'authentification Brevo une fois visible
+- [ ] **Blog IA — test local** — Remplir `ANTHROPIC_API_KEY` + `CRON_SECRET` dans `.env.local`, relancer le serveur, tester `/api/generate-article`
+- [ ] **Blog IA — mise en prod** — Ajouter `ANTHROPIC_API_KEY` + `CRON_SECRET` dans Vercel, déployer, configurer cron-job.org (POST 3x/semaine avec header `x-cron-secret`)
 
 ---
 
@@ -18,12 +20,12 @@
 
 ### Intégrations techniques
 - [ ] **Avis Google dynamiques** — Google Places API (clé API + Place ID) + composant async Next.js avec ISR 24h. ~30 req/mois, gratuit (seuil : 11 700 req/mois). Prérequis : créer projet Google Cloud, activer Places API, générer clé API, trouver le Place ID. Ajouter `GOOGLE_PLACES_API_KEY` et `GOOGLE_PLACE_ID` dans `.env.local`.
-- [ ] **Branchement CMS** — Création projet Sanity.io, installation `next-sanity`, configuration client + token, studio Sanity accessible sur `/studio`. Prérequis avant l'automatisation blog.
-- [ ] **Automatisation blog** — Création des pages `/blog/[slug]`, schéma de contenu Sanity, ISR pour les articles. Nécessite le branchement CMS.
+- [x] **Branchement CMS** — Sanity configuré (`zusxhhh8`), client + token, schéma article, studio sur `/studio`, pages blog branchées.
+- [x] **Automatisation blog** — Pipeline IA : `lib/blog/topics.ts` (44 sujets), `lib/blog/pipeline.ts` (2 agents Claude), `app/api/generate-article/route.ts`. Manque : remplir les clés + déployer + cron-job.org.
 
 ### Mise en ligne
 - [x] **Déploiement** — Repo GitHub créé, projet importé sur Vercel, variables d'env configurées. Site live sur `leclubpilatesbyalice.vercel.app`.
-- [ ] **Domaine** — Connecter `leclubpilates.com` sur Vercel (DNS).
+- [x] **Domaine** — `www.leclubpilates.com` connecté sur Vercel, 301 SEO Webflow configurés.
 - [x] **Compléter les mentions légales** — SIRET, adresse siège social (obligatoire CNIL avant live).
 
 ### Nouvelles pages
@@ -93,7 +95,8 @@
 ### 🤖 Automatisation
 - [x] Sitemap auto-généré (`app/sitemap.ts`)
 - [x] Robots auto-généré (`app/robots.ts`)
-- [ ] Blog : CMS Sanity + pages dynamiques `/blog/[slug]`
+- [x] Blog : CMS Sanity + pages dynamiques `/blog/[slug]` + pipeline IA génération auto
+- [ ] Blog : déployer + activer cron-job.org (dernière étape)
 - [ ] Cours : pages dynamiques `/classes/[slug]` (Phase 2)
 - [ ] Emails transactionnels automatisés (bienvenue, relance essai) — hors scope Next.js
 - [ ] Avis Google dynamiques (Places API + ISR)
@@ -101,6 +104,10 @@
 ---
 
 ## Terminé
+- [x] Formulaire contact — fix cache .next corrompu + variables Vercel manquantes (BREVO_API_KEY)
+- [x] Vercel Speed Insights activé
+- [x] Redirections 301 SEO depuis ancien site Webflow (a-propos, les-cours, CGU, mentions-légales, politique-confidentialite, retraite)
+- [x] Variables d'environnement Vercel toutes configurées proprement (sans newlines)
 - [x] Audit sécurité & performance
 - [x] Audit SEO complet (metadata, JSON-LD, sitemap, canonicals)
 - [x] Audit CRO / Design / Acquisition

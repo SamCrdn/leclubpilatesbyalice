@@ -13,6 +13,7 @@ const navLinks = [
   { href: 'https://app.leclubpilates.com/join', label: 'Abonnements', external: true },
   { href: '/about',                             label: 'Le Studio'                   },
   { href: '/profs',                             label: 'Les Profs'                   },
+  { href: '/retraite',                          label: 'Retraite'                    },
   { href: '/contact',                           label: 'Contact'                     },
 ]
 

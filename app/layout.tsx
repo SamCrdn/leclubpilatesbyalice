@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import CookieBanner from '@/components/ui/CookieBanner'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
 
         <CookieBanner />
+        <SpeedInsights />
 
         {/* Google Analytics */}
         {GA_ID && (
