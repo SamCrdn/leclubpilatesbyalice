@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: '+350 cours de Pilates en ligne — Tous niveaux',
   description:
     'Explorez +350 cours de Pilates en ligne : débutant, renforcement musculaire, stretching, Mama, Reformer. Guidés par Alice et ses instructrices certifiées. Essai gratuit 7 jours.',
-  alternates: { canonical: `${siteUrl}/classes` },
+  alternates: { canonical: `${siteUrl}/cours-de-pilates` },
 }
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'

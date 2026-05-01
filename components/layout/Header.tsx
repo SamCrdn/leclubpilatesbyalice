@@ -2,14 +2,23 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import PromoBanner from '@/components/layout/PromoBanner'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
 
+const coursItems = [
+  { href: '/cours-de-pilates',           label: 'Tous les cours' },
+  { href: '/cours-de-pilates/debutant',  label: 'Débutant' },
+  { href: '/cours-de-pilates/dos',       label: 'Pilates & dos' },
+  { href: '/cours-de-pilates/prenatal',  label: 'Prénatal' },
+  { href: '/cours-de-pilates/wall',      label: 'Pilates Wall' },
+  { href: '/cours-de-pilates/full-body', label: 'Full Body' },
+  { href: '/cours-de-pilates/reformer',  label: 'Reformer' },
+]
+
 const navLinks = [
-  { href: 'https://app.leclubpilates.com/',    label: 'Cours',        external: true },
   { href: 'https://app.leclubpilates.com/join', label: 'Abonnements', external: true },
   { href: '/about',                             label: 'Le Studio'                   },
   { href: '/profs',                             label: 'Les Profs'                   },
@@ -25,10 +34,13 @@ export default function Header() {
   const hasDarkHero = DARK_HERO_PAGES.has(segments[0] ?? '')
 
   const [open, setOpen] = useState(false)
+  const [coursOpen, setCoursOpen] = useState(false)
+  const [coursOpenMobile, setCoursOpenMobile] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+  const coursRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
@@ -101,6 +113,34 @@ export default function Header() {
 
             {/* Desktop nav */}
             <nav aria-label="Navigation principale" className="hidden md:flex items-center gap-8">
+
+              {/* Dropdown Cours */}
+              <div
+                ref={coursRef}
+                className="relative"
+                onMouseEnter={() => setCoursOpen(true)}
+                onMouseLeave={() => setCoursOpen(false)}
+              >
+                <button className={`flex items-center gap-1 text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${scrolled || !hasDarkHero ? 'text-cocoa/70 hover:text-cocoa' : 'text-cream/80 hover:text-cream'}`}>
+                  Cours <ChevronDown size={12} className={`transition-transform duration-200 ${coursOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {coursOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
+                    <div className="bg-cream border border-cocoa/10 shadow-lg rounded-sm py-2 min-w-[180px]">
+                      {coursItems.map(item => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-5 py-2.5 text-xs tracking-[0.12em] uppercase font-light text-cocoa/60 hover:text-cocoa hover:bg-sand/20 transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
               {navLinks.map(({ href, label, external }) => external ? (
                 <a
                   key={href}
@@ -165,6 +205,31 @@ export default function Header() {
         }`}
       >
         <nav aria-label="Navigation mobile" className="flex flex-col gap-6 mt-16">
+
+          {/* Cours accordion mobile */}
+          <div>
+            <button
+              onClick={() => setCoursOpenMobile(!coursOpenMobile)}
+              className="flex items-center gap-2 font-display text-3xl font-light text-cocoa"
+            >
+              Cours <ChevronDown size={18} className={`transition-transform duration-200 ${coursOpenMobile ? 'rotate-180' : ''}`} />
+            </button>
+            {coursOpenMobile && (
+              <div className="flex flex-col gap-3 mt-4 pl-4 border-l border-sand">
+                {coursItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="text-sm font-light text-cocoa/60 hover:text-cocoa transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           {navLinks.map(({ href, label, external }, i) => external ? (
             <a
               key={href}

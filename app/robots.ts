@@ -10,6 +10,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/', '/_next/', '/admin/', '/__/'],
       },
+      // Crawlers IA — explicitement autorisés
+      { userAgent: 'GPTBot',        allow: '/' },
+      { userAgent: 'Anthropic-AI',  allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'CCBot',         allow: '/' },
+      { userAgent: 'Claude-Web',    allow: '/' },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,

@@ -6,16 +6,16 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.co
 
 const categories = [
   { label: 'Express',      image: '/images/cours/cours-pilates-express.jpg',        href: 'https://app.leclubpilates.com/categories/express' },
-  { label: 'Full Body',    image: '/images/cours/cours-pilates-full-body.jpg',       href: 'https://app.leclubpilates.com/categories/full-body' },
+  { label: 'Full Body',    image: '/images/cours/cours-pilates-full-body.jpg',       href: '/cours-de-pilates/full-body' },
   { label: 'Haut du corps',image: '/images/cours/cours-pilates-haut-du-corps.jpg',  href: 'https://app.leclubpilates.com/categories/haut-du-corps' },
   { label: 'Bas du corps', image: '/images/cours/cours-pilates-bas-du-corps.jpg',   href: 'https://app.leclubpilates.com/categories/bas-du-corps' },
   { label: 'Abdos',        image: '/images/cours/cours-pilates-abdominaux.jpg',      href: 'https://app.leclubpilates.com/categories/abdos' },
   { label: 'Intense',      image: '/images/cours/cours-pilates-intense.jpg',         href: 'https://app.leclubpilates.com/categories/intense' },
   { label: 'Doux',         image: '/images/cours/cours-pilates-doux.jpg',            href: 'https://app.leclubpilates.com/categories/doux' },
-  { label: 'Mama',         image: '/images/cours/cours-pilates-mama.jpg',            href: 'https://app.leclubpilates.com/categories/pilatesmama' },
+  { label: 'Mama',         image: '/images/cours/cours-pilates-mama.jpg',            href: '/cours-de-pilates/prenatal' },
   { label: 'Méditation',   image: '/images/cours/cours-pilates-meditation.jpg',      href: 'https://app.leclubpilates.com/categories/meditation' },
-  { label: 'Pilates Wall', image: '/images/cours/cours-pilates-wall.jpg',            href: 'https://app.leclubpilates.com/categories/pilates-wall' },
-  { label: 'Reformer',     image: '/images/cours/cours-pilates-reformer.jpg',        href: 'https://app.leclubpilates.com/categories/reformer' },
+  { label: 'Pilates Wall', image: '/images/cours/cours-pilates-wall.jpg',            href: '/cours-de-pilates/wall' },
+  { label: 'Reformer',     image: '/images/cours/cours-pilates-reformer.jpg',        href: '/cours-de-pilates/reformer' },
   { label: 'Stretching',   image: '/images/cours/cours-pilates-stretching.jpg',      href: 'https://app.leclubpilates.com/categories/stretching' },
   { label: 'Accessoires',  image: '/images/cours/cours-pilates-accessoires.jpg',     href: 'https://app.leclubpilates.com/categories/accessoires' },
 ]
@@ -60,15 +60,20 @@ const classes = [
 ]
 
 function CategoryCard({ label, image, href }: { label: string; image: string; href: string }) {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="relative shrink-0 w-52 md:w-64 aspect-[3/2] overflow-hidden group block">
+  const isInternal = href.startsWith('/')
+  const inner = (
+    <>
       <Image src={image} alt={`Cours de Pilates ${label}`} fill sizes="(max-width: 768px) 176px, 224px" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
       <div className="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors" />
       <div className="absolute inset-0 flex items-center justify-center">
         <span className="font-body font-light text-sm tracking-widest text-white lowercase">{label}</span>
       </div>
-    </a>
+    </>
   )
+  const className = "relative shrink-0 w-52 md:w-64 aspect-[3/2] overflow-hidden group block"
+  return isInternal
+    ? <Link href={href} className={className}>{inner}</Link>
+    : <a href={href} target="_blank" rel="noopener noreferrer" className={className}>{inner}</a>
 }
 
 export default function ClassesPreview() {

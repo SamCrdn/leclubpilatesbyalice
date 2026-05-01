@@ -32,7 +32,8 @@ const nextConfig = {
     return [
       { source: '/pricing',                             destination: 'https://app.leclubpilates.com/join', permanent: true },
       { source: '/a-propos',                            destination: '/about',                             permanent: true },
-      { source: '/les-cours',                           destination: '/classes',                           permanent: true },
+      { source: '/classes',                               destination: '/cours-de-pilates',                  permanent: true },
+      { source: '/les-cours',                           destination: '/cours-de-pilates',                  permanent: true },
       { source: '/conditions-generales-dutilisation',   destination: '/legal/cgv',                         permanent: true },
       { source: '/mentions-legales',                    destination: '/legal/mentions-legales',            permanent: true },
       { source: '/politique-confidentialite',           destination: '/legal/confidentialite',             permanent: true },

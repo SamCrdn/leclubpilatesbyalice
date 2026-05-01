@@ -7,9 +7,9 @@ import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
-  title: 'À propos d\'Alice — Fondatrice du Club Pilates en ligne',
+  title: 'Alice — Fondatrice du Club Pilates',
   description:
-    'Découvrez l\'histoire d\'Alice, fondatrice du Club Pilates. Ancienne danseuse, instructrice certifiée Polestar, elle propose des cours de Pilates en ligne depuis 2020.',
+    'Découvrez l\'histoire d\'Alice, fondatrice du Club Pilates. Ancienne danseuse, instructrice certifiée Polestar. Cours de Pilates en ligne depuis 2020.',
   alternates: { canonical: `${siteUrl}/about` },
   openGraph: {
     title: 'À propos d\'Alice — Fondatrice du Club Pilates en ligne',
@@ -22,13 +22,21 @@ export const metadata: Metadata = {
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Alice',
+  name: 'Alice Parquet',
   jobTitle: 'Fondatrice & Instructrice Pilates',
   image: `${siteUrl}/images/alice-fondatrice-club-pilates.jpg`,
   url: `${siteUrl}/about`,
   worksFor: { '@type': 'Organization', name: 'Le Club Pilates', url: siteUrl },
-  knowsAbout: ['Pilates', 'Bien-être', 'Danse', 'Renforcement musculaire'],
-  sameAs: ['https://www.instagram.com/alice.leclubpilates/'],
+  knowsAbout: ['Pilates', 'Pilates Réhabilitation', 'Bien-être', 'Danse classique', 'Renforcement musculaire', 'Breathwork'],
+  hasCredential: [
+    { '@type': 'EducationalOccupationalCredential', name: 'Polestar Pilates Rehab & Studio Teacher Training' },
+    { '@type': 'EducationalOccupationalCredential', name: 'Diplôme d\'État — Activités Physiques et Sportives' },
+  ],
+  description: 'Ancienne danseuse classique (ENSA Marseille), instructrice Pilates certifiée Polestar, fondatrice du Club Pilates en ligne depuis 2020. 10 ans d\'expérience, 42 000 abonnés Instagram.',
+  sameAs: [
+    'https://www.instagram.com/alice.leclubpilates/',
+    'https://www.youtube.com/@leclubpilates',
+  ],
 }
 
 export default function AboutPage() {

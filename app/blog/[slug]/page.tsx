@@ -9,7 +9,7 @@ import { postBySlugQuery, allSlugsQuery } from '@/lib/sanity.queries'
 
 export const revalidate = 3600
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
   if (!client) return []
@@ -18,8 +18,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
   if (!client) return {}
-  const post = await client.fetch(postBySlugQuery, { slug: params.slug })
+  const post = await client.fetch(postBySlugQuery, { slug })
   if (!post) return {}
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
   return {
@@ -80,8 +81,9 @@ const ptComponents = {
 }
 
 export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
   if (!client) notFound()
-  const post = await client.fetch(postBySlugQuery, { slug: params.slug })
+  const post = await client.fetch(postBySlugQuery, { slug })
   if (!post) notFound()
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'

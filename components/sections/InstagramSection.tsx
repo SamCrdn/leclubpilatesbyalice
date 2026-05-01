@@ -2,10 +2,10 @@
 
 import Script from 'next/script'
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
-      'behold-widget': { 'feed-id': string }
+      'behold-widget': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & { 'feed-id': string }
     }
   }
 }

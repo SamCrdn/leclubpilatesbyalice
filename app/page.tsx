@@ -11,13 +11,14 @@ import PricingPreview    from '@/components/sections/PricingPreview'
 import FAQSection        from '@/components/sections/FAQSection'
 import InstagramSection  from '@/components/sections/InstagramSection'
 import CTABanner         from '@/components/sections/CTABanner'
+import OnlinePilatesSection from '@/components/sections/OnlinePilatesSection'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
   title: 'Cours de Pilates en ligne — Le Club Pilates',
   description:
-    'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours disponibles, programmes personnalisés, essai gratuit 7 jours. Rejoignez 1 000 membres actives.',
+    'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours, programmes personnalisés, essai gratuit 7 jours. Rejoignez 1 000 membres.',
   alternates: { canonical: siteUrl },
   openGraph: {
     title: 'Cours de Pilates en ligne — Le Club Pilates',
@@ -74,7 +75,7 @@ const jsonLd = {
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '5',
-        reviewCount: '71',
+        reviewCount: '74',
         bestRating: '5',
       },
     },
@@ -96,6 +97,7 @@ export default function HomePage() {
       <PricingPreview />
       <TestimonialsSection />
       <ClassesPreview />
+      <OnlinePilatesSection />
       <AboutTeaser />
       <FounderSection />
       <FAQSection />

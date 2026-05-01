@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Mentions légales — Le Club Pilates (leclubpilates.com)',
   description: 'Mentions légales du site leclubpilates.com — éditeur, responsable de publication, hébergement, propriété intellectuelle et informations de contact.',
   alternates: { canonical: `${siteUrl}/legal/mentions-legales` },
+  robots: { index: false, follow: true },
 }
 
 export default function MentionsLegalesPage() {

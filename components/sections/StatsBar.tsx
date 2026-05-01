@@ -1,7 +1,7 @@
 const stats = [
   { value: '+350',    label: 'cours disponibles',  href: 'https://app.leclubpilates.com/',  external: true },
   { value: '+17',      label: 'catégories',          href: 'https://app.leclubpilates.com/',  external: true },
-  { value: '★ 5/5',  label: '71 avis Google',       href: 'https://share.google/2FofxTrt8YdrjBKRw', external: true },
+  { value: '★ 5/5',  label: '74 avis Google',       href: 'https://share.google/2FofxTrt8YdrjBKRw', external: true },
   { value: '10 ans',  label: "d'expérience",        href: '/about',    external: false },
   { value: '+2',       label: 'lives par mois',      href: 'https://app.leclubpilates.com/programs/pilates', external: true },
   { value: '+1 000',  label: 'membres',             href: 'https://app.leclubpilates.com/', external: true },

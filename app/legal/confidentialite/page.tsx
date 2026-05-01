@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Politique de confidentialité — Le Club Pilates',
   description: 'Politique de confidentialité Le Club Pilates — protection RGPD de vos données personnelles, utilisation des cookies, vos droits et comment nous contacter.',
   alternates: { canonical: `${siteUrl}/legal/confidentialite` },
+  robots: { index: false, follow: true },
 }
 
 export default function ConfidentialitePage() {

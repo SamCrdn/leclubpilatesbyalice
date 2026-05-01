@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Conditions Générales de Vente — Le Club Pilates',
   description: 'Conditions générales de vente Le Club Pilates — abonnements, modalités de résiliation, paiement sécurisé et propriété intellectuelle. Essai 7 jours sans engagement.',
   alternates: { canonical: `${siteUrl}/legal/cgv` },
+  robots: { index: false, follow: true },
 }
 
 export default function CGVPage() {

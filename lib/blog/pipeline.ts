@@ -7,27 +7,32 @@ Le Club Pilates — studio de Pilates en ligne fondé par Alice.
 Site : https://www.leclubpilates.com
 Studio : https://app.leclubpilates.com
 
-Catégories de cours :
+Pages SEO du site (à privilégier comme liens internes) :
+- Hub cours : https://www.leclubpilates.com/cours-de-pilates
+- Cours débutant : https://www.leclubpilates.com/cours-de-pilates/debutant
+- Cours prénatal/postnatal : https://www.leclubpilates.com/cours-de-pilates/prenatal
+- Cours dos : https://www.leclubpilates.com/cours-de-pilates/dos
+- Pilates Wall : https://www.leclubpilates.com/cours-de-pilates/wall
+- Pilates Full Body : https://www.leclubpilates.com/cours-de-pilates/full-body
+- Pilates Reformer : https://www.leclubpilates.com/cours-de-pilates/reformer
+- À propos d'Alice : https://www.leclubpilates.com/about
+- L'équipe : https://www.leclubpilates.com/profs
+
+Catégories de cours (app) :
 - Express : https://app.leclubpilates.com/categories/express
-- Full Body : https://app.leclubpilates.com/categories/full-body
 - Haut du corps : https://app.leclubpilates.com/categories/haut-du-corps
 - Bas du corps : https://app.leclubpilates.com/categories/bas-du-corps
 - Abdos : https://app.leclubpilates.com/categories/abdos
 - Intense : https://app.leclubpilates.com/categories/intense
 - Doux : https://app.leclubpilates.com/categories/doux
-- Mama (grossesse/post-partum) : https://app.leclubpilates.com/categories/pilatesmama
-- Méditation : https://app.leclubpilates.com/categories/meditation
-- Pilates Wall : https://app.leclubpilates.com/categories/pilates-wall
-- Reformer : https://app.leclubpilates.com/categories/reformer
 - Stretching : https://app.leclubpilates.com/categories/stretching
 - Accessoires : https://app.leclubpilates.com/categories/accessoires
+- Méditation : https://app.leclubpilates.com/categories/meditation
 
-Programmes :
+Programmes (app) :
 - Fondamentaux du Pilates (6 semaines, Débutant) : https://app.leclubpilates.com/programs/debutant
 - Full Body Sculpt (4 semaines, Intermédiaire/Avancé) : https://app.leclubpilates.com/programs/pilates-sculpt
 - Pilates Mama (12 mois, Prénatal/Postnatal) : https://app.leclubpilates.com/programs/pilates-mama
-
-Pages du site : https://www.leclubpilates.com/classes | https://www.leclubpilates.com/about
 `.trim()
 
 const TONE_GUIDE = `
@@ -60,7 +65,7 @@ export type GeneratedArticle = {
 async function planArticle(client: Anthropic, topic: Topic): Promise<ArticlePlan> {
   const msg = await client.messages.create({
     model: 'claude-opus-4-6',
-    max_tokens: 800,
+    max_tokens: 1500,
     messages: [{
       role: 'user',
       content: `Tu es éditrice SEO pour Le Club Pilates. Planifie un article de blog.

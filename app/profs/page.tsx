@@ -6,9 +6,9 @@ import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
-  title: 'Nos professeurs de Pilates certifiés — Le Club Pilates',
+  title: 'Professeurs de Pilates certifiés',
   description:
-    'Découvrez l\'équipe de professeurs du Club Pilates : Alice, Athena, Maria, Vince et Elizabeth. Des instructeurs certifiés passionnés par le mouvement et le bien-être.',
+    'Découvrez l\'équipe du Club Pilates : Alice, Athena, Maria, Vince et Elizabeth. 5 instructeurs certifiés passionnés par le Pilates en ligne.',
   alternates: { canonical: `${siteUrl}/profs` },
   openGraph: {
     title: 'Nos professeurs de Pilates certifiés — Le Club Pilates',
@@ -26,6 +26,16 @@ const profs = [
     photo: '/images/profs/alice-prof-pilates.jpg',
     photoAlt: 'Alice, fondatrice du Club Pilates',
     formation: 'Polestar Pilates Training Mat & Machine · CQP ALS AGEE · Carte Professionnelle de coach sportif · EAT Danse Classique',
+    credentials: [
+      'Polestar Pilates Rehab & Studio Teacher Training',
+      'Diplôme d\'État — Activités Physiques et Sportives (CQP ALS AGEE)',
+      'Carte Professionnelle de coach sportif',
+      'Formation EAT Danse Classique',
+    ],
+    sameAs: [
+      'https://www.instagram.com/alice.leclubpilates/',
+      'https://www.youtube.com/@leclubpilates',
+    ],
     bio: [
       'À travers ses cours, elle propose une approche douce, précise et efficace, où chaque séance est pensée pour sculpter le corps et se sentir bien, sans tensions. Sa voix calme guide des séances à la fois fluides et intenses, entre douceur et exigence.',
       'Alice accorde une grande importance à la précision du mouvement et à la fluidité des enchaînements. Elle aime particulièrement proposer des séances ciblées, focalisées sur une zone du corps. Elle explique chaque exercice avec précision et donne un maximum de corrections afin que chacun puisse trouver la justesse du mouvement, corriger sans déformer.',
@@ -39,6 +49,11 @@ const profs = [
     photo: '/images/profs/athena-prof-pilates.jpg',
     photoAlt: 'Athena, professeure de Pilates',
     formation: 'Alyne Pilates Mat & Reformer',
+    credentials: [
+      'Diplôme Alyne Pilates Mat & Reformer',
+      'Membre FFMP — Fédération Française des Méthodes Pilates',
+    ],
+    sameAs: [],
     bio: [
       'Elle est diplômée de l\'école Alyne, membre de la FFMP (Fédération des professionnels de la Méthode Pilates). Elle étudie actuellement au Costa Rica, où elle dispense ses cours de Pilates dans un décor de rêve.',
       'Ayant évolué dans le milieu du spectacle pendant de nombreuses années, elle s\'est ensuite orientée vers le Pilates lorsqu\'elle a découvert cette méthode qui lui a apporté énormément de bien-être. Elle a alors décidé de la partager pour aider les autres à se sentir mieux dans leur corps et dans leur esprit. Une approche douce et bienveillante, mais aussi dynamique et ludique.',
@@ -52,6 +67,13 @@ const profs = [
     photo: '/images/profs/maria-prof-pilates.jpg',
     photoAlt: 'Maria, professeure de Pilates',
     formation: 'Polestar Pilates Training Mat & Machine · CQP ALS AGEE · Carte Professionnelle de coach sportif',
+    credentials: [
+      'Polestar Pilates Training Mat & Machine',
+      'Diplôme d\'État — Activités Physiques et Sportives (CQP ALS AGEE)',
+      'Carte Professionnelle de coach sportif',
+      'Spécialisation Pilates prénatal & postnatal',
+    ],
+    sameAs: [],
     bio: [
       'Athlète, danseuse, éducatrice, coach bien-être et professeure de Pilates. Passionnée par le mouvement sous toutes ses formes, elle s\'intéresse principalement à l\'anatomie, à la linguistique, l\'écriture et aux relations humaines.',
       'Pour elle, le mouvement est une véritable thérapie qui aide à surpasser les blocages, à se reconnecter à soi et à choisir la manière dont on souhaite se positionner dans le monde. Sa signature : proposer un voyage sensoriel de l\'intérieur vers l\'extérieur, invitant chacun à se reconnecter à soi. Ses cours sont caractérisés par un positionnement dynamique, sérénité, exigence et douceur, discipline et liberté. Au sein du studio digital, Maria propose des cours de Pilates pour femmes enceintes.',
@@ -65,6 +87,14 @@ const profs = [
     photo: '/images/profs/vince-prof-pilates.jpg',
     photoAlt: 'Vince, professeur de Pilates et Yoga',
     formation: 'Pilates Mat 1 à l\'IMF · 200h Yoga Vinyasa · CQP ALS AGEE · Carte Professionnelle de coach sportif · Diplôme en mobilité fonctionnelle',
+    credentials: [
+      'Pilates Mat 1 — Institut de Méthode de la Forme (IMF)',
+      '200h Yoga Vinyasa Teacher Training',
+      'Diplôme d\'État — Activités Physiques et Sportives (CQP ALS AGEE)',
+      'Carte Professionnelle de coach sportif',
+      'Diplôme en mobilité fonctionnelle',
+    ],
+    sameAs: [],
     bio: [
       'Après avoir travaillé dans l\'Art, Vince décide de se consacrer à son autre passion : le mouvement. Coach depuis neuf ans pour le groupe mondial Sport Club Dyoniss, mixant yoga et Pilates, Vince a d\'abord commencé par des entraînements cardio, puis HIT fonctionnels et déplacements construits, ajoutant progressivement des mouvements fonctionnels.',
       'Il aime proposer des séances créatives qui reflètent la personnalité de chacun. Un enseignement bienveillant et une passion pour l\'éveil. Inspirer et sensibiliser — il vous guidera pour un entraînement frais et précis.',
@@ -78,6 +108,11 @@ const profs = [
     photo: '/images/profs/elizabeth-prof-pilates.jpg',
     photoAlt: 'Elizabeth, praticienne en hypnose',
     formation: 'Diplômée de l\'École Centrale d\'Hypnose de Paris, spécialisation en gestion des traumas',
+    credentials: [
+      'Diplôme — École Centrale d\'Hypnose de Paris',
+      'Spécialisation gestion des traumas et psychopathologies',
+    ],
+    sameAs: [],
     bio: [
       'Elizabeth est praticienne en hypnose et tarologue, spécialisée en gestion des traumas et psychopathologies. Elle vous guide à travers des pratiques de respiration, de visualisation et de relaxation guidée sur des thématiques précises.',
       'Lorsque les pensées s\'emballent ou que les tensions s\'accumulent, il devient difficile de retrouver le calme intérieur. L\'auto-hypnose permet de relâcher ces tensions mentales, de ralentir le flot des pensées et d\'installer en soi un sentiment profond de sérénité. Elizabeth vous guide en ligne en complémentarité des séances de Pilates afin de créer une réelle connexion du corps et de l\'esprit.',
@@ -97,13 +132,18 @@ const profsJsonLd = {
       '@type': 'Person',
       name: prof.name,
       jobTitle: prof.role,
-      image: `https://www.leclubpilates.com${prof.photo}`,
+      image: `${siteUrl}${prof.photo}`,
       description: prof.bio[0],
+      hasCredential: prof.credentials.map((c) => ({
+        '@type': 'EducationalOccupationalCredential',
+        name: c,
+      })),
       worksFor: {
         '@type': 'Organization',
         name: 'Le Club Pilates',
-        url: 'https://www.leclubpilates.com',
+        url: siteUrl,
       },
+      ...(prof.sameAs.length > 0 && { sameAs: prof.sameAs }),
     },
   })),
 }
