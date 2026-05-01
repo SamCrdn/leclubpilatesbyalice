@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
+import PromoBanner from '@/components/layout/PromoBanner'
 import Footer from '@/components/layout/Footer'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import CookieBanner from '@/components/ui/CookieBanner'
@@ -96,6 +97,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Aller au contenu
         </a>
         <ScrollReveal />
+        <div className="fixed top-0 inset-x-0 z-50">
+          <PromoBanner />
+        </div>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

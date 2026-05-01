@@ -12,3 +12,8 @@ export function urlFor(source: any) {
   if (!client) throw new Error('Sanity client not configured')
   return createImageUrlBuilder(client).image(source)
 }
+
+export function urlForImage(source: any): string | null {
+  if (!client || !source?.asset) return null
+  return createImageUrlBuilder(client).image(source).width(800).url()
+}

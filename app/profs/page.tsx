@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import { client, urlForImage } from '@/lib/sanity'
+import { profsQuery } from '@/lib/sanity.queries'
+
+export const revalidate = 3600
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -148,7 +152,9 @@ const profsJsonLd = {
   })),
 }
 
-export default function ProfsPage() {
+export default async function ProfsPage() {
+  const data = client ? await client.fetch(profsQuery).catch(() => null) : null
+  const profsData = data?.length ? data : profs
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: 'Les Professeurs', href: '/profs' }]} />
@@ -176,7 +182,7 @@ export default function ProfsPage() {
       </section>
 
       {/* ── PROFS ── */}
-      {profs.map((prof, i) => (
+      {profsData.map((prof: typeof profs[0], i: number) => (
         <section
           key={prof.name}
           className={`py-section ${i % 2 === 0 ? 'bg-cream' : 'bg-sand/10'}`}
@@ -191,7 +197,7 @@ export default function ProfsPage() {
                 style={{ transitionDelay: prof.imageRight ? '150ms' : '0ms' }}
               >
                 <Image
-                  src={prof.photo}
+                  src={typeof prof.photo === 'string' ? prof.photo : (urlForImage(prof.photo) ?? prof.photo)}
                   alt={prof.photoAlt}
                   fill
                   className="object-cover object-top"

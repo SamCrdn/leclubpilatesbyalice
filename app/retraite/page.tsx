@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 import ReservationForm from './ReservationForm'
+import { client } from '@/lib/sanity'
+import { retraiteQuery } from '@/lib/sanity.queries'
+
+export const revalidate = 3600
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -122,25 +126,31 @@ const CUISINE = [
   { src: '/images/Retraites/20251007_095235000_iOS.jpg', alt: 'Assiette colorée tacos végétariens' },
 ]
 
-const INCLUS = [
-  'Hébergement en villa',
-  'Repas végétariens et snacks',
-  'Navettes sur place',
-  '2 cours de Pilates par jour',
-  'Tapis de Pilates fournis',
-  'Accessoires de Pilates offerts',
-  'Randonnée avec vue exceptionnelle',
-  'Balades au coucher du soleil',
-  'Gift bag bien-être',
+
+const DEFAULT_INCLUS = [
+  'Hébergement en villa', 'Repas végétariens et snacks', 'Navettes sur place',
+  '2 cours de Pilates par jour', 'Tapis de Pilates fournis', 'Accessoires de Pilates offerts',
+  'Randonnée avec vue exceptionnelle', 'Balades au coucher du soleil', 'Gift bag bien-être',
 ]
 
-const NON_INCLUS = [
-  'Vols',
-  'Massages',
-  'Déplacements personnels',
-]
+const DEFAULT_NON_INCLUS = ['Vols', 'Massages', 'Déplacements personnels']
 
-export default function RetraitePage() {
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+}
+
+export default async function RetraitePage() {
+  const cms = client ? await client.fetch(retraiteQuery).catch(() => null) : null
+
+  const price           = cms?.price           ?? 1350
+  const priceNote       = cms?.priceNote        ?? 'Paiement en 2 fois possible'
+  const maxParticipants = cms?.maxParticipants  ?? 10
+  const destination     = cms?.destination      ?? 'à Ibiza'
+  const heroDesc        = cms?.heroDescription  ?? `5 jours & 4 nuits dans une villa exceptionnelle. Pilates, cuisine saine, reconnexion. Du 25 au 29 septembre 2026.`
+  const startLabel      = cms?.startDate        ? formatDate(cms.startDate) : 'vendredi 25'
+  const endLabel        = cms?.endDate          ? formatDate(cms.endDate)   : 'mardi 29 septembre 2026'
+  const inclus          = cms?.inclus?.length   ? cms.inclus   : DEFAULT_INCLUS
+  const nonInclus       = cms?.nonInclus?.length ? cms.nonInclus : DEFAULT_NON_INCLUS
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: 'Retraite Pilates Ibiza', href: '/retraite' }]} />
@@ -173,7 +183,7 @@ export default function RetraitePage() {
             className="text-cream/80 font-body font-light text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
             style={{ animationDelay: '500ms' }}
           >
-            5 jours & 4 nuits dans une villa exceptionnelle. Pilates, cuisine saine, reconnexion. Du 25 au 29 septembre 2026.
+            {heroDesc}
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '650ms' }}>
             <a href="#reservation" className="btn-primary">Réserver ma place</a>
@@ -192,14 +202,14 @@ export default function RetraitePage() {
         <div className="section-wrapper max-w-4xl mx-auto text-center">
           <p className="eyebrow text-sand-dark mb-8" data-animate>La prochaine retraite</p>
           <h2 className="font-display font-light text-cocoa mb-4" data-animate style={{ transitionDelay: '100ms' }}>
-            Du vendredi 25 au mardi 29 septembre 2026
+            Du {startLabel} au {endLabel}
           </h2>
           <div className="flex items-center justify-center gap-8 mt-8 mb-10 text-sm text-cocoa/50 font-light tracking-wide" data-animate style={{ transitionDelay: '150ms' }}>
             <span>5 jours & 4 nuits</span>
             <span className="w-px h-4 bg-cocoa/20" aria-hidden="true" />
-            <span>10 participants maximum</span>
+            <span>{maxParticipants} participants maximum</span>
             <span className="w-px h-4 bg-cocoa/20 hidden sm:block" aria-hidden="true" />
-            <span className="hidden sm:block">1 350 €</span>
+            <span className="hidden sm:block">{price} €</span>
           </div>
           <p className="text-sm text-cocoa/60 font-light leading-relaxed mb-10" data-animate style={{ transitionDelay: '200ms' }}>
             Offrez-vous une parenthèse hors du temps dans un cadre exceptionnel à Ibiza,
@@ -307,14 +317,14 @@ export default function RetraitePage() {
             <div className="bg-cocoa rounded-sm p-10 flex flex-col gap-10" data-animate>
               <div>
                 <p className="font-display text-[clamp(3.5rem,7vw,5.5rem)] font-light text-cream leading-none">
-                  1 350 €
+                  {price} €
                 </p>
-                <p className="mt-3 text-xs text-cream/30 tracking-widest font-light uppercase">Paiement en 2 fois possible</p>
+                <p className="mt-3 text-xs text-cream/30 tracking-widest font-light uppercase">{priceNote}</p>
               </div>
               <div>
                 <p className="text-xs tracking-[0.2em] uppercase text-cream/40 mb-5 font-light">Inclus</p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-10">
-                  {INCLUS.map((item) => (
+                  {inclus.map((item: string) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-cream/70 font-light">
                       <span className="w-1 h-1 rounded-full bg-sand flex-none" />
                       {item}
@@ -332,7 +342,7 @@ export default function RetraitePage() {
               <div>
                 <p className="text-xs tracking-[0.2em] uppercase text-cocoa/40 mb-5 font-light">Non inclus</p>
                 <ul className="space-y-3">
-                  {NON_INCLUS.map((item) => (
+                  {nonInclus.map((item: string) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-cocoa/40 font-light">
                       <span className="w-1 h-1 rounded-full bg-cocoa/20 flex-none" />
                       {item}
