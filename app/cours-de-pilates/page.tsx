@@ -52,12 +52,12 @@ const specialties = [
 ]
 
 const courses = [
-  { slug: 'fondamentaux',        cat: 'Débutant',     title: 'Fondamentaux du Pilates',   duration: '30 min', level: 'Débutant',      image: '/images/class-1.jpg' },
-  { slug: 'core-stabilite',      cat: 'Renforcement', title: 'Core & Stabilité',          duration: '45 min', level: 'Intermédiaire', image: '/images/class-2.jpg' },
-  { slug: 'etirements-mobilite', cat: 'Souplesse',    title: 'Étirements & Mobilité',     duration: '40 min', level: 'Tous niveaux',  image: '/images/class-3.jpg' },
-  { slug: 'barre-sol',           cat: 'Renforcement', title: 'Barre au Sol',              duration: '50 min', level: 'Intermédiaire', image: '/images/class-4.jpg' },
-  { slug: 'pilates-prenatal',    cat: 'Prénatal',     title: 'Pilates Prénatal',          duration: '35 min', level: 'Tous niveaux',  image: '/images/class-5.jpg' },
-  { slug: 'full-body-flow',      cat: 'Renforcement', title: 'Full Body Flow',            duration: '55 min', level: 'Avancé',        image: '/images/class-6.jpg' },
+  { slug: 'fondamentaux',        cat: 'Débutant',     title: 'Fondamentaux du Pilates',   duration: '30 min', level: 'Débutant',      image: '/images/programme-fondamentaux-pilates.jpg' },
+  { slug: 'core-stabilite',      cat: 'Renforcement', title: 'Core & Stabilité',          duration: '45 min', level: 'Intermédiaire', image: '/images/programme-core-stabilite-pilates.jpg' },
+  { slug: 'etirements-mobilite', cat: 'Souplesse',    title: 'Étirements & Mobilité',     duration: '40 min', level: 'Tous niveaux',  image: '/images/cours/cours-pilates-stretching.jpg' },
+  { slug: 'barre-sol',           cat: 'Renforcement', title: 'Barre au Sol',              duration: '50 min', level: 'Intermédiaire', image: '/images/cours/cours-pilates-intense.jpg' },
+  { slug: 'pilates-prenatal',    cat: 'Prénatal',     title: 'Pilates Prénatal',          duration: '35 min', level: 'Tous niveaux',  image: '/images/cours/cours-pilates-mama.jpg' },
+  { slug: 'full-body-flow',      cat: 'Renforcement', title: 'Full Body Flow',            duration: '55 min', level: 'Avancé',        image: '/images/cours/cours-pilates-full-body.jpg' },
 ]
 
 const jsonLd = {
