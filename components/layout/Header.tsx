@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import { useSelectedLayoutSegments } from 'next/navigation'
+import PromoBanner from '@/components/layout/PromoBanner'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
 
@@ -25,27 +25,14 @@ const navLinks = [
   { href: '/contact',                           label: 'Contact'                     },
 ]
 
-// Pages dont le hero est sombre (image/vidéo) — le header peut rester transparent avec texte crème
-const DARK_HERO_PAGES = new Set(['', 'about'])
-
 export default function Header() {
-  const segments = useSelectedLayoutSegments()
-  const hasDarkHero = DARK_HERO_PAGES.has(segments[0] ?? '')
-
   const [open, setOpen] = useState(false)
   const [coursOpen, setCoursOpen] = useState(false)
   const [coursOpenMobile, setCoursOpenMobile] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const coursRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   // Close mobile menu on resize
   useEffect(() => {
@@ -92,11 +79,12 @@ export default function Header() {
   return (
     <>
       <div className="fixed top-0 inset-x-0 z-50">
+        <PromoBanner />
       <header
         ref={navRef}
         role="banner"
         className={`transition-all duration-500 ${
-          scrolled || !hasDarkHero ? 'bg-cream/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+          'bg-cream shadow-sm'
         }`}
       >
         <div className="section-wrapper">
@@ -104,7 +92,7 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className={`font-satoshi font-medium tracking-[0.2em] uppercase text-sm whitespace-nowrap transition-colors duration-500 ${scrolled || !hasDarkHero ? 'text-cocoa' : 'text-cream'}`}>
+              <span className={`font-satoshi font-medium tracking-[0.2em] uppercase text-sm whitespace-nowrap transition-colors duration-500 ${'text-cocoa'}`}>
                 Le Club Pilates
               </span>
             </Link>
@@ -119,7 +107,7 @@ export default function Header() {
                 onMouseEnter={() => setCoursOpen(true)}
                 onMouseLeave={() => setCoursOpen(false)}
               >
-                <button className={`flex items-center gap-1 text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${scrolled || !hasDarkHero ? 'text-cocoa/70 hover:text-cocoa' : 'text-cream/80 hover:text-cream'}`}>
+                <button className={`flex items-center gap-1 text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${'text-cocoa/70 hover:text-cocoa'}`}>
                   Cours <ChevronDown size={12} className={`transition-transform duration-200 ${coursOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {coursOpen && (
@@ -145,7 +133,7 @@ export default function Header() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${scrolled || !hasDarkHero ? 'text-cocoa/70 hover:text-cocoa' : 'text-cream/80 hover:text-cream'}`}
+                  className={`text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${'text-cocoa/70 hover:text-cocoa'}`}
                 >
                   {label}
                 </a>
@@ -153,7 +141,7 @@ export default function Header() {
                 <Link
                   key={href}
                   href={href}
-                  className={`text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${scrolled || !hasDarkHero ? 'text-cocoa/70 hover:text-cocoa' : 'text-cream/80 hover:text-cream'}`}
+                  className={`text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${'text-cocoa/70 hover:text-cocoa'}`}
                 >
                   {label}
                 </Link>
@@ -164,7 +152,7 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-4">
               <a
                 href={`${APP_URL}/sign_in`}
-                className={`text-xs tracking-[0.15em] uppercase transition-colors font-body font-light ${scrolled || !hasDarkHero ? 'text-cocoa/70 hover:text-cocoa' : 'text-cream/80 hover:text-cream'}`}
+                className={`text-xs tracking-[0.15em] uppercase transition-colors font-body font-light ${'text-cocoa/70 hover:text-cocoa'}`}
               >
                 Connexion
               </a>
@@ -179,7 +167,7 @@ export default function Header() {
               aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className={`md:hidden p-2 transition-colors duration-500 ${scrolled || !hasDarkHero ? 'text-cocoa' : 'text-cream'}`}
+              className={`md:hidden p-2 transition-colors duration-500 ${'text-cocoa'}`}
               onClick={() => setOpen(!open)}
             >
               {open ? <X size={20} /> : <Menu size={20} />}

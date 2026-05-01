@@ -3,7 +3,6 @@ import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
-import PromoBanner from '@/components/layout/PromoBanner'
 import Footer from '@/components/layout/Footer'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import CookieBanner from '@/components/ui/CookieBanner'
@@ -89,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <meta name="p:domain_verify" content="74f930673b2f968c5b3134fd5377d05d" />
       </head>
-      <body className="bg-cream text-cocoa antialiased">
+      <body className="bg-cream text-cocoa antialiased" suppressHydrationWarning>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-cocoa focus:text-cream focus:text-sm focus:rounded"
@@ -97,9 +96,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Aller au contenu
         </a>
         <ScrollReveal />
-        <div className="fixed top-0 inset-x-0 z-50">
-          <PromoBanner />
-        </div>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
