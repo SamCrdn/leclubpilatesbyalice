@@ -8,7 +8,7 @@ const points = [
   },
   {
     title: 'Depuis chez vous',
-    body: 'Pas de salle, pas de transport. Un tapis, 20 à 55 minutes et vous êtes prêt. Pratiquez le matin avant le travail, le midi ou le soir — le studio est ouvert 24h/24.',
+    body: 'Pas de salle, pas de transport. Un tapis, 20 à 55 minutes et vous êtes prêt. Pratiquez le matin avant le travail, le midi ou le soir, le studio est ouvert 24h/24.',
   },
   {
     title: 'Guidé par de vraies expertes',
@@ -16,7 +16,7 @@ const points = [
   },
   {
     title: 'Des résultats durables',
-    body: 'Posture, galbe, souplesse, gestion du stress — le Pilates agit en profondeur. Avec une pratique régulière de 3 séances par semaine, les premières transformations sont visibles en 4 semaines.',
+    body: 'Posture, galbe, souplesse, gestion du stress : le Pilates agit en profondeur. Avec une pratique régulière de 3 séances par semaine, les premières transformations sont visibles en 4 semaines.',
   },
 ]
 
@@ -44,14 +44,14 @@ export default function OnlinePilatesSection() {
                 Le Club Pilates est un studio de cours de Pilates en ligne accessible par abonnement. Plus de 350 cours disponibles sur web et application mobile, avec de nouveaux contenus ajoutés chaque semaine.
               </p>
               <p>
-                Notre approche du Pilates en ligne repose sur la qualité pédagogique : chaque séance est filmée en studio, avec des explications claires sur le placement, la respiration et les sensations à rechercher. Vous n'êtes pas seul face à une vidéo — vous êtes accompagné par un vrai professeur certifié.
+                Notre approche du Pilates en ligne repose sur la qualité pédagogique : chaque séance est filmée en studio, avec des explications claires sur le placement, la respiration et les sensations à rechercher. Vous n'êtes pas seul face à une vidéo, vous êtes accompagné par un vrai professeur certifié.
               </p>
               <p>
                 <Link href="/cours-de-pilates/debutant" className="underline underline-offset-2 decoration-sand hover:text-cocoa transition-colors">Cours de Pilates débutant</Link>,{' '}
                 <Link href="/cours-de-pilates/prenatal" className="underline underline-offset-2 decoration-sand hover:text-cocoa transition-colors">programme prénatal</Link>,{' '}
                 séances de renforcement intense, stretching doux ou{' '}
                 <Link href="/cours-de-pilates/wall" className="underline underline-offset-2 decoration-sand hover:text-cocoa transition-colors">Pilates Wall</Link>{' '}
-                — il existe une séance pour chaque objectif, chaque niveau et chaque moment de la journée.
+                il existe une séance pour chaque objectif, chaque niveau et chaque moment de la journée.
               </p>
             </div>
             <div className="mt-10" data-animate style={{ transitionDelay: '200ms' }}>

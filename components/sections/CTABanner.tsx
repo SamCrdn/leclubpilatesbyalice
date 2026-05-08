@@ -61,7 +61,7 @@ export default function CTABanner() {
         >
           <p className="text-xs text-cream/40 tracking-widest uppercase mb-3">Newsletter</p>
           <p className="text-cream/60 font-light text-sm mb-5">
-            Conseils Pilates, nouvelles séances &amp; offres exclusives — chaque semaine dans ta boîte mail.
+            Conseils Pilates, nouvelles séances et offres exclusives, chaque semaine dans ta boîte mail.
           </p>
           <NewsletterForm dark className="max-w-sm mx-auto" />
         </div>

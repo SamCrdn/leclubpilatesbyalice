@@ -127,7 +127,7 @@ export default function PilatesFullBodyPage() {
           <blockquote className="font-display text-2xl md:text-3xl font-light italic text-cream/80 leading-relaxed mb-6" data-animate>
             &ldquo;Le Full Body en Pilates, c'est le meilleur rapport temps/résultat que je connaisse. En 40 minutes, tout le corps a travaillé — en profondeur.&rdquo;
           </blockquote>
-          <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>— Alice, fondatrice du Club Pilates</p>
+          <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>Alice, fondatrice du Club Pilates</p>
           <div data-animate style={{ transitionDelay: '150ms' }}>
             <SignupCTA label="Essayer le Pilates Full Body" utmContent="landing-fullbody-quote" />
           </div>

@@ -134,7 +134,7 @@ async function seed() {
   console.log(`✅ ${profs.length} professeurs`)
 
   // ── 5. Tarifs ────────────────────────────────────────────────────────────
-  const plans = [
+  const plans: Array<{ name: string; tagline: string; price: number; period: string; order: number; highlight: boolean; badge?: string; imageUrl: string; features: string[] }> = [
     {
       name: 'Mensuel',     tagline: 'Idéal pour découvrir',              price: 29,  period: 'mois',   order: 1, highlight: false, imageUrl: '/images/plan-mensuel.jpg',
       features: ["7 jours d'essai offerts", 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],

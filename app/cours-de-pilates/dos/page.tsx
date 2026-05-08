@@ -127,7 +127,7 @@ export default function PilatesDosPage() {
           <blockquote className="font-display text-2xl md:text-3xl font-light italic text-cream/80 leading-relaxed mb-6" data-animate>
             &ldquo;Le Pilates est l&apos;activité qui m&apos;a permis de gérer mes crises et de retrouver un quotidien sans douleur. C&apos;est maintenant mon outil numéro un.&rdquo;
           </blockquote>
-          <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>— Alice, fondatrice du Club Pilates</p>
+          <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>Alice, fondatrice du Club Pilates</p>
           <div data-animate style={{ transitionDelay: '150ms' }}>
             <SignupCTA label="Commencer maintenant" utmContent="landing-dos-quote" />
           </div>

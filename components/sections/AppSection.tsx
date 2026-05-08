@@ -5,7 +5,7 @@ import { SignupCTA, CTAButton } from '@/components/ui/CTAButton'
 const features = [
   { icon: Infinity,       label: 'Accès illimité au studio en ligne' },
   { icon: CalendarClock,  label: 'Pratique quand tu le souhaites' },
-  { icon: Monitor,        label: 'Sur tous tes appareils — mobile, tablette, TV' },
+  { icon: Monitor,        label: 'Sur tous tes appareils : mobile, tablette, TV' },
   { icon: Heart,          label: 'Espace membre & listes de lecture favoris' },
   { icon: Download,       label: 'Vidéos téléchargeables pour pratiquer hors-ligne' },
   { icon: MessageCircle,  label: 'Commente et échange sous chaque cours' },
@@ -41,7 +41,7 @@ export default function AppSection() {
             </h2>
 
             <p className="text-cocoa/70 font-light leading-relaxed mb-8" data-animate style={{ transitionDelay: '200ms' }}>
-              Sur ton téléphone, ta tablette ou ton ordinateur — ton studio t&apos;accompagne
+              Sur ton téléphone, ta tablette ou ton ordinateur, ton studio t&apos;accompagne
               partout, à chaque moment de ta journée.
             </p>
 

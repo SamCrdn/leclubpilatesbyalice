@@ -127,7 +127,7 @@ export default function PilatesReformerPage() {
           <blockquote className="font-display text-2xl md:text-3xl font-light italic text-cream/80 leading-relaxed mb-6" data-animate>
             &ldquo;Le reformer m'a appris ce qu'est le vrai Pilates. Depuis, j'ai voulu rendre cet enseignement accessible à toutes — sans machine, sans studio.&rdquo;
           </blockquote>
-          <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>— Alice, fondatrice du Club Pilates</p>
+          <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>Alice, fondatrice du Club Pilates</p>
           <div data-animate style={{ transitionDelay: '150ms' }}>
             <SignupCTA label="Essayer le Pilates Reformer" utmContent="landing-reformer-quote" />
           </div>
