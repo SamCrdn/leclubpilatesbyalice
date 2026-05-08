@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     q: 'Peut-on faire du Pilates Reformer sans machine ?',
-    a: 'Oui. Les principes du Pilates Reformer — travail en résistance, contrôle du mouvement, alignement précis — peuvent être reproduits sur tapis avec des variantes adaptées. On utilise des bandes de résistance pour simuler les ressorts, le poids du corps comme résistance et des positions spécifiques pour reproduire les appuis du chariot. C\'est ce que nous appelons le "Reformer-inspired Pilates" : l\'esprit du reformer, accessible à la maison.',
+    a: 'Oui. Les principes du Pilates Reformer (travail en résistance, contrôle du mouvement, alignement précis) peuvent être reproduits sur tapis avec des variantes adaptées. On utilise des bandes de résistance pour simuler les ressorts, le poids du corps comme résistance et des positions spécifiques pour reproduire les appuis du chariot. C\'est ce que nous appelons le "Reformer-inspired Pilates" : l\'esprit du reformer, accessible à la maison.',
   },
   {
     q: 'Qu\'est-ce que le Pilates Reformer ?',
@@ -68,7 +68,7 @@ export default function PilatesReformerPage() {
             <em className="italic text-mink">sans machine, depuis chez vous</em>
           </h1>
           <p className="text-sm text-cocoa/60 font-light leading-relaxed max-w-xl mb-10" data-animate style={{ transitionDelay: '150ms' }}>
-            L'efficacité du reformer, accessible à la maison. Nos cours Reformer-inspired reproduisent les principes de la machine sur tapis : résistance, alignement précis, travail en décharge — sans investir dans un équipement coûteux.
+            L'efficacité du reformer, accessible à la maison. Nos cours Reformer-inspired reproduisent les principes de la machine sur tapis : résistance, alignement précis, travail en décharge, sans investir dans un équipement coûteux.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
             <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-reformer-hero" />
@@ -88,7 +88,7 @@ export default function PilatesReformerPage() {
                   Le reformer est l'outil le plus complet de la méthode Pilates. Ses ressorts offrent une résistance variable qui permet de travailler en concentration maximale sur la qualité du mouvement plutôt que sur l'effort brut. Résultat : un travail musculaire plus profond, une meilleure conscience corporelle, des muscles longs et équilibrés.
                 </p>
                 <p>
-                  Nos cours Reformer-inspired traduisent ces principes sur tapis : les bandes de résistance remplacent les ressorts, les positions sont adaptées pour reproduire les appuis du chariot, et la logique de progression — du plus doux au plus intense — est respectée. Vous obtenez les bénéfices du reformer sans posséder la machine.
+                  Nos cours Reformer-inspired traduisent ces principes sur tapis : les bandes de résistance remplacent les ressorts, les positions sont adaptées pour reproduire les appuis du chariot, et la logique de progression, du plus doux au plus intense, est respectée. Vous obtenez les bénéfices du reformer sans posséder la machine.
                 </p>
                 <p>
                   Ces cours sont particulièrement appréciés des personnes ayant déjà pratiqué en studio reformer et souhaitant continuer à la maison, ou de celles qui veulent progresser vers cette pratique à leur rythme.
@@ -102,8 +102,8 @@ export default function PilatesReformerPage() {
                 {[
                   { title: 'Travail en résistance progressive', desc: 'La bande de résistance reproduit les différents niveaux de ressorts du reformer pour un travail musculaire adapté à votre niveau.' },
                   { title: 'Alignement et précision', desc: 'Les exercices Reformer-inspired maintiennent une exigence de placement identique à la machine : dos neutre, scapulae stabilisées, bassin positionné.' },
-                  { title: 'Décompression articulaire', desc: 'Travail en traction et en allongement pour décomprimer les articulations — bénéfice unique du Pilates Reformer que nos adaptations préservent.' },
-                  { title: 'Force et longueur musculaires', desc: 'Contracter tout en allongeant — la signature du Pilates Reformer pour des muscles toniques sans volume excessif.' },
+                  { title: 'Décompression articulaire', desc: 'Travail en traction et en allongement pour décomprimer les articulations, bénéfice unique du Pilates Reformer que nos adaptations préservent.' },
+                  { title: 'Force et longueur musculaires', desc: 'Contracter tout en allongeant : la signature du Pilates Reformer pour des muscles toniques sans volume excessif.' },
                   { title: 'Progression méthodique', desc: 'Nos cours suivent la logique de la méthode : du fondamental au complexe, chaque exercice prépare le suivant.' },
                 ].map((item) => (
                   <li key={item.title} className="flex gap-4">
@@ -125,7 +125,7 @@ export default function PilatesReformerPage() {
       <section className="py-16 bg-cocoa">
         <div className="section-wrapper max-w-3xl text-center">
           <blockquote className="font-display text-2xl md:text-3xl font-light italic text-cream/80 leading-relaxed mb-6" data-animate>
-            &ldquo;Le reformer m'a appris ce qu'est le vrai Pilates. Depuis, j'ai voulu rendre cet enseignement accessible à toutes — sans machine, sans studio.&rdquo;
+            &ldquo;Le reformer m'a appris ce qu'est le vrai Pilates. Depuis, j'ai voulu rendre cet enseignement accessible à toutes, sans machine ni studio.&rdquo;
           </blockquote>
           <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>Alice, fondatrice du Club Pilates</p>
           <div data-animate style={{ transitionDelay: '150ms' }}>
@@ -143,12 +143,12 @@ export default function PilatesReformerPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { name: 'Footwork adapté', desc: 'Série de poussées des pieds contre résistance — renforce les jambes, les fessiers et active le centre, équivalent tapis du footwork reformer.' },
+              { name: 'Footwork adapté', desc: 'Série de poussées des pieds contre résistance : renforce les jambes, les fessiers et active le centre, équivalent tapis du footwork reformer.' },
               { name: 'Rowing', desc: 'Assis, tirage avec bandes de résistance pour renforcer le milieu du dos, les rhomboïdes et les biceps avec un contrôle précis du placement.' },
-              { name: 'Pulling Straps', desc: 'Couché sur le ventre, extension des bras avec résistance — dorsaux, stabilisateurs de l\'épaule et ouverture thoracique.' },
-              { name: 'Long Stretch', desc: 'Position gainage avec appui des pieds, glissement contrôlé — transverse, deltoïdes et coordination bras-centre au maximum.' },
-              { name: 'Stomach Massage', desc: 'Assis en équilibre, flexion-extension des jambes avec résistance — abdominaux profonds, fléchisseurs de hanche et coordination.' },
-              { name: 'Short Box Series', desc: 'Série assise avec bandes : flexion, extension, rotation — travail complet de la colonne et du centre en positions variées.' },
+              { name: 'Pulling Straps', desc: 'Couché sur le ventre, extension des bras avec résistance : dorsaux, stabilisateurs de l\'épaule et ouverture thoracique.' },
+              { name: 'Long Stretch', desc: 'Position gainage avec appui des pieds, glissement contrôlé : transverse, deltoïdes et coordination bras-centre au maximum.' },
+              { name: 'Stomach Massage', desc: 'Assis en équilibre, flexion-extension des jambes avec résistance : abdominaux profonds, fléchisseurs de hanche et coordination.' },
+              { name: 'Short Box Series', desc: 'Série assise avec bandes : flexion, extension, rotation, travail complet de la colonne et du centre en positions variées.' },
             ].map((ex, i) => (
               <div key={ex.name} className="border border-cocoa/10 rounded-sm p-6" data-animate style={{ transitionDelay: `${i * 50}ms` }}>
                 <p className="text-sm font-light text-cocoa mb-2">{ex.name}</p>

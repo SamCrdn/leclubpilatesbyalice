@@ -20,23 +20,23 @@ export const metadata: Metadata = {
 const faqItems = [
   {
     q: 'Le Pilates est-il efficace pour les abdominaux ?',
-    a: 'Oui, le Pilates est l\'une des méthodes les plus efficaces pour travailler les abdominaux en profondeur. Contrairement aux crunchs classiques qui sollicitent principalement les droits abdominaux, le Pilates cible le transverse — la couche musculaire la plus profonde — ainsi que les obliques et les muscles stabilisateurs du bassin. Le résultat : un ventre plus plat, un centre plus solide et une posture améliorée, sans risquer de blesser le dos.',
+    a: 'Oui, le Pilates est l\'une des méthodes les plus efficaces pour travailler les abdominaux en profondeur. Contrairement aux crunchs classiques qui sollicitent principalement les droits abdominaux, le Pilates cible le transverse, la couche musculaire la plus profonde, ainsi que les obliques et les muscles stabilisateurs du bassin. Le résultat : un ventre plus plat, un centre plus solide et une posture améliorée, sans risquer de blesser le dos.',
   },
   {
     q: 'Peut-on avoir un ventre plat avec le Pilates ?',
-    a: 'Le Pilates contribue à affiner la silhouette en renforçant le transverse, le muscle qui agit comme une ceinture naturelle autour du ventre. Avec une pratique régulière, le ventre se galbe et se raffermit. En revanche, le Pilates ne brûle pas les graisses localement — une alimentation équilibrée reste indispensable pour réduire la graisse abdominale. Le Pilates agit sur le tonus et le maintien, pas sur la combustion des graisses.',
+    a: 'Le Pilates contribue à affiner la silhouette en renforçant le transverse, le muscle qui agit comme une ceinture naturelle autour du ventre. Avec une pratique régulière, le ventre se galbe et se raffermit. En revanche, le Pilates ne brûle pas les graisses localement. Une alimentation équilibrée reste indispensable pour réduire la graisse abdominale. Le Pilates agit sur le tonus et le maintien, pas sur la combustion des graisses.',
   },
   {
     q: 'Le Pilates abdo est-il sans danger pour le dos ?',
-    a: 'C\'est l\'un des grands avantages du Pilates sur les abdominaux classiques : il ne charge pas la colonne. Tous les exercices Pilates partent d\'une position neutre du dos et engagent le transverse AVANT le mouvement pour protéger les lombaires. Nos cours Pilates abdos sont conçus pour renforcer le centre sans aucun risque pour la colonne — idéal même pour les personnes ayant des antécédents de mal de dos.',
+    a: 'C\'est l\'un des grands avantages du Pilates sur les abdominaux classiques : il ne charge pas la colonne. Tous les exercices Pilates partent d\'une position neutre du dos et engagent le transverse AVANT le mouvement pour protéger les lombaires. Nos cours Pilates abdos sont conçus pour renforcer le centre sans aucun risque pour la colonne, idéal même pour les personnes ayant des antécédents de mal de dos.',
   },
   {
     q: 'Quelle est la différence entre gainage Pilates et gainage classique ?',
-    a: 'Le gainage classique (planche, crunch) travaille principalement les muscles superficiels — les droits abdominaux. Le gainage Pilates va plus loin : il cible les muscles profonds (transverse, multifides, plancher pelvien) qui stabilisent la colonne et le bassin de l\'intérieur. Ce travail en profondeur est plus fonctionnel, plus sûr et donne des résultats visibles sur la posture et la silhouette à long terme.',
+    a: 'Le gainage classique (planche, crunch) travaille principalement les muscles superficiels : les droits abdominaux. Le gainage Pilates va plus loin : il cible les muscles profonds (transverse, multifides, plancher pelvien) qui stabilisent la colonne et le bassin de l\'intérieur. Ce travail en profondeur est plus fonctionnel, plus sûr et donne des résultats visibles sur la posture et la silhouette à long terme.',
   },
   {
     q: 'Combien de fois par semaine faire du Pilates abdos ?',
-    a: '2 à 3 séances par semaine sont idéales pour progresser. Le transverse et les muscles profonds récupèrent vite et peuvent être sollicités plus souvent que les gros groupes musculaires. En pratiquant régulièrement, vous sentirez les premiers résultats — ventre plus ferme, posture plus droite — dès 4 à 6 semaines.',
+    a: '2 à 3 séances par semaine sont idéales pour progresser. Le transverse et les muscles profonds récupèrent vite et peuvent être sollicités plus souvent que les gros groupes musculaires. En pratiquant régulièrement, vous sentirez les premiers résultats (ventre plus ferme, posture plus droite) dès 4 à 6 semaines.',
   },
 ]
 
@@ -85,7 +85,7 @@ export default function PilatesAbdosPage() {
               <p className="font-mono text-xs text-sand-dark tracking-widest mb-6">01 / Pourquoi le Pilates transforme les abdos</p>
               <div className="space-y-5 text-sm text-cocoa/60 font-light leading-relaxed">
                 <p>
-                  Les abdominaux ne se résument pas aux droits abdominaux — ce "six-pack" visible qui fait l'objet de tous les crunchs. En dessous se trouve le transverse, un muscle en ceinture qui enserre les viscères, stabilise le bassin et maintient le dos droit. C'est lui que le Pilates cible en priorité.
+                  Les abdominaux ne se résument pas aux droits abdominaux, ce "six-pack" visible qui fait l'objet de tous les crunchs. En dessous se trouve le transverse, un muscle en ceinture qui enserre les viscères, stabilise le bassin et maintient le dos droit. C'est lui que le Pilates cible en priorité.
                 </p>
                 <p>
                   En activant le transverse avant chaque mouvement, le Pilates crée un gainage naturel qui protège la colonne et affine la silhouette en profondeur. Pas de gonflement, pas de tension cervicale, pas de lombalgie liée au sur-sollicitation des muscles superficiels.
@@ -100,10 +100,10 @@ export default function PilatesAbdosPage() {
               <p className="font-mono text-xs text-sand-dark tracking-widest mb-6">02 / Ce que vous travaillez</p>
               <ul className="space-y-5">
                 {[
-                  { title: 'Le transverse', desc: 'Le muscle le plus profond de la sangle abdominale — votre ceinture naturelle. Il se contracte avant chaque mouvement pour stabiliser le bassin et les lombaires.' },
+                  { title: 'Le transverse', desc: 'Le muscle le plus profond de la sangle abdominale, votre ceinture naturelle. Il se contracte avant chaque mouvement pour stabiliser le bassin et les lombaires.' },
                   { title: 'Les obliques internes et externes', desc: 'Responsables de la rotation et de la flexion latérale du tronc. Travaillés en Pilates pour affiner la taille et donner de la définition aux flancs.' },
                   { title: 'Le plancher pelvien', desc: 'La base de votre centre. Souvent oublié en salle, il est systématiquement engagé en Pilates pour compléter la contraction du transverse.' },
-                  { title: 'Les droits abdominaux', desc: 'Travaillés aussi — mais intelligemment, en allongement, sans charger les cervicales ni comprimer les disques vertébraux.' },
+                  { title: 'Les droits abdominaux', desc: 'Travaillés aussi, mais intelligemment, en allongement, sans charger les cervicales ni comprimer les disques vertébraux.' },
                   { title: 'Les stabilisateurs lombaires', desc: 'Multifides et érecteurs spinaux en synergie avec le centre pour un gainage complet et fonctionnel.' },
                 ].map((item) => (
                   <li key={item.title} className="flex gap-4">
@@ -144,11 +144,11 @@ export default function PilatesAbdosPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               { name: 'The Hundred', desc: 'L\'exercice signature du Pilates : 100 pompages des bras en position abdominale, avec respiration rythmique. Activation intense du transverse et de la chaîne antérieure.' },
-              { name: 'Double Leg Stretch', desc: 'Allongé, genoux à la poitrine puis extension simultanée des bras et jambes — travail profond du centre sans aucune tension cervicale.' },
-              { name: 'Criss-Cross', desc: 'Rotation alternée du buste vers le genou opposé — les meilleurs obliques que vous ayez jamais sollicités, sans charger les lombaires.' },
-              { name: 'Teaser', desc: 'Équilibre en V assis avec jambes tendues — l\'exercice ultime qui teste la force, la longueur et le contrôle de tout le centre.' },
-              { name: 'Roll Up', desc: 'Déroulement vertébral depuis la position allongée — travail excentrique des abdominaux profonds pour une sangle solide et mobile.' },
-              { name: 'Side-Lying Leg Series', desc: 'Couché sur le côté, séries de jambes — sollicite les obliques et les stabilisateurs latéraux du bassin pour une taille sculptée.' },
+              { name: 'Double Leg Stretch', desc: 'Allongé, genoux à la poitrine puis extension simultanée des bras et jambes : travail profond du centre sans aucune tension cervicale.' },
+              { name: 'Criss-Cross', desc: 'Rotation alternée du buste vers le genou opposé : les obliques sollicités en profondeur, sans charger les lombaires.' },
+              { name: 'Teaser', desc: 'Équilibre en V assis avec jambes tendues, l\'exercice ultime qui teste la force, la longueur et le contrôle de tout le centre.' },
+              { name: 'Roll Up', desc: 'Déroulement vertébral depuis la position allongée : travail excentrique des abdominaux profonds pour une sangle solide et mobile.' },
+              { name: 'Side-Lying Leg Series', desc: 'Couché sur le côté, séries de jambes : sollicite les obliques et les stabilisateurs latéraux du bassin pour une taille sculptée.' },
             ].map((ex, i) => (
               <div key={ex.name} className="border border-cocoa/10 rounded-sm p-6" data-animate style={{ transitionDelay: `${i * 50}ms` }}>
                 <p className="text-sm font-light text-cocoa mb-2">{ex.name}</p>

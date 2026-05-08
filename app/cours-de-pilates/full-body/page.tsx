@@ -68,7 +68,7 @@ export default function PilatesFullBodyPage() {
             <em className="italic text-mink">tonifier, renforcer, sculpter</em>
           </h1>
           <p className="text-sm text-cocoa/60 font-light leading-relaxed max-w-xl mb-10" data-animate style={{ transitionDelay: '150ms' }}>
-            Une séance, tout le corps. Le Pilates Full Body combine renforcement musculaire profond, coordination et endurance pour des résultats visibles — sans matériel lourd, depuis chez vous.
+            Une séance, tout le corps. Le Pilates Full Body combine renforcement musculaire profond, coordination et endurance pour des résultats visibles, sans matériel lourd, depuis chez vous.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
             <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-fullbody-hero" />
@@ -85,7 +85,7 @@ export default function PilatesFullBodyPage() {
               <p className="font-mono text-xs text-sand-dark tracking-widest mb-6">01 / Pourquoi le Full Body en Pilates</p>
               <div className="space-y-5 text-sm text-cocoa/60 font-light leading-relaxed">
                 <p>
-                  Le corps humain ne fonctionne pas muscle par muscle — il fonctionne en chaînes. Le Pilates Full Body entraîne ces chaînes musculaires dans leur globalité : chaque exercice sollicite simultanément le centre (core), les membres et les stabilisateurs, pour un travail plus efficace et plus fonctionnel.
+                  Le corps humain ne fonctionne pas muscle par muscle, il fonctionne en chaînes. Le Pilates Full Body entraîne ces chaînes musculaires dans leur globalité : chaque exercice sollicite simultanément le centre (core), les membres et les stabilisateurs, pour un travail plus efficace et plus fonctionnel.
                 </p>
                 <p>
                   Contrairement à la musculation traditionnelle qui isole les groupes musculaires, le Pilates Full Body améliore la coordination neuromusculaire, la conscience corporelle et la qualité du mouvement. Le résultat : un corps plus tonique, mieux équilibré, avec des muscles longs et dessinés plutôt que compacts.
@@ -100,7 +100,7 @@ export default function PilatesFullBodyPage() {
               <p className="font-mono text-xs text-sand-dark tracking-widest mb-6">02 / Ce que vous travaillez</p>
               <ul className="space-y-5">
                 {[
-                  { title: 'Core & stabilité', desc: 'Transverse, obliques, multifides — le centre est l\'initiateur de chaque mouvement Full Body pour protéger la colonne.' },
+                  { title: 'Core & stabilité', desc: 'Transverse, obliques, multifides : le centre est l\'initiateur de chaque mouvement Full Body pour protéger la colonne.' },
                   { title: 'Jambes & fessiers', desc: 'Squats, ponts, series latérales et mouvements en chaîne fermée pour galber et renforcer le bas du corps en profondeur.' },
                   { title: 'Dos & posture', desc: 'Extensions dorsales, rowing, ouvertures thoraciques pour contrebalancer la sédentarité et redresser naturellement la posture.' },
                   { title: 'Bras & épaules', desc: 'Push-up Pilates, travail avec bandes ou haltères légers pour tonifier les bras sans prendre de volume.' },
@@ -125,7 +125,7 @@ export default function PilatesFullBodyPage() {
       <section className="py-16 bg-cocoa">
         <div className="section-wrapper max-w-3xl text-center">
           <blockquote className="font-display text-2xl md:text-3xl font-light italic text-cream/80 leading-relaxed mb-6" data-animate>
-            &ldquo;Le Full Body en Pilates, c'est le meilleur rapport temps/résultat que je connaisse. En 40 minutes, tout le corps a travaillé — en profondeur.&rdquo;
+            &ldquo;Le Full Body en Pilates, c'est le meilleur rapport temps/résultat que je connaisse. En 40 minutes, tout le corps a travaillé, en profondeur.&rdquo;
           </blockquote>
           <p className="text-xs tracking-[0.2em] uppercase text-cream/30 mb-10" data-animate style={{ transitionDelay: '100ms' }}>Alice, fondatrice du Club Pilates</p>
           <div data-animate style={{ transitionDelay: '150ms' }}>
@@ -144,11 +144,11 @@ export default function PilatesFullBodyPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               { name: 'The Hundred', desc: 'Exercice emblématique du Pilates : pompage des bras en position abdominal, activation intense du core et travail de la respiration rythmique.' },
-              { name: 'Roll Up & Roll Down', desc: 'Déroulement vertébral depuis la position allongée — renforce les abdominaux profonds, assouplit la colonne et mobilise les ischio-jambiers.' },
-              { name: 'Single Leg Stretch', desc: 'Allongé, jambes en extension alternée avec rotation du buste — coordination, abdominaux et fléchisseurs de hanche en simultané.' },
-              { name: 'Swan Dive', desc: 'Extension dorsale en position ventre — renforce les érecteurs spinaux, ouvre la poitrine et contrebalance les effets de la sédentarité.' },
-              { name: 'Side Kick Series', desc: 'Couché sur le côté, série de mouvements de jambe — fessiers, abducteurs, adducteurs et obliques en chaîne latérale.' },
-              { name: 'Teaser', desc: 'Équilibre assis en V avec jambes tendues — exercice emblématique du répertoire Pilates qui teste la force, la longueur et la coordination.' },
+              { name: 'Roll Up & Roll Down', desc: 'Déroulement vertébral depuis la position allongée : renforce les abdominaux profonds, assouplit la colonne et mobilise les ischio-jambiers.' },
+              { name: 'Single Leg Stretch', desc: 'Allongé, jambes en extension alternée avec rotation du buste, coordination, abdominaux et fléchisseurs de hanche en simultané.' },
+              { name: 'Swan Dive', desc: 'Extension dorsale en position ventre : renforce les érecteurs spinaux, ouvre la poitrine et contrebalance les effets de la sédentarité.' },
+              { name: 'Side Kick Series', desc: 'Couché sur le côté, série de mouvements de jambe : fessiers, abducteurs, adducteurs et obliques en chaîne latérale.' },
+              { name: 'Teaser', desc: 'Équilibre assis en V avec jambes tendues, exercice emblématique du répertoire Pilates qui teste la force, la longueur et la coordination.' },
             ].map((ex, i) => (
               <div key={ex.name} className="border border-cocoa/10 rounded-sm p-6" data-animate style={{ transitionDelay: `${i * 50}ms` }}>
                 <p className="text-sm font-light text-cocoa mb-2">{ex.name}</p>

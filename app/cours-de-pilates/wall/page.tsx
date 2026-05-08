@@ -68,7 +68,7 @@ export default function PilatesWallPage() {
             <em className="italic text-mink">renforcez, étirez, alignez</em>
           </h1>
           <p className="text-sm text-cocoa/60 font-light leading-relaxed max-w-xl mb-10" data-animate style={{ transitionDelay: '150ms' }}>
-            Le Pilates Wall transforme votre mur en outil de Pilates. Renforcement profond, étirements en décompression, correction de la posture — tout ça sans matériel, depuis votre salon.
+            Le Pilates Wall transforme votre mur en outil de Pilates. Renforcement profond, étirements en décompression, correction de la posture, sans matériel, depuis votre salon.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
             <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-wall-hero" />
@@ -88,7 +88,7 @@ export default function PilatesWallPage() {
                   Dans un studio de Pilates professionnel, le reformer et le cadillac offrent un plan de résistance et des appuis fixes qui guident le mouvement avec précision. Le Pilates Wall reproduit cette logique à la maison : le mur devient votre équipement.
                 </p>
                 <p>
-                  Placer le dos, les pieds ou les mains contre un mur active le retour proprioceptif — votre corps reçoit une information sensorielle immédiate sur son alignement. Vous sentez instantanément si vos lombaires s'aplatissent, si vos épaules compensent, si votre bassin bascule.
+                  Placer le dos, les pieds ou les mains contre un mur active le retour proprioceptif : votre corps reçoit une information sensorielle immédiate sur son alignement. Vous sentez instantanément si vos lombaires s'aplatissent, si vos épaules compensent, si votre bassin bascule.
                 </p>
                 <p>
                   Le Pilates Wall permet également des étirements en décompression de la colonne qui sont difficiles à obtenir au sol seul. C'est une pratique particulièrement efficace pour les personnes sédentaires ou qui passent beaucoup de temps assises.
@@ -103,7 +103,7 @@ export default function PilatesWallPage() {
                   { title: 'Alignement et posture', desc: 'Le mur comme miroir : sentir et corriger l\'alignement vertébral, scapulaire et pelvien en temps réel.' },
                   { title: 'Renforcement du centre', desc: 'Squats au mur, gainage en appui, travail des fessiers et des abdominaux profonds avec retour proprioceptif.' },
                   { title: 'Mobilité de la colonne', desc: 'Flexions, extensions et rotations guidées par le mur pour retrouver amplitude et fluidité sans forcer.' },
-                  { title: 'Étirements en décompression', desc: 'Hanches, ischio-jambiers, thoracique — le mur permet des étirements en traction que le sol ne peut pas offrir.' },
+                  { title: 'Étirements en décompression', desc: 'Hanches, ischio-jambiers, thoracique : le mur permet des étirements en traction que le sol ne peut pas offrir.' },
                   { title: 'Équilibre et proprioception', desc: 'Exercices unipodaux en appui progressif pour renforcer la cheville, le genou et la stabilité globale.' },
                 ].map((item) => (
                   <li key={item.title} className="flex gap-4">
@@ -144,10 +144,10 @@ export default function PilatesWallPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               { name: 'Wall Squat Pilates', desc: 'Dos au mur, descente en squat lent avec activation du plancher pelvien et des ischios-jambiers. Parfait pour renforcer les jambes sans charger les genoux.' },
-              { name: 'Spine Roll Down', desc: 'Déroulement vertébral debout contre le mur — mobilise chaque vertèbre et étire la chaîne postérieure en douceur.' },
+              { name: 'Spine Roll Down', desc: 'Déroulement vertébral debout contre le mur : mobilise chaque vertèbre et étire la chaîne postérieure en douceur.' },
               { name: 'Wall Push-Up', desc: 'Version Pilates du pompe debout : travail des pectoraux, triceps et stabilisateurs de l\'épaule avec contrôle total.' },
-              { name: 'Leg Slide au mur', desc: 'Couché, pieds au mur — glisser une jambe pour travailler le transverse et les fléchisseurs de hanche sans quitter la position neutre.' },
-              { name: 'Thoracic Rotation', desc: 'Assis dos au mur, rotation du thorax guidée par l\'appui — idéal pour les tensions dorsales liées à la sédentarité.' },
+              { name: 'Leg Slide au mur', desc: 'Couché, pieds au mur, glisser une jambe pour travailler le transverse et les fléchisseurs de hanche sans quitter la position neutre.' },
+              { name: 'Thoracic Rotation', desc: 'Assis dos au mur, rotation du thorax guidée par l\'appui, idéal pour les tensions dorsales liées à la sédentarité.' },
               { name: 'Standing Balance', desc: 'En appui progressif, pied contre le mur, pour développer l\'équilibre unipodal et la stabilité de la cheville et du bassin.' },
             ].map((ex, i) => (
               <div key={ex.name} className="border border-cocoa/10 rounded-sm p-6" data-animate style={{ transitionDelay: `${i * 50}ms` }}>

@@ -68,7 +68,7 @@ export default function PilatesDosPage() {
             <em className="italic text-mink">soulager et renforcer</em>
           </h1>
           <p className="text-sm text-cocoa/60 font-light leading-relaxed max-w-xl mb-10" data-animate style={{ transitionDelay: '150ms' }}>
-            Douleurs lombaires, tensions cervicales, mauvaise posture — le Pilates agit en profondeur sur les causes du mal de dos. Des cours guidés par des experts certifiés, sans impact, depuis chez vous.
+            Douleurs lombaires, tensions cervicales, mauvaise posture : le Pilates agit en profondeur sur les causes du mal de dos. Des cours guidés par des experts certifiés, sans impact, depuis chez vous.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
             <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-dos-hero" />
@@ -85,13 +85,13 @@ export default function PilatesDosPage() {
               <p className="font-mono text-xs text-sand-dark tracking-widest mb-6">01 / Pourquoi le Pilates aide le dos</p>
               <div className="space-y-5 text-sm text-cocoa/60 font-light leading-relaxed">
                 <p>
-                  80 % des adultes souffrent de mal de dos à un moment de leur vie. La cause principale n'est pas le dos lui-même, mais les muscles profonds qui le soutiennent — trop faibles ou trop tendus pour maintenir une posture correcte.
+                  80 % des adultes souffrent de mal de dos à un moment de leur vie. La cause principale n'est pas le dos lui-même, mais les muscles profonds qui le soutiennent, trop faibles ou trop tendus pour maintenir une posture correcte.
                 </p>
                 <p>
                   Le Pilates cible précisément ces muscles stabilisateurs : le transverse de l'abdomen, les multifides, le plancher pelvien. En les renforçant, vous créez un véritable corselet musculaire qui soutient la colonne naturellement, sans effort et sans contrainte articulaire.
                 </p>
                 <p>
-                  Contrairement aux exercices de musculation classiques qui chargent la colonne, le Pilates travaille en décharge et en allongement — il renforce sans compresser, tonifie sans blesser.
+                  Contrairement aux exercices de musculation classiques qui chargent la colonne, le Pilates travaille en décharge et en allongement : il renforce sans compresser, tonifie sans blesser.
                 </p>
               </div>
             </div>

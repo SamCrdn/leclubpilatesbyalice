@@ -91,7 +91,7 @@ export default function PilatesPrenatalPage() {
                   Nos cours de Pilates enceinte sont pensés trimestre par trimestre. Au premier trimestre, on pose les bases ; au deuxième, on renforce en douceur ; au troisième, on adapte les positions et on prépare activement l'accouchement. Tous les exercices contre-indiqués sont exclus.
                 </p>
                 <p>
-                  Nos professeurs sont certifiées en Pilates prénatal et postnatal. Certaines ont elles-mêmes vécu leur grossesse en pratiquant ces cours — elles comprennent de l'intérieur ce que vous traversez.
+                  Nos professeurs sont certifiées en Pilates prénatal et postnatal. Certaines ont elles-mêmes vécu leur grossesse en pratiquant ces cours, elles comprennent de l'intérieur ce que vous traversez.
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function PilatesPrenatalPage() {
         <div className="section-wrapper relative z-10 max-w-2xl mx-auto text-center">
           <p className="eyebrow text-cream/40 mb-6" data-animate>Programme exclusif</p>
           <h2 className="font-display font-light text-cream mb-6" data-animate style={{ transitionDelay: '100ms' }}>
-            Mama — 12 mois<br /><em className="italic text-cream/60">d'accompagnement complet</em>
+            Mama, 12 mois<br /><em className="italic text-cream/60">d'accompagnement complet</em>
           </h2>
           <p className="text-sm text-cream/60 font-light leading-relaxed mb-10" data-animate style={{ transitionDelay: '150ms' }}>
             De la grossesse à la reprise postnatale, le programme Mama est un accompagnement Pilates sur mesure pensé pour les femmes enceintes et jeunes mamans. Un programme unique sur le marché du Pilates en ligne en France.

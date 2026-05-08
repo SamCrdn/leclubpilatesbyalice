@@ -100,11 +100,11 @@ export default function PilatesDebutantPage() {
               <p className="font-mono text-xs text-sand-dark tracking-widest mb-6">02 / Ce que vous allez travailler</p>
               <ul className="space-y-4">
                 {[
-                  { title: 'La respiration Pilates', desc: 'La base de tout mouvement — apprendre à respirer latéralement pour mobiliser le diaphragme.' },
+                  { title: 'La respiration Pilates', desc: 'La base de tout mouvement : apprendre à respirer latéralement pour mobiliser le diaphragme.' },
                   { title: 'La position neutre', desc: 'Trouver l\'alignement naturel de votre colonne pour travailler sans compensation ni douleur.' },
-                  { title: 'L\'activation du centre', desc: 'Engager le transverse et le plancher pelvien avant chaque mouvement — la signature du Pilates.' },
+                  { title: 'L\'activation du centre', desc: 'Engager le transverse et le plancher pelvien avant chaque mouvement, la signature du Pilates.' },
                   { title: 'La mobilité articulaire', desc: 'Retrouver de l\'amplitude et de la souplesse dans les hanches, le dos et les épaules.' },
-                  { title: 'Le renforcement en douceur', desc: 'Sculpter et tonifier sans impact, sans blessure — parfait pour débuter ou reprendre.' },
+                  { title: 'Le renforcement en douceur', desc: 'Sculpter et tonifier sans impact, sans blessure, parfait pour débuter ou reprendre.' },
                 ].map((item) => (
                   <li key={item.title} className="flex gap-4">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sand flex-none" />
