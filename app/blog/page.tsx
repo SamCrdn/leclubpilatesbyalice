@@ -3,12 +3,20 @@ import Link from 'next/link'
 import { client } from '@/lib/sanity'
 import { allPostsQuery } from '@/lib/sanity.queries'
 
-export const revalidate = 3600
+export const dynamic = 'force-dynamic'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
   title: 'Blog Pilates — Conseils & bien-être',
   description: 'Conseils Pilates, bien-être et santé féminine par nos expertes certifiées. Guides pratiques, programmes et inspiration pour votre pratique.',
-  alternates: { canonical: '/blog' },
+  alternates: { canonical: `${siteUrl}/blog` },
+  openGraph: {
+    title: 'Blog Pilates — Conseils & bien-être · Le Club Pilates',
+    description: 'Conseils Pilates, bien-être et santé féminine par nos expertes certifiées.',
+    url: `${siteUrl}/blog`,
+    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Blog Le Club Pilates' }],
+  },
   robots: { index: true, follow: true },
 }
 
@@ -29,10 +37,19 @@ function formatDate(d: string) {
   return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-export default async function BlogPage() {
-  const posts: Post[] = client
+type Props = { searchParams: Promise<{ category?: string }> }
+
+export default async function BlogPage({ searchParams }: Props) {
+  const { category } = await searchParams
+  const activeCategory = category ?? 'Tous'
+
+  const allPosts: Post[] = client
     ? await client.fetch(allPostsQuery).catch(() => [])
     : []
+
+  const posts = activeCategory === 'Tous'
+    ? allPosts
+    : allPosts.filter(p => p.category === activeCategory)
 
   return (
     <>
@@ -50,12 +67,23 @@ export default async function BlogPage() {
       <div className="sticky top-16 md:top-20 z-30 bg-cream/95 backdrop-blur-sm border-b border-sand/30">
         <div className="section-wrapper">
           <div className="flex gap-6 overflow-x-auto scrollbar-none py-4">
-            {categories.map(c => (
-              <button key={c}
-                className="text-xs tracking-[0.15em] uppercase whitespace-nowrap font-light text-cocoa/50 hover:text-cocoa transition-colors pb-0.5 border-b border-transparent hover:border-cocoa first:text-cocoa first:border-cocoa">
-                {c}
-              </button>
-            ))}
+            {categories.map(c => {
+              const isActive = c === activeCategory
+              const href = c === 'Tous' ? '/blog' : `/blog?category=${encodeURIComponent(c)}`
+              return (
+                <Link
+                  key={c}
+                  href={href}
+                  className={`text-xs tracking-[0.15em] uppercase whitespace-nowrap font-light pb-0.5 border-b transition-colors ${
+                    isActive
+                      ? 'text-cocoa border-cocoa'
+                      : 'text-cocoa/50 border-transparent hover:text-cocoa hover:border-cocoa'
+                  }`}
+                >
+                  {c}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </div>

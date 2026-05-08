@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import RelatedCourses from '@/components/ui/RelatedCourses'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Pilates Reformer en ligne — Sans machine, depuis chez vous',
     description: 'Pilates Reformer en ligne : l\'efficacité du reformer adaptée au tapis, sans machine. Cours guidés par des experts. Essai gratuit 7 jours.',
     url: `${siteUrl}/cours-de-pilates/reformer`,
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Pilates Reformer en ligne' }],
+    images: [{ url: `${siteUrl}/images/cours/cours-pilates-reformer.jpg`, width: 1200, height: 630, alt: 'Pilates Reformer en ligne' }],
   },
 }
 
@@ -189,6 +190,8 @@ export default function PilatesReformerPage() {
           </p>
         </div>
       </section>
+
+      <RelatedCourses current="/cours-de-pilates/reformer" />
     </>
   )
 }

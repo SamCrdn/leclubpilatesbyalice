@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import RelatedCourses from '@/components/ui/RelatedCourses'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Pilates pour le dos — Soulager et renforcer le dos',
     description: 'Cours de Pilates pour le dos : soulager le mal de dos, renforcer les lombaires, améliorer la posture. En ligne, sans matériel.',
     url: `${siteUrl}/cours-de-pilates/dos`,
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Pilates pour le dos en ligne' }],
+    images: [{ url: `${siteUrl}/images/cours/cours-pilates-doux.jpg`, width: 1200, height: 630, alt: 'Pilates pour le dos en ligne' }],
   },
 }
 
@@ -164,6 +165,8 @@ export default function PilatesDosPage() {
           </p>
         </div>
       </section>
+
+      <RelatedCourses current="/cours-de-pilates/dos" />
     </>
   )
 }

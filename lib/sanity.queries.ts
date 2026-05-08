@@ -70,6 +70,7 @@ export const postBySlugQuery = groq`
     mainImage,
     readTime,
     publishedAt,
+    _updatedAt,
     featured,
     body,
   }

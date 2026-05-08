@@ -3,10 +3,8 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
-import { safeBgUrl } from '@/lib/safeBgUrl'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
 
 export const metadata: Metadata = {
   title: 'Cours de Pilates en ligne — Tous niveaux',
@@ -52,12 +50,12 @@ const specialties = [
 ]
 
 const courses = [
-  { slug: 'fondamentaux',        cat: 'Débutant',     title: 'Fondamentaux du Pilates',   duration: '30 min', level: 'Débutant',      image: '/images/programme-fondamentaux-pilates.jpg' },
-  { slug: 'core-stabilite',      cat: 'Renforcement', title: 'Core & Stabilité',          duration: '45 min', level: 'Intermédiaire', image: '/images/programme-core-stabilite-pilates.jpg' },
-  { slug: 'etirements-mobilite', cat: 'Souplesse',    title: 'Étirements & Mobilité',     duration: '40 min', level: 'Tous niveaux',  image: '/images/cours/cours-pilates-stretching.jpg' },
-  { slug: 'barre-sol',           cat: 'Renforcement', title: 'Barre au Sol',              duration: '50 min', level: 'Intermédiaire', image: '/images/cours/cours-pilates-intense.jpg' },
-  { slug: 'pilates-prenatal',    cat: 'Prénatal',     title: 'Pilates Prénatal',          duration: '35 min', level: 'Tous niveaux',  image: '/images/cours/cours-pilates-mama.jpg' },
-  { slug: 'full-body-flow',      cat: 'Renforcement', title: 'Full Body Flow',            duration: '55 min', level: 'Avancé',        image: '/images/cours/cours-pilates-full-body.jpg' },
+  { slug: 'fondamentaux',        cat: 'Débutant',     title: 'Fondamentaux du Pilates',  image: '/images/cours/cours-pilates-doux.jpg',          href: 'https://app.leclubpilates.com/programs/debutant' },
+  { slug: 'core-stabilite',      cat: 'Renforcement', title: 'Core & Stabilité',         image: '/images/cours/cours-pilates-abdominaux.jpg',    href: '/cours-de-pilates/abdos' },
+  { slug: 'etirements-mobilite', cat: 'Souplesse',    title: 'Étirements & Mobilité',    image: '/images/cours/cours-pilates-stretching.jpg',    href: 'https://app.leclubpilates.com/categories/stretching' },
+  { slug: 'barre-sol',           cat: 'Renforcement', title: 'Barre au Sol',             image: '/images/cours/cours-pilates-intense.jpg',       href: 'https://app.leclubpilates.com/categories/intense' },
+  { slug: 'pilates-prenatal',    cat: 'Prénatal',     title: 'Pilates Prénatal',         image: '/images/cours/cours-pilates-mama.jpg',          href: 'https://app.leclubpilates.com/programs/pilates-mama' },
+  { slug: 'full-body-flow',      cat: 'Renforcement', title: 'Full Body Flow',           image: '/images/cours/cours-pilates-full-body.jpg',     href: 'https://app.leclubpilates.com/categories/full-body' },
 ]
 
 const jsonLd = {
@@ -89,7 +87,7 @@ export default function CourseDePilatesPage() {
             <em className="italic text-mink">en ligne</em>
           </h1>
           <p className="text-sm text-cocoa/60 font-light leading-relaxed max-w-xl mb-10" data-animate style={{ transitionDelay: '150ms' }}>
-            +350 cours disponibles, nouvelles séances chaque semaine. Débutant ou confirmé, dos fragile ou grossesse — il y a un cours fait pour vous, guidé par des instructeurs certifiés.
+            +350 cours disponibles, nouvelles séances chaque semaine. Débutant ou confirmé, dos fragile ou grossesse, il y a un cours fait pour vous, guidé par des instructeurs certifiés.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
             <SignupCTA label="Commencer — 7 jours gratuits" utmContent="cours-de-pilates-hero" />
@@ -129,36 +127,49 @@ export default function CourseDePilatesPage() {
         <div className="section-wrapper">
           <p className="font-mono text-xs text-sand-dark tracking-widest mb-10" data-animate>Aperçu du studio</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {courses.map((c, i) => (
-              <a
-                key={c.slug}
-                href={`${APP_URL}/classes/${c.slug}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-                data-animate
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <div className="aspect-[4/3] bg-sand/30 overflow-hidden mb-4 rounded-sm">
-                  <div
-                    className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-smooth group-hover:scale-105"
-                    style={{ backgroundImage: safeBgUrl(c.image) }}
-                    role="img"
-                    aria-label={c.title}
-                  />
-                </div>
-                <p className="eyebrow mb-1.5">{c.cat}</p>
-                <h3 className="font-display text-xl font-light mb-2 group-hover:opacity-70 transition-opacity">{c.title}</h3>
-                <div className="flex items-center gap-3 text-xs text-mink font-light">
-                  <span>{c.duration}</span>
-                  <span className="w-1 h-1 rounded-full bg-sand" />
-                  <span>{c.level}</span>
-                  <span className="ml-auto group-hover:translate-x-1 transition-transform">
-                    <ArrowRight size={12} />
+            {courses.map((c, i) => {
+              const isInternal = c.href.startsWith('/')
+              const inner = (
+                <>
+                  <div className="aspect-[4/3] bg-sand/30 overflow-hidden mb-4 rounded-sm">
+                    <div
+                      className="w-full h-full bg-cover bg-center transition-transform duration-700 ease-smooth group-hover:scale-105"
+                      style={{ backgroundImage: `url(${c.image})` }}
+                      role="img"
+                      aria-label={c.title}
+                    />
+                  </div>
+                  <p className="eyebrow mb-1.5">{c.cat}</p>
+                  <h3 className="font-display text-xl font-light mb-2 group-hover:opacity-70 transition-opacity">{c.title}</h3>
+                  <span className="inline-flex items-center gap-1.5 text-xs text-mink font-light group-hover:gap-2.5 transition-all">
+                    Découvrir <ArrowRight size={10} />
                   </span>
-                </div>
-              </a>
-            ))}
+                </>
+              )
+              return isInternal ? (
+                <Link
+                  key={c.slug}
+                  href={c.href}
+                  className="group block"
+                  data-animate
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <a
+                  key={c.slug}
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                  data-animate
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  {inner}
+                </a>
+              )
+            })}
           </div>
 
           <div className="text-center mt-16" data-animate>

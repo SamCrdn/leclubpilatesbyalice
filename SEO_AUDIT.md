@@ -1,6 +1,6 @@
 # SEO Audit — Le Club Pilates
 
-> Dernière mise à jour : **27 avril 2026**
+> Dernière mise à jour : **8 mai 2026**
 > Score global estimé : **32/100** → objectif 60/100 à 90 jours
 
 ---
@@ -18,20 +18,39 @@
 
 ## 🔴 À faire — Code (priorité haute)
 
-| Tâche | Mot-clé cible | Volume |
-|---|---|---|
-| Articles blog (nécessite Sanity CMS actif) | pilates dos, débutant, Wall, prénatal... | 4 000–4 800/mois chacun |
+> Tout traité — voir section ✅ ci-dessous.
 
-> Le blog est le seul levier code restant à fort impact. Tout le reste est fait.
+---
+
+## ✅ Fait — Blog & navigation (8 mai 2026)
+
+- Pipeline IA fonctionnel (claude-opus-4-6 + claude-sonnet-4-6) — testé et déployé
+- CORS Sanity production configuré (`www.leclubpilates.com`)
+- Webhook Sanity → Vercel (create/update/delete sur `_type == "post"`)
+- cron-job.org configuré (lun/mer/ven 7h, `0 7 * * 1,3,5`)
+- Blog `/blog` : canonical absolu, OG image, filtre catégories fonctionnel (URL params)
+- Blog `/blog/[slug]` : canonical absolu, liens internes sans `_blank`, `dateModified` JSON-LD, BreadcrumbJsonLd
+- "Blog" ajouté dans le menu de navigation (desktop + mobile)
+- Dropdown "Le Studio" regroupant `/about` et `/profs`
+
+## ✅ Fait — Maillage interne 2 (8 mai 2026)
+
+- Composant `RelatedCourses` ajouté sur les 6 landing pages `/cours-de-pilates/*` → liens croisés entre toutes les spécialités
+- Sitemap `lastModified` mis à jour au 8 mai 2026 pour les pages modifiées
 
 ---
 
 ## 🟠 À faire — Code (priorité moyenne)
 
-| Tâche | Impact |
-|---|---|
-| Tester Core Web Vitals (PageSpeed Insights) et corriger si LCP > 2.5s | Performance mobile |
-| Configurer segment GA4 "trafic IA" (chatgpt.com, perplexity.ai) | Mesure GEO |
+> Tout traité — voir section ✅ ci-dessous.
+
+---
+
+## ✅ Fait — Priorité moyenne (8 mai 2026)
+
+- OG images spécifiques sur `/dos` (doux), `/wall`, `/full-body`, `/reformer` — fini le générique `og-image.jpg`
+- Core Web Vitals : `<SpeedInsights />` Vercel déjà en place → vérifier le dashboard Vercel
+- Segment GA4 "Trafic IA" : **action manuelle dans GA4** → Explore → Segments → Sessions → Référent contient `chatgpt.com`, `perplexity.ai`, `claude.ai`, `gemini.google.com`, `copilot.microsoft.com`
 
 ---
 

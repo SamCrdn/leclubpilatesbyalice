@@ -12,23 +12,30 @@ const coursItems = [
   { href: '/cours-de-pilates/debutant',  label: 'Débutant' },
   { href: '/cours-de-pilates/dos',       label: 'Pilates & dos' },
   { href: '/cours-de-pilates/prenatal',  label: 'Prénatal' },
+  { href: '/cours-de-pilates/abdos',     label: 'Abdos' },
   { href: '/cours-de-pilates/wall',      label: 'Pilates Wall' },
   { href: '/cours-de-pilates/full-body', label: 'Full Body' },
   { href: '/cours-de-pilates/reformer',  label: 'Reformer' },
 ]
 
+const studioItems = [
+  { href: '/about', label: 'Le Studio' },
+  { href: '/profs', label: 'Les Profs' },
+]
+
 const navLinks = [
   { href: 'https://app.leclubpilates.com/join', label: 'Abonnements', external: true },
-  { href: '/about',                             label: 'Le Studio'                   },
-  { href: '/profs',                             label: 'Les Profs'                   },
-  { href: '/retraite',                          label: 'Retraite'                    },
-  { href: '/contact',                           label: 'Contact'                     },
+  { href: '/blog',                              label: 'Blog'                        },
+  { href: '/retraite',                          label: 'Retraite'                   },
+  { href: '/contact',                           label: 'Contact'                    },
 ]
 
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [coursOpen, setCoursOpen] = useState(false)
   const [coursOpenMobile, setCoursOpenMobile] = useState(false)
+  const [studioOpen, setStudioOpen] = useState(false)
+  const [studioOpenMobile, setStudioOpenMobile] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
@@ -127,6 +134,32 @@ export default function Header() {
                 )}
               </div>
 
+              {/* Dropdown Le Studio */}
+              <div
+                className="relative"
+                onMouseEnter={() => setStudioOpen(true)}
+                onMouseLeave={() => setStudioOpen(false)}
+              >
+                <button className={`flex items-center gap-1 text-xs tracking-[0.15em] uppercase transition-colors duration-300 font-body font-light ${'text-cocoa/70 hover:text-cocoa'}`}>
+                  Le Studio <ChevronDown size={12} className={`transition-transform duration-200 ${studioOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {studioOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
+                    <div className="bg-cream border border-cocoa/10 shadow-lg rounded-sm py-2 min-w-[160px]">
+                      {studioItems.map(item => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-5 py-2.5 text-xs tracking-[0.12em] uppercase font-light text-cocoa/60 hover:text-cocoa hover:bg-sand/20 transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
               {navLinks.map(({ href, label, external }) => external ? (
                 <a
                   key={href}
@@ -203,6 +236,30 @@ export default function Header() {
             {coursOpenMobile && (
               <div className="flex flex-col gap-3 mt-4 pl-4 border-l border-sand">
                 {coursItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="text-sm font-light text-cocoa/60 hover:text-cocoa transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Le Studio accordion mobile */}
+          <div>
+            <button
+              onClick={() => setStudioOpenMobile(!studioOpenMobile)}
+              className="flex items-center gap-2 font-display text-3xl font-light text-cocoa"
+            >
+              Le Studio <ChevronDown size={18} className={`transition-transform duration-200 ${studioOpenMobile ? 'rotate-180' : ''}`} />
+            </button>
+            {studioOpenMobile && (
+              <div className="flex flex-col gap-3 mt-4 pl-4 border-l border-sand">
+                {studioItems.map(item => (
                   <Link
                     key={item.href}
                     href={item.href}

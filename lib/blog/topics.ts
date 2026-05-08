@@ -61,7 +61,7 @@ export const TOPICS: Topic[] = [
   {
     subject: 'Renforcer ses abdos avec le Pilates (sans se blesser)',
     category: 'Pilates', length: 'long',
-    internalLinks: [{ label: 'cours Pilates Full Body', url: 'https://www.leclubpilates.com/cours-de-pilates/full-body' }],
+    internalLinks: [{ label: 'cours Pilates abdos', url: 'https://www.leclubpilates.com/cours-de-pilates/abdos' }],
   },
   {
     subject: 'Full Body Pilates : sculpter son corps de la tête aux pieds',

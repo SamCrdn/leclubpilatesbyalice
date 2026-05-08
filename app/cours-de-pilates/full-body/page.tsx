@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import RelatedCourses from '@/components/ui/RelatedCourses'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Pilates Full Body — Cours corps entier en ligne',
     description: 'Pilates Full Body en ligne : renforcer et tonifier tout le corps en une séance. Sans matériel, depuis chez vous. Essai gratuit 7 jours.',
     url: `${siteUrl}/cours-de-pilates/full-body`,
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Pilates Full Body en ligne' }],
+    images: [{ url: `${siteUrl}/images/cours/cours-pilates-full-body.jpg`, width: 1200, height: 630, alt: 'Pilates Full Body en ligne' }],
   },
 }
 
@@ -189,6 +190,8 @@ export default function PilatesFullBodyPage() {
           </p>
         </div>
       </section>
+
+      <RelatedCourses current="/cours-de-pilates/full-body" />
     </>
   )
 }

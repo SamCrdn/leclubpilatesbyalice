@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react'
 import { PortableText } from 'next-sanity'
 import { client, urlFor } from '@/lib/sanity'
 import { postBySlugQuery, allSlugsQuery } from '@/lib/sanity.queries'
+import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 
 export const revalidate = 3600
 
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} — Le Club Pilates`,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical: `${siteUrl}/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -72,11 +73,18 @@ const ptComponents = {
   marks: {
     strong: ({ children }: any) => <strong className="font-medium text-cocoa">{children}</strong>,
     em: ({ children }: any) => <em className="italic">{children}</em>,
-    link: ({ value, children }: any) => (
-      <a href={value.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-cocoa hover:opacity-70 transition-opacity">
-        {children}
-      </a>
-    ),
+    link: ({ value, children }: any) => {
+      const isInternal = value.href?.startsWith('https://www.leclubpilates.com') || value.href?.startsWith('/')
+      return (
+        <a
+          href={value.href}
+          {...(!isInternal && { target: '_blank', rel: 'noopener noreferrer' })}
+          className="underline underline-offset-2 text-cocoa hover:opacity-70 transition-opacity"
+        >
+          {children}
+        </a>
+      )
+    },
   },
 }
 
@@ -95,6 +103,7 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     datePublished: post.publishedAt,
     url: `${siteUrl}/blog/${post.slug}`,
+    dateModified: post._updatedAt ?? post.publishedAt,
     author: { '@type': 'Person', name: 'Alice', url: `${siteUrl}/about` },
     publisher: { '@type': 'Organization', name: 'Le Club Pilates', url: siteUrl },
     ...(post.mainImage && { image: urlFor(post.mainImage).width(1200).height(630).url() }),
@@ -102,6 +111,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: 'Blog', href: '/blog' },
+        { name: post.title, href: `/blog/${post.slug}` },
+      ]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero image */}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import RelatedCourses from '@/components/ui/RelatedCourses'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Pilates Wall — Cours de Pilates au mur en ligne',
     description: 'Cours de Pilates Wall en ligne : exercices au mur pour renforcer, s\'étirer et améliorer la posture. Sans matériel. Essai gratuit 7 jours.',
     url: `${siteUrl}/cours-de-pilates/wall`,
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Pilates Wall en ligne' }],
+    images: [{ url: `${siteUrl}/images/cours/cours-pilates-wall.jpg`, width: 1200, height: 630, alt: 'Pilates Wall en ligne' }],
   },
 }
 
@@ -189,6 +190,8 @@ export default function PilatesWallPage() {
           </p>
         </div>
       </section>
+
+      <RelatedCourses current="/cours-de-pilates/wall" />
     </>
   )
 }

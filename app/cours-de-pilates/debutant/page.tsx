@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import RelatedCourses from '@/components/ui/RelatedCourses'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -169,6 +170,8 @@ export default function PilatesDebutantPage() {
           </p>
         </div>
       </section>
+
+      <RelatedCourses current="/cours-de-pilates/debutant" />
     </>
   )
 }
