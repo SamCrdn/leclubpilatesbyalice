@@ -36,6 +36,16 @@ export const TOPICS: Topic[] = [
   { subject: 'Pilates et sommeil : la connexion inattendue', category: 'Bien-être', length: 'short' },
   { subject: 'Pilates pour les nuls : par où commencer sans se perdre', category: 'Conseils', length: 'long' },
 
+  // ── NUTRITION ─────────────────────────────────────────────────────────
+
+  { subject: 'Que manger avant et après une séance de Pilates ?', category: 'Nutrition', length: 'short' },
+  { subject: 'Anti-inflammatoire et Pilates : l\'alimentation qui amplifie les résultats', category: 'Nutrition', length: 'long' },
+  { subject: 'Hydratation et sport : comment bien s\'hydrater quand on fait du Pilates', category: 'Nutrition', length: 'short' },
+  { subject: 'Les aliments qui favorisent la récupération musculaire après le sport', category: 'Nutrition', length: 'long' },
+  { subject: 'Protéines et Pilates : combien en faut-il vraiment ?', category: 'Nutrition', length: 'short' },
+  { subject: 'Manger intuitif et pratique sportive douce : une combinaison gagnante', category: 'Nutrition', length: 'long' },
+  { subject: '5 collations saines à avoir toujours sous la main quand on fait du sport', category: 'Nutrition', length: 'short' },
+
   // ── MAILLAGE INTERNE ───────────────────────────────────────────────────
 
   {
