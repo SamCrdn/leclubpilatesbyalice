@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { client } from '@/lib/sanity'
 import { allPostsQuery } from '@/lib/sanity.queries'
+import BlogFilter from './BlogFilter'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,36 +20,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-type Post = {
-  _id: string
-  title: string
-  slug: string
-  category: string
-  excerpt: string
-  readTime?: string
-  publishedAt: string
-  featured?: boolean
-}
-
-const categories = ['Tous', 'Pilates', 'Nutrition', 'Bien-être', 'Conseils', 'Témoignages']
-
-function formatDate(d: string) {
-  return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-}
-
-type Props = { searchParams: Promise<{ category?: string }> }
-
-export default async function BlogPage({ searchParams }: Props) {
-  const { category } = await searchParams
-  const activeCategory = category ?? 'Tous'
-
-  const allPosts: Post[] = client
+export default async function BlogPage() {
+  const allPosts = client
     ? await client.fetch(allPostsQuery).catch(() => [])
     : []
-
-  const posts = activeCategory === 'Tous'
-    ? allPosts
-    : allPosts.filter(p => p.category === activeCategory)
 
   return (
     <>
@@ -63,95 +37,7 @@ export default async function BlogPage({ searchParams }: Props) {
         </div>
       </div>
 
-      {/* Category filter */}
-      <div className="sticky top-16 md:top-20 z-30 bg-cream/95 backdrop-blur-sm border-b border-sand/30">
-        <div className="section-wrapper">
-          <div className="flex gap-6 overflow-x-auto scrollbar-none py-4">
-            {categories.map(c => {
-              const isActive = c === activeCategory
-              const href = c === 'Tous' ? '/blog' : `/blog?category=${encodeURIComponent(c)}`
-              return (
-                <Link
-                  key={c}
-                  href={href}
-                  className={`text-xs tracking-[0.15em] uppercase whitespace-nowrap font-light pb-0.5 border-b transition-colors ${
-                    isActive
-                      ? 'text-cocoa border-cocoa'
-                      : 'text-cocoa/50 border-transparent hover:text-cocoa hover:border-cocoa'
-                  }`}
-                >
-                  {c}
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Articles ou placeholder */}
-      <div className="py-section bg-chalk">
-        <div className="section-wrapper">
-          {posts.length === 0 ? (
-            <div className="flex flex-col items-center justify-center text-center py-20" data-animate>
-              <p className="font-display text-4xl font-light italic text-cocoa/30 mb-4">Bientôt disponible</p>
-              <p className="text-sm font-light text-cocoa/40">Les articles arrivent très prochainement.</p>
-            </div>
-          ) : (
-            <>
-              {/* Article featured */}
-              {posts.filter(p => p.featured).slice(0, 1).map(post => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug}`}
-                  className="group block border border-cocoa/10 bg-cream rounded-sm p-8 mb-10 hover:border-cocoa/30 transition-colors"
-                  data-animate
-                >
-                  <p className="eyebrow mb-3">{post.category}</p>
-                  <h2 className="font-display text-3xl md:text-4xl font-light text-cocoa leading-tight mb-4 group-hover:opacity-70 transition-opacity">
-                    {post.title}
-                  </h2>
-                  <p className="text-sm text-cocoa/55 font-light leading-relaxed mb-6 max-w-2xl">{post.excerpt}</p>
-                  <div className="flex items-center gap-4 text-xs text-mink font-light">
-                    <span>{formatDate(post.publishedAt)}</span>
-                    {post.readTime && <>
-                      <span className="w-1 h-1 rounded-full bg-sand" />
-                      <span>{post.readTime} de lecture</span>
-                    </>}
-                    <span className="ml-auto group-hover:translate-x-1 transition-transform">→</span>
-                  </div>
-                </Link>
-              ))}
-
-              {/* Grille articles */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.filter(p => !p.featured).map((post, i) => (
-                  <Link
-                    key={post._id}
-                    href={`/blog/${post.slug}`}
-                    className="group block border border-cocoa/10 bg-cream rounded-sm p-6 hover:border-cocoa/30 transition-colors"
-                    data-animate
-                    style={{ transitionDelay: `${i * 50}ms` }}
-                  >
-                    <p className="eyebrow mb-3">{post.category}</p>
-                    <h2 className="font-display text-xl font-light text-cocoa leading-snug mb-3 group-hover:opacity-70 transition-opacity">
-                      {post.title}
-                    </h2>
-                    <p className="text-xs text-cocoa/50 font-light leading-relaxed mb-5 line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center gap-3 text-xs text-mink font-light">
-                      <span>{formatDate(post.publishedAt)}</span>
-                      {post.readTime && <>
-                        <span className="w-1 h-1 rounded-full bg-sand" />
-                        <span>{post.readTime}</span>
-                      </>}
-                      <span className="ml-auto group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+      <BlogFilter allPosts={allPosts} />
     </>
   )
 }

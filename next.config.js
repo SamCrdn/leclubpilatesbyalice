@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  staleTimes: {
-    dynamic: 0,
+  experimental: {
+    staleTimes: {
+      dynamic: 0,
+    },
   },
   images: {
     formats: ['image/avif', 'image/webp'],
