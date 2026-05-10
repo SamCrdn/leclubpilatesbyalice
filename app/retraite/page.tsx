@@ -58,6 +58,11 @@ const eventJsonLd = {
     url: `${siteUrl}/retraite#reservation`,
     validFrom: '2026-01-01',
   },
+  performer: {
+    '@type': 'Person',
+    name: 'Alice',
+    url: `${siteUrl}/about`,
+  },
   image: `${siteUrl}/images/Retraites/retraite-pilates-ibiza-villa.jpg`,
   url: `${siteUrl}/retraite`,
   maximumAttendeeCapacity: 10,

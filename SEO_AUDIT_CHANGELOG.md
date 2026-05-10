@@ -1,24 +1,24 @@
 # SEO Audit — Le Club Pilates
 
-> Dernière mise à jour : **8 mai 2026**
-> Score global estimé : **32/100** → objectif 60/100 à 90 jours
+> Dernière mise à jour : **10 mai 2026**
+> Score global estimé : **~50/100** → objectif 60/100 à 90 jours
 
 ---
 
-## ⚠️ Actions manuelles — À faire par toi
+## ✅ Fait — Actions manuelles Search Console (10 mai 2026)
 
-| # | Action | Où | Impact |
-|---|---|---|---|
-| 1 | Bloquer `/programs/` `/categories/` `/pages/` `/join` `/sign_in` dans le `robots.txt` | Tableau de bord de **app.leclubpilates.com** (hébergeur/Uscreen) | 🔴 Critique — stoppe la cannibalisation |
-| 2 | Déclarer le paramètre `?trk=` à ignorer | **Google Search Console** → Paramètres d'URL | 🟠 Important — élimine la duplication homepage |
-| 3 | Demander la re-indexation des nouvelles URLs | **Google Search Console** → Inspection d'URL → pour chaque `/cours-de-pilates/*` | 🟠 Important — accélère le ranking |
-| 4 | Soumettre le sitemap | **Google Search Console** → Sitemaps → `https://www.leclubpilates.com/sitemap.xml` | 🟠 Important |
+- Domaine `leclubpilates.com` vérifié dans Google Search Console (DNS TXT via Infomaniak)
+- Sitemap soumis → 17 pages découvertes
+- Toutes les landing pages `/cours-de-pilates/*` + `/abdos` déjà indexées
+- `/blog` : indexation demandée (24-48h)
+- `?trk=` : fonctionnalité supprimée par Google, géré automatiquement
+- Uscreen : `/programs/`, `/categories/`, `/pages/`, `/join` supprimés via Search Console (renouveler dans 6 mois)
 
----
+## ✅ Fait — Code (10 mai 2026)
 
-## 🔴 À faire — Code (priorité haute)
-
-> Tout traité — voir section ✅ ci-dessous.
+- Sitemap dynamique branché Sanity → articles `/blog/[slug]` inclus automatiquement
+- GA4 conditionné au consentement cookie (composant `GoogleAnalytics` + événement `cookieConsent`)
+- JSON-LD retraite : champ `performer` (Alice) ajouté
 
 ---
 

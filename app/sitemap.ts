@@ -1,8 +1,23 @@
 import { MetadataRoute } from 'next'
+import { client } from '@/lib/sanity'
+import { allSlugsQuery } from '@/lib/sanity.queries'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  let slugs: { slug: string }[] = []
+  try {
+    if (client) slugs = await client.fetch(allSlugsQuery)
+  } catch {
+    // Sanity unreachable at build time (local SSL) — blog URLs omitted
+  }
+
+  const blogUrls: MetadataRoute.Sitemap = slugs.map(({ slug }) => ({
+    url: `${siteUrl}/blog/${slug}`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
   return [
     { url: siteUrl,                                     lastModified: new Date('2026-03-27'), changeFrequency: 'weekly',  priority: 1.0 },
     { url: `${siteUrl}/about`,                          lastModified: new Date('2026-03-27'), changeFrequency: 'monthly', priority: 0.8 },
@@ -21,5 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/legal/mentions-legales`,         lastModified: new Date('2026-03-27'), changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${siteUrl}/legal/confidentialite`,          lastModified: new Date('2026-03-27'), changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${siteUrl}/legal/cgv`,                      lastModified: new Date('2026-03-27'), changeFrequency: 'yearly',  priority: 0.3 },
+    ...blogUrls,
   ]
 }

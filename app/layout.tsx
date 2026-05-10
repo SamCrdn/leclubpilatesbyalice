@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import CookieBanner from '@/components/ui/CookieBanner'
+import GoogleAnalytics from '@/components/ui/GoogleAnalytics'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 // ── Fonts ──────────────────────────────────────────────
 const cormorant = Cormorant_Garamond({
@@ -102,18 +100,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <CookieBanner />
         <SpeedInsights />
-
-        {/* Google Analytics */}
-        {GA_ID && (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" />
-            <Script id="ga4-init" strategy="lazyOnload">{`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}');
-            `}</Script>
-          </>
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
       </body>
     </html>

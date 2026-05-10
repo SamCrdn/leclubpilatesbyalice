@@ -5,15 +5,16 @@
 
 ## En résumé : comment tout fonctionne
 
-Ton site est composé de **3 éléments distincts** qui travaillent ensemble :
+Ton site est composé de **plusieurs éléments** qui travaillent ensemble :
 
 ```
 GitHub (code)  →  Vercel (site en ligne)  ←→  Sanity (contenus)
-                                    ↑
-                             Anthropic / Claude
-                           (génération articles IA)
+                          ↑                           ↑
+                   Infomaniak (domaine)        Anthropic / Claude
+                                             (génération articles IA)
 ```
 
+- **Infomaniak** = l'hébergeur qui gère ton nom de domaine `leclubpilates.com`
 - **GitHub** = le tiroir où le code est rangé et sauvegardé
 - **Vercel** = le serveur qui fait tourner ton site sur Internet
 - **Sanity** = ton tableau de bord pour modifier les textes et données
@@ -21,7 +22,28 @@ GitHub (code)  →  Vercel (site en ligne)  ←→  Sanity (contenus)
 
 ---
 
-## 1. Vercel — Hébergement du site
+## 1. Infomaniak — Nom de domaine
+
+### C'est quoi ?
+Infomaniak est l'hébergeur suisse qui gère ton **nom de domaine** `leclubpilates.com`. C'est lui qui fait le lien entre l'adresse que les gens tapent dans leur navigateur et ton site hébergé sur Vercel. Il héberge aussi potentiellement tes boîtes mail `@leclubpilates.com`.
+
+### Accès
+| | |
+|---|---|
+| **URL** | https://www.infomaniak.com |
+| **Login** | [à compléter] |
+| **Mot de passe** | [à compléter] |
+
+### Abonnement
+| Élément | Prix |
+|---|---|
+| Nom de domaine `.com` | ~15 €/an |
+
+> Si le domaine expire, le site devient inaccessible. Penser à renouveler avant la date d'échéance (Infomaniak envoie des emails de rappel).
+
+---
+
+## 2. Vercel — Hébergement du site
 
 ### C'est quoi ?
 Vercel est l'hébergeur de ton site. C'est lui qui le rend accessible sur **www.leclubpilates.com**. Dès qu'une modification de code est envoyée sur GitHub, Vercel reconstruit automatiquement le site en quelques minutes — sans intervention manuelle.
@@ -43,7 +65,7 @@ Vercel est l'hébergeur de ton site. C'est lui qui le rend accessible sur **www.
 
 ---
 
-## 2. Sanity — Gestion du contenu (CMS)
+## 3. Sanity — Gestion du contenu (CMS)
 
 ### C'est quoi ?
 Sanity est ton **outil de gestion de contenu**. C'est là que tu vas pour modifier les textes, chiffres et informations visibles sur le site — sans toucher au code.
@@ -86,7 +108,7 @@ Sanity est ton **outil de gestion de contenu**. C'est là que tu vas pour modifi
 
 ---
 
-## 3. GitHub — Sauvegarde du code
+## 4. GitHub — Sauvegarde du code
 
 ### C'est quoi ?
 GitHub est comme **Google Drive pour le code**. Il stocke toutes les versions du code avec l'historique complet. Si quelque chose se casse, on peut toujours revenir à une version précédente.
@@ -107,7 +129,7 @@ GitHub est comme **Google Drive pour le code**. Il stocke toutes les versions du
 
 ---
 
-## 4. Anthropic / Claude — Intelligence artificielle pour le blog
+## 5. Anthropic / Claude — Intelligence artificielle pour le blog
 
 ### C'est quoi ?
 Anthropic est la société qui a créé **Claude**, l'IA utilisée pour rédiger automatiquement les articles de blog. 3 fois par semaine (lundi, mercredi, vendredi à 7h), Claude génère un article sur le Pilates et l'envoie en brouillon dans Sanity pour que tu le valides.
@@ -143,26 +165,23 @@ Anthropic fonctionne à la **consommation** (pas d'abonnement fixe) — tu pague
 
 ---
 
-## 5. cron-job.org — Déclencheur automatique du blog
+## 6. GitHub Actions — Déclencheur automatique du blog
 
 ### C'est quoi ?
-cron-job.org est un service qui "appuie sur le bouton" automatiquement 3 fois par semaine pour déclencher la génération d'articles. C'est l'équivalent d'un réveil programmé.
+GitHub Actions est un système d'automatisation intégré à GitHub. Il "appuie sur le bouton" automatiquement 3 fois par semaine pour déclencher la génération d'articles. C'est l'équivalent d'un réveil programmé — aucun service externe nécessaire.
 
-### Accès
-| | |
-|---|---|
-| **URL** | https://cron-job.org |
-| **Login** | [à compléter] |
-| **Mot de passe** | [à compléter] |
+### Planning
+- **Lundi, mercredi, vendredi à 7h** (heure de Paris) — automatique
+- Possible aussi de lancer manuellement depuis GitHub → onglet **Actions** → "Générer un article de blog" → **Run workflow**
 
 ### Abonnement
 | Plan | Prix |
 |---|---|
-| **Free (gratuit)** | 0 €/mois — largement suffisant |
+| **Gratuit** | Inclus dans GitHub Free — aucun coût supplémentaire |
 
 ---
 
-## 6. Google Analytics — Statistiques du site
+## 7. Google Analytics — Statistiques du site
 
 ### C'est quoi ?
 Google Analytics te permet de voir combien de personnes visitent ton site, d'où elles viennent, quelles pages elles consultent, etc.
@@ -179,23 +198,22 @@ Gratuit.
 
 ---
 
-## 7. Récapitulatif des coûts
+## 8. Récapitulatif des coûts
 
-| Service | Rôle | Coût mensuel |
+| Service | Rôle | Coût |
 |---|---|---|
-| Vercel | Hébergement site | **Gratuit** |
+| **Infomaniak** | Nom de domaine leclubpilates.com | **~15 €/an** |
+| Vercel | Hébergement site Next.js | **Gratuit** |
 | Sanity | CMS (gestion contenus) | **Gratuit** |
-| GitHub | Sauvegarde code | **Gratuit** |
-| cron-job.org | Déclencheur blog IA | **Gratuit** |
+| GitHub + GitHub Actions | Sauvegarde code + déclencheur blog IA | **Gratuit** |
 | Google Analytics | Statistiques | **Gratuit** |
 | **Anthropic (Claude)** | Génération articles IA | **~1–3 €/mois** |
-| **Nom de domaine** | leclubpilates.com | **~15 €/an** |
 | | | |
 | **TOTAL** | | **~2–4 €/mois** |
 
 ---
 
-## 8. Schéma général
+## 9. Schéma général
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -219,12 +237,13 @@ Gratuit.
 
 ---
 
-## 9. Que faire si...
+## 10. Que faire si...
 
 | Situation | Action |
 |---|---|
 | Je veux modifier un prix, un texte, une date | Aller sur **leclubpilates.sanity.studio** |
-| Le site est en panne | Vérifier **vercel.com** → contacter le dev |
+| Le site est en panne | Vérifier **vercel.com** → si OK, vérifier **infomaniak.com** (DNS) → contacter le dev |
+| Le domaine expire bientôt | Se connecter sur **infomaniak.com** et renouveler |
 | Le blog ne génère plus d'articles | Vérifier le solde sur **console.anthropic.com** |
 | Je veux ajouter un professeur | Sanity > Professeurs > "New" |
 | Je veux changer la bannière promo | Sanity > Paramètres du site > Bannière |

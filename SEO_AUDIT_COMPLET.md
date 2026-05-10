@@ -3,6 +3,24 @@
 
 ---
 
+## TODO SEO
+
+### 🟠 Moyen terme — 1 à 3 mois
+
+- [ ] **Homepage** — Ajouter une section "Derniers articles" → booste l'autorité du blog
+- [ ] **JSON-LD** — Ajouter `ItemList` sur `/blog` quand ≥ 5 articles publiés
+- [ ] **Title `/about`** — Améliorer : *"Le Studio — Alice & la méthode Pilates · Le Club Pilates"*
+- [ ] **Annuaires wellness** — Soumettre le site sur Doctissimo, Aufeminin, Femme Actuelle (gratuit, 30 min)
+
+### 🟡 Long terme — 3 à 6 mois
+
+- [ ] **Presse** — Interviews Alice dans presse féminine (Madame Figaro, Elle, Marie Claire) — backlink le plus puissant possible
+- [ ] **Backlinks** — Partenariats influenceurs Pilates / wellness FR
+- [ ] **Landing page** — Créer `/cours-de-pilates/stretching` (1 300 recherches/mois)
+- [ ] **Suivi ranking** — Configurer Ahrefs ou Semrush pour mesurer les positions mensuellement
+
+---
+
 ## Score global estimé
 
 | Dimension | Score | Tendance |
