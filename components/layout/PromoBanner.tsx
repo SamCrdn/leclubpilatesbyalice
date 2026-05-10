@@ -28,13 +28,13 @@ export default function PromoBanner() {
         <span className="text-base">☀️</span>
         <div className="flex flex-col items-center leading-tight">
           <span className="text-xs font-medium tracking-wide">Retraite Pilates · Ibiza</span>
-          <span className="text-2xs text-cream/60 tracking-wide">Juin 2026 · Places limitées</span>
+          <span className="text-2xs text-cream/60 tracking-wide">−60 € · Places limitées</span>
         </div>
         <a
           href={RETRAITE_URL}
           className="shrink-0 bg-cream text-cocoa text-2xs tracking-widest uppercase px-3 py-1.5 rounded-pill font-light hover:bg-cream/90 transition-colors"
         >
-          Découvrir
+          En profiter
         </a>
       </div>
 
@@ -42,8 +42,8 @@ export default function PromoBanner() {
       <div className="hidden md:flex items-center justify-center gap-4">
         <span className="text-lg">☀️</span>
         <p className="text-xs tracking-wide text-cream/90">
-          <span className="font-medium uppercase tracking-widest mr-2 text-cream">Retraite Pilates</span>
-          Ibiza · Juin 2026
+          <span className="font-medium uppercase tracking-widest mr-2 text-cream">Retraite Pilates · Ibiza</span>
+          Offre spéciale −60 €
           <span className="mx-2 opacity-40">·</span>
           Places limitées
         </p>
@@ -51,7 +51,7 @@ export default function PromoBanner() {
           href={RETRAITE_URL}
           className="shrink-0 bg-cream text-cocoa text-2xs tracking-widest uppercase px-4 py-1.5 rounded-pill font-light hover:bg-cream/90 transition-colors whitespace-nowrap"
         >
-          Découvrir la retraite →
+          En profiter →
         </a>
       </div>
 

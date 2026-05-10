@@ -138,14 +138,11 @@ ${linksInstruction}
 
 Structure OBLIGATOIRE du Markdown :
 
-1. Commence par ce bloc TL;DR (tel quel, sans modification) :
-> **En bref :** ${plan.tldr}
+1. Commence directement par un paragraphe d'intro accrocheur (2-3 phrases) — NE PAS écrire de TL;DR, il est géré séparément
 
-2. Écris ensuite un paragraphe d'intro accrocheur (2-3 phrases)
+2. Développe les sections H2 du plan
 
-3. Développe les sections H2 du plan
-
-4. Termine par cette section FAQ (telle quelle) :
+3. Termine par cette section FAQ (telle quelle) :
 ## Questions fréquentes
 
 ${faqSection}
