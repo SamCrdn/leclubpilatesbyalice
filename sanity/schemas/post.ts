@@ -64,6 +64,26 @@ export const postType = defineType({
       type:  'boolean',
     }),
     defineField({
+      name:  'tldr',
+      title: 'En bref (TL;DR)',
+      type:  'text',
+      rows:  2,
+      description: 'Résumé en 2-3 phrases — affiché en haut de l\'article et extractible par les IA',
+    }),
+    defineField({
+      name:  'faq',
+      title: 'Questions fréquentes',
+      type:  'array',
+      of: [{
+        type: 'object',
+        fields: [
+          { name: 'question', title: 'Question', type: 'string' },
+          { name: 'answer',   title: 'Réponse',  type: 'text', rows: 3 },
+        ],
+        preview: { select: { title: 'question' } },
+      }],
+    }),
+    defineField({
       name:  'body',
       title: 'Contenu',
       type:  'array',

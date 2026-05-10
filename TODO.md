@@ -31,6 +31,7 @@
 ## ✅ Terminé (historique)
 
 - Sitemap dynamique branché Sanity — articles `/blog/[slug]` inclus automatiquement
+- Optimisation articles blog — TL;DR + FAQ structurée + LSI keywords dans le pipeline IA. FAQPage JSON-LD auto. TL;DR affiché sur la page article.
 - GA4 conditionné au consentement cookie (composant `GoogleAnalytics` + événement `cookieConsent`)
 - Déploiement Vercel + domaine Infomaniak (leclubpilates.com)
 - Blog Sanity complet — studio, pipeline IA GitHub Actions (lun/mer/ven 7h), webhook Vercel

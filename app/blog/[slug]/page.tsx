@@ -109,6 +109,16 @@ export default async function BlogPostPage({ params }: Props) {
     ...(post.mainImage && { image: urlFor(post.mainImage).width(1200).height(630).url() }),
   }
 
+  const faqJsonLd = post.faq?.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: post.faq.map((f: { question: string; answer: string }) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  } : null
+
   return (
     <>
       <BreadcrumbJsonLd items={[
@@ -116,6 +126,7 @@ export default async function BlogPostPage({ params }: Props) {
         { name: post.title, href: `/blog/${post.slug}` },
       ]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
 
       {/* Hero image */}
       {post.mainImage && (
@@ -151,6 +162,14 @@ export default async function BlogPostPage({ params }: Props) {
               <span>{post.readTime} de lecture</span>
             </>}
           </div>
+
+          {/* TL;DR */}
+          {post.tldr && (
+            <div className="bg-sand/20 border-l-2 border-sand rounded-r-sm px-6 py-5 mb-10">
+              <p className="text-xs tracking-widest uppercase text-mink font-light mb-2">En bref</p>
+              <p className="font-light text-cocoa/80 leading-relaxed">{post.tldr}</p>
+            </div>
+          )}
 
           {/* Contenu */}
           <div className="prose-custom">

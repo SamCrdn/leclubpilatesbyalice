@@ -7,7 +7,7 @@ import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
-  title: 'Alice — Fondatrice du Club Pilates',
+  title: 'Le Studio — Alice & la méthode Pilates',
   description:
     'Découvrez l\'histoire d\'Alice, fondatrice du Club Pilates. Ancienne danseuse, instructrice certifiée Polestar. Cours de Pilates en ligne depuis 2020.',
   alternates: { canonical: `${siteUrl}/about` },

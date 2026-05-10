@@ -28,6 +28,8 @@ async function main() {
     slug:        { _type: 'slug', current: plan.slug },
     category:    plan.category,
     excerpt:     plan.excerpt,
+    tldr:        plan.tldr,
+    faq:         plan.faqItems.map(f => ({ _type: 'object', _key: randomUUID(), question: f.question, answer: f.answer })),
     readTime:    plan.readTime,
     publishedAt: new Date().toISOString(),
     featured:    false,

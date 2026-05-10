@@ -25,8 +25,24 @@ export default async function BlogPage() {
     ? await client.fetch(allPostsQuery).catch(() => [])
     : []
 
+  const itemListJsonLd = allPosts.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Blog Pilates — Le Club Pilates',
+    url: `${siteUrl}/blog`,
+    numberOfItems: allPosts.length,
+    itemListElement: allPosts.map((post: any, index: number) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${siteUrl}/blog/${post.slug}`,
+      name: post.title,
+    })),
+  } : null
+
   return (
     <>
+      {itemListJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />}
+
       {/* Header */}
       <div className="pt-40 pb-16 bg-cream">
         <div className="section-wrapper">

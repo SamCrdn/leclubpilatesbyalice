@@ -15,6 +15,7 @@ Pages SEO du site (à privilégier comme liens internes) :
 - Pilates Wall : https://www.leclubpilates.com/cours-de-pilates/wall
 - Pilates Full Body : https://www.leclubpilates.com/cours-de-pilates/full-body
 - Pilates Reformer : https://www.leclubpilates.com/cours-de-pilates/reformer
+- Pilates Abdos : https://www.leclubpilates.com/cours-de-pilates/abdos
 - À propos d'Alice : https://www.leclubpilates.com/about
 - L'équipe : https://www.leclubpilates.com/profs
 
@@ -46,6 +47,8 @@ Ton éditorial d'Alice :
 - Fin d'article : phrase d'invitation douce, jamais de CTA agressif
 `.trim()
 
+export type FaqItem = { question: string; answer: string }
+
 export type ArticlePlan = {
   title: string
   slug: string
@@ -53,8 +56,11 @@ export type ArticlePlan = {
   excerpt: string
   readTime: string
   targetKeyword: string
+  lsiKeywords: string[]
+  tldr: string
   h2Sections: string[]
   internalLinks: Array<{ anchorText: string; url: string; section: string }>
+  faqItems: FaqItem[]
 }
 
 export type GeneratedArticle = {
@@ -65,10 +71,10 @@ export type GeneratedArticle = {
 async function planArticle(client: Anthropic, topic: Topic): Promise<ArticlePlan> {
   const msg = await client.messages.create({
     model: 'claude-opus-4-6',
-    max_tokens: 1500,
+    max_tokens: 2000,
     messages: [{
       role: 'user',
-      content: `Tu es éditrice SEO pour Le Club Pilates. Planifie un article de blog.
+      content: `Tu es éditrice SEO pour Le Club Pilates. Planifie un article de blog optimisé SEO et GEO.
 
 ${SITE_CONTEXT}
 
@@ -84,9 +90,18 @@ Réponds UNIQUEMENT avec ce JSON (sans balises markdown) :
   "excerpt": "meta description engageante de 120 à 150 caractères",
   "readTime": "X min",
   "targetKeyword": "mot-clé principal",
+  "lsiKeywords": ["mot-clé LSI 1", "mot-clé LSI 2", "mot-clé LSI 3", "mot-clé LSI 4"],
+  "tldr": "Résumé en 2-3 phrases simples et directes — réponse immédiate à la question principale. Extractible par les IA (ChatGPT, Perplexity).",
   "h2Sections": ["titre section 1", "titre section 2", "titre section 3"],
   "internalLinks": [
     { "anchorText": "texte ancre naturel", "url": "url complète", "section": "titre H2 cible" }
+  ],
+  "faqItems": [
+    { "question": "Question fréquente 1 ?", "answer": "Réponse directe en moins de 60 mots." },
+    { "question": "Question fréquente 2 ?", "answer": "Réponse directe en moins de 60 mots." },
+    { "question": "Question fréquente 3 ?", "answer": "Réponse directe en moins de 60 mots." },
+    { "question": "Question fréquente 4 ?", "answer": "Réponse directe en moins de 60 mots." },
+    { "question": "Question fréquente 5 ?", "answer": "Réponse directe en moins de 60 mots." }
   ]
 }`,
     }],
@@ -102,9 +117,11 @@ async function writeArticle(client: Anthropic, topic: Topic, plan: ArticlePlan):
     ? `Liens à intégrer naturellement :\n${plan.internalLinks.map(l => `- [${l.anchorText}](${l.url}) dans la section "${l.section}"`).join('\n')}`
     : ''
 
+  const faqSection = plan.faqItems.map(f => `**${f.question}**\n${f.answer}`).join('\n\n')
+
   const msg = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 2500,
+    max_tokens: 3000,
     messages: [{
       role: 'user',
       content: `Tu es Alice, fondatrice du Club Pilates. Rédige cet article de blog.
@@ -114,19 +131,33 @@ ${TONE_GUIDE}
 Plan :
 - Titre : ${plan.title}
 - Mot-clé cible : ${plan.targetKeyword}
+- Mots-clés LSI à intégrer naturellement : ${plan.lsiKeywords.join(', ')}
 - Sections : ${plan.h2Sections.join(' / ')}
-- Longueur : ${topic.length === 'short' ? '600–800 mots' : '1000–1400 mots'}
+- Longueur corps de l'article : ${topic.length === 'short' ? '600–800 mots' : '1000–1400 mots'}
 ${linksInstruction}
 
-Format Markdown strict :
+Structure OBLIGATOIRE du Markdown :
+
+1. Commence par ce bloc TL;DR (tel quel, sans modification) :
+> **En bref :** ${plan.tldr}
+
+2. Écris ensuite un paragraphe d'intro accrocheur (2-3 phrases)
+
+3. Développe les sections H2 du plan
+
+4. Termine par cette section FAQ (telle quelle) :
+## Questions fréquentes
+
+${faqSection}
+
+Règles Markdown :
 - Ne pas écrire le titre H1 (géré séparément)
-- Commence par un paragraphe d'intro accrocheur
 - ## pour H2, ### pour H3 si besoin
-- > pour une citation inspirante (1 maximum)
+- > pour le TL;DR et une citation inspirante max (pas plus)
 - **gras** pour les points importants, *italique* avec parcimonie
 - [texte](url) pour les liens internes
 - Paragraphes courts (3–4 lignes max)
-- Termine par une invitation douce sans jamais écrire "abonne-toi" ou "achète"`,
+- Intègre les mots-clés LSI de façon naturelle dans le texte`,
     }],
   })
 

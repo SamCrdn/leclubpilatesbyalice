@@ -67,6 +67,8 @@ export const postBySlugQuery = groq`
     "slug": slug.current,
     category,
     excerpt,
+    tldr,
+    faq[] { question, answer },
     mainImage,
     readTime,
     publishedAt,
