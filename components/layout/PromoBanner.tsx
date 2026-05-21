@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
-const RETRAITE_URL = '/retraite'
-const STORAGE_KEY = 'promo-retraite-ibiza-2026'
+const USCREEN_URL = 'https://app.leclubpilates.com/join'
+const STORAGE_KEY = 'promo-fete-des-meres-2026'
 
 export default function PromoBanner() {
   const [visible, setVisible] = useState(false)
@@ -25,33 +25,38 @@ export default function PromoBanner() {
 
       {/* ── Mobile ── */}
       <div className="flex md:hidden items-center justify-center gap-3">
-        <span className="text-base">☀️</span>
+        <span className="text-base">❤️</span>
         <div className="flex flex-col items-center leading-tight">
-          <span className="text-xs font-medium tracking-wide">Retraite Pilates · Ibiza</span>
-          <span className="text-2xs text-cream/60 tracking-wide">−60 € · Places limitées</span>
+          <span className="text-xs font-medium tracking-wide">Fête des Mères −30%</span>
+          <span className="text-2xs text-cream/60 tracking-wide">Code : MAMALOVE</span>
         </div>
         <a
-          href={RETRAITE_URL}
+          href={USCREEN_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="shrink-0 bg-cream text-cocoa text-2xs tracking-widest uppercase px-3 py-1.5 rounded-pill font-light hover:bg-cream/90 transition-colors"
         >
-          En profiter
+          J'en profite
         </a>
       </div>
 
       {/* ── Desktop ── */}
       <div className="hidden md:flex items-center justify-center gap-4">
-        <span className="text-lg">☀️</span>
+        <span className="text-lg">❤️</span>
         <p className="text-xs tracking-wide text-cream/90">
-          <span className="font-medium uppercase tracking-widest mr-2 text-cream">Retraite Pilates · Ibiza</span>
-          Offre spéciale −60 €
+          <span className="font-medium uppercase tracking-widest mr-2 text-cream">Fête des Mères</span>
+          −30%
           <span className="mx-2 opacity-40">·</span>
-          Places limitées
+          Code&nbsp;
+          <span className="font-semibold tracking-widest text-cream">MAMALOVE</span>
         </p>
         <a
-          href={RETRAITE_URL}
+          href={USCREEN_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="shrink-0 bg-cream text-cocoa text-2xs tracking-widest uppercase px-4 py-1.5 rounded-pill font-light hover:bg-cream/90 transition-colors whitespace-nowrap"
         >
-          En profiter →
+          J'en profite →
         </a>
       </div>
 
