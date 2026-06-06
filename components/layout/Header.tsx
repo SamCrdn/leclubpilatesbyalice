@@ -100,7 +100,7 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              <span className={`font-satoshi font-medium tracking-[0.2em] uppercase text-sm whitespace-nowrap transition-colors duration-500 ${'text-cocoa'}`}>
+              <span className={`font-body font-medium tracking-[0.2em] uppercase text-sm whitespace-nowrap transition-colors duration-500 ${'text-cocoa'}`}>
                 Le Club Pilates
               </span>
             </Link>

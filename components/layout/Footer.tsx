@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* Brand + Newsletter */}
           <div className="lg:col-span-2">
-            <p className="font-satoshi font-medium tracking-[0.2em] uppercase text-sm text-cream mb-4">
+            <p className="font-body font-medium tracking-[0.2em] uppercase text-sm text-cream mb-4">
               Le Club Pilates
             </p>
             <p className="text-sm font-light leading-relaxed max-w-xs text-cream/50 mb-8">
