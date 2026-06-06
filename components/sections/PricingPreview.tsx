@@ -16,6 +16,12 @@ type Plan = {
   imageUrl?: string
 }
 
+const PLAN_IMAGES: Record<string, string> = {
+  mensuel: '/images/plan-mensuel.jpg',
+  trimestriel: '/images/plan-trimestriel.jpg',
+  annuel: '/images/class-3.jpg',
+}
+
 const FALLBACK_PLANS: Plan[] = [
   {
     name: 'Mensuel',     tagline: 'Idéal pour découvrir',           price: 29,  period: 'mois',
@@ -29,14 +35,19 @@ const FALLBACK_PLANS: Plan[] = [
   },
   {
     name: 'Annuel',      tagline: 'Idéal pour transformer son corps', price: 229, period: 'an',
-    highlight: false,    badge: "34% d'économie",                    imageUrl: '/images/cours/cours-pilates-stretching.jpg',
+    highlight: false,    badge: "34% d'économie",                    imageUrl: '/images/class-3.jpg',
     features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
   },
 ]
 
 export default async function PricingPreview() {
   const data = client ? await client.fetch(pricingPlansQuery).catch(() => null) : null
-  const plans: Plan[] = data?.length ? data : FALLBACK_PLANS
+  const plans: Plan[] = data?.length
+    ? data.map((plan: Plan) => ({
+        ...plan,
+        imageUrl: PLAN_IMAGES[plan.name?.toLowerCase() ?? ''] ?? plan.imageUrl,
+      }))
+    : FALLBACK_PLANS
 
   return (
     <section aria-labelledby="pricing-title" className="pb-section pt-[clamp(7rem,14vw,12rem)] bg-cream">
