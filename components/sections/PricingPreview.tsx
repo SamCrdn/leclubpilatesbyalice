@@ -48,15 +48,14 @@ export default async function PricingPreview() {
           <p className="mt-4 text-cocoa/60 font-light max-w-md mx-auto">7 jours d'essai gratuit. Résiliez à tout moment.</p>
         </div>
 
-        <div className="flex md:grid md:grid-cols-3 gap-6 md:max-w-4xl md:mx-auto overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0">
+        <div className="relative">
+        <div className="flex md:grid md:grid-cols-3 gap-6 md:max-w-4xl md:mx-auto overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 overscroll-x-contain">
           {plans.map((plan, i) => (
             <div
               key={plan._id ?? plan.name}
               className={`relative flex flex-col shrink-0 w-[80vw] md:w-auto snap-start rounded-sm overflow-hidden transition-shadow ${
                 plan.highlight ? 'bg-cocoa text-cream shadow-xl' : 'bg-chalk border border-sand/30 hover:shadow-md'
               }`}
-              data-animate
-              style={{ transitionDelay: `${i * 100}ms` }}
             >
               {plan.imageUrl && (
                 <div className="aspect-video relative overflow-hidden transform-gpu">
@@ -92,6 +91,10 @@ export default async function PricingPreview() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="absolute right-0 top-0 bottom-4 w-14 bg-gradient-to-l from-cream to-transparent pointer-events-none md:hidden flex items-center justify-end pr-2" aria-hidden="true">
+          <span className="text-cocoa/40 text-base">→</span>
+        </div>
         </div>
 
         <div className="text-center mt-10" data-animate>

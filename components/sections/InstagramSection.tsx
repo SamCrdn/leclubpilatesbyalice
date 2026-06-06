@@ -12,7 +12,7 @@ declare module 'react' {
 
 export default function InstagramSection() {
   return (
-    <section aria-labelledby="instagram-title" className="pt-0 pb-section bg-chalk">
+    <section aria-labelledby="instagram-title" className="py-section bg-chalk border-t border-cocoa/10">
       <div className="section-wrapper">
 
         <div className="text-center mb-12" data-animate>
@@ -31,17 +31,17 @@ export default function InstagramSection() {
         </div>
 
         <div data-animate>
-          <behold-widget feed-id={process.env.NEXT_PUBLIC_BEHOLD_FEED_ID ?? 'gsk2W3Na8VY7jC4jc8lG'} />
+          <behold-widget feed-id={process.env.NEXT_PUBLIC_BEHOLD_FEED_ID ?? 'gsk2W3Na8VY7jC4jc8lG'} suppressHydrationWarning />
         </div>
 
         <div className="text-center mt-10" data-animate>
           <a
-            href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=cta&utm_campaign=homepage&utm_content=instagram"
+            href="https://www.instagram.com/alice.leclubpilates"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary"
+            className="btn-secondary"
           >
-            Rejoindre le club — 7 jours gratuits
+            Nous suivre
           </a>
         </div>
 

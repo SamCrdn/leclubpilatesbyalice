@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
@@ -32,7 +33,7 @@ const personJsonLd = {
     { '@type': 'EducationalOccupationalCredential', name: 'Polestar Pilates Rehab & Studio Teacher Training' },
     { '@type': 'EducationalOccupationalCredential', name: 'Diplôme d\'État — Activités Physiques et Sportives' },
   ],
-  description: 'Ancienne danseuse classique (ENSA Marseille), instructrice Pilates certifiée Polestar, fondatrice du Club Pilates en ligne depuis 2020. 10 ans d\'expérience, 42 000 abonnés Instagram.',
+  description: 'Ancienne danseuse classique (ENSA Marseille), instructrice Pilates certifiée Polestar, fondatrice du Club Pilates en ligne depuis 2020. 10 ans d\'expérience, 45 000 abonnés Instagram.',
   sameAs: [
     'https://www.instagram.com/alice.leclubpilates/',
     'https://www.youtube.com/@leclubpilates',
@@ -80,7 +81,7 @@ export default function AboutPage() {
             {[
               { value: '10+', label: 'ans d\'expérience dans le Pilates' },
               { value: '2020', label: 'Création du studio en ligne' },
-              { value: '+42k', label: 'Followers' },
+              { value: '+45k', label: 'Followers' },
             ].map(({ value, label }) => (
               <div key={label}>
                 <p className="font-display text-2xl font-light text-cream lg:text-cocoa">{value}</p>
@@ -129,7 +130,7 @@ export default function AboutPage() {
       {/* ── BLOC 2 — texte gauche, image droite ── */}
       <section className="py-section bg-cream">
         <div className="section-wrapper">
-          <div className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-16 lg:gap-24 items-center">
+          <div className="max-w-2xl">
 
             <div data-animate>
               <p className="font-mono text-xs text-sand-dark tracking-widest mb-8">02 / Le studio</p>
@@ -143,13 +144,41 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="relative aspect-[3/4] rounded-sm overflow-hidden" data-animate style={{ transitionDelay: '150ms' }}>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── LIVRE ── */}
+      <section className="py-section bg-sand/20 border-t border-cocoa/10">
+        <div className="section-wrapper">
+          <div className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-16 lg:gap-24 items-center">
+
+            <div data-animate>
+              <p className="font-mono text-xs text-sand-dark tracking-widest mb-8">03 / Le livre</p>
+              <div className="space-y-5 text-sm text-cocoa/70 font-light leading-relaxed mb-8">
+                <p>
+                  En 2025, j&apos;ai publié mon premier livre <em className="italic text-cocoa">Mon cahier Pilates au mur</em> aux éditions Solar. Une méthode complète pour pratiquer le Pilates depuis chez soi, avec un seul accessoire : le mur.
+                </p>
+                <p>
+                  Exercices ciblés, séances anti-stress, programme 30 jours. Tout ce que j&apos;enseigne depuis des années, condensé en 112 pages illustrées.
+                </p>
+              </div>
+              <Link
+                href="/livre"
+                className="text-xs tracking-[0.15em] uppercase text-cocoa/40 hover:text-cocoa transition-colors font-light"
+              >
+                Découvrir le livre →
+              </Link>
+            </div>
+
+            <div className="relative aspect-[3/4] max-w-xs rounded-sm overflow-hidden lg:ml-auto" data-animate style={{ transitionDelay: '150ms' }}>
               <Image
-                src="/images/alice-fondatrice-club-pilates.jpg"
-                alt="Alice, fondatrice du Club Pilates"
+                src="/images/livre/alice-parquet-avec-livre-pilates-au-mur.jpg"
+                alt="Alice Parquet avec son livre Mon cahier Pilates au mur, éditions Solar"
                 fill
-                className="object-cover object-top scale-x-[-1]"
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover object-top"
+                sizes="(min-width: 1024px) 30vw, 80vw"
               />
             </div>
 

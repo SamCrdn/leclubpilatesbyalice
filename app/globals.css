@@ -59,12 +59,14 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-cream text-cocoa font-body;
     font-size: 1rem;
     line-height: 1.75;
+    overflow-x: hidden;
   }
 
   @media (min-width: 768px) {
@@ -98,7 +100,7 @@
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap
            bg-cocoa text-cream font-body font-light text-sm tracking-widest uppercase
            px-8 py-4 rounded-pill
            transition-all duration-300 ease-smooth
@@ -106,7 +108,7 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap
            border border-cocoa text-cocoa font-body font-light text-sm tracking-widest uppercase
            px-8 py-4 rounded-pill
            transition-all duration-300 ease-smooth
@@ -114,7 +116,7 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2
+    @apply inline-flex items-center gap-2 whitespace-nowrap
            text-cocoa font-body font-light text-sm tracking-widest uppercase
            pb-0.5 border-b border-cocoa/40
            transition-all duration-300
@@ -155,7 +157,7 @@
     to   { transform: translateX(-50%); }
   }
   .animate-marquee {
-    animation: marquee 10s linear infinite;
+    animation: marquee 15s linear infinite;
   }
   .animate-marquee-slow {
     animation: marquee 45s linear infinite;

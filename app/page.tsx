@@ -12,6 +12,9 @@ import FAQSection        from '@/components/sections/FAQSection'
 import InstagramSection  from '@/components/sections/InstagramSection'
 import CTABanner         from '@/components/sections/CTABanner'
 import OnlinePilatesSection from '@/components/sections/OnlinePilatesSection'
+import LatestArticles      from '@/components/sections/LatestArticles'
+
+export const revalidate = 3600
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
@@ -101,6 +104,7 @@ export default function HomePage() {
       <AboutTeaser />
       <FounderSection />
       <FAQSection />
+      <LatestArticles />
       <InstagramSection />
 
       {/* ── Mini Contact ── */}

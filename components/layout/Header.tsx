@@ -21,6 +21,7 @@ const coursItems = [
 const studioItems = [
   { href: '/about', label: 'Le Studio' },
   { href: '/profs', label: 'Les Profs' },
+  { href: '/livre', label: 'Le Livre' },
 ]
 
 const navLinks = [

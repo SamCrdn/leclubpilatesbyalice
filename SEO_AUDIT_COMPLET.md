@@ -7,7 +7,7 @@
 
 ### 🟠 Moyen terme — 1 à 3 mois
 
-- [ ] **Homepage** — Ajouter une section "Derniers articles" → booste l'autorité du blog
+- [x] **Homepage** — Section "Derniers articles" ajoutée → 3 articles Sanity + ISR 1h
 - [x] **JSON-LD** — `ItemList` ajouté sur `/blog` — s'adapte automatiquement au nombre d'articles
 - [x] **Title `/about`** — Mis à jour : *"Le Studio — Alice & la méthode Pilates"*
 - [ ] **Annuaires wellness** — Soumettre le site sur Doctissimo, Aufeminin, Femme Actuelle (gratuit, 30 min)

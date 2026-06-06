@@ -39,13 +39,12 @@ export default function BenefitsSection() {
         </div>
 
         {/* Grid — slider mobile / grid desktop */}
-        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 sm:pb-0">
+        <div className="relative">
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 sm:pb-0 overscroll-x-contain">
           {benefits.map((b, i) => (
             <div
               key={b.number}
               className="group shrink-0 w-[78vw] sm:w-auto snap-start"
-              data-animate
-              style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Number */}
               <p className="font-mono text-xs text-sand-dark mb-5">{b.number}</p>
@@ -58,6 +57,10 @@ export default function BenefitsSection() {
               <p className="text-sm font-light text-cocoa/60 leading-relaxed">{b.body}</p>
             </div>
           ))}
+        </div>
+        <div className="absolute right-0 top-0 bottom-2 w-14 bg-gradient-to-l from-chalk to-transparent pointer-events-none sm:hidden flex items-center justify-end pr-2" aria-hidden="true">
+          <span className="text-cocoa/40 text-base">→</span>
+        </div>
         </div>
 
       </div>

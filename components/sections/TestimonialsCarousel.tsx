@@ -38,13 +38,11 @@ export default function TestimonialsCarousel({ testimonials }: { testimonials: T
           </h2>
         </div>
 
-        <div ref={scrollRef} className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+        <div ref={scrollRef} className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 overscroll-x-contain">
           {testimonials.map((t, i) => (
             <figure
               key={t._id ?? t.name}
               className="flex flex-col shrink-0 w-[85vw] md:w-[360px] snap-start"
-              data-animate
-              style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div className="flex gap-1 mb-5" aria-label="5 étoiles sur 5">
                 {Array.from({ length: 5 }).map((_, j) => (

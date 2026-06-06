@@ -125,14 +125,13 @@ export default function ClassesPreview() {
         </div>
 
         {/* Class cards — slider mobile / grid desktop */}
-        <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 md:pb-0">
+        <div className="relative">
+        <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 md:pb-0 overscroll-x-contain">
           {classes.map((c, i) => (
             c.comingSoon ? (
               <div
                 key={c.slug}
                 className="group block overflow-hidden shrink-0 w-[65vw] md:w-auto snap-start opacity-80"
-                data-animate
-                style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="aspect-[4/4] bg-sand/30 overflow-hidden mb-5 relative">
                   <Image
@@ -159,8 +158,6 @@ export default function ClassesPreview() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block overflow-hidden shrink-0 w-[65vw] md:w-auto snap-start"
-                data-animate
-                style={{ transitionDelay: `${i * 80}ms` }}
               >
                 {/* Image + overlay */}
                 <div className="aspect-[4/4] bg-sand/30 overflow-hidden mb-5 relative">
@@ -188,6 +185,10 @@ export default function ClassesPreview() {
               </a>
             )
           ))}
+        </div>
+        <div className="absolute right-0 top-0 bottom-2 w-14 bg-gradient-to-l from-cream to-transparent pointer-events-none md:hidden flex items-center justify-end pr-2" aria-hidden="true">
+          <span className="text-cocoa/40 text-base">→</span>
+        </div>
         </div>
 
       </div>

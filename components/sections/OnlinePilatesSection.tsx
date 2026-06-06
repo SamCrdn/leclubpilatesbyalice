@@ -59,15 +59,20 @@ export default function OnlinePilatesSection() {
             </div>
           </div>
 
-          {/* Points droite */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8" data-animate style={{ transitionDelay: '150ms' }}>
-            {points.map((p, i) => (
-              <div key={p.title} data-animate style={{ transitionDelay: `${200 + i * 80}ms` }}>
-                <div className="w-6 h-px bg-sand mb-4" />
-                <h3 className="font-body font-light text-cocoa text-sm tracking-wide mb-2">{p.title}</h3>
-                <p className="text-xs text-cocoa/50 font-light leading-relaxed">{p.body}</p>
-              </div>
-            ))}
+          {/* Points droite — slider mobile / grid desktop */}
+          <div className="relative">
+            <div className="flex sm:grid sm:grid-cols-2 gap-6 sm:gap-8 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 sm:pb-0 overscroll-x-contain">
+              {points.map((p, i) => (
+                <div key={p.title} className="shrink-0 w-[78vw] sm:w-auto snap-start">
+                  <div className="w-6 h-px bg-sand mb-4" />
+                  <h3 className="font-body font-light text-cocoa text-sm tracking-wide mb-2">{p.title}</h3>
+                  <p className="text-xs text-cocoa/50 font-light leading-relaxed">{p.body}</p>
+                </div>
+              ))}
+            </div>
+            <div className="absolute right-0 top-0 bottom-2 w-14 bg-gradient-to-l from-cream to-transparent pointer-events-none sm:hidden flex items-center justify-end pr-2" aria-hidden="true">
+              <span className="text-cocoa/40 text-base">→</span>
+            </div>
           </div>
 
         </div>

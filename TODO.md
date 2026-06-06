@@ -7,14 +7,14 @@
 
 ## 🔴 Priorité haute (impact SEO direct)
 
-- [ ] **Section "Derniers articles"** — Ajouter sur la homepage → booste l'autorité du blog (maillage interne + signal fraîcheur pour Google)
+- [x] **Section "Derniers articles"** — Ajouter sur la homepage → booste l'autorité du blog (maillage interne + signal fraîcheur pour Google)
 - [ ] **Avis Google dynamiques** — Google Places API (clé + Place ID) + composant ISR 24h → active les étoiles dans les résultats Google (rich snippets)
 
 ---
 
 ## 🟠 Priorité moyenne
 
-- [ ] **Page Livre** — Présentation du livre d'Alice, résumé, extrait, redirections vers plateformes de vente (Amazon, Fnac, etc.)
+- [x] **Page Livre** — Présentation du livre d'Alice, résumé, extrait, redirections vers plateformes de vente (Amazon, Fnac, etc.)
 - [ ] **Tests mobiles** — Vérifier le rendu sur vrais appareils iOS + Android (Core Web Vitals)
 
 ---

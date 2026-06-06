@@ -31,6 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteUrl}/cours-de-pilates/full-body`,     lastModified: new Date('2026-05-08'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/cours-de-pilates/reformer`,      lastModified: new Date('2026-05-08'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/cours-de-pilates/abdos`,         lastModified: new Date('2026-05-08'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${siteUrl}/livre`,                           lastModified: new Date('2026-06-06'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${siteUrl}/blog`,                           lastModified: new Date('2026-03-27'), changeFrequency: 'weekly',  priority: 0.7 },
     { url: `${siteUrl}/contact`,                        lastModified: new Date('2026-03-27'), changeFrequency: 'yearly',  priority: 0.5 },
     { url: `${siteUrl}/legal/mentions-legales`,         lastModified: new Date('2026-03-27'), changeFrequency: 'yearly',  priority: 0.3 },

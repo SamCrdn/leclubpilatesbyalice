@@ -46,6 +46,18 @@ export const pricingPlansQuery = groq`
 
 // ── Blog ──────────────────────────────────────────────────────────────────────
 
+export const latestPostsQuery = groq`
+  *[_type == "post"] | order(publishedAt desc) [0...3] {
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    excerpt,
+    readTime,
+    publishedAt,
+  }
+`
+
 export const allPostsQuery = groq`
   *[_type == "post"] | order(publishedAt desc) {
     _id,

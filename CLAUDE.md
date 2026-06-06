@@ -44,6 +44,9 @@ Stop-Process -Id (Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyCont
 npm run dev
 ```
 
+> **Note SSL locale** : le script `dev` inclut `cross-env NODE_OPTIONS=--use-system-ca` (via `package.json`) pour contourner l'erreur `UNABLE_TO_VERIFY_LEAF_SIGNATURE` due au proxy/antivirus Windows qui intercepte le HTTPS. Sans cette option, les appels Sanity échouent silencieusement en local et les sections blog restent vides.
+> Pour `npm install`, si le même problème survient : `$env:NODE_OPTIONS='--use-system-ca'; npm install ...`
+
 Après chaque modification de composant ou de page, ouvrir automatiquement http://localhost:3000 pour vérifier le rendu.
 
 ---
@@ -71,6 +74,7 @@ Après chaque modification de composant ou de page, ouvrir automatiquement http:
 - `/cours-de-pilates/` — Hub landing page (redirected from `/classes`)
 - `/cours-de-pilates/debutant` `/dos` `/prenatal` `/wall` `/full-body` `/reformer` — Specialty landing pages
 - `/retraite` — Retreat Ibiza 2026
+- `/livre` — Livre "Mon cahier Pilates au mur" (éditions Solar, avril 2025) — galerie, FAQ, maillage vers /cours-de-pilates/wall
 - `/blog/` — Blog listing (Sanity ISR)
 - `/blog/[slug]` — Blog article (Sanity ISR)
 - `/contact` — Contact form
@@ -148,6 +152,7 @@ Copy `.env.example` to `.env.local` and fill in:
 - JSON-LD complet sur toutes les pages
 - Sitemap dynamique + robots.txt
 - 6 landing pages SEO + hub + maillage interne (RelatedCourses)
+- Page Livre (/livre) — JSON-LD Book + FAQPage, galerie slider, maillage interne
 - Page Retraite Ibiza 2026
 - Vercel Speed Insights
 
