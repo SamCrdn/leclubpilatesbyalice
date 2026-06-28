@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Pilates pour le dos — Soulager et renforcer le dos',
-  description: 'Cours de Pilates pour le dos en ligne : exercices pour soulager le mal de dos, renforcer les lombaires et améliorer la posture. Sans impact, guidé par des experts. Essai 7 jours gratuit.',
+  description: 'Pilates pour le dos en ligne : soulagez le mal de dos, renforcez les lombaires, améliorez votre posture. Sans impact, sans matériel. Essai 7 jours gratuit.',
   alternates: { canonical: `${siteUrl}/cours-de-pilates/dos` },
   openGraph: {
     title: 'Pilates pour le dos — Soulager et renforcer le dos',

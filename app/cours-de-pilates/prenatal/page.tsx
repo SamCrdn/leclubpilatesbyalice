@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Pilates prénatal & postnatal — Enceinte ou après accouchement',
-  description: 'Cours de Pilates prénatal et postnatal en ligne : séances adaptées à chaque trimestre de grossesse et à la reprise après accouchement. Programme Mama 12 mois. Essai gratuit 7 jours.',
+  description: 'Pilates prénatal et postnatal en ligne : séances adaptées à chaque trimestre de grossesse et à la reprise post-accouchement. Essai gratuit 7 jours.',
   alternates: { canonical: `${siteUrl}/cours-de-pilates/prenatal` },
   openGraph: {
     title: 'Pilates prénatal & postnatal — Enceinte ou après accouchement',

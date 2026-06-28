@@ -27,9 +27,9 @@
 ## 🟠 Priorité moyenne
 
 - [x] **Page Livre** — Présentation du livre d'Alice, résumé, extrait, redirections vers plateformes de vente (Amazon, Fnac, etc.)
-- [ ] **Titles blog trop longs** — 28/37 titles > 65 chars avec double marque `| Le Club Pilates`. Supprimer le suffixe en double, viser 50–60 chars.
-- [ ] **Meta descriptions trop longues** — 11 metas > 160 chars (pages cours, retraite, livre). Réécrire à 130–155 chars.
-- [ ] **Maillage interne articles** — Articles n'ont que 2 inlinks. Ajouter liens contextuels articles ↔ cours. Même problème pour `/livre`.
+- [x] **Titles blog trop longs** — Suffixe `— Le Club Pilates` retiré du title des articles (`app/blog/[slug]/page.tsx`), le template du layout (`%s | Le Club Pilates`) s'en charge seul. Double marque supprimée.
+- [x] **Meta descriptions trop longues** — 9 pages corrigées à 130–155 chars : débutant, dos, prénatal, wall, full-body, reformer, abdos, retraite, livre.
+- [x] **Maillage interne articles** — Bloc "Nos programmes" ajouté en bas de chaque article blog (6 liens vers les pages cours). Lien `/livre` ajouté sur `/cours-de-pilates/wall`.
 - [ ] **Tests mobiles** — Vérifier le rendu sur vrais appareils iOS + Android (Core Web Vitals)
 
 ---

@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Pilates Reformer en ligne — Sans machine, depuis chez vous',
-  description: 'Cours de Pilates Reformer en ligne : exercices inspirés du reformer, adaptés au tapis. Efficacité du studio, depuis chez vous. Guidé par des experts certifiés. Essai 7 jours gratuit.',
+  description: 'Pilates Reformer en ligne : exercices du reformer adaptés au tapis. L\'efficacité du studio depuis chez vous, guidé par des experts. Essai 7 jours gratuit.',
   alternates: { canonical: `${siteUrl}/cours-de-pilates/reformer` },
   openGraph: {
     title: 'Pilates Reformer en ligne — Sans machine, depuis chez vous',

@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Pilates Full Body — Cours corps entier en ligne',
-  description: 'Cours de Pilates Full Body en ligne : séances corps entier pour tonifier, renforcer et sculpter. Tous niveaux, guidé par des experts certifiés. Essai gratuit 7 jours.',
+  description: 'Cours de Pilates Full Body en ligne : tonifiez, renforcez et sculptez tout le corps en une séance. Tous niveaux, sans matériel. Essai gratuit 7 jours.',
   alternates: { canonical: `${siteUrl}/cours-de-pilates/full-body` },
   openGraph: {
     title: 'Pilates Full Body — Cours corps entier en ligne',

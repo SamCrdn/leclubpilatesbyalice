@@ -11,8 +11,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Retraite Pilates à Ibiza — 5 jours bien-être · Le Club Pilates',
-  description:
-    'Retraite Pilates à Ibiza du 25 au 29 septembre 2026 : 5 jours & 4 nuits dans une villa exceptionnelle, 2 cours de Pilates par jour, cuisine végétarienne, randonnée. 10 participants maximum.',
+  description: 'Retraite Pilates à Ibiza, 25-29 sept. 2026 : 5 jours en villa privée, 2 cours/jour, cuisine végétarienne, randonnée. Tous niveaux, 10 participants max.',
   alternates: { canonical: `${siteUrl}/retraite` },
   keywords: ['retraite pilates', 'retraite ibiza', 'retraite bien-être', 'stage pilates ibiza', 'retraite pilates 2026'],
   openGraph: {

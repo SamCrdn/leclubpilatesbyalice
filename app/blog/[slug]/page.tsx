@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {}
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
   return {
-    title: `${post.title} — Le Club Pilates`,
+    title: post.title,
     description: post.excerpt,
     alternates: { canonical: `${siteUrl}/blog/${post.slug}` },
     openGraph: {
@@ -176,8 +176,29 @@ export default async function BlogPostPage({ params }: Props) {
             {post.body && <PortableText value={post.body} components={ptComponents} />}
           </div>
 
+          {/* Maillage interne — cours associés */}
+          <div className="mt-14 pt-10 border-t border-sand/30">
+            <p className="text-xs tracking-[0.15em] uppercase text-cocoa/40 font-light mb-5">Nos programmes</p>
+            <ul className="grid grid-cols-2 gap-2 text-sm font-light">
+              {[
+                { label: 'Pilates débutant',  href: '/cours-de-pilates/debutant' },
+                { label: 'Pilates pour le dos', href: '/cours-de-pilates/dos' },
+                { label: 'Wall Pilates',       href: '/cours-de-pilates/wall' },
+                { label: 'Pilates prénatal',   href: '/cours-de-pilates/prenatal' },
+                { label: 'Full Body Pilates',  href: '/cours-de-pilates/full-body' },
+                { label: 'Tous les cours',     href: '/cours-de-pilates' },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href} className="text-cocoa/60 hover:text-cocoa underline underline-offset-2 transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* CTA fin d'article */}
-          <div className="mt-16 pt-10 border-t border-sand/30 text-center">
+          <div className="mt-12 pt-10 border-t border-sand/30 text-center">
             <p className="font-display text-2xl font-light italic text-cocoa mb-6">Envie de pratiquer ?</p>
             <a
               href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=blog&utm_campaign=article-cta"

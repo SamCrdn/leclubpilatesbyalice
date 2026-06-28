@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Pilates débutant — Commencer le Pilates en ligne',
-  description: 'Vous débutez en Pilates ? Découvrez nos cours et programmes pilates débutant en ligne : exercices fondamentaux, respiration, placement. Accès illimité, essai 7 jours gratuit.',
+  description: 'Débutez en Pilates en ligne : exercices fondamentaux, respiration, placement. Programmes guidés par des expertes. Accès illimité, essai gratuit 7 jours.',
   alternates: { canonical: `${siteUrl}/cours-de-pilates/debutant` },
   openGraph: {
     title: 'Pilates débutant — Commencer le Pilates en ligne',

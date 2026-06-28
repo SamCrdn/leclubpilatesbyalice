@@ -27,7 +27,7 @@ export default function PromoBanner() {
       <div className="flex md:hidden items-center justify-center gap-3">
         <span className="text-base">☀️</span>
         <div className="flex flex-col items-center leading-tight">
-          <span className="text-xs font-medium tracking-wide">−30% sur tous les nouveaux abonnements</span>
+          <span className="text-xs font-medium tracking-wide">−30% sur tous les nouveaux abos</span>
           <span className="text-2xs text-cream/60 tracking-wide">Code : WELCOMENEW</span>
         </div>
         <a
@@ -44,7 +44,7 @@ export default function PromoBanner() {
       <div className="hidden md:flex items-center justify-center gap-4">
         <span className="text-lg">☀️</span>
         <p className="text-xs tracking-wide text-cream/90">
-          <span className="font-medium uppercase tracking-widest mr-2 text-cream">−30% sur tous les nouveaux abonnements</span>
+          <span className="font-medium uppercase tracking-widest mr-2 text-cream">−30% sur tous les nouveaux abos</span>
           Code&nbsp;
           <span className="font-semibold tracking-widest text-cream">WELCOMENEW</span>
         </p>

@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Pilates abdos — Ventre plat et gainage en profondeur',
-  description: 'Cours de Pilates abdos en ligne : renforcer le transverse, affiner la taille et gagner en gainage sans risquer le dos. Sans matériel, guidé par des expertes. Essai gratuit 7 jours.',
+  description: 'Pilates abdos en ligne : renforcez le transverse, affinez la taille et gagnez en gainage sans risquer le dos. Sans matériel. Essai gratuit 7 jours.',
   alternates: { canonical: `${siteUrl}/cours-de-pilates/abdos` },
   openGraph: {
     title: 'Pilates abdos — Ventre plat et gainage en profondeur',

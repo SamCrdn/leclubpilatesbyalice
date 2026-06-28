@@ -8,8 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Mon cahier Pilates au mur, le livre d\'Alice Parquet',
-  description:
-    'Alice Parquet signe son premier livre : Mon cahier Pilates au mur, aux éditions Solar. Exercices ciblés, programme 30 jours, méthode fun et efficace. Disponible chez Amazon et Fnac.',
+  description: 'Alice Parquet signe son premier livre aux éditions Solar : Pilates au mur, exercices ciblés et programme 30 jours. Méthode fun et efficace. Disponible sur Amazon et Fnac.',
   alternates: { canonical: `${siteUrl}/livre` },
   openGraph: {
     title: 'Mon cahier Pilates au mur, le livre d\'Alice Parquet',

@@ -17,9 +17,9 @@
   - `pilates-en-ligne-pratiquer-a-la-maison` → 301 vers `…-pratique-a-la-maison` ✅
 - [x] **P1 — Pages `noindex` dans le sitemap** — Retiré `/legal/mentions-legales`, `/legal/confidentialite`, `/legal/cgv` du sitemap (`app/sitemap.ts`)
 - [x] **P1 — Homepage mobile lente** — Vidéo hero recompressée (MP4 3,93→1,59 MB, WebM 1,75→1,56 MB) + poster pendant le chargement. Reste à remesurer le score Lighthouse mobile pour confirmer l'impact. Bug d'autoplay iOS pré-existant repéré en parallèle (voir `TODO.md`), non résolu, hors périmètre de cette tâche.
-- [ ] **P2 — Titles trop longs** — 28/37 titles > 65 chars, double marque `— Le Club Pilates | Le Club Pilates` sur les articles blog. Supprimer le suffixe en double, viser 50–60 chars.
-- [ ] **P2 — Meta descriptions trop longues** — 11 metas > 160 chars sur pages cours + retraite + livre. Réécrire à 130–155 chars.
-- [ ] **P2 — Maillage articles faible** — La plupart des articles n'ont que 2 inlinks entrants. Ajouter liens contextuels articles ↔ pages cours. `/livre` aussi : 2 inlinks seulement.
+- [x] **P2 — Titles trop longs** — Suffixe `— Le Club Pilates` retiré de `generateMetadata` dans `app/blog/[slug]/page.tsx`. Le template layout `%s | Le Club Pilates` s'en charge. Double marque supprimée sur tous les articles.
+- [x] **P2 — Meta descriptions trop longues** — 9 pages ramenées à 130–155 chars : débutant, dos, prénatal, wall, full-body, reformer, abdos, retraite, livre.
+- [x] **P2 — Maillage articles faible** — Bloc "Nos programmes" (6 liens cours) ajouté en bas de chaque article blog. Lien vers `/livre` ajouté sur `/cours-de-pilates/wall`.
 - [ ] **P2 — Images 3840px** — Certaines images servies à `w=3840` inutilement. Vérifier les props `sizes` sur `next/image`.
 
 ### 🟠 Moyen terme — 1 à 3 mois

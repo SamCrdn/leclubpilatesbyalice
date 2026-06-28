@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 import RelatedCourses from '@/components/ui/RelatedCourses'
@@ -7,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Pilates Wall — Cours de Pilates au mur en ligne',
-  description: 'Découvrez le Pilates Wall : cours de Pilates au mur guidés par des experts, sans matériel, depuis chez vous. Renforcement, posture, mobilité. Essai gratuit 7 jours.',
+  description: 'Cours de Pilates au mur en ligne, guidés par des experts, sans matériel. Renforcement, posture et mobilité depuis chez vous. Essai gratuit 7 jours.',
   alternates: { canonical: `${siteUrl}/cours-de-pilates/wall` },
   openGraph: {
     title: 'Pilates Wall — Cours de Pilates au mur en ligne',
@@ -192,6 +193,17 @@ export default function PilatesWallPage() {
       </section>
 
       <RelatedCourses current="/cours-de-pilates/wall" />
+
+      {/* Maillage — livre Wall Pilates */}
+      <section className="section-wrapper py-10 text-center">
+        <p className="font-light text-cocoa/60 text-sm">
+          Envie d'aller plus loin ?{' '}
+          <Link href="/livre" className="underline underline-offset-2 hover:opacity-70 transition-opacity text-cocoa">
+            Découvrez le livre Wall Pilates d'Alice
+          </Link>
+          {' '}— programme 30 jours, éditions Solar.
+        </p>
+      </section>
     </>
   )
 }
