@@ -64,6 +64,13 @@ export const postType = defineType({
       type:  'boolean',
     }),
     defineField({
+      name:  'topicSubject',
+      title: 'Sujet source (pipeline IA)',
+      type:  'string',
+      description: 'Sujet exact de lib/blog/topics.ts utilisé pour générer cet article — sert à éviter les doublons. Ne pas modifier manuellement.',
+      readOnly: true,
+    }),
+    defineField({
       name:  'tldr',
       title: 'En bref (TL;DR)',
       type:  'text',

@@ -42,6 +42,12 @@ const nextConfig = {
       { source: '/conditions-generales-dutilisation',   destination: '/legal/cgv',                         permanent: true },
       { source: '/mentions-legales',                    destination: '/legal/mentions-legales',            permanent: true },
       { source: '/politique-confidentialite',           destination: '/legal/confidentialite',             permanent: true },
+      { source: '/blog/pilates-bas-du-corps-jambes-fesses-sans-impact', destination: '/blog/pilates-bas-du-corps-jambes-fessiers-sans-impact', permanent: true },
+      { source: '/blog/pilates-et-perte-de-poids',       destination: '/blog/pilates-perte-de-poids',       permanent: true },
+      { source: '/blog/pilates-intense-methode-douce-defi', destination: '/blog/pilates-intense-methode-douce-vrai-defi', permanent: true },
+      { source: '/blog/erreurs-courantes-debutantes-pilates-solutions', destination: '/blog/erreurs-courantes-debutantes-pilates', permanent: true },
+      { source: '/blog/3-erreurs-courantes-en-pilates-debutant-et-solutions', destination: '/blog/erreurs-courantes-debutantes-pilates', permanent: true },
+      { source: '/blog/pilates-en-ligne-pratiquer-a-la-maison', destination: '/blog/pilates-en-ligne-pratique-a-la-maison', permanent: true },
     ]
   },
 }

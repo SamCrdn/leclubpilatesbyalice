@@ -1,9 +1,24 @@
 # Audit SEO Complet — Le Club Pilates
-*Mis à jour : 10 mai 2026 — Données réelles SEMrush + Screaming Frog (avril 2026)*
+*Mis à jour : 17 juin 2026 — Nouvel audit technique externe (Screaming Frog + crawl live + Lighthouse mobile)*
 
 ---
 
 ## TODO SEO
+
+### 🔴 Priorité absolue — Audit 17 juin 2026 (score technique : 74/100)
+
+- [x] **P0 — `robots.txt` bloque `/_next/`** — Retiré `Disallow: /_next/` dans `app/robots.ts`.
+- [x] **P1 — Articles doublons à fusionner** — Doublons supprimés dans Sanity + 301 ajoutées dans `next.config.js` :
+  - `pilates-bas-du-corps-jambes-fesses-sans-impact` → 301 vers `…-fessiers-sans-impact` ✅
+  - `pilates-et-perte-de-poids` → 301 vers `pilates-perte-de-poids` ✅
+  - `pilates-intense-methode-douce-defi` → 301 vers `…-vrai-defi` ✅
+  - `erreurs-courantes-debutantes-pilates-solutions` → 301 vers `erreurs-courantes-debutantes-pilates` ✅
+- [x] **P1 — Pages `noindex` dans le sitemap** — Retiré `/legal/mentions-legales`, `/legal/confidentialite`, `/legal/cgv` du sitemap (`app/sitemap.ts`)
+- [x] **P1 — Homepage mobile lente** — Vidéo hero recompressée (MP4 3,93→1,59 MB, WebM 1,75→1,56 MB) + poster pendant le chargement. Reste à remesurer le score Lighthouse mobile pour confirmer l'impact. Bug d'autoplay iOS pré-existant repéré en parallèle (voir `TODO.md`), non résolu, hors périmètre de cette tâche.
+- [ ] **P2 — Titles trop longs** — 28/37 titles > 65 chars, double marque `— Le Club Pilates | Le Club Pilates` sur les articles blog. Supprimer le suffixe en double, viser 50–60 chars.
+- [ ] **P2 — Meta descriptions trop longues** — 11 metas > 160 chars sur pages cours + retraite + livre. Réécrire à 130–155 chars.
+- [ ] **P2 — Maillage articles faible** — La plupart des articles n'ont que 2 inlinks entrants. Ajouter liens contextuels articles ↔ pages cours. `/livre` aussi : 2 inlinks seulement.
+- [ ] **P2 — Images 3840px** — Certaines images servies à `w=3840` inutilement. Vérifier les props `sizes` sur `next/image`.
 
 ### 🟠 Moyen terme — 1 à 3 mois
 
@@ -13,7 +28,10 @@
 - [ ] **Annuaires wellness** — Soumettre le site sur Doctissimo, Aufeminin, Femme Actuelle (gratuit, 30 min)
 - [x] **TL;DR blog** — Intégré dans le pipeline IA (planner + rédacteur) + affiché visuellement sur la page article
 - [ ] **GA4 segment trafic IA** — Créer dans GA4 → Explore → Segments → Sessions → Référent contient : `chatgpt.com`, `perplexity.ai`, `claude.ai`, `gemini.google.com`, `copilot.microsoft.com`
-- [ ] **PageSpeed Insights** — Tester LCP sur mobile → si > 2.5s : ajouter `fetchpriority="high"` sur l'image hero
+- [x] **PageSpeed Insights** — Audit 06/06/2026 : 96 Performance, 100 SEO, 100 Bonnes pratiques, 90 Accessibilité (FCP 1,1s / TBT 20ms / CLS 0,009). Supprimé : Fontshare render-blocking + Gilroy.
+- [x] **Preconnect Fontshare résiduel** — Retiré du `<head>` dans `layout.tsx`
+- [ ] **LCP homepage mobile** — Audit 17/06/2026 Lighthouse : **48/100**, LCP 4,6s, TBT 3990ms (régressé vs juin — vidéos hero non optimisées mobile)
+- [ ] **Accessibilité 90 → 95** — Contraste insuffisant, structure `<dl>` FAQ, ARIA behold-widget
 
 ### 🟡 Long terme — 3 à 6 mois
 
@@ -28,13 +46,15 @@
 
 ## Score global
 
-| Dimension | Score avril 2026 | Score mai 2026 | Tendance |
-|---|---|---|---|
-| SEO Technique | 42/100 | **78/100** | ↑↑ |
-| Contenu & sémantique | 28/100 | **65/100** | ↑↑ |
-| GEO | 25/100 | **45/100** | ↑ |
-| Netlinking | 45/100 | **45/100** | → |
-| **Global** | **32/100** | **~55/100** | ↑↑ |
+| Dimension | Score avril 2026 | Score mai 2026 | Score juin 2026 | Tendance |
+|---|---|---|---|---|
+| SEO Technique | 42/100 | **78/100** | **74/100** | ↓ (robots.txt + doublons) |
+| Contenu & sémantique | 28/100 | **65/100** | **65/100** | → |
+| GEO | 25/100 | **45/100** | **45/100** | → |
+| Netlinking | 45/100 | **45/100** | **45/100** | → |
+| **Global** | **32/100** | **~55/100** | **~57/100** | → |
+
+> **Audit externe 17/06/2026 (Screaming Frog + crawl live + Lighthouse mobile)** : score technique 74/100. Régression vs mai sur le technique à cause des doublons blog détectés et du `robots.txt` qui bloque `/_next/`. Performance homepage mobile : 48/100 Lighthouse (LCP 4,6s, vidéos 3,65 MB).
 
 > **Trafic organique réel (SEMrush avril 2026) : 706 visites/mois** — majorité Local Pack + requêtes marque. Trafic organique pur encore très faible. Objectif : 2 000+/mois à 6 mois.
 
@@ -108,9 +128,9 @@
 
 | Point | Statut | Détail |
 |---|---|---|
-| robots.txt site principal | ✅ OK | Crawlers IA autorisés, API bloquée |
+| robots.txt site principal | ❌ CRITIQUE | `Disallow: /_next/` bloque CSS/JS/images Next.js pour Googlebot — à corriger en priorité absolue |
 | robots.txt app Uscreen | ✅ Partiel | /programs/ /categories/ /pages/ /join bloqués via GSC (renouveler dans 6 mois) |
-| Sitemap.xml | ✅ OK | 17 URLs statiques + articles Sanity dynamiques, soumis GSC |
+| Sitemap.xml | ⚠️ À corriger | 38 URLs dont 3 pages `noindex` (`/legal/*`) — incohérence à corriger |
 | Canonical tags | ✅ OK | Présents sur toutes les pages |
 | Redirections 301 | ✅ OK | /classes → /cours-de-pilates, /a-propos → /about, /les-cours → / |
 | Pages légales | ✅ OK | noindex, follow |
@@ -124,7 +144,8 @@
 | Next.js SSG | ✅ | Pages statiques — excellent pour le SEO |
 | Image formats | ✅ | AVIF + WebP configurés |
 | Font loading | ✅ | `next/font` avec `display: swap` |
-| LCP | ⚠️ À mesurer | Objectif < 2.5s — tester sur PageSpeed Insights |
+| LCP homepage mobile | ❌ 4,6s | Lighthouse mobile 17/06/2026 : 48/100 perf, TBT 3990ms, 4MB total (3,65MB vidéos) — vidéos hero à optimiser |
+| CLS | ✅ 0,009 | Excellent |
 | Vercel Speed Insights | ✅ | Installé et actif |
 
 ### 2.3 Sécurité & headers HTTP
@@ -137,13 +158,23 @@
 | Referrer-Policy | ✅ strict-origin-when-cross-origin |
 | HTTPS | ✅ Vercel |
 
-### 2.4 Cannibalisation (résolue)
+### 2.4 Cannibalisation
 
-Problèmes identifiés en avril 2026, traités en mai 2026 :
+**Résolue (mai 2026) :**
+- App vs site principal : app/programs/ et app/categories/ bloqués via GSC
+- Vieilles URLs Webflow `/les-cours`, `/a-propos` : re-indexation GSC demandée
+- Paramètre `?trk=` : géré automatiquement par Google
 
-- **App vs site principal** : app/programs/ et app/categories/ rankaient activement → bloqués via GSC
-- **Vieilles URLs Webflow** : `/les-cours` (pos 13, 21, 83) et `/a-propos` (pos 69) rankaient malgré les redirects → re-indexation GSC demandée
-- **Paramètre `?trk=`** : duplication homepage → géré automatiquement par Google
+**Active — à traiter (audit 17/06/2026) :**
+
+| Groupe | URLs en doublon | Statut |
+|---|---|---|
+| Bas du corps | `pilates-bas-du-corps-jambes-fesses-sans-impact` vs `…-fessiers-sans-impact` | ❌ Mêmes title + H1 |
+| Perte de poids | `pilates-et-perte-de-poids` vs `pilates-perte-de-poids` | ❌ Mêmes title + H1 |
+| Pilates intense | `pilates-intense-methode-douce-defi` vs `…-vrai-defi` | ❌ Mêmes title + H1 |
+| Erreurs débutant | 3 URLs quasi-identiques sur la même intention | ⚠️ Quasi-doublons |
+
+Action : choisir 1 URL cible par groupe, 301 les variantes dans `next.config.js`.
 
 ---
 
@@ -348,5 +379,6 @@ Chaque vidéo populaire de l'app devient un article blog donnant la valeur gratu
 
 ---
 
-*Audit initial : 9 avril 2026 (données SEMrush + Screaming Frog) — Mis à jour : 10 mai 2026*
+*Audit initial : 9 avril 2026 (données SEMrush + Screaming Frog)*
+*Mis à jour : 17 juin 2026 — audit externe complet (Screaming Frog + crawl live + Lighthouse mobile)*
 *À mettre à jour trimestriellement ou après déploiement majeur.*

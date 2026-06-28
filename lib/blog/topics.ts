@@ -135,6 +135,30 @@ export const TOPICS: Topic[] = [
   },
 ]
 
-export function pickTopic(): Topic {
-  return TOPICS[Math.floor(Math.random() * TOPICS.length)]
+/**
+ * Choisit un sujet parmi ceux qui n'ont pas encore été publiés (usedSubjects),
+ * en priorisant la catégorie la moins représentée dans les articles déjà publiés
+ * (publishedCategoryCounts) pour éviter que Pilates/Conseils écrasent Nutrition/Bien-être.
+ * Si tous les sujets ont déjà été utilisés, recommence un nouveau cycle (réutilise tout).
+ */
+export function pickTopic(
+  usedSubjects: string[] = [],
+  publishedCategoryCounts: Partial<Record<Topic['category'], number>> = {}
+): Topic {
+  const usedSet = new Set(usedSubjects)
+  let available = TOPICS.filter(t => !usedSet.has(t.subject))
+
+  if (available.length === 0) {
+    console.warn('⚠️ Tous les sujets de TOPICS ont déjà été publiés — nouveau cycle (réutilisation). Pense à ajouter de nouveaux sujets dans lib/blog/topics.ts.')
+    available = TOPICS
+  }
+
+  const categoriesAvailable = [...new Set(available.map(t => t.category))]
+  const minCount = Math.min(...categoriesAvailable.map(c => publishedCategoryCounts[c] ?? 0))
+  const leastRepresentedCategories = categoriesAvailable.filter(
+    c => (publishedCategoryCounts[c] ?? 0) === minCount
+  )
+  const candidates = available.filter(t => leastRepresentedCategories.includes(t.category))
+
+  return candidates[Math.floor(Math.random() * candidates.length)]
 }

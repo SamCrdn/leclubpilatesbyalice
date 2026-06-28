@@ -15,8 +15,17 @@ async function main() {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error('ANTHROPIC_API_KEY manquante')
   if (!process.env.SANITY_API_TOKEN)  throw new Error('SANITY_API_TOKEN manquante')
 
-  const topic = pickTopic()
-  console.log(`📝 Sujet : "${topic.subject}"`)
+  const usedSubjects: string[] = await sanity.fetch(
+    `*[_type == "post" && defined(topicSubject)].topicSubject`
+  )
+  const publishedCategories: string[] = await sanity.fetch(`*[_type == "post"].category`)
+  const publishedCategoryCounts = publishedCategories.reduce<Record<string, number>>((acc, c) => {
+    acc[c] = (acc[c] ?? 0) + 1
+    return acc
+  }, {})
+
+  const topic = pickTopic(usedSubjects, publishedCategoryCounts)
+  console.log(`📝 Sujet : "${topic.subject}" (catégorie : ${topic.category})`)
 
   const { plan, body } = await runPipeline(topic)
   console.log(`✅ Article rédigé : "${plan.title}"`)
@@ -26,6 +35,7 @@ async function main() {
     _id:         `drafts.${randomUUID()}`,
     title:       plan.title,
     slug:        { _type: 'slug', current: plan.slug },
+    topicSubject: topic.subject,
     category:    plan.category,
     excerpt:     plan.excerpt,
     tldr:        plan.tldr,

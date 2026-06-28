@@ -1,9 +1,19 @@
+'use client'
+
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 import { CTAButton } from '@/components/ui/CTAButton'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    // iOS Safari n'autoplay pas toujours au premier chargement — on force l'appel explicite.
+    videoRef.current?.play().catch(() => {})
+  }, [])
+
   return (
     <section
       aria-label="Bienvenue au Club Pilates"
@@ -11,12 +21,14 @@ export default function HeroSection() {
     >
       {/* Video — bg-[#EDE6D8] sert de fond pendant le chargement */}
       <video
+        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        poster="/images/hero-poster.jpg"
         aria-hidden="true"
       >
         <source src="/videos/video-hero-pilates.webm" type="video/webm" />
