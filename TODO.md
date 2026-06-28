@@ -1,5 +1,5 @@
 # TODO — Le Club Pilates
-*Mis à jour : 17 juin 2026*
+*Mis à jour : 28 juin 2026*
 
 > SEO détaillé → voir `SEO_AUDIT_COMPLET.md` (section TODO SEO)
 

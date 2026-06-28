@@ -1,5 +1,5 @@
 # Audit SEO Complet — Le Club Pilates
-*Mis à jour : 17 juin 2026 — Nouvel audit technique externe (Screaming Frog + crawl live + Lighthouse mobile)*
+*Mis à jour : 28 juin 2026 — Corrections post-audit : robots.txt, doublons blog, vidéo hero, sitemap*
 
 ---
 
@@ -8,11 +8,13 @@
 ### 🔴 Priorité absolue — Audit 17 juin 2026 (score technique : 74/100)
 
 - [x] **P0 — `robots.txt` bloque `/_next/`** — Retiré `Disallow: /_next/` dans `app/robots.ts`.
-- [x] **P1 — Articles doublons à fusionner** — Doublons supprimés dans Sanity + 301 ajoutées dans `next.config.js` :
+- [x] **P1 — Articles doublons à fusionner** — 6 articles supprimés définitivement de Sanity (vérifié : ni publiés, ni en draft) + 301 ajoutées dans `next.config.js` :
   - `pilates-bas-du-corps-jambes-fesses-sans-impact` → 301 vers `…-fessiers-sans-impact` ✅
   - `pilates-et-perte-de-poids` → 301 vers `pilates-perte-de-poids` ✅
   - `pilates-intense-methode-douce-defi` → 301 vers `…-vrai-defi` ✅
   - `erreurs-courantes-debutantes-pilates-solutions` → 301 vers `erreurs-courantes-debutantes-pilates` ✅
+  - `3-erreurs-courantes-en-pilates-debutant-et-solutions` → 301 vers `erreurs-courantes-debutantes-pilates` ✅
+  - `pilates-en-ligne-pratiquer-a-la-maison` → 301 vers `…-pratique-a-la-maison` ✅
 - [x] **P1 — Pages `noindex` dans le sitemap** — Retiré `/legal/mentions-legales`, `/legal/confidentialite`, `/legal/cgv` du sitemap (`app/sitemap.ts`)
 - [x] **P1 — Homepage mobile lente** — Vidéo hero recompressée (MP4 3,93→1,59 MB, WebM 1,75→1,56 MB) + poster pendant le chargement. Reste à remesurer le score Lighthouse mobile pour confirmer l'impact. Bug d'autoplay iOS pré-existant repéré en parallèle (voir `TODO.md`), non résolu, hors périmètre de cette tâche.
 - [ ] **P2 — Titles trop longs** — 28/37 titles > 65 chars, double marque `— Le Club Pilates | Le Club Pilates` sur les articles blog. Supprimer le suffixe en double, viser 50–60 chars.
@@ -30,7 +32,7 @@
 - [ ] **GA4 segment trafic IA** — Créer dans GA4 → Explore → Segments → Sessions → Référent contient : `chatgpt.com`, `perplexity.ai`, `claude.ai`, `gemini.google.com`, `copilot.microsoft.com`
 - [x] **PageSpeed Insights** — Audit 06/06/2026 : 96 Performance, 100 SEO, 100 Bonnes pratiques, 90 Accessibilité (FCP 1,1s / TBT 20ms / CLS 0,009). Supprimé : Fontshare render-blocking + Gilroy.
 - [x] **Preconnect Fontshare résiduel** — Retiré du `<head>` dans `layout.tsx`
-- [ ] **LCP homepage mobile** — Audit 17/06/2026 Lighthouse : **48/100**, LCP 4,6s, TBT 3990ms (régressé vs juin — vidéos hero non optimisées mobile)
+- [ ] **LCP homepage mobile** — Audit 17/06/2026 : 48/100, LCP 4,6s, TBT 3990ms. Vidéos recompressées + poster ajouté (28/06) — à re-mesurer sur Lighthouse mobile pour confirmer l'amélioration.
 - [ ] **Accessibilité 90 → 95** — Contraste insuffisant, structure `<dl>` FAQ, ARIA behold-widget
 
 ### 🟡 Long terme — 3 à 6 mois
@@ -128,11 +130,11 @@
 
 | Point | Statut | Détail |
 |---|---|---|
-| robots.txt site principal | ❌ CRITIQUE | `Disallow: /_next/` bloque CSS/JS/images Next.js pour Googlebot — à corriger en priorité absolue |
+| robots.txt site principal | ✅ OK | `Disallow: /_next/` retiré — Googlebot peut accéder à CSS/JS/images Next.js |
 | robots.txt app Uscreen | ✅ Partiel | /programs/ /categories/ /pages/ /join bloqués via GSC (renouveler dans 6 mois) |
-| Sitemap.xml | ⚠️ À corriger | 38 URLs dont 3 pages `noindex` (`/legal/*`) — incohérence à corriger |
+| Sitemap.xml | ✅ OK | Pages `/legal/*` (noindex) retirées du sitemap — cohérence rétablie |
 | Canonical tags | ✅ OK | Présents sur toutes les pages |
-| Redirections 301 | ✅ OK | /classes → /cours-de-pilates, /a-propos → /about, /les-cours → / |
+| Redirections 301 | ✅ OK | /classes → /cours-de-pilates, /a-propos → /about, /les-cours → / + 6 doublons blog |
 | Pages légales | ✅ OK | noindex, follow |
 | Blog | ✅ OK | index, follow (contenu publié) |
 | Hreflang | N/A | Site FR uniquement, acceptable |
@@ -144,7 +146,7 @@
 | Next.js SSG | ✅ | Pages statiques — excellent pour le SEO |
 | Image formats | ✅ | AVIF + WebP configurés |
 | Font loading | ✅ | `next/font` avec `display: swap` |
-| LCP homepage mobile | ❌ 4,6s | Lighthouse mobile 17/06/2026 : 48/100 perf, TBT 3990ms, 4MB total (3,65MB vidéos) — vidéos hero à optimiser |
+| LCP homepage mobile | ⚠️ À remesurer | Lighthouse 17/06/2026 : 48/100, LCP 4,6s, TBT 3990ms — vidéos recompressées (3,65→3,19 MB), poster ajouté, à re-tester |
 | CLS | ✅ 0,009 | Excellent |
 | Vercel Speed Insights | ✅ | Installé et actif |
 
@@ -165,16 +167,10 @@
 - Vieilles URLs Webflow `/les-cours`, `/a-propos` : re-indexation GSC demandée
 - Paramètre `?trk=` : géré automatiquement par Google
 
-**Active — à traiter (audit 17/06/2026) :**
-
-| Groupe | URLs en doublon | Statut |
-|---|---|---|
-| Bas du corps | `pilates-bas-du-corps-jambes-fesses-sans-impact` vs `…-fessiers-sans-impact` | ❌ Mêmes title + H1 |
-| Perte de poids | `pilates-et-perte-de-poids` vs `pilates-perte-de-poids` | ❌ Mêmes title + H1 |
-| Pilates intense | `pilates-intense-methode-douce-defi` vs `…-vrai-defi` | ❌ Mêmes title + H1 |
-| Erreurs débutant | 3 URLs quasi-identiques sur la même intention | ⚠️ Quasi-doublons |
-
-Action : choisir 1 URL cible par groupe, 301 les variantes dans `next.config.js`.
+**Résolue (juin 2026) — doublons blog :**
+- 6 articles supprimés définitivement de Sanity (vérifiés absents des published et drafts)
+- 301 ajoutées dans `next.config.js` pour tous les anciens slugs
+- Pipeline IA corrigé : `pickTopic()` exclut désormais les sujets déjà publiés (champ `topicSubject` dans Sanity)
 
 ---
 
