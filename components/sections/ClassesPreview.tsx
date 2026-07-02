@@ -50,12 +50,12 @@ const classes = [
   },
   {
     slug:      'pilates-summer-body',
-    tag:       'Summer Body',
+    href:      'https://app.leclubpilates.com/programs/summer-reset',
+    tag:       'Summer Reset',
     title:     'Full Body',
     weeks:     '4 semaines',
     level:     'Tous niveaux',
     image:     '/images/programme-summer-body-pilates.jpg',
-    comingSoon: true,
   },
 ]
 

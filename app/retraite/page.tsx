@@ -11,12 +11,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Retraite Pilates à Ibiza — 5 jours bien-être · Le Club Pilates',
-  description: 'Retraite Pilates à Ibiza, 25-29 sept. 2026 : 5 jours en villa privée, 2 cours/jour, cuisine végétarienne, randonnée. Tous niveaux, 10 participants max.',
+  description: 'Retraite Pilates à Ibiza, printemps 2027 : 5 jours en villa privée, 2 cours/jour, cuisine végétarienne, randonnée. Tous niveaux, 10 participants max.',
   alternates: { canonical: `${siteUrl}/retraite` },
-  keywords: ['retraite pilates', 'retraite ibiza', 'retraite bien-être', 'stage pilates ibiza', 'retraite pilates 2026'],
+  keywords: ['retraite pilates', 'retraite ibiza', 'retraite bien-être', 'stage pilates ibiza', 'retraite pilates 2027'],
   openGraph: {
     title: 'Retraite Pilates à Ibiza — 5 jours bien-être · Le Club Pilates',
-    description: '5 jours & 4 nuits dans une villa à Ibiza : 2 cours de Pilates/jour, cuisine végétarienne, randonnée. Du 25 au 29 septembre 2026. 10 participants max.',
+    description: '5 jours & 4 nuits dans une villa à Ibiza : 2 cours de Pilates/jour, cuisine végétarienne, randonnée. Printemps 2027. 10 participants max.',
     url: `${siteUrl}/retraite`,
     type: 'website',
     locale: 'fr_FR',
@@ -30,8 +30,8 @@ const eventJsonLd = {
   '@type': 'Event',
   name: 'Retraite Pilates à Ibiza',
   description: '5 jours & 4 nuits dans une villa exceptionnelle à Ibiza : 2 cours de Pilates par jour, cuisine végétarienne saine, randonnée et balades au coucher du soleil. Ouvert à tous les niveaux, 10 participants maximum.',
-  startDate: '2026-09-25',
-  endDate: '2026-09-29',
+  startDate: '2027-05-01',
+  endDate: '2027-05-05',
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
@@ -150,9 +150,9 @@ export default async function RetraitePage() {
   const priceNote       = cms?.priceNote        ?? 'Paiement en 2 fois possible'
   const maxParticipants = cms?.maxParticipants  ?? 10
   const destination     = cms?.destination      ?? 'à Ibiza'
-  const heroDesc        = cms?.heroDescription  ?? `5 jours & 4 nuits dans une villa exceptionnelle. Pilates, cuisine saine, reconnexion. Du 25 au 29 septembre 2026.`
-  const startLabel      = cms?.startDate        ? formatDate(cms.startDate) : 'vendredi 25'
-  const endLabel        = cms?.endDate          ? formatDate(cms.endDate)   : 'mardi 29 septembre 2026'
+  const heroDesc        = cms?.heroDescription  ?? `5 jours & 4 nuits dans une villa exceptionnelle. Pilates, cuisine saine, reconnexion. Printemps 2027.`
+  const startLabel      = cms?.startDate        ? formatDate(cms.startDate) : null
+  const endLabel        = cms?.endDate          ? formatDate(cms.endDate)   : null
   const inclus          = cms?.inclus?.length   ? cms.inclus   : DEFAULT_INCLUS
   const nonInclus       = cms?.nonInclus?.length ? cms.nonInclus : DEFAULT_NON_INCLUS
   return (
@@ -206,7 +206,7 @@ export default async function RetraitePage() {
         <div className="section-wrapper max-w-4xl mx-auto text-center">
           <p className="eyebrow text-sand-dark mb-8" data-animate>La prochaine retraite</p>
           <h2 className="font-display font-light text-cocoa mb-4" data-animate style={{ transitionDelay: '100ms' }}>
-            Du {startLabel} au {endLabel}
+            {startLabel && endLabel ? `Du ${startLabel} au ${endLabel}` : 'Printemps 2027'}
           </h2>
           <div className="flex items-center justify-center gap-8 mt-8 mb-10 text-sm text-cocoa/50 font-light tracking-wide" data-animate style={{ transitionDelay: '150ms' }}>
             <span>5 jours & 4 nuits</span>
