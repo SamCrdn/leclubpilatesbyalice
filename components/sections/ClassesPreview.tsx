@@ -127,63 +127,33 @@ export default function ClassesPreview() {
         {/* Class cards — slider mobile / grid desktop */}
         <div className="relative">
         <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 md:pb-0 overscroll-x-contain">
-          {classes.map((c, i) => (
-            c.comingSoon ? (
-              <div
-                key={c.slug}
-                className="group block overflow-hidden shrink-0 w-[65vw] md:w-auto snap-start opacity-80"
-              >
-                <div className="aspect-[4/4] bg-sand/30 overflow-hidden mb-5 relative">
-                  <Image
-                    src={c.image}
-                    alt={c.title}
-                    fill
-                    sizes="(max-width: 768px) 65vw, 25vw"
-                    className="object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-cocoa/60" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
-                    <p className="font-display text-3xl font-light text-cream tracking-wide">{c.tag}</p>
-                    <p className="text-xs tracking-[0.25em] uppercase text-cream/70 font-light">{c.weeks}</p>
-                    <p className="text-xs tracking-[0.2em] uppercase text-cream/50 font-light mt-1">Prochainement</p>
-                  </div>
+          {classes.map((c) => (
+            <a
+              key={c.slug}
+              href={c.href ?? `${APP_URL}/classes/${c.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block overflow-hidden shrink-0 w-[65vw] md:w-auto snap-start"
+            >
+              <div className="aspect-[4/4] bg-sand/30 overflow-hidden mb-5 relative">
+                <Image
+                  src={c.image}
+                  alt={c.title}
+                  fill
+                  sizes="(max-width: 768px) 65vw, 25vw"
+                  className="object-cover object-center transition-transform duration-700 ease-smooth group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-cocoa/40" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
+                  <p className="font-display text-3xl font-light text-cream tracking-wide">{c.tag}</p>
+                  <p className="text-xs tracking-[0.25em] uppercase text-cream/70 font-light">{c.weeks}</p>
                 </div>
-                <h3 className="font-display text-xl font-light mb-2">{c.title}</h3>
-                <p className="text-xs text-mink font-light">{c.level}</p>
               </div>
-            ) : (
-              <a
-                key={c.slug}
-                href={c.href ?? `${APP_URL}/classes/${c.slug}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block overflow-hidden shrink-0 w-[65vw] md:w-auto snap-start"
-              >
-                {/* Image + overlay */}
-                <div className="aspect-[4/4] bg-sand/30 overflow-hidden mb-5 relative">
-                  <Image
-                    src={c.image}
-                    alt={c.title}
-                    fill
-                    sizes="(max-width: 768px) 65vw, 25vw"
-                    className="object-cover object-center transition-transform duration-700 ease-smooth group-hover:scale-105"
-                  />
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-cocoa/40" />
-                  {/* Centered text */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
-                    <p className="font-display text-3xl font-light text-cream tracking-wide">{c.tag}</p>
-                    <p className="text-xs tracking-[0.25em] uppercase text-cream/70 font-light">{c.weeks}</p>
-                  </div>
-                </div>
-
-                {/* Meta */}
-                <h3 className="font-display text-xl font-light mb-2 group-hover:text-cocoa-mid transition-colors">
-                  {c.title}
-                </h3>
-                <p className="text-xs text-mink font-light">{c.level}</p>
-              </a>
-            )
+              <h3 className="font-display text-xl font-light mb-2 group-hover:text-cocoa-mid transition-colors">
+                {c.title}
+              </h3>
+              <p className="text-xs text-mink font-light">{c.level}</p>
+            </a>
           ))}
         </div>
         <div className="absolute right-0 top-0 bottom-2 w-14 bg-gradient-to-l from-cream to-transparent pointer-events-none md:hidden flex items-center justify-end pr-2" aria-hidden="true">
