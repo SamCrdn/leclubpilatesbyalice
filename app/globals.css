@@ -65,6 +65,38 @@
 /* ── Components ────────────────────────────────────── */
 @layer components {
 
+  /* Lien d'accessibilite "Aller au contenu" : masque hors focus clavier.
+     Styles explicites (pas de dependance a l'utilitaire sr-only) pour eviter
+     tout affichage parasite selon le cache/navigateur. */
+  .skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .skip-link:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    overflow: visible;
+    clip: auto;
+    background-color: var(--color-cocoa);
+    color: var(--color-cream);
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+  }
+
   /* Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 whitespace-nowrap

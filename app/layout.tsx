@@ -86,10 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="p:domain_verify" content="74f930673b2f968c5b3134fd5377d05d" />
       </head>
       <body className="bg-cream text-cocoa antialiased" suppressHydrationWarning>
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-cocoa focus:text-cream focus:text-sm focus:rounded"
-        >
+        <a href="#main-content" className="skip-link">
           Aller au contenu
         </a>
         <ScrollReveal />
