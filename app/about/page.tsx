@@ -33,7 +33,7 @@ const personJsonLd = {
     { '@type': 'EducationalOccupationalCredential', name: 'Polestar Pilates Rehab & Studio Teacher Training' },
     { '@type': 'EducationalOccupationalCredential', name: 'Diplôme d\'État — Activités Physiques et Sportives' },
   ],
-  description: 'Ancienne danseuse classique (ENSA Marseille), instructrice Pilates certifiée Polestar, fondatrice du Club Pilates en ligne depuis 2020. 10 ans d\'expérience, 45 000 abonnés Instagram.',
+  description: 'Ancienne danseuse classique (ENSA Marseille), instructrice Pilates certifiée Polestar, fondatrice du Club Pilates en ligne depuis 2020. 10 ans d\'expérience, 50 000 abonnés Instagram.',
   sameAs: [
     'https://www.instagram.com/alice.leclubpilates/',
     'https://www.youtube.com/@leclubpilates',
@@ -81,7 +81,7 @@ export default function AboutPage() {
             {[
               { value: '10+', label: 'ans d\'expérience dans le Pilates' },
               { value: '2020', label: 'Création du studio en ligne' },
-              { value: '+45k', label: 'Followers' },
+              { value: '+50k', label: 'Followers' },
             ].map(({ value, label }) => (
               <div key={label}>
                 <p className="font-display text-2xl font-light text-cream lg:text-cocoa">{value}</p>

@@ -30,7 +30,7 @@ export default function ReservationForm() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          subject: 'Réservation Retraite Ibiza 2026',
+          subject: 'Réservation Retraite Ibiza 2027',
           message: form.message,
         }),
       })

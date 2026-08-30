@@ -11,8 +11,8 @@ const points = [
     body: 'Pas de salle, pas de transport. Un tapis, 20 à 55 minutes et vous êtes prêt. Pratiquez le matin avant le travail, le midi ou le soir, le studio est ouvert 24h/24.',
   },
   {
-    title: 'Guidé par de vraies expertes',
-    body: 'Alice et notre équipe de 5 professeurs certifiés vous guident avec précision : placement, respiration, corrections. Exactement comme un cours en studio, depuis votre salon.',
+    title: 'Guidé par de vrais experts',
+    body: 'Alice et les professeurs certifiés vous guident avec précision : placement, respiration, corrections. Exactement comme un cours en studio, depuis votre salon.',
   },
   {
     title: 'Des résultats durables',

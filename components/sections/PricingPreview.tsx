@@ -22,20 +22,26 @@ const PLAN_IMAGES: Record<string, string> = {
   annuel: '/images/class-3.jpg',
 }
 
+const formatPrice = (price: number | string) => {
+  if (typeof price !== 'number') return price
+  const decimals = Number.isInteger(price) ? 0 : 2
+  return price.toLocaleString('fr-FR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+}
+
 const FALLBACK_PLANS: Plan[] = [
   {
-    name: 'Mensuel',     tagline: 'Idéal pour découvrir',           price: 29,  period: 'mois',
+    name: 'Mensuel',     tagline: 'Idéal pour découvrir',           price: 26.9,  period: 'mois',
     highlight: false,    imageUrl: '/images/plan-mensuel.jpg',
     features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
   },
   {
     name: 'Trimestriel', tagline: 'Idéal pour obtenir des résultats', price: 75, period: '3 mois',
-    highlight: true,     badge: "15% d'économie",                   imageUrl: '/images/plan-trimestriel.jpg',
+    highlight: true,     badge: "8% d'économie",                   imageUrl: '/images/plan-trimestriel.jpg',
     features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
   },
   {
     name: 'Annuel',      tagline: 'Idéal pour transformer son corps', price: 229, period: 'an',
-    highlight: false,    badge: "34% d'économie",                    imageUrl: '/images/class-3.jpg',
+    highlight: false,    badge: "30% d'économie",                    imageUrl: '/images/class-3.jpg',
     features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
   },
 ]
@@ -81,7 +87,7 @@ export default async function PricingPreview() {
                 )}
                 <p className={`eyebrow mb-4 ${plan.highlight ? 'text-cream/50' : ''}`}>{plan.name}</p>
                 <div className="flex items-baseline gap-1 mb-8">
-                  <span className={`font-display text-5xl font-light ${plan.highlight ? 'text-cream' : 'text-cocoa'}`}>{plan.price}€</span>
+                  <span className={`font-display text-5xl font-light ${plan.highlight ? 'text-cream' : 'text-cocoa'}`}>{formatPrice(plan.price)}€</span>
                   <span className={`text-sm font-light ${plan.highlight ? 'text-cream/50' : 'text-mink'}`}>/{plan.period}</span>
                 </div>
                 <ul className="flex flex-col gap-3 mb-10 flex-1">

@@ -31,7 +31,7 @@ async function seed() {
     stats: [
       { _key: 's1', value: '+350',   label: 'cours disponibles', href: 'https://app.leclubpilates.com/', external: true },
       { _key: 's2', value: '+17',    label: 'catégories',         href: 'https://app.leclubpilates.com/', external: true },
-      { _key: 's3', value: '★ 5/5', label: '74 avis Google',      href: 'https://share.google/2FofxTrt8YdrjBKRw', external: true },
+      { _key: 's3', value: '★ 5/5', label: '81 avis Google',      href: 'https://share.google/2FofxTrt8YdrjBKRw', external: true },
       { _key: 's4', value: '10 ans', label: "d'expérience",        href: '/about', external: false },
       { _key: 's5', value: '+2',     label: 'lives par mois',      href: 'https://app.leclubpilates.com/programs/pilates', external: true },
       { _key: 's6', value: '+1 000', label: 'membres',             href: 'https://app.leclubpilates.com/', external: true },
@@ -49,7 +49,7 @@ async function seed() {
     startDate:       '2026-09-25',
     endDate:         '2026-09-29',
     heroDescription: '5 jours & 4 nuits dans une villa exceptionnelle. Pilates, cuisine saine, reconnexion. Du 25 au 29 septembre 2026.',
-    price:           1350,
+    price:           1250,
     priceNote:       'Paiement en 2 fois possible',
     maxParticipants: 10,
     locationName:    'Villa Ibiza — Cala de Bou',
@@ -136,15 +136,15 @@ async function seed() {
   // ── 5. Tarifs ────────────────────────────────────────────────────────────
   const plans: Array<{ name: string; tagline: string; price: number; period: string; order: number; highlight: boolean; badge?: string; imageUrl: string; features: string[] }> = [
     {
-      name: 'Mensuel',     tagline: 'Idéal pour découvrir',              price: 29,  period: 'mois',   order: 1, highlight: false, imageUrl: '/images/plan-mensuel.jpg',
+      name: 'Mensuel',     tagline: 'Idéal pour découvrir',              price: 26.9,  period: 'mois',   order: 1, highlight: false, imageUrl: '/images/plan-mensuel.jpg',
       features: ["7 jours d'essai offerts", 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
     },
     {
-      name: 'Trimestriel', tagline: 'Idéal pour obtenir des résultats',  price: 75,  period: '3 mois', order: 2, highlight: true,  badge: "15% d'économie", imageUrl: '/images/plan-trimestriel.jpg',
+      name: 'Trimestriel', tagline: 'Idéal pour obtenir des résultats',  price: 75,  period: '3 mois', order: 2, highlight: true,  badge: "8% d'économie", imageUrl: '/images/plan-trimestriel.jpg',
       features: ["7 jours d'essai offerts", 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
     },
     {
-      name: 'Annuel',      tagline: 'Idéal pour transformer son corps',  price: 229, period: 'an',     order: 3, highlight: false, badge: "34% d'économie", imageUrl: '/images/cours/cours-pilates-stretching.jpg',
+      name: 'Annuel',      tagline: 'Idéal pour transformer son corps',  price: 229, period: 'an',     order: 3, highlight: false, badge: "30% d'économie", imageUrl: '/images/cours/cours-pilates-stretching.jpg',
       features: ["7 jours d'essai offerts", 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
     },
   ]

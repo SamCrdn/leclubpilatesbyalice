@@ -51,7 +51,7 @@ const eventJsonLd = {
   },
   offers: {
     '@type': 'Offer',
-    price: '1350',
+    price: '1250',
     priceCurrency: 'EUR',
     availability: 'https://schema.org/LimitedAvailability',
     url: `${siteUrl}/retraite#reservation`,
@@ -146,7 +146,7 @@ function formatDate(iso: string) {
 export default async function RetraitePage() {
   const cms = client ? await client.fetch(retraiteQuery).catch(() => null) : null
 
-  const price           = cms?.price           ?? 1350
+  const price           = cms?.price           ?? 1250
   const priceNote       = cms?.priceNote        ?? 'Paiement en 2 fois possible'
   const maxParticipants = cms?.maxParticipants  ?? 10
   const destination     = cms?.destination      ?? 'à Ibiza'

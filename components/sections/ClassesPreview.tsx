@@ -24,29 +24,29 @@ const classes = [
   {
     slug:      'pilates-debutant',
     href:      'https://app.leclubpilates.com/programs/debutant',
-    tag:       'Débutant',
+    tag:       'Pilates Beginner',
     title:     'Fondamentaux du Pilates',
     weeks:     '6 semaines',
     level:     'Débutant',
-    image:     '/images/programme-fondamentaux-pilates.jpg',
+    image:     '/images/programme-pilates-beginner.jpg',
   },
   {
     slug:      'pilates-renforcement',
     href:      'https://app.leclubpilates.com/programs/pilates-sculpt',
-    tag:       'Sculpt',
+    tag:       'Pilates Sculpt',
     title:     'Full body',
     weeks:     '4 semaines',
-    level:     'Intermédiaire / Avançé',
-    image:     '/images/programme-core-stabilite-pilates.jpg',
+    level:     'Intermédiaire / Avancé',
+    image:     '/images/programme-pilates-sculpt.jpg',
   },
   {
     slug:      'pilates-mama',
     href:      'https://app.leclubpilates.com/programs/pilates-mama',
-    tag:       'Mama',
+    tag:       'Pilates Mama',
     title:     'Pilates pour femmes enceintes',
     weeks:     '12 mois',
     level:     'Prénatal et postnatal',
-    image:     '/images/programme-mama-pilates.jpg',
+    image:     '/images/programme-pilates-mama.jpg',
   },
   {
     slug:      'pilates-summer-body',
@@ -55,7 +55,16 @@ const classes = [
     title:     'Full Body',
     weeks:     '4 semaines',
     level:     'Tous niveaux',
-    image:     '/images/programme-summer-body-pilates.jpg',
+    image:     '/images/programme-summer-reset.jpg',
+  },
+  {
+    slug:      'pilates-booty-sculpt',
+    href:      'https://app.leclubpilates.com/programs/booty-sculpt',
+    tag:       'Booty Sculpt',
+    title:     'Fessiers et bas du corps',
+    weeks:     '3 semaines',
+    level:     'Tous niveaux',
+    image:     '/images/programme-booty-sculpt.jpg',
   },
 ]
 
@@ -126,7 +135,7 @@ export default function ClassesPreview() {
 
         {/* Class cards — slider mobile / grid desktop */}
         <div className="relative">
-        <div className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 md:pb-0 overscroll-x-contain">
+        <div className="flex md:grid md:grid-cols-5 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 md:pb-0 overscroll-x-contain">
           {classes.map((c) => (
             <a
               key={c.slug}
@@ -138,21 +147,17 @@ export default function ClassesPreview() {
               <div className="aspect-[4/4] bg-sand/30 overflow-hidden mb-5 relative">
                 <Image
                   src={c.image}
-                  alt={c.title}
+                  alt={`Programme ${c.tag}`}
                   fill
-                  sizes="(max-width: 768px) 65vw, 25vw"
+                  sizes="(max-width: 768px) 65vw, 20vw"
                   className="object-cover object-center transition-transform duration-700 ease-smooth group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-cocoa/40" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
-                  <p className="font-display text-3xl font-light text-cream tracking-wide">{c.tag}</p>
-                  <p className="text-xs tracking-[0.25em] uppercase text-cream/70 font-light">{c.weeks}</p>
-                </div>
+                <div className="absolute inset-0 bg-cocoa/15 group-hover:bg-cocoa/25 transition-colors" />
               </div>
               <h3 className="font-display text-xl font-light mb-2 group-hover:text-cocoa-mid transition-colors">
                 {c.title}
               </h3>
-              <p className="text-xs text-mink font-light">{c.level}</p>
+              <p className="text-xs text-mink font-light">{c.weeks} · {c.level}</p>
             </a>
           ))}
         </div>

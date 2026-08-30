@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
 const ABONNEMENTS_URL = 'https://app.leclubpilates.com'
-const STORAGE_KEY = 'promo-welcome-new-2026'
+const STORAGE_KEY = 'promo-rentree30-2026'
 
 export default function PromoBanner() {
   const [visible, setVisible] = useState(false)
@@ -25,10 +25,10 @@ export default function PromoBanner() {
 
       {/* ── Mobile ── */}
       <div className="flex md:hidden items-center justify-center gap-3">
-        <span className="text-base">☀️</span>
+        <span className="text-base">🍂</span>
         <div className="flex flex-col items-center leading-tight">
-          <span className="text-xs font-medium tracking-wide">−30% sur tous les nouveaux abos</span>
-          <span className="text-2xs text-cream/60 tracking-wide">Code : WELCOMENEW</span>
+          <span className="text-xs font-medium tracking-wide">Offre de rentrée de −30%</span>
+          <span className="text-2xs text-cream/60 tracking-wide">Code : RENTREE30</span>
         </div>
         <a
           href={ABONNEMENTS_URL}
@@ -42,11 +42,11 @@ export default function PromoBanner() {
 
       {/* ── Desktop ── */}
       <div className="hidden md:flex items-center justify-center gap-4">
-        <span className="text-lg">☀️</span>
+        <span className="text-lg">🍂</span>
         <p className="text-xs tracking-wide text-cream/90">
-          <span className="font-medium uppercase tracking-widest mr-2 text-cream">−30% sur tous les nouveaux abos</span>
+          <span className="font-medium uppercase tracking-widest mr-2 text-cream">Offre de rentrée de −30%</span>
           Code&nbsp;
-          <span className="font-semibold tracking-widest text-cream">WELCOMENEW</span>
+          <span className="font-semibold tracking-widest text-cream">RENTREE30</span>
         </p>
         <a
           href={ABONNEMENTS_URL}
