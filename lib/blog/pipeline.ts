@@ -34,6 +34,7 @@ Programmes (app) :
 - Fondamentaux du Pilates (6 semaines, Débutant) : https://app.leclubpilates.com/programs/debutant
 - Full Body Sculpt (4 semaines, Intermédiaire/Avancé) : https://app.leclubpilates.com/programs/pilates-sculpt
 - Pilates Mama (12 mois, Prénatal/Postnatal) : https://app.leclubpilates.com/programs/pilates-mama
+- Routine Express (4 semaines, Tous niveaux) : https://app.leclubpilates.com/programs/express-routine
 `.trim()
 
 const TONE_GUIDE = `

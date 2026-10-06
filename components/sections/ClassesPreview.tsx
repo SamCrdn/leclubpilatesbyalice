@@ -22,6 +22,15 @@ const categories = [
 
 const classes = [
   {
+    slug:      'pilates-routine-express',
+    href:      'https://app.leclubpilates.com/programs/express-routine',
+    tag:       'Routine Express',
+    title:     'Routine Express',
+    weeks:     '4 semaines',
+    level:     'Tous niveaux',
+    image:     '/images/programme-routine-express.jpg',
+  },
+  {
     slug:      'pilates-debutant',
     href:      'https://app.leclubpilates.com/programs/debutant',
     tag:       'Pilates Beginner',
@@ -135,7 +144,7 @@ export default function ClassesPreview() {
 
         {/* Class cards — slider mobile / grid desktop */}
         <div className="relative">
-        <div className="flex md:grid md:grid-cols-5 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 md:pb-0 overscroll-x-contain">
+        <div className="flex md:grid md:grid-cols-3 lg:grid-cols-6 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 md:pb-0 overscroll-x-contain">
           {classes.map((c) => (
             <a
               key={c.slug}
@@ -149,7 +158,7 @@ export default function ClassesPreview() {
                   src={c.image}
                   alt={`Programme ${c.tag}`}
                   fill
-                  sizes="(max-width: 768px) 65vw, 20vw"
+                  sizes="(max-width: 768px) 65vw, (max-width: 1024px) 33vw, 17vw"
                   className="object-cover object-center transition-transform duration-700 ease-smooth group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-cocoa/15 group-hover:bg-cocoa/25 transition-colors" />
