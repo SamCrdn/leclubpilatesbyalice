@@ -2,7 +2,7 @@ import { client } from '@/lib/sanity'
 import { testimonialsQuery } from '@/lib/sanity.queries'
 import TestimonialsCarousel, { type Testimonial } from './TestimonialsCarousel'
 
-const FALLBACK: Testimonial[] = [
+export const FALLBACK: Testimonial[] = [
   { name: 'Sarah',      role: '26 ans · Membre',                    initials: 'S',  quote: 'Je suis devenue complètement addict ! Je mixe plusieurs cours courts selon mon humeur, et j\'adore pouvoir pratiquer à n\'importe quelle heure. En quelques semaines, j\'ai vu des résultats que je n\'aurais jamais espérés avec une salle classique.' },
   { name: 'Noémie',     role: '38 ans · Membre',                    initials: 'N',  quote: 'Je fais du Pilates depuis une dizaine d\'années, mais depuis que je suis les cours d\'Alice, c\'est devenu une véritable hygiène de vie. Alice a sauvé mon dos, qui a été ma bête noire pendant des années, et je me sens réellement plus forte et plus souple dans mon quotidien.' },
   { name: 'Marie',      role: '41 ans · Membre',                    initials: 'M',  quote: 'Après avoir essayé des dizaines d\'applis fitness, Le Club Pilates est de loin la meilleure. Les cours sont variés, la progression est logique et Alice a une énergie communicative. Mon corps a changé de façon visible en 2 mois.' },

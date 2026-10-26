@@ -75,6 +75,7 @@ Après chaque modification de composant ou de page, ouvrir automatiquement http:
 - `/cours-de-pilates/debutant` `/dos` `/prenatal` `/wall` `/full-body` `/reformer` — Specialty landing pages
 - `/retraite` — Retreat Ibiza 2026
 - `/livre` — Livre "Mon cahier Pilates au mur" (éditions Solar, avril 2025) — galerie, FAQ, maillage vers /cours-de-pilates/wall
+- `/essai` — Page lien en bio Instagram (noindex, sans Header/Footer via `HideOnEssai`), CTA direct vers le paiement Uscreen + événement GA `commencer_essai`
 - `/blog/` — Blog listing (Sanity ISR)
 - `/blog/[slug]` — Blog article (Sanity ISR)
 - `/contact` — Contact form
@@ -154,6 +155,7 @@ Copy `.env.example` to `.env.local` and fill in:
 - 6 landing pages SEO + hub + maillage interne (RelatedCourses)
 - Page Livre (/livre) — JSON-LD Book + FAQPage, galerie slider, maillage interne
 - Page Retraite Ibiza 2026
+- Page `/essai` (lien en bio Instagram, essai gratuit 7 jours)
 - Vercel Speed Insights
 
 ## Still to do

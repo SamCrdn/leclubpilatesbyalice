@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import HideOnEssai from '@/components/layout/HideOnEssai'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import CookieBanner from '@/components/ui/CookieBanner'
 import GoogleAnalytics from '@/components/ui/GoogleAnalytics'
@@ -90,9 +91,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Aller au contenu
         </a>
         <ScrollReveal />
-        <Header />
+        <HideOnEssai><Header /></HideOnEssai>
         <main id="main-content">{children}</main>
-        <Footer />
+        <HideOnEssai><Footer /></HideOnEssai>
 
         <CookieBanner />
         <SpeedInsights />

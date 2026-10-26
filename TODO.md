@@ -31,6 +31,11 @@
 - [x] **Meta descriptions trop longues** — 9 pages corrigées à 130–155 chars : débutant, dos, prénatal, wall, full-body, reformer, abdos, retraite, livre.
 - [x] **Maillage interne articles** — Bloc "Nos programmes" ajouté en bas de chaque article blog (6 liens vers les pages cours). Lien `/livre` ajouté sur `/cours-de-pilates/wall`.
 - [ ] **Tests mobiles** — Vérifier le rendu sur vrais appareils iOS + Android (Core Web Vitals)
+- [x] **Page `/essai` (lien en bio Instagram)** — Page sans menu ni footer, noindex, envoi direct au paiement Uscreen, événement GA `commencer_essai` (`formule`, `position`).
+- [x] **`/essai` — liens et médias** — Lien annuel Uscreen, vidéo allégée sans son (`public/videos/essai-alice.mp4`, 960 Ko), poster, photo d'Alice en haut, prix « puis 229 €/an » sous le bouton.
+- [ ] **`/essai` — tester le paiement depuis l'appli Instagram** (iPhone + Android) avant de mettre le lien en bio.
+- [ ] **`/essai` — séance offerte** — `LIEN_SEANCE_OFFERTE` + emails de suite (Brevo).
+- [ ] **Tarifs homepage** — Annuel en premier, boutons vers le lien de paiement de chaque formule, événement `commencer_essai` avec `position: 'tarifs'`.
 
 ---
 
