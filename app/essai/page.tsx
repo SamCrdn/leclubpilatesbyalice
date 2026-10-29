@@ -83,7 +83,7 @@ export default async function EssaiPage() {
         {VIDEO_FOND && (
           <video
             aria-hidden="true"
-            className="absolute inset-0 -z-10 h-full w-full scale-125 object-cover opacity-70 blur-2xl motion-reduce:hidden"
+            className="absolute inset-0 -z-10 h-full w-full scale-125 object-cover opacity-35 blur-2xl motion-reduce:hidden"
             src={VIDEO_FOND}
             poster={VIDEO_POSTER || undefined}
             autoPlay
@@ -92,15 +92,15 @@ export default async function EssaiPage() {
             playsInline
           />
         )}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cocoa/60 via-cocoa/40 to-cocoa/85" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cocoa/50 via-cocoa/30 to-cocoa/90" aria-hidden="true" />
 
         {/* Logo, sans lien */}
-        <p className="mx-auto max-w-6xl px-6 pt-6 pb-8 text-center font-body font-medium tracking-[0.2em] uppercase text-sm text-cream/90 md:px-10 lg:pt-10 lg:pb-12 lg:text-left">
+        <p className="mx-auto max-w-6xl px-6 pt-5 pb-6 text-center font-body font-medium tracking-[0.2em] uppercase text-sm text-cream/90 md:px-10 lg:pt-10 lg:pb-6 lg:text-left">
           Le Club Pilates
         </p>
 
         {/* Empilés sur mobile, côte à côte sur ordinateur */}
-        <div className="mx-auto grid max-w-md gap-12 px-6 md:max-w-xl lg:max-w-6xl lg:grid-cols-[1fr_auto] lg:items-center lg:gap-20 lg:px-10">
+        <div className="mx-auto grid max-w-md gap-8 px-6 md:max-w-xl md:gap-12 lg:max-w-6xl lg:grid-cols-[1fr_auto] lg:items-center lg:gap-20 lg:px-10">
           <div id="cta-haut" className="text-center lg:text-left">
             <Image
               src="/images/essai-alice-avatar.jpg"
@@ -108,7 +108,7 @@ export default async function EssaiPage() {
               width={72}
               height={72}
               priority
-              className="mx-auto mb-5 h-[72px] w-[72px] rounded-full object-cover ring-2 ring-cream/40 lg:mx-0 lg:mb-7 lg:h-20 lg:w-20"
+              className="mx-auto mb-5 hidden h-[72px] w-[72px] rounded-full object-cover ring-2 ring-cream/40 md:block lg:mx-0 lg:mb-7 lg:h-20 lg:w-20"
             />
             <h1 className="font-display font-light text-[2.5rem] leading-[1.05] text-cream text-balance md:text-5xl lg:text-[4.25rem]">
               7 jours de Pilates gratuits, chez toi

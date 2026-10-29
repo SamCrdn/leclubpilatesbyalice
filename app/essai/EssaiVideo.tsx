@@ -21,7 +21,7 @@ export default function EssaiVideo({ src, poster }: { src: string; poster?: stri
   }
 
   return (
-    <div className="relative mx-auto w-[260px] aspect-[9/16] overflow-hidden rounded-3xl bg-cocoa-mid shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] ring-1 ring-cream/15 md:w-[300px] lg:w-[340px]">
+    <div className="relative mx-auto w-[280px] aspect-[9/16] overflow-hidden rounded-3xl bg-cocoa-mid shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] ring-1 ring-cream/15 md:w-[300px] lg:w-[340px]">
       <video
         ref={ref}
         className="h-full w-full object-cover"

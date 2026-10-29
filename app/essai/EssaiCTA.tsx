@@ -28,8 +28,8 @@ export default function EssaiCTA({ position, lienAnnuel, lienMensuel, fond = 'cl
       >
         Commencer mes 7 jours gratuits
       </a>
-      <p className={`text-xs font-light leading-relaxed ${sombre ? 'text-cream/60' : 'text-mink'}`}>
-        <span className={sombre ? 'text-cream/90' : 'text-cocoa/80'}>0 € aujourd&apos;hui, puis 229 €/an (environ 19 €/mois)</span>
+      <p className={`text-xs font-light leading-relaxed ${sombre ? 'text-cream/75' : 'text-mink'}`}>
+        <span className={`text-sm ${sombre ? 'text-cream' : 'text-cocoa/80'}`}>0 € aujourd&apos;hui, puis 229 €/an (environ 19 €/mois)</span>
         <br />
         Carte demandée · annulable avant la fin de l&apos;essai
       </p>
