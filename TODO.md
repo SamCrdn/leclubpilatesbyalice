@@ -33,9 +33,12 @@
 - [ ] **Tests mobiles** — Vérifier le rendu sur vrais appareils iOS + Android (Core Web Vitals)
 - [x] **Page `/essai` (lien en bio Instagram)** — Page sans menu ni footer, noindex, envoi direct au paiement Uscreen, événement GA `commencer_essai` (`formule`, `position`).
 - [x] **`/essai` — liens et médias** — Lien annuel Uscreen, vidéo allégée sans son (`public/videos/essai-alice.mp4`, 960 Ko), poster, photo d'Alice en haut, prix « puis 229 €/an » sous le bouton.
+- [x] **`/essai` — bannière vidéo** — Haut de page sombre avec la vidéo de présentation floutée en fond (`essai-alice-fond.mp4`, 150 Ko), vidéo nette avec bouton « Écouter Alice » (`essai-alice-presentation.mp4`, 1,2 Mo). Bouton flottant masqué sur ordinateur.
+- [x] **Liens courts Instagram** — `/ig`, `/story`, `/dm` → `/essai?utm_source=ig&utm_medium=social&utm_content=…` (redirections temporaires, `next.config.js`).
+- [ ] **Suivi des autres boutons d'essai** — Tous les `SignupCTA` et liens `/join` vers la section tarifs (`/#tarifs`) avec `commencer_essai` (`formule: 'formules'`, `position` unique).
 - [ ] **`/essai` — tester le paiement depuis l'appli Instagram** (iPhone + Android) avant de mettre le lien en bio.
 - [ ] **`/essai` — séance offerte** — `LIEN_SEANCE_OFFERTE` + emails de suite (Brevo).
-- [ ] **Tarifs homepage** — Annuel en premier, boutons vers le lien de paiement de chaque formule, événement `commencer_essai` avec `position: 'tarifs'`.
+- [x] **Tarifs homepage** — Alignés sur Uscreen (Annuel, Trimestriel, Mensuel), Annuel en premier, chaque bouton vers le paiement de sa formule (`lib/offres.ts`), événement `commencer_essai` avec `position: 'tarifs'`.
 
 ---
 

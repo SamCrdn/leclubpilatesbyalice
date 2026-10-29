@@ -1,60 +1,50 @@
 import Image from 'next/image'
 import { Check } from 'lucide-react'
-import { SignupCTA } from '@/components/ui/CTAButton'
-import { client } from '@/lib/sanity'
-import { pricingPlansQuery } from '@/lib/sanity.queries'
+import PlanCTA from '@/components/ui/PlanCTA'
+import type { Formule } from '@/lib/analytics'
+import { LIENS_PAIEMENT } from '@/lib/offres'
 
 type Plan = {
-  _id?: string
+  formule: Formule
   name: string
-  tagline: string
-  price: number | string
+  price: string
   period: string
-  features: string[]
+  detail: string
+  conditions: string
   badge?: string
   highlight: boolean
-  imageUrl?: string
+  imageUrl: string
 }
 
-const PLAN_IMAGES: Record<string, string> = {
-  mensuel: '/images/plan-mensuel.jpg',
-  trimestriel: '/images/plan-trimestriel.jpg',
-  annuel: '/images/class-3.jpg',
-}
-
-const formatPrice = (price: number | string) => {
-  if (typeof price !== 'number') return price
-  const decimals = Number.isInteger(price) ? 0 : 2
-  return price.toLocaleString('fr-FR', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
-}
-
-const FALLBACK_PLANS: Plan[] = [
+// Textes alignés sur les offres Uscreen (app.leclubpilates.com)
+const PLANS: Plan[] = [
   {
-    name: 'Mensuel',     tagline: 'Idéal pour découvrir',           price: 26.9,  period: 'mois',
-    highlight: false,    imageUrl: '/images/plan-mensuel.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
+    formule: 'annuel', name: 'Annuel', price: '229', period: 'an',
+    detail: "Soit environ 19 € par mois : près de 94 € d'économie sur l'année",
+    conditions: "Payé une fois pour l'année, résiliable à tout moment : l'accès continue jusqu'à la fin de l'année payée",
+    badge: 'Le plus avantageux', highlight: true, imageUrl: '/images/class-3.jpg',
   },
   {
-    name: 'Trimestriel', tagline: 'Idéal pour obtenir des résultats', price: 75, period: '3 mois',
-    highlight: true,     badge: "8% d'économie",                   imageUrl: '/images/plan-trimestriel.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Annulation à tout moment'],
+    formule: 'trimestriel', name: 'Trimestriel', price: '75', period: '3 mois',
+    detail: 'Soit 25 € par mois',
+    conditions: 'Résiliable à tout moment, ou une pause si tu manques de temps',
+    highlight: false, imageUrl: '/images/plan-trimestriel.jpg',
   },
   {
-    name: 'Annuel',      tagline: 'Idéal pour transformer son corps', price: 229, period: 'an',
-    highlight: false,    badge: "30% d'économie",                    imageUrl: '/images/class-3.jpg',
-    features: ['7 jours d\'essai offerts', 'Accès illimité à +350 cours', 'Sur web, mobile et TV', 'Le tarif le plus avantageux', 'Annulation à tout moment'],
+    formule: 'mensuel', name: 'Mensuel', price: '26,90', period: 'mois',
+    detail: 'Sans engagement, résiliable à tout moment',
+    conditions: 'Une pause possible si tu manques de temps',
+    highlight: false, imageUrl: '/images/plan-mensuel.jpg',
   },
 ]
 
-export default async function PricingPreview() {
-  const data = client ? await client.fetch(pricingPlansQuery).catch(() => null) : null
-  const plans: Plan[] = data?.length
-    ? data.map((plan: Plan) => ({
-        ...plan,
-        imageUrl: PLAN_IMAGES[plan.name?.toLowerCase() ?? ''] ?? plan.imageUrl,
-      }))
-    : FALLBACK_PLANS
+const AVANTAGES = [
+  "7 jours d'essai gratuits, 0 € aujourd'hui",
+  'Accès illimité à +350 cours, sur téléphone, ordinateur et TV',
+  'Un challenge chaque semaine et des lives chaque mois',
+]
 
+export default function PricingPreview() {
   return (
     <section aria-labelledby="pricing-title" className="pb-section pt-[clamp(7rem,14vw,12rem)] bg-cream">
       <div className="section-wrapper">
@@ -62,23 +52,21 @@ export default async function PricingPreview() {
         <div className="text-center mb-14" data-animate>
           <p className="eyebrow mb-4">Tarifs</p>
           <h2 id="pricing-title">Choisis <em className="italic">ton rythme</em></h2>
-          <p className="mt-4 text-cocoa/60 font-light max-w-md mx-auto">7 jours d'essai gratuit. Résiliez à tout moment.</p>
+          <p className="mt-4 text-cocoa/60 font-light max-w-md mx-auto">7 jours d&apos;essai gratuits sur toutes les formules.</p>
         </div>
 
         <div className="relative">
-        <div className="flex md:grid md:grid-cols-3 gap-6 md:max-w-4xl md:mx-auto overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 overscroll-x-contain">
-          {plans.map((plan, i) => (
+        <div className="flex md:grid md:grid-cols-3 gap-6 md:max-w-5xl md:mx-auto overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 md:pb-0 overscroll-x-contain">
+          {PLANS.map((plan) => (
             <div
-              key={plan._id ?? plan.name}
+              key={plan.formule}
               className={`relative flex flex-col shrink-0 w-[80vw] md:w-auto snap-start rounded-sm overflow-hidden transition-shadow ${
                 plan.highlight ? 'bg-cocoa text-cream shadow-xl' : 'bg-chalk border border-sand/30 hover:shadow-md'
               }`}
             >
-              {plan.imageUrl && (
-                <div className="aspect-video relative overflow-hidden transform-gpu">
-                  <Image src={plan.imageUrl} alt={`Abonnement ${plan.name}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
-                </div>
-              )}
+              <div className="aspect-video relative overflow-hidden transform-gpu">
+                <Image src={plan.imageUrl} alt={`Abonnement ${plan.name}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+              </div>
               <div className="p-8 flex flex-col flex-1">
                 {plan.badge && (
                   <span className="self-start mb-3 bg-sand text-cocoa text-2xs font-light tracking-[0.15em] uppercase px-4 py-1.5 rounded-pill whitespace-nowrap">
@@ -86,24 +74,25 @@ export default async function PricingPreview() {
                   </span>
                 )}
                 <p className={`eyebrow mb-4 ${plan.highlight ? 'text-cream/50' : ''}`}>{plan.name}</p>
-                <div className="flex items-baseline gap-1 mb-8">
-                  <span className={`font-display text-5xl font-light ${plan.highlight ? 'text-cream' : 'text-cocoa'}`}>{formatPrice(plan.price)}€</span>
+                <div className="flex items-baseline gap-1">
+                  <span className={`font-display text-5xl font-light ${plan.highlight ? 'text-cream' : 'text-cocoa'}`}>{plan.price}€</span>
                   <span className={`text-sm font-light ${plan.highlight ? 'text-cream/50' : 'text-mink'}`}>/{plan.period}</span>
                 </div>
+                <p className={`mt-3 mb-8 text-sm font-light ${plan.highlight ? 'text-sand' : 'text-cocoa'}`}>{plan.detail}</p>
                 <ul className="flex flex-col gap-3 mb-10 flex-1">
-                  {plan.features?.map(f => (
+                  {[...AVANTAGES, plan.conditions].map(f => (
                     <li key={f} className={`flex items-start gap-3 text-sm font-light ${plan.highlight ? 'text-cream/80' : 'text-cocoa/70'}`}>
                       <Check size={14} className={`mt-0.5 shrink-0 ${plan.highlight ? 'text-sand' : 'text-sand-dark'}`} />
                       {f}
                     </li>
                   ))}
-                  <li className={`text-xs font-light italic mt-1 ${plan.highlight ? 'text-cream/40' : 'text-mink'}`}>{plan.tagline}</li>
                 </ul>
-                <SignupCTA
-                  label="Commencer l'essai"
+                <PlanCTA
+                  href={LIENS_PAIEMENT[plan.formule]}
+                  formule={plan.formule}
+                  position="tarifs"
                   variant={plan.highlight ? 'secondary' : 'primary'}
-                  className={plan.highlight ? 'border-cream text-cream hover:bg-cream hover:text-cocoa' : ''}
-                  utmContent={`pricing-${plan.name.toLowerCase()}`}
+                  className={plan.highlight ? 'border-cream bg-cream text-cocoa hover:bg-sand hover:border-sand hover:text-cocoa' : ''}
                 />
               </div>
             </div>

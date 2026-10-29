@@ -7,12 +7,15 @@ import { FALLBACK } from '@/components/sections/TestimonialsSection'
 import type { Testimonial } from '@/components/sections/TestimonialsCarousel'
 import EssaiCTA from './EssaiCTA'
 import StickyCTA from './StickyCTA'
+import EssaiVideo from './EssaiVideo'
+import { LIENS_PAIEMENT } from '@/lib/offres'
 
 // ── Liens et médias ────────────────────────────────────
-const LIEN_ANNUEL = 'https://app.leclubpilates.com/r/buy/fc127c46-d962-47ff-94cb-2151870a3f2a?o=198383'
-const LIEN_MENSUEL = 'https://app.leclubpilates.com/r/buy/faad11e0-c222-4745-b434-06a089c4f372?o=198380'
-const VIDEO_URL: string = '/videos/essai-alice.mp4'           // vidéo verticale, sans son
-const VIDEO_POSTER: string = '/images/essai-alice-poster.jpg' // image affichée pendant le chargement
+const LIEN_ANNUEL = LIENS_PAIEMENT.annuel
+const LIEN_MENSUEL = LIENS_PAIEMENT.mensuel
+const VIDEO_URL: string = '/videos/essai-alice-presentation.mp4'           // vidéo verticale, avec son (muette au départ)
+const VIDEO_POSTER: string = '/images/essai-alice-presentation-poster.jpg' // image affichée pendant le chargement
+const VIDEO_FOND: string = '/videos/essai-alice-fond.mp4'                  // même vidéo en très basse définition, floutée en fond
 const LIEN_SEANCE_OFFERTE: string = '' // vide = lien masqué
 
 // ── Avis Google (à tenir à jour, comme dans StatsBar) ──
@@ -75,57 +78,59 @@ export default async function EssaiPage() {
   return (
     <div className="min-h-screen bg-cream pb-28 lg:pb-20">
 
-      {/* Logo, sans lien */}
-      <p className="mx-auto max-w-6xl px-6 pt-6 pb-8 text-center font-body font-medium tracking-[0.2em] uppercase text-sm text-cocoa md:px-10 lg:pt-10 lg:pb-12 lg:text-left">
-        Le Club Pilates
-      </p>
-
-      {/* 1-4. Titre, sous-titre, action (haut) et vidéo : empilés sur mobile, côte à côte sur ordinateur */}
-      <section className="mx-auto grid max-w-md gap-14 px-6 md:max-w-xl lg:max-w-6xl lg:grid-cols-[1fr_auto] lg:items-center lg:gap-20 lg:px-10">
-        <div id="cta-haut" className="text-center lg:text-left">
-          <Image
-            src="/images/essai-alice-avatar.jpg"
-            alt="Alice, fondatrice du Club Pilates"
-            width={72}
-            height={72}
-            priority
-            className="mx-auto mb-5 h-[72px] w-[72px] rounded-full object-cover ring-2 ring-sand-light lg:mx-0 lg:mb-7 lg:h-20 lg:w-20"
+      {/* 1-4. Bannière sombre, la vidéo floutée en fond : titre, action (haut) et vidéo nette */}
+      <section className="relative isolate overflow-hidden bg-cocoa pb-16 text-cream lg:pb-24">
+        {VIDEO_FOND && (
+          <video
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 h-full w-full scale-125 object-cover opacity-70 blur-2xl motion-reduce:hidden"
+            src={VIDEO_FOND}
+            poster={VIDEO_POSTER || undefined}
+            autoPlay
+            muted
+            loop
+            playsInline
           />
-          <h1 className="font-display font-light text-[2.5rem] leading-[1.05] text-cocoa text-balance md:text-5xl lg:text-[4.25rem]">
-            7 jours de Pilates gratuits, chez toi
-          </h1>
-          <p className="mt-4 font-light text-cocoa/80 text-balance md:text-lg lg:mt-6">
-            Des cours guidés par Alice, pour tous les niveaux.
-          </p>
-          <p className="mt-3 mb-7 flex items-center justify-center gap-2 text-sm font-light text-cocoa/80 lg:mb-9 lg:justify-start">
-            <span className="tracking-[0.15em] text-[#E8A33D]" aria-hidden="true">★★★★★</span>
-            <span>{NOTE_GOOGLE}/5 · {NB_AVIS_GOOGLE} avis Google</span>
-          </p>
-          <EssaiCTA
-            position="haut"
-            lienAnnuel={LIEN_ANNUEL}
-            lienMensuel={LIEN_MENSUEL}
-            className="lg:items-start lg:text-left"
-          />
-        </div>
-
-        {VIDEO_URL && (
-          <figure>
-            <figcaption className="eyebrow mb-4 text-center">Un cours avec Alice</figcaption>
-            <div className="mx-auto w-[240px] aspect-[9/16] overflow-hidden rounded-3xl bg-cream-dark shadow-[0_20px_40px_-20px_rgba(44,26,14,0.35)] md:w-[280px] lg:w-[320px]">
-              <video
-                className="h-full w-full object-cover"
-                src={VIDEO_URL}
-                poster={VIDEO_POSTER || undefined}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="none"
-              />
-            </div>
-          </figure>
         )}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cocoa/60 via-cocoa/40 to-cocoa/85" aria-hidden="true" />
+
+        {/* Logo, sans lien */}
+        <p className="mx-auto max-w-6xl px-6 pt-6 pb-8 text-center font-body font-medium tracking-[0.2em] uppercase text-sm text-cream/90 md:px-10 lg:pt-10 lg:pb-12 lg:text-left">
+          Le Club Pilates
+        </p>
+
+        {/* Empilés sur mobile, côte à côte sur ordinateur */}
+        <div className="mx-auto grid max-w-md gap-12 px-6 md:max-w-xl lg:max-w-6xl lg:grid-cols-[1fr_auto] lg:items-center lg:gap-20 lg:px-10">
+          <div id="cta-haut" className="text-center lg:text-left">
+            <Image
+              src="/images/essai-alice-avatar.jpg"
+              alt="Alice, fondatrice du Club Pilates"
+              width={72}
+              height={72}
+              priority
+              className="mx-auto mb-5 h-[72px] w-[72px] rounded-full object-cover ring-2 ring-cream/40 lg:mx-0 lg:mb-7 lg:h-20 lg:w-20"
+            />
+            <h1 className="font-display font-light text-[2.5rem] leading-[1.05] text-cream text-balance md:text-5xl lg:text-[4.25rem]">
+              7 jours de Pilates gratuits, chez toi
+            </h1>
+            <p className="mt-4 font-light text-cream/85 text-balance md:text-lg lg:mt-6">
+              Des cours guidés par Alice, pour tous les niveaux.
+            </p>
+            <p className="mt-3 mb-7 flex items-center justify-center gap-2 text-sm font-light text-cream/85 lg:mb-9 lg:justify-start">
+              <span className="tracking-[0.15em] text-[#E8A33D]" aria-hidden="true">★★★★★</span>
+              <span>{NOTE_GOOGLE}/5 · {NB_AVIS_GOOGLE} avis Google</span>
+            </p>
+            <EssaiCTA
+              position="haut"
+              lienAnnuel={LIEN_ANNUEL}
+              lienMensuel={LIEN_MENSUEL}
+              fond="sombre"
+              className="lg:items-start lg:text-left"
+            />
+          </div>
+
+          {VIDEO_URL && <EssaiVideo src={VIDEO_URL} poster={VIDEO_POSTER} />}
+        </div>
       </section>
 
       {/* 5. Trois points : une colonne sur mobile, trois à partir de la tablette */}

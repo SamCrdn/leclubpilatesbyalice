@@ -35,7 +35,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/pricing',                             destination: 'https://app.leclubpilates.com/join', permanent: true },
+      // Liens courts Instagram vers /essai (temporaires, pour pouvoir changer la cible)
+      { source: '/ig',                                  destination: '/essai?utm_source=ig&utm_medium=social&utm_content=link_in_bio', permanent: false },
+      { source: '/story',                               destination: '/essai?utm_source=ig&utm_medium=social&utm_content=story',       permanent: false },
+      { source: '/dm',                                  destination: '/essai?utm_source=ig&utm_medium=social&utm_content=dm',          permanent: false },
+      { source: '/pricing',                            destination: 'https://app.leclubpilates.com/join', permanent: true },
       { source: '/a-propos',                            destination: '/about',                             permanent: true },
       { source: '/classes',                               destination: '/cours-de-pilates',                  permanent: true },
       { source: '/les-cours',                           destination: '/cours-de-pilates',                  permanent: true },

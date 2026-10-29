@@ -32,7 +32,7 @@ export default function StickyCTA({ lienAnnuel }: { lienAnnuel: string }) {
   return (
     <div
       aria-hidden={!visible}
-      className={`fixed inset-x-0 bottom-0 z-40 lg:hiddenborder-t border-cocoa/10 bg-cream/95 px-6 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur transition-transform duration-300 ease-smooth ${
+      className={`fixed inset-x-0 bottom-0 z-40 lg:hidden border-t border-cocoa/10 bg-cream/95 px-6 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur transition-transform duration-300 ease-smooth ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
