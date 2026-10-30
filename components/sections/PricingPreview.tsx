@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Check } from 'lucide-react'
 import PlanCTA from '@/components/ui/PlanCTA'
+import EssaiLink from '@/components/ui/EssaiLink'
 import type { Formule } from '@/lib/analytics'
 import { LIENS_PAIEMENT } from '@/lib/offres'
 
@@ -104,9 +105,9 @@ export default function PricingPreview() {
         </div>
 
         <div className="text-center mt-10" data-animate>
-          <a href="https://app.leclubpilates.com/join" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.15em] uppercase text-mink hover:text-cocoa transition-colors font-light">
+          <EssaiLink href="https://app.leclubpilates.com/join" position="tarifs-detail" target="_blank" rel="noopener noreferrer" className="text-xs tracking-[0.15em] uppercase text-mink hover:text-cocoa transition-colors font-light">
             Voir le détail des abonnements →
-          </a>
+          </EssaiLink>
         </div>
 
       </div>

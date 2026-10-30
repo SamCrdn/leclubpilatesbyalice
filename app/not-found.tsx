@@ -16,7 +16,7 @@ export default function NotFound() {
           La page que vous recherchez n&apos;existe pas ou a été déplacée.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <SignupCTA label="Découvrir les cours" />
+          <SignupCTA label="Découvrir les cours" utmContent="page-404" />
           <Link href="/" className="btn-secondary">Retour à l'accueil</Link>
         </div>
       </div>

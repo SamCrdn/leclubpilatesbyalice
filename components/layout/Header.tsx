@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import PromoBanner from '@/components/layout/PromoBanner'
+import { trackEssai } from '@/lib/analytics'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
 
@@ -190,7 +191,7 @@ export default function Header() {
               >
                 Connexion
               </a>
-              <a href={`${APP_URL}/join?utm_source=site&utm_medium=nav&utm_campaign=homepage&utm_content=header`} className="btn-primary py-2.5 px-6 text-xs">
+              <a href={`${APP_URL}/join?utm_source=site&utm_medium=nav&utm_campaign=homepage&utm_content=header`} onClick={() => trackEssai('join', 'header')} className="btn-primary py-2.5 px-6 text-xs">
                 Essai gratuit
               </a>
             </div>
@@ -299,7 +300,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="mt-auto flex flex-col gap-3">
-          <a href={`${APP_URL}/join?utm_source=site&utm_medium=nav&utm_campaign=homepage&utm_content=mobile-menu`} className="btn-primary w-full text-center">
+          <a href={`${APP_URL}/join?utm_source=site&utm_medium=nav&utm_campaign=homepage&utm_content=mobile-menu`} onClick={() => trackEssai('join', 'mobile-menu')} className="btn-primary w-full text-center">
             7 jours gratuits
           </a>
           <a

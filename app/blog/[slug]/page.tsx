@@ -7,6 +7,7 @@ import { PortableText } from 'next-sanity'
 import { client, urlFor } from '@/lib/sanity'
 import { postBySlugQuery, allSlugsQuery } from '@/lib/sanity.queries'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
+import EssaiLink from '@/components/ui/EssaiLink'
 
 export const revalidate = 3600
 
@@ -200,12 +201,13 @@ export default async function BlogPostPage({ params }: Props) {
           {/* CTA fin d'article */}
           <div className="mt-12 pt-10 border-t border-sand/30 text-center">
             <p className="font-display text-2xl font-light italic text-cocoa mb-6">Envie de pratiquer ?</p>
-            <a
+            <EssaiLink
               href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=blog&utm_campaign=article-cta"
+              position="blog-article"
               className="btn-primary"
             >
               7 jours gratuits
-            </a>
+            </EssaiLink>
           </div>
 
         </div>

@@ -59,7 +59,7 @@ export default function HeroSection() {
             className="flex flex-wrap gap-4 animate-fade-up"
             style={{ animationDelay: '650ms' }}
           >
-            <CTAButton href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=cta&utm_campaign=homepage&utm_content=hero" label={<><span className="sm:hidden">7 jours gratuits</span><span className="hidden sm:inline">Commencer — 7 jours gratuits</span></>} external />
+            <CTAButton href="https://app.leclubpilates.com/join?utm_source=site&utm_medium=cta&utm_campaign=homepage&utm_content=hero" label={<><span className="sm:hidden">7 jours gratuits</span><span className="hidden sm:inline">Commencer — 7 jours gratuits</span></>} external essai="hero" />
             <a
               href="https://app.leclubpilates.com/"
               target="_blank"

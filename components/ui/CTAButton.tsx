@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
+import EssaiLink from '@/components/ui/EssaiLink'
 
 type Variant = 'primary' | 'secondary' | 'ghost'
 
@@ -12,6 +13,8 @@ interface CTAButtonProps {
   external?: boolean
   icon?: boolean
   className?: string
+  /** Position GA : si renseignée, le clic envoie commencer_essai (formule 'join') */
+  essai?: string
 }
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
@@ -32,6 +35,7 @@ export function CTAButton({
   external = false,
   icon = true,
   className,
+  essai,
 }: CTAButtonProps) {
   const base = variant === 'primary'
     ? 'btn-primary'
@@ -41,6 +45,15 @@ export function CTAButton({
 
   const classes = twMerge(base, className)
   const props = external ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+
+  if (essai) {
+    return (
+      <EssaiLink href={href} position={essai} className={classes} {...props}>
+        {label}
+        {icon && <ArrowRight size={14} />}
+      </EssaiLink>
+    )
+  }
 
   if (external || href.startsWith('http')) {
     return (
@@ -59,7 +72,7 @@ export function CTAButton({
   )
 }
 
-/** Convenience: always points to app.leclubpilates.com/join */
+/** Convenience: always points to app.leclubpilates.com/join, avec commencer_essai (position = utmContent) */
 export function SignupCTA({
   label = 'Commencer maintenant',
   variant = 'primary' as Variant,
@@ -73,6 +86,7 @@ export function SignupCTA({
       variant={variant}
       external
       className={className}
+      essai={utmContent}
     />
   )
 }
