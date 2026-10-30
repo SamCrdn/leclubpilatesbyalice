@@ -71,7 +71,7 @@ export default function PilatesDebutantPage() {
             Vous n'avez jamais fait de Pilates, ou vous souhaitez reprendre depuis les bases ? Nos cours de Pilates débutant en ligne vous guident pas à pas, à votre rythme, depuis chez vous.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
-            <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-debutant-hero" />
+            <SignupCTA label="Commencer, 7 jours gratuits" utmContent="landing-debutant-hero" />
           </div>
         </div>
       </section>

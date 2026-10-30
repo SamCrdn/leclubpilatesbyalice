@@ -55,7 +55,7 @@ export default function OnlinePilatesSection() {
               </p>
             </div>
             <div className="mt-10" data-animate style={{ transitionDelay: '200ms' }}>
-              <SignupCTA label="Commencer — 7 jours gratuits" utmContent="online-pilates-section" />
+              <SignupCTA label="Commencer, 7 jours gratuits" utmContent="online-pilates-section" />
             </div>
           </div>
 

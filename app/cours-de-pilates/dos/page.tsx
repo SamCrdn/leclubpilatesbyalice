@@ -71,7 +71,7 @@ export default function PilatesDosPage() {
             Douleurs lombaires, tensions cervicales, mauvaise posture : le Pilates agit en profondeur sur les causes du mal de dos. Des cours guidés par des experts certifiés, sans impact, depuis chez vous.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
-            <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-dos-hero" />
+            <SignupCTA label="Commencer, 7 jours gratuits" utmContent="landing-dos-hero" />
           </div>
         </div>
       </section>

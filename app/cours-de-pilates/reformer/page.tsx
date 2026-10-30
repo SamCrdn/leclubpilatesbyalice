@@ -71,7 +71,7 @@ export default function PilatesReformerPage() {
             L'efficacité du reformer, accessible à la maison. Nos cours Reformer-inspired reproduisent les principes de la machine sur tapis : résistance, alignement précis, travail en décharge, sans investir dans un équipement coûteux.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
-            <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-reformer-hero" />
+            <SignupCTA label="Commencer, 7 jours gratuits" utmContent="landing-reformer-hero" />
           </div>
         </div>
       </section>

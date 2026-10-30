@@ -71,7 +71,7 @@ export default function PilatesFullBodyPage() {
             Une séance, tout le corps. Le Pilates Full Body combine renforcement musculaire profond, coordination et endurance pour des résultats visibles, sans matériel lourd, depuis chez vous.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
-            <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-fullbody-hero" />
+            <SignupCTA label="Commencer, 7 jours gratuits" utmContent="landing-fullbody-hero" />
           </div>
         </div>
       </section>

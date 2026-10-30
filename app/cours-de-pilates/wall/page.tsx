@@ -72,7 +72,7 @@ export default function PilatesWallPage() {
             Le Pilates Wall transforme votre mur en outil de Pilates. Renforcement profond, étirements en décompression, correction de la posture, sans matériel, depuis votre salon.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
-            <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-wall-hero" />
+            <SignupCTA label="Commencer, 7 jours gratuits" utmContent="landing-wall-hero" />
           </div>
         </div>
       </section>

@@ -90,7 +90,7 @@ export default function CourseDePilatesPage() {
             +350 cours disponibles, nouvelles séances chaque semaine. Débutant ou confirmé, dos fragile ou grossesse, il y a un cours fait pour vous, guidé par des instructeurs certifiés.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
-            <SignupCTA label="Commencer — 7 jours gratuits" utmContent="cours-de-pilates-hero" />
+            <SignupCTA label="Commencer, 7 jours gratuits" utmContent="cours-de-pilates-hero" />
           </div>
         </div>
       </section>

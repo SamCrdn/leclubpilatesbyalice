@@ -71,7 +71,7 @@ export default function PilatesAbdosPage() {
             Oubliez les crunchs. Le Pilates abdos travaille en profondeur : transverse, obliques, plancher pelvien. Un centre fort, une taille affinée, sans jamais compromettre votre dos.
           </p>
           <div data-animate style={{ transitionDelay: '200ms' }}>
-            <SignupCTA label="Commencer — 7 jours gratuits" utmContent="landing-abdos-hero" />
+            <SignupCTA label="Commencer, 7 jours gratuits" utmContent="landing-abdos-hero" />
           </div>
         </div>
       </section>
