@@ -76,6 +76,7 @@ Après chaque modification de composant ou de page, ouvrir automatiquement http:
 - `/retraite` — Retreat Ibiza 2026
 - `/livre` — Livre "Mon cahier Pilates au mur" (éditions Solar, avril 2025) — galerie, FAQ, maillage vers /cours-de-pilates/wall
 - `/essai` — Page lien en bio Instagram (noindex, sans Header/Footer via `HideOnEssai`), CTA direct vers le paiement Uscreen + événement GA `commencer_essai`
+- `/merci-depart` — Page après résiliation (noindex, hors sitemap, sans Header/Footer), lit `?raison=` (temps, prix, pause, contenu, autre) et envoie l'événement GA `raison_depart`
 - `/blog/` — Blog listing (Sanity ISR)
 - `/blog/[slug]` — Blog article (Sanity ISR)
 - `/contact` — Contact form
@@ -156,6 +157,7 @@ Copy `.env.example` to `.env.local` and fill in:
 - Page Livre (/livre) — JSON-LD Book + FAQPage, galerie slider, maillage interne
 - Page Retraite Ibiza 2026
 - Page `/essai` (lien en bio Instagram, essai gratuit 7 jours)
+- Page `/merci-depart` (après résiliation, événement GA `raison_depart`)
 - Vercel Speed Insights
 
 ## Still to do
