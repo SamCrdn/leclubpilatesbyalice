@@ -10,8 +10,31 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    // iOS Safari n'autoplay pas toujours au premier chargement — on force l'appel explicite.
-    videoRef.current?.play().catch(() => {})
+    const video = videoRef.current
+    if (!video) return
+
+    // iOS (mode Économie d'énergie notamment) refuse la lecture automatique tant que la personne
+    // n'a pas interagi avec la page : on retente au premier toucher, clic ou défilement,
+    // et au retour sur la page (bouton Précédent, onglet réaffiché).
+    const lancer = () => { if (video.paused) video.play().catch(() => {}) }
+    const evenements = ['touchstart', 'click', 'scroll'] as const
+    const auPremierGeste = () => {
+      lancer()
+      evenements.forEach(e => window.removeEventListener(e, auPremierGeste))
+    }
+    const auRetour = () => { if (document.visibilityState === 'visible') lancer() }
+
+    video.play().catch(() => {
+      evenements.forEach(e => window.addEventListener(e, auPremierGeste, { passive: true }))
+    })
+    window.addEventListener('pageshow', lancer)
+    document.addEventListener('visibilitychange', auRetour)
+
+    return () => {
+      evenements.forEach(e => window.removeEventListener(e, auPremierGeste))
+      window.removeEventListener('pageshow', lancer)
+      document.removeEventListener('visibilitychange', auRetour)
+    }
   }, [])
 
   return (

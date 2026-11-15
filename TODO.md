@@ -29,7 +29,8 @@
 - [ ] **#5 (à la main)** — (GA4 « sites référents indésirables » abandonné le 15/11 : localhost et prévisualisations déjà bloqués par le code, les visites `vercel.com` sont de vraies visites de l'équipe.) ~~cron-job.org : désactiver la tâche `/api/generate-article`~~ fait le 15/11. ~~Vercel : redirection `leclubpilates.com` → `www` en 308~~ fait le 15/11 (vérifié : 308). Chemin : projet → Networking → Domains. ~~Search Console : inspecter `http://www.leclubpilates.com/`~~ fait le 15/11 : « non indexée, page avec redirection » (normal). Découverte via des liens externes en http (podcast Ausha « Parlons PMA » épisode 37, réel Instagram). Rien à corriger ; suivre la baisse des clics sur cette URL dans Performances.
 - [x] **#10 Dates du sitemap** (15/11, en ligne au commit) — `app/sitemap.ts` : pages modifiées datées du 15/11, et chaque article daté de sa dernière modification Sanity (`_updatedAt`).
 - [ ] **#11** — Compteur de visites sans cookie (facultatif).
-- [ ] **Search Console, après le commit** — « Introuvable (404) » (51 pages) : rediriger les anciennes adresses `www` s'il y en a. « Explorée, actuellement non indexée » (18) : vérifier si ce sont des articles. (« Indexée malgré robots.txt » = 1 page de paiement Uscreen `app.leclubpilates.com/checkout/new?o=198380`, rien à faire.)
+- [x] **Search Console, 404** (15/11) — Sur 51 URL en 404, seules 2 sont du site : `/home` → `/` et `/retraite/ibiza` → `/retraite` (301 dans `next.config.js`). Les 49 autres sont dans l'app Uscreen (fils de commentaires `/contents/…/replies`, programmes supprimés) : rien à faire côté site.
+- [ ] **Search Console, « Explorée, actuellement non indexée » (18)** — vérifier si ce sont des articles (lecture interrompue, Chrome ne répondait plus). (« Indexée malgré robots.txt » = 1 page de paiement Uscreen `app.leclubpilates.com/checkout/new?o=198380`, rien à faire.)
 - [x] **Mise en ligne du 15/11/2026** (commit 56a1828) : date de référence pour le KPI 3 (`blog-milieu`) et Search Console.
 
 ## 🔴 P0 — Blocage SEO critique (audit 17/06/2026)
@@ -41,13 +42,14 @@
 - [x] **Pages `noindex` hors sitemap** — Retiré `/legal/*` de `app/sitemap.ts`
 - [x] **Homepage mobile — poids vidéo hero** — Vidéo hero recompressée (`public/videos/video-hero-pilates.mp4` 3,93 MB → 1,59 MB, `.webm` 1,75 MB → 1,56 MB, qualité visuelle inchangée). Ajout d'un poster (`public/images/hero-poster.jpg`, aplat couleur marque) affiché pendant le chargement. `HeroSection.tsx` passé en composant client avec appel explicite à `.play()` au montage.
   - ⚠️ Note : un bug d'autoplay vidéo pré-existant sur certains iPhone (la vidéo ne se lance qu'après avoir navigué puis être revenu sur la page) a été repéré pendant les tests — confirmé antérieur à ces changements, pas encore résolu, à investiguer séparément (probablement lié au mode Économie d'énergie iOS qui bloque l'autoplay sans interaction).
+  - [x] 15/11/2026 : encodage vérifié sain (H.264 bt709, faststart). `HeroSection.tsx` relance la vidéo au premier toucher/clic/défilement si iOS refuse la lecture, et au retour sur la page (`pageshow`, `visibilitychange`). En mode Économie d'énergie, iOS ne permet aucune lecture avant un geste : l'aplat de couleur (poster) reste affiché jusque-là. [ ] À tester sur iPhone (mode Économie d'énergie activé).
 
 ---
 
 ## 🔴 Priorité haute (impact SEO direct)
 
 - [x] **Section "Derniers articles"** — Ajouter sur la homepage → booste l'autorité du blog (maillage interne + signal fraîcheur pour Google)
-- [ ] **Avis Google dynamiques** — Google Places API (clé + Place ID) + composant ISR 24h → active les étoiles dans les résultats Google (rich snippets)
+- [ ] **Avis Google dynamiques** (priorité basse) — Google Places API (clé + Place ID, facturation Google Cloud à activer) + mise à jour quotidienne du nombre d'avis. ⚠️ N'affiche PAS les étoiles dans Google : depuis 2019 Google ignore les avis qu'une entreprise publie sur elle-même. Seul gain : chiffre toujours exact (équivalent : mise à jour manuelle 2 fois par an).
 
 ---
 

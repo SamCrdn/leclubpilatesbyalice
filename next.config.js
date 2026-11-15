@@ -45,7 +45,10 @@ const nextConfig = {
       { source: '/bf',                                  destination: 'https://app.leclubpilates.com/r/buy/fc127c46-d962-47ff-94cb-2151870a3f2a?o=198383', permanent: false },
       { source: '/pricing',                            destination: 'https://app.leclubpilates.com/join', permanent: true },
       { source: '/a-propos',                            destination: '/about',                             permanent: true },
-      { source: '/classes',                               destination: '/cours-de-pilates',                  permanent: true },
+      // Anciennes adresses en 404 dans Search Console (15/11/2026)
+      { source: '/home',                                destination: '/',                                  permanent: true },
+      { source: '/retraite/ibiza',                      destination: '/retraite',                          permanent: true },
+      { source: '/classes',                             destination: '/cours-de-pilates',                  permanent: true },
       { source: '/les-cours',                           destination: '/cours-de-pilates',                  permanent: true },
       { source: '/conditions-generales-dutilisation',   destination: '/legal/cgv',                         permanent: true },
       { source: '/mentions-legales',                    destination: '/legal/mentions-legales',            permanent: true },

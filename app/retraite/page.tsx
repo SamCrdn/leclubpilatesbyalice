@@ -11,12 +11,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.c
 
 export const metadata: Metadata = {
   title: 'Retraite Pilates à Ibiza, 5 jours bien-être',
-  description: 'Retraite Pilates à Ibiza, printemps 2027 : 5 jours en villa privée, 2 cours/jour, cuisine végétarienne, randonnée. Tous niveaux, 10 participants max.',
+  description: 'Retraite Pilates à Ibiza du 2 au 6 juin 2027 : 5 jours en villa privée, 2 cours par jour, cuisine végétarienne, randonnée. Ouverte à tous les niveaux.',
   alternates: { canonical: `${siteUrl}/retraite` },
   keywords: ['retraite pilates', 'retraite ibiza', 'retraite bien-être', 'stage pilates ibiza', 'retraite pilates 2027'],
   openGraph: {
-    title: 'Retraite Pilates à Ibiza — 5 jours bien-être · Le Club Pilates',
-    description: '5 jours & 4 nuits dans une villa à Ibiza : 2 cours de Pilates/jour, cuisine végétarienne, randonnée. Printemps 2027. 10 participants max.',
+    title: 'Retraite Pilates à Ibiza, 5 jours bien-être | Le Club Pilates',
+    description: '5 jours et 4 nuits dans une villa à Ibiza du 2 au 6 juin 2027 : 2 cours de Pilates par jour, cuisine végétarienne, randonnée.',
     url: `${siteUrl}/retraite`,
     type: 'website',
     locale: 'fr_FR',
@@ -29,9 +29,9 @@ const eventJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Event',
   name: 'Retraite Pilates à Ibiza',
-  description: '5 jours & 4 nuits dans une villa exceptionnelle à Ibiza : 2 cours de Pilates par jour, cuisine végétarienne saine, randonnée et balades au coucher du soleil. Ouvert à tous les niveaux, 10 participants maximum.',
-  startDate: '2027-05-01',
-  endDate: '2027-05-05',
+  description: '5 jours & 4 nuits dans une villa exceptionnelle à Ibiza : 2 cours de Pilates par jour, cuisine végétarienne saine, randonnée et balades au coucher du soleil. Ouvert à tous les niveaux.',
+  startDate: '2027-06-02',
+  endDate: '2027-06-06',
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
@@ -132,9 +132,9 @@ const CUISINE = [
 
 
 const DEFAULT_INCLUS = [
-  'Hébergement en villa', 'Repas végétariens et snacks', 'Navettes sur place',
-  '2 cours de Pilates par jour', 'Tapis de Pilates fournis', 'Accessoires de Pilates offerts',
-  'Randonnée avec vue exceptionnelle', 'Balades au coucher du soleil', 'Gift bag bien-être',
+  'Hébergement', 'Accès à l\'ensemble de la villa', 'Repas végétariens',
+  'Boissons et snacks', 'Les cours de Pilates', 'Tapis et accessoires de Pilates',
+  'Randonnée et balades',
 ]
 
 const DEFAULT_NON_INCLUS = ['Vols', 'Massages', 'Déplacements personnels']
@@ -148,9 +148,8 @@ export default async function RetraitePage() {
 
   const price           = cms?.price           ?? 1250
   const priceNote       = cms?.priceNote        ?? 'Paiement en 2 fois possible'
-  const maxParticipants = cms?.maxParticipants  ?? 10
   const destination     = cms?.destination      ?? 'à Ibiza'
-  const heroDesc        = cms?.heroDescription  ?? `5 jours & 4 nuits dans une villa exceptionnelle. Pilates, cuisine saine, reconnexion. Printemps 2027.`
+  const heroDesc        = cms?.heroDescription  ?? `5 jours & 4 nuits dans une villa exceptionnelle. Pilates, cuisine saine, reconnexion. Du 2 au 6 juin 2027.`
   const startLabel      = cms?.startDate        ? formatDate(cms.startDate) : null
   const endLabel        = cms?.endDate          ? formatDate(cms.endDate)   : null
   const inclus          = cms?.inclus?.length   ? cms.inclus   : DEFAULT_INCLUS
@@ -196,7 +195,7 @@ export default async function RetraitePage() {
             className="mt-6 text-xs text-cream/40 font-light tracking-wider uppercase animate-fade-in"
             style={{ animationDelay: '800ms' }}
           >
-            10 participants maximum · Paiement en 2 fois possible
+            Paiement en 2 fois possible
           </p>
         </div>
       </section>
@@ -206,14 +205,12 @@ export default async function RetraitePage() {
         <div className="section-wrapper max-w-4xl mx-auto text-center">
           <p className="eyebrow text-sand-dark mb-8" data-animate>La prochaine retraite</p>
           <h2 className="font-display font-light text-cocoa mb-4" data-animate style={{ transitionDelay: '100ms' }}>
-            {startLabel && endLabel ? `Du ${startLabel} au ${endLabel}` : 'Printemps 2027'}
+            {startLabel && endLabel ? `Du ${startLabel} au ${endLabel}` : 'Du 2 au 6 juin 2027'}
           </h2>
           <div className="flex items-center justify-center gap-8 mt-8 mb-10 text-sm text-cocoa/50 font-light tracking-wide" data-animate style={{ transitionDelay: '150ms' }}>
             <span>5 jours & 4 nuits</span>
             <span className="w-px h-4 bg-cocoa/20" aria-hidden="true" />
-            <span>{maxParticipants} participants maximum</span>
-            <span className="w-px h-4 bg-cocoa/20 hidden sm:block" aria-hidden="true" />
-            <span className="hidden sm:block">{price} €</span>
+            <span>{price} €</span>
           </div>
           <p className="text-sm text-cocoa/60 font-light leading-relaxed mb-10" data-animate style={{ transitionDelay: '200ms' }}>
             Offrez-vous une parenthèse hors du temps dans un cadre exceptionnel à Ibiza,
@@ -268,7 +265,7 @@ export default async function RetraitePage() {
                 Offrez-vous un moment de reconnexion à vous-même grâce à 2 cours de Pilates par jour d&apos;environ 1h30. Chaque séance est pensée pour explorer le mouvement en profondeur&nbsp;: stretching, renforcement musculaire, séances plus dynamiques et breathwork rythmeront votre séjour.
               </p>
               <p>
-                La retraite est ouverte à tous les niveaux. En petit groupe de 10 participants avec des ajustements adaptés à vos besoins et à votre niveau.
+                La retraite est ouverte à tous les niveaux, avec des ajustements adaptés à vos besoins et à votre niveau.
               </p>
               <p>
                 Pour compléter cette immersion, différentes activités sont proposées selon la météo&nbsp;: randonnée avec vue sublime, balades au coucher du soleil… autant de moments pour s&apos;émerveiller de la beauté de l&apos;île et se reconnecter à l&apos;essentiel.
@@ -355,7 +352,7 @@ export default async function RetraitePage() {
                 </ul>
               </div>
               <p className="text-sm text-cocoa/50 font-light leading-relaxed">
-                Les places sont limitées à 10 participants. Envoyez votre demande et nous vous recontacterons pour confirmer.
+                Envoyez votre demande et nous vous recontacterons pour confirmer.
               </p>
             </div>
 
@@ -386,7 +383,7 @@ export default async function RetraitePage() {
                 Réservez votre place
               </h2>
               <p className="text-sm text-cocoa/50 font-light mb-8" data-animate style={{ transitionDelay: '150ms' }}>
-                Les places sont limitées à 10 participants. Envoyez-nous votre demande et nous vous recontacterons pour confirmer votre réservation.
+                Envoyez-nous votre demande et nous vous recontacterons pour confirmer votre réservation.
               </p>
               <ReservationForm />
             </div>
