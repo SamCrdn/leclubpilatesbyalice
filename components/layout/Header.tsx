@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import PromoBanner from '@/components/layout/PromoBanner'
 import { trackEssai } from '@/lib/analytics'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.leclubpilates.com'
@@ -88,7 +87,6 @@ export default function Header() {
   return (
     <>
       <div className="fixed top-0 inset-x-0 z-50">
-        <PromoBanner />
       <header
         ref={navRef}
         role="banner"
