@@ -9,11 +9,11 @@
 
 - [x] **#1 Stopper les doublons du pipeline** (15/11) — Les 51 sujets de `lib/blog/topics.ts` étaient épuisés fin septembre et `pickTopic()` recommençait la liste → ~26 doublons sur 77 articles publiés (16 sujets). `pickTopic()` lève maintenant une erreur s'il n'y a plus de sujet libre, et la génération refuse un slug déjà pris. Logique commune dans `lib/blog/generate.ts`, utilisée par `scripts/generate-article.ts` et `/api/generate-article` (la route tirait au hasard sans exclure les sujets publiés ni enregistrer `topicSubject`). ⚠️ Plus aucun article généré tant que de nouveaux sujets ne sont pas ajoutés.
 - [x] **Calendrier éditorial 17/11/2026 → 13/02/2027** (15/11) — 39 nouveaux sujets dans `lib/blog/topics.ts`, traités dans l'ordre de la liste (`pickTopic()` ne tire plus au hasard). Chaque sujet renvoie vers une page cours du site. Fiches programmes du pipeline corrigées d'après Uscreen (`lib/blog/pipeline.ts` : débutant 4 semaines et 15 séances, Sculpt 1 mois et 12 séances, Mama 26 séances, Express déconseillé aux débutantes) + consigne de prudence sur les sujets de santé. À compléter avant le 13/02/2027.
-- [ ] **#2 Fusionner les doublons existants** — Garder l'URL qui reçoit les clics Search Console, supprimer les copies dans Sanity, 301 dans `next.config.js`.
+- [x] **#2 Fusionner les doublons existants** (15/11, en ligne, vérifié : 26 redirections OK, sitemap 66 URL) — Garder l'URL qui reçoit les clics Search Console, supprimer les copies dans Sanity, 301 dans `next.config.js`.
   - [x] 26 redirections 301 ajoutées dans `next.config.js` (16 sujets, copie → article le plus ancien, vérifié sans chaîne) (15/11)
   - [x] Sanity : `topicSubject` recopié sur les 3 articles gardés qui n'en avaient pas (`premieres-semaines-pilates-ressenti-corps`, `programme-pilates-debutant-6-semaines`, `pilates-et-gainage-bien-plus-que-les-abdos`) (15/11)
   - [x] Sauvegarde des 26 copies + 1 brouillon doublon de `frequence-pilates-resultats` (créé le 13/11, à ne pas publier) dans `..\leclubpilates-sauvegardes\sanity-doublons-2026-11-15.json` (15/11)
-  - [ ] Supprimer ces 27 documents le jour de la mise en ligne des 301 : `..\leclubpilates-sauvegardes\supprimer-doublons.cjs`
+  - [x] 27 documents supprimés le 15/11, le jour de la mise en ligne des 301 : `..\leclubpilates-sauvegardes\supprimer-doublons.cjs`
 - [ ] **#3 Corriger les infos fausses** — « 1 000 membres » (`app/page.tsx`, `CTABanner.tsx`, `StatsBar.tsx`, Sanity), programme débutant en 4 semaines (`lib/blog/pipeline.ts`, `topics.ts`, 2 articles).
   - [x] Blog (15/11, en ligne) : article `programme-pilates-debutant-6-semaines` corrigé (programme du Club = 4 semaines, 15 séances de 15 à 35 min ; le texte reste une progression générale sur 6 semaines). Noms de programmes corrigés dans 25 articles (39 passages) : « Fondamentaux du Pilates » → « Programme Pilates pour Débutant », « Full Body Sculpt » → « Programme Pilates Sculpt ». Sauvegardes dans `..\leclubpilates-sauvegardes\`.
   - [x] « Pilates Mama sur 12 mois » remplacé par « 26 séances, grossesse et post-partum » dans 3 articles (15/11, en ligne).
@@ -30,7 +30,7 @@
 - [x] **#10 Dates du sitemap** (15/11, en ligne au commit) — `app/sitemap.ts` : pages modifiées datées du 15/11, et chaque article daté de sa dernière modification Sanity (`_updatedAt`).
 - [ ] **#11** — Compteur de visites sans cookie (facultatif).
 - [ ] **Search Console, après le commit** — « Introuvable (404) » (51 pages) : rediriger les anciennes adresses `www` s'il y en a. « Explorée, actuellement non indexée » (18) : vérifier si ce sont des articles. (« Indexée malgré robots.txt » = 1 page de paiement Uscreen `app.leclubpilates.com/checkout/new?o=198380`, rien à faire.)
-- [ ] **Ordre au commit final** : 1. `supprimer-doublons.cjs` 2. `corriger-liens-app.ts apply` 3. commit + push (avec `/email` et `/bf`, validés le 15/11). Sinon les blocs « À lire » afficheraient des copies.
+- [x] **Mise en ligne du 15/11/2026** (commit 56a1828) : date de référence pour le KPI 3 (`blog-milieu`) et Search Console.
 
 ## 🔴 P0 — Blocage SEO critique (audit 17/06/2026)
 
