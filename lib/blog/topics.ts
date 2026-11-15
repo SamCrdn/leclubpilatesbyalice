@@ -5,6 +5,20 @@ export type Topic = {
   internalLinks?: Array<{ label: string; url: string }>
 }
 
+// Liens internes vers les pages du site (les pages cours convertissent mieux que le blog)
+const SITE = 'https://www.leclubpilates.com'
+const L = {
+  hub:      { label: 'nos cours de Pilates en ligne', url: `${SITE}/cours-de-pilates` },
+  debutant: { label: 'Pilates pour débutantes',       url: `${SITE}/cours-de-pilates/debutant` },
+  dos:      { label: 'Pilates pour le dos',           url: `${SITE}/cours-de-pilates/dos` },
+  prenatal: { label: 'Pilates prénatal et postnatal', url: `${SITE}/cours-de-pilates/prenatal` },
+  wall:     { label: 'Pilates au mur',                url: `${SITE}/cours-de-pilates/wall` },
+  fullBody: { label: 'Pilates full body',             url: `${SITE}/cours-de-pilates/full-body` },
+  reformer: { label: 'Pilates Reformer en ligne',     url: `${SITE}/cours-de-pilates/reformer` },
+  abdos:    { label: 'Pilates abdos',                 url: `${SITE}/cours-de-pilates/abdos` },
+  livre:    { label: 'le livre d\'Alice sur le Pilates au mur', url: `${SITE}/livre` },
+}
+
 export const TOPICS: Topic[] = [
   // ── GÉNÉRAL / TENDANCES ────────────────────────────────────────────────
 
@@ -133,32 +147,77 @@ export const TOPICS: Topic[] = [
     category: 'Conseils', length: 'short',
     internalLinks: [{ label: 'voir tous les cours', url: 'https://www.leclubpilates.com/cours-de-pilates' }],
   },
+
+  // ── CALENDRIER 17 NOV. 2026 → 13 FÉV. 2027 (3 par semaine, lun/mer/ven) ──
+  // Traités dans l'ordre de la liste. Chaque sujet vise une recherche absente des 51 sujets
+  // précédents (pas de cannibalisation) et renvoie vers une page cours.
+
+  // Semaine du 17/11
+  { subject: 'Les 10 exercices de base du Pilates au sol, et les erreurs à éviter', category: 'Pilates', length: 'long', internalLinks: [L.debutant] },
+  { subject: 'Pilates après une césarienne : quand et comment reprendre', category: 'Bien-être', length: 'long', internalLinks: [L.prenatal] },
+  { subject: 'Pilates et sciatique : les exercices doux qui soulagent', category: 'Bien-être', length: 'long', internalLinks: [L.dos] },
+  // Semaine du 24/11
+  { subject: 'Idées cadeaux Pilates : 10 idées pour une passionnée ou une débutante', category: 'Conseils', length: 'short', internalLinks: [L.livre, L.hub] },
+  { subject: 'Diastase abdominale : reprendre le Pilates sans aggraver l\'écart', category: 'Bien-être', length: 'long', internalLinks: [L.prenatal] },
+  { subject: 'Pilates au mur : 10 exercices pour débuter chez soi', category: 'Pilates', length: 'long', internalLinks: [L.wall, L.livre] },
+  // Semaine du 01/12
+  { subject: 'Magic circle Pilates : comment l\'utiliser, exercices et bienfaits', category: 'Pilates', length: 'long', internalLinks: [L.fullBody] },
+  { subject: 'Pilates et hernie discale : ce qu\'on peut faire, ce qu\'il faut éviter', category: 'Bien-être', length: 'long', internalLinks: [L.dos] },
+  { subject: 'Magnésium et sport : crampes, fatigue et récupération', category: 'Nutrition', length: 'short', internalLinks: [L.hub] },
+  // Semaine du 08/12
+  { subject: 'Pilates enceinte : quels exercices à chaque trimestre de grossesse', category: 'Bien-être', length: 'long', internalLinks: [L.prenatal] },
+  { subject: 'Séance de Pilates full body de 30 minutes : le déroulé idéal', category: 'Pilates', length: 'long', internalLinks: [L.fullBody] },
+  { subject: 'Pilates le matin ou le soir : quel est le meilleur moment ?', category: 'Conseils', length: 'short', internalLinks: [L.debutant] },
+  // Semaine du 15/12
+  { subject: 'Périnée et Pilates : renforcer son plancher pelvien en douceur', category: 'Bien-être', length: 'long', internalLinks: [L.prenatal] },
+  { subject: 'Pilates et musculation : rivaux ou complémentaires ?', category: 'Pilates', length: 'long', internalLinks: [L.fullBody] },
+  { subject: 'Garder une routine sportive pendant les fêtes, sans culpabiliser', category: 'Conseils', length: 'short', internalLinks: [L.hub] },
+  // Semaine du 22/12
+  { subject: 'Pilates à 50 ans et plus : commencer en toute sécurité', category: 'Conseils', length: 'long', internalLinks: [L.debutant] },
+  { subject: 'Fer et fatigue chez les femmes sportives : les bons réflexes alimentaires', category: 'Nutrition', length: 'short', internalLinks: [L.hub] },
+  { subject: 'Douleurs de nuque et cervicales : le Pilates pour le télétravail', category: 'Bien-être', length: 'long', internalLinks: [L.dos] },
+  // Semaine du 29/12
+  { subject: 'Reprendre le sport en janvier : un plan Pilates de 4 semaines pour débuter', category: 'Conseils', length: 'long', internalLinks: [L.debutant] },
+  { subject: 'Pilates flow : définition, bienfaits et comment s\'y mettre', category: 'Pilates', length: 'short', internalLinks: [L.hub] },
+  { subject: 'Pilates 10 minutes par jour : est-ce suffisant pour avoir des résultats ?', category: 'Conseils', length: 'short', internalLinks: [L.hub] },
+  // Semaine du 05/01
+  { subject: 'Pilates en studio ou en ligne : comment choisir', category: 'Conseils', length: 'long', internalLinks: [L.hub, L.reformer] },
+  { subject: 'Le transverse : le muscle profond clé d\'un ventre plat et d\'un dos solide', category: 'Pilates', length: 'long', internalLinks: [L.abdos] },
+  { subject: 'Bien manger quand on reste active pendant la grossesse', category: 'Nutrition', length: 'long', internalLinks: [L.prenatal] },
+  // Semaine du 12/01
+  { subject: 'Pilates et scoliose : précautions et exercices adaptés', category: 'Bien-être', length: 'long', internalLinks: [L.dos] },
+  { subject: 'Le Hundred en Pilates : technique, variantes et erreurs fréquentes', category: 'Pilates', length: 'short', internalLinks: [L.debutant] },
+  { subject: 'Pilates et cycle menstruel : adapter sa pratique à chaque phase', category: 'Bien-être', length: 'long', internalLinks: [L.hub] },
+  // Semaine du 19/01
+  { subject: 'Fuites urinaires à l\'effort : ce que le Pilates peut faire', category: 'Bien-être', length: 'long', internalLinks: [L.prenatal] },
+  { subject: 'Pilates et douleurs aux genoux : bouger sans aggraver', category: 'Bien-être', length: 'short', internalLinks: [L.hub] },
+  { subject: 'Combien de temps doit durer une séance de Pilates ?', category: 'Conseils', length: 'short', internalLinks: [L.debutant] },
+  // Semaine du 26/01
+  { subject: 'Pilates post-partum : reprendre en douceur, semaine après semaine', category: 'Bien-être', length: 'long', internalLinks: [L.prenatal] },
+  { subject: 'Pilates et ostéoporose : renforcer ses os en sécurité', category: 'Bien-être', length: 'long', internalLinks: [L.debutant] },
+  { subject: 'Batch cooking de sportive : une semaine de repas équilibrés en 2 heures', category: 'Nutrition', length: 'short', internalLinks: [L.hub] },
+  // Semaine du 02/02
+  { subject: 'Pilates au mur ou au sol : lequel choisir selon son objectif', category: 'Pilates', length: 'short', internalLinks: [L.wall] },
+  { subject: 'Pilates et équilibre : prévenir les chutes après 60 ans', category: 'Bien-être', length: 'short', internalLinks: [L.debutant] },
+  { subject: 'Pilates et hanches : soulager les tensions et gagner en mobilité', category: 'Bien-être', length: 'short', internalLinks: [L.hub] },
+  // Semaine du 09/02
+  { subject: 'Le roll up en Pilates : s\'enrouler sans tirer sur la nuque', category: 'Pilates', length: 'short', internalLinks: [L.abdos] },
+  { subject: 'Collagène et sport : utile ou simple effet marketing ?', category: 'Nutrition', length: 'short', internalLinks: [L.hub] },
+  { subject: 'Préparer ses vacances au ski avec le Pilates', category: 'Conseils', length: 'short', internalLinks: [L.fullBody] },
 ]
 
 /**
- * Choisit un sujet parmi ceux qui n'ont pas encore été publiés (usedSubjects),
- * en priorisant la catégorie la moins représentée dans les articles déjà publiés
- * (publishedCategoryCounts) pour éviter que Pilates/Conseils écrasent Nutrition/Bien-être.
- * Si tous les sujets ont déjà été utilisés, recommence un nouveau cycle (réutilise tout).
+ * Renvoie le premier sujet de TOPICS pas encore utilisé (usedSubjects), dans l'ordre de la liste :
+ * l'ordre de TOPICS est le calendrier éditorial (équilibre des catégories réglé dans la liste).
+ * Si tous les sujets ont déjà été utilisés, lève une erreur : ne jamais réutiliser un sujet
+ * (la réutilisation a créé ~26 articles en double entre septembre et novembre 2026).
  */
-export function pickTopic(
-  usedSubjects: string[] = [],
-  publishedCategoryCounts: Partial<Record<Topic['category'], number>> = {}
-): Topic {
+export function pickTopic(usedSubjects: string[]): Topic {
   const usedSet = new Set(usedSubjects)
-  let available = TOPICS.filter(t => !usedSet.has(t.subject))
+  const next = TOPICS.find(t => !usedSet.has(t.subject))
 
-  if (available.length === 0) {
-    console.warn('⚠️ Tous les sujets de TOPICS ont déjà été publiés — nouveau cycle (réutilisation). Pense à ajouter de nouveaux sujets dans lib/blog/topics.ts.')
-    available = TOPICS
+  if (!next) {
+    throw new Error('Plus aucun sujet libre dans lib/blog/topics.ts : ajouter de nouveaux sujets. Aucun article généré.')
   }
-
-  const categoriesAvailable = [...new Set(available.map(t => t.category))]
-  const minCount = Math.min(...categoriesAvailable.map(c => publishedCategoryCounts[c] ?? 0))
-  const leastRepresentedCategories = categoriesAvailable.filter(
-    c => (publishedCategoryCounts[c] ?? 0) === minCount
-  )
-  const candidates = available.filter(t => leastRepresentedCategories.includes(t.category))
-
-  return candidates[Math.floor(Math.random() * candidates.length)]
+  return next
 }

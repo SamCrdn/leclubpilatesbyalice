@@ -31,7 +31,7 @@ export default function CTABanner() {
           data-animate
           style={{ transitionDelay: '200ms' }}
         >
-          Rejoins +1 000 femmes qui ont déjà choisi de prendre soin d&apos;elles.
+          Rejoins celles qui ont déjà choisi de prendre soin d&apos;elles, dans un club noté 5/5 sur Google.
         </p>
 
         <div

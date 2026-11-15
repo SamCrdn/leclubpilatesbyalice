@@ -34,7 +34,7 @@ async function seed() {
       { _key: 's3', value: '★ 5/5', label: '81 avis Google',      href: 'https://share.google/2FofxTrt8YdrjBKRw', external: true },
       { _key: 's4', value: '10 ans', label: "d'expérience",        href: '/about', external: false },
       { _key: 's5', value: '+2',     label: 'lives par mois',      href: 'https://app.leclubpilates.com/programs/pilates', external: true },
-      { _key: 's6', value: '+1 000', label: 'membres',             href: 'https://app.leclubpilates.com/', external: true },
+      { _key: 's6', value: '7 jours', label: "d'essai gratuit",    href: '/cours-de-pilates', external: false },
     ],
   })
   console.log('✅ siteSettings')

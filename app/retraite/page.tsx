@@ -10,7 +10,7 @@ export const revalidate = 3600
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
-  title: 'Retraite Pilates à Ibiza — 5 jours bien-être · Le Club Pilates',
+  title: 'Retraite Pilates à Ibiza, 5 jours bien-être',
   description: 'Retraite Pilates à Ibiza, printemps 2027 : 5 jours en villa privée, 2 cours/jour, cuisine végétarienne, randonnée. Tous niveaux, 10 participants max.',
   alternates: { canonical: `${siteUrl}/retraite` },
   keywords: ['retraite pilates', 'retraite ibiza', 'retraite bien-être', 'stage pilates ibiza', 'retraite pilates 2027'],

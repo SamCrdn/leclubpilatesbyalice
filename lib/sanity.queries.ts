@@ -77,6 +77,7 @@ export const postBySlugQuery = groq`
     _id,
     title,
     "slug": slug.current,
+    topicSubject,
     category,
     excerpt,
     tldr,
@@ -88,6 +89,21 @@ export const postBySlugQuery = groq`
     featured,
     body,
   }
+`
+
+// Articles pour le bloc « À lire » des pages cours (filtrés par page avec coursPourArticle)
+export const postsForCoursQuery = groq`
+  *[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
+    title,
+    "slug": slug.current,
+    topicSubject,
+    excerpt,
+    readTime,
+  }
+`
+
+export const sitemapPostsQuery = groq`
+  *[_type == "post" && defined(slug.current)] { "slug": slug.current, _updatedAt }
 `
 
 export const allSlugsQuery = groq`

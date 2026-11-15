@@ -8,6 +8,8 @@ import { client, urlFor } from '@/lib/sanity'
 import { postBySlugQuery, allSlugsQuery } from '@/lib/sanity.queries'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 import EssaiLink from '@/components/ui/EssaiLink'
+import ArticleCoursCTA from '@/components/ui/ArticleCoursCTA'
+import { coursPourArticle } from '@/lib/blog/coursPourArticle'
 
 export const revalidate = 3600
 
@@ -97,6 +99,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
+  const body: Array<{ style?: string }> = post.body ?? []
+  const h2 = body.map((b, i) => (b.style === 'h2' ? i : -1)).filter(i => i >= 0)
+  const coupure = h2.length >= 2 ? h2[1] : body.length
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -172,9 +178,11 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           )}
 
-          {/* Contenu */}
+          {/* Contenu, avec l'encadré « Pour aller plus loin » juste avant la 2e section (ou à la fin s'il y en a moins de 2) */}
           <div className="prose-custom">
-            {post.body && <PortableText value={post.body} components={ptComponents} />}
+            {post.body && <PortableText value={post.body.slice(0, coupure)} components={ptComponents} />}
+            <ArticleCoursCTA cours={coursPourArticle(post)} />
+            {post.body && coupure < post.body.length && <PortableText value={post.body.slice(coupure)} components={ptComponents} />}
           </div>
 
           {/* Maillage interne — cours associés */}

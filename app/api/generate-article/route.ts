@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from 'next-sanity'
-import { randomUUID } from 'crypto'
-import { pickTopic } from '@/lib/blog/topics'
-import { runPipeline } from '@/lib/blog/pipeline'
+import { generateDraft } from '@/lib/blog/generate'
 
 const CRON_SECRET = process.env.CRON_SECRET
 
@@ -29,30 +27,8 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const topic = pickTopic()
-    console.log(`[generate-article] Sujet : "${topic.subject}"`)
-
-    const { plan, body } = await runPipeline(topic)
-    console.log(`[generate-article] Article généré : "${plan.title}"`)
-
-    await sanity.createOrReplace({
-      _type:       'post',
-      _id:         `drafts.${randomUUID()}`,
-      title:       plan.title,
-      slug:        { _type: 'slug', current: plan.slug },
-      category:    plan.category,
-      excerpt:     plan.excerpt,
-      tldr:        plan.tldr,
-      faq:         plan.faqItems.map(f => ({ _type: 'object', _key: randomUUID(), question: f.question, answer: f.answer })),
-      readTime:    plan.readTime,
-      publishedAt: new Date().toISOString(),
-      featured:    false,
-      body,
-    })
-
-    console.log(`[generate-article] Brouillon Sanity créé : "${plan.title}"`)
-
-    return NextResponse.json({ ok: true, title: plan.title, slug: plan.slug })
+    const { title, slug } = await generateDraft(sanity)
+    return NextResponse.json({ ok: true, title, slug })
   } catch (err) {
     console.error('[generate-article] Erreur :', err)
     return NextResponse.json({ error: 'Erreur lors de la génération' }, { status: 500 })

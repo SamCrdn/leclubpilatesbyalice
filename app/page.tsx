@@ -19,9 +19,9 @@ export const revalidate = 3600
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
 
 export const metadata: Metadata = {
-  title: 'Cours de Pilates en ligne — Le Club Pilates',
+  title: 'Cours de Pilates en ligne, 7 jours gratuits | Le Club Pilates',
   description:
-    'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours, programmes personnalisés, essai gratuit 7 jours. Rejoignez 1 000 membres.',
+    'Plus de 350 cours de Pilates en ligne avec Alice et son équipe certifiée : débutant, dos, prénatal, au mur. Notés 5/5 sur Google. Essai gratuit 7 jours.',
   alternates: { canonical: siteUrl },
   openGraph: {
     title: 'Cours de Pilates en ligne — Le Club Pilates',

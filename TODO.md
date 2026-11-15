@@ -1,15 +1,42 @@
 # TODO — Le Club Pilates
-*Mis à jour : 28 juin 2026*
+*Mis à jour : 15 novembre 2026*
 
 > SEO détaillé → voir `SEO_AUDIT_COMPLET.md` (section TODO SEO)
 
 ---
 
+## 🔴 Plan essais gratuits (étude du 14/11/2026)
+
+- [x] **#1 Stopper les doublons du pipeline** (15/11) — Les 51 sujets de `lib/blog/topics.ts` étaient épuisés fin septembre et `pickTopic()` recommençait la liste → ~26 doublons sur 77 articles publiés (16 sujets). `pickTopic()` lève maintenant une erreur s'il n'y a plus de sujet libre, et la génération refuse un slug déjà pris. Logique commune dans `lib/blog/generate.ts`, utilisée par `scripts/generate-article.ts` et `/api/generate-article` (la route tirait au hasard sans exclure les sujets publiés ni enregistrer `topicSubject`). ⚠️ Plus aucun article généré tant que de nouveaux sujets ne sont pas ajoutés.
+- [x] **Calendrier éditorial 17/11/2026 → 13/02/2027** (15/11) — 39 nouveaux sujets dans `lib/blog/topics.ts`, traités dans l'ordre de la liste (`pickTopic()` ne tire plus au hasard). Chaque sujet renvoie vers une page cours du site. Fiches programmes du pipeline corrigées d'après Uscreen (`lib/blog/pipeline.ts` : débutant 4 semaines et 15 séances, Sculpt 1 mois et 12 séances, Mama 26 séances, Express déconseillé aux débutantes) + consigne de prudence sur les sujets de santé. À compléter avant le 13/02/2027.
+- [ ] **#2 Fusionner les doublons existants** — Garder l'URL qui reçoit les clics Search Console, supprimer les copies dans Sanity, 301 dans `next.config.js`.
+  - [x] 26 redirections 301 ajoutées dans `next.config.js` (16 sujets, copie → article le plus ancien, vérifié sans chaîne) (15/11)
+  - [x] Sanity : `topicSubject` recopié sur les 3 articles gardés qui n'en avaient pas (`premieres-semaines-pilates-ressenti-corps`, `programme-pilates-debutant-6-semaines`, `pilates-et-gainage-bien-plus-que-les-abdos`) (15/11)
+  - [x] Sauvegarde des 26 copies + 1 brouillon doublon de `frequence-pilates-resultats` (créé le 13/11, à ne pas publier) dans `..\leclubpilates-sauvegardes\sanity-doublons-2026-11-15.json` (15/11)
+  - [ ] Supprimer ces 27 documents le jour de la mise en ligne des 301 : `..\leclubpilates-sauvegardes\supprimer-doublons.cjs`
+- [ ] **#3 Corriger les infos fausses** — « 1 000 membres » (`app/page.tsx`, `CTABanner.tsx`, `StatsBar.tsx`, Sanity), programme débutant en 4 semaines (`lib/blog/pipeline.ts`, `topics.ts`, 2 articles).
+  - [x] Blog (15/11, en ligne) : article `programme-pilates-debutant-6-semaines` corrigé (programme du Club = 4 semaines, 15 séances de 15 à 35 min ; le texte reste une progression générale sur 6 semaines). Noms de programmes corrigés dans 25 articles (39 passages) : « Fondamentaux du Pilates » → « Programme Pilates pour Débutant », « Full Body Sculpt » → « Programme Pilates Sculpt ». Sauvegardes dans `..\leclubpilates-sauvegardes\`.
+  - [x] « Pilates Mama sur 12 mois » remplacé par « 26 séances, grossesse et post-partum » dans 3 articles (15/11, en ligne).
+  - [x] Site : « 1 000 membres » retiré (15/11, en ligne au commit) : description de l'accueil (« Notés 5/5 sur Google »), `CTABanner.tsx` (« un club noté 5/5 sur Google »), `StatsBar.tsx` et `scripts/seed-sanity.ts` (« 7 jours d'essai gratuit » à la place de « +1 000 membres »). Nombre d'avis Google (81 dans le code) à confirmer sur la fiche.
+- [ ] **#4 Titres et descriptions Google** — Accueil, perte de poids, Joseph Pilates, récupération, collations, stretching, retraite (marque en double).
+  - [x] Blog (15/11, en ligne, date de référence pour Search Console) : perte de poids, Joseph Pilates, récupération musculaire, collations, stretching ; « en 2025 » retiré de « Pilates pour les nuls »
+  - [x] Accueil : « Cours de Pilates en ligne, 7 jours gratuits | Le Club Pilates » + nouvelle description ; `/retraite` sans marque en double (15/11, en ligne au commit)
+- [x] **#6 Encadré au milieu des articles** (15/11, en ligne au commit) — `components/ui/ArticleCoursCTA.tsx`, inséré avant la 2e section dans `app/blog/[slug]/page.tsx`. Page cours choisie par `lib/blog/coursPourArticle.ts` (titre + `topicSubject`). Lien d'essai : **nouvelle position `blog-milieu`** (`utm_content=blog-milieu`). Bouton du bas `blog-article` inchangé. ⚠️ Fait bouger le KPI 3 : noter la date de mise en ligne.
+- [x] **#7 Pipeline sans liens vers l'app** (15/11, en ligne au commit) — `lib/blog/pipeline.ts` : liens vers les pages cours uniquement ; filet de sécurité dans `lib/blog/generate.ts` via `lib/blog/liensApp.ts`.
+- [ ] **#8 Liens vers l'app dans les articles existants** — 89 liens dans 51 articles. Script prêt : `..\leclubpilates-sauvegardes\corriger-liens-app.ts` (essai à blanc fait), à lancer au commit, avec la suppression des doublons.
+- [x] **#9 Bloc « À lire » sur les 7 pages cours** (15/11, en ligne au commit) — `components/ui/ArticlesLies.tsx` (3 articles les plus récents du thème, même règle que #6), `revalidate = 3600` sur les pages cours.
+- [x] **#5 (code) Analytics seulement sur le vrai site** (15/11, en ligne au commit) — `components/ui/GoogleAnalytics.tsx` ne charge GA que sur `www.leclubpilates.com` / `leclubpilates.com` (plus de localhost ni de `*.vercel.app`). Choisi plutôt que `VERCEL_ENV`, qui dépend d'un réglage Vercel.
+- [ ] **#5 (à la main)** — (GA4 « sites référents indésirables » abandonné le 15/11 : localhost et prévisualisations déjà bloqués par le code, les visites `vercel.com` sont de vraies visites de l'équipe.) ~~cron-job.org : désactiver la tâche `/api/generate-article`~~ fait le 15/11. ~~Vercel : redirection `leclubpilates.com` → `www` en 308~~ fait le 15/11 (vérifié : 308). Chemin : projet → Networking → Domains. ~~Search Console : inspecter `http://www.leclubpilates.com/`~~ fait le 15/11 : « non indexée, page avec redirection » (normal). Découverte via des liens externes en http (podcast Ausha « Parlons PMA » épisode 37, réel Instagram). Rien à corriger ; suivre la baisse des clics sur cette URL dans Performances.
+- [x] **#10 Dates du sitemap** (15/11, en ligne au commit) — `app/sitemap.ts` : pages modifiées datées du 15/11, et chaque article daté de sa dernière modification Sanity (`_updatedAt`).
+- [ ] **#11** — Compteur de visites sans cookie (facultatif).
+- [ ] **Search Console, après le commit** — « Introuvable (404) » (51 pages) : rediriger les anciennes adresses `www` s'il y en a. « Explorée, actuellement non indexée » (18) : vérifier si ce sont des articles. (« Indexée malgré robots.txt » = 1 page de paiement Uscreen `app.leclubpilates.com/checkout/new?o=198380`, rien à faire.)
+- [ ] **Ordre au commit final** : 1. `supprimer-doublons.cjs` 2. `corriger-liens-app.ts apply` 3. commit + push (avec `/email` et `/bf`, validés le 15/11). Sinon les blocs « À lire » afficheraient des copies.
+
 ## 🔴 P0 — Blocage SEO critique (audit 17/06/2026)
 
 - [x] **`robots.txt` bloque `/_next/`** — Retiré `Disallow: /_next/` dans `app/robots.ts`.
 - [x] **Articles doublons — 301** — 6 doublons supprimés dans Sanity (4 détectés par l'audit + 2 trouvés en plus : `pilates-en-ligne-pratiquer-a-la-maison`, `3-erreurs-courantes-en-pilates-debutant-et-solutions`), 301 ajoutées dans `next.config.js`.
-- [x] **Pipeline IA — prévention doublons** — `pickTopic()` excluait pas les sujets déjà publiés (sélection 100% aléatoire) → cause racine des doublons. Ajout d'un champ `topicSubject` sur le schéma Sanity (`sanity-studio/schemas/post.ts`), rétro-rempli sur les 15 articles restants, et `scripts/generate-article.ts` exclut maintenant les sujets déjà utilisés avant de générer un nouvel article.
+- [x] **Pipeline IA — prévention doublons** — `pickTopic()` excluait pas les sujets déjà publiés (sélection 100% aléatoire) → cause racine des doublons. Ajout d'un champ `topicSubject` sur le schéma Sanity (`sanity-studio/schemas/post.ts`), rétro-rempli sur les 15 articles restants, et `scripts/generate-article.ts` exclut maintenant les sujets déjà utilisés avant de générer un nouvel article. ⚠️ Rouvert le 14/11/2026 : la liste épuisée était réutilisée, voir « Plan essais gratuits #1 ».
 - [x] **Pipeline IA — équilibrage des catégories** — Répartition publiée déséquilibrée (8 Pilates / 5 Conseils / 2 Bien-être / 0 Nutrition). `pickTopic()` priorise désormais la catégorie la moins représentée parmi les articles déjà publiés avant de tirer un sujet au hasard dans cette catégorie.
 - [x] **Pages `noindex` hors sitemap** — Retiré `/legal/*` de `app/sitemap.ts`
 - [x] **Homepage mobile — poids vidéo hero** — Vidéo hero recompressée (`public/videos/video-hero-pilates.mp4` 3,93 MB → 1,59 MB, `.webm` 1,75 MB → 1,56 MB, qualité visuelle inchangée). Ajout d'un poster (`public/images/hero-poster.jpg`, aplat couleur marque) affiché pendant le chargement. `HeroSection.tsx` passé en composant client avec appel explicite à `.play()` au montage.

@@ -3,10 +3,15 @@
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
 
+// Analytics uniquement sur le vrai site : ni localhost, ni prévisualisations Vercel (*.vercel.app)
+const DOMAINES_MESURES = ['www.leclubpilates.com', 'leclubpilates.com']
+
 export default function GoogleAnalytics({ gaId }: { gaId: string }) {
   const [consented, setConsented] = useState(false)
 
   useEffect(() => {
+    if (!DOMAINES_MESURES.includes(window.location.hostname)) return
+
     // Consentement déjà enregistré
     if (localStorage.getItem('cookie-consent') === 'accepted') {
       setConsented(true)

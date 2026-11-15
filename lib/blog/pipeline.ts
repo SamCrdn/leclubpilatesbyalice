@@ -5,9 +5,11 @@ import { markdownToPortableText, type PTBlock } from './markdown-to-pt'
 const SITE_CONTEXT = `
 Le Club Pilates — studio de Pilates en ligne fondé par Alice.
 Site : https://www.leclubpilates.com
-Studio : https://app.leclubpilates.com
 
-Pages SEO du site (à privilégier comme liens internes) :
+Liens internes : UNIQUEMENT les pages du site ci-dessous. Ne jamais mettre de lien vers app.leclubpilates.com
+(pages de l'application, non suivies et retirées de Google). Pour citer un programme, lier la page cours du site correspondante.
+
+Pages du site :
 - Hub cours : https://www.leclubpilates.com/cours-de-pilates
 - Cours débutant : https://www.leclubpilates.com/cours-de-pilates/debutant
 - Cours prénatal/postnatal : https://www.leclubpilates.com/cours-de-pilates/prenatal
@@ -19,22 +21,14 @@ Pages SEO du site (à privilégier comme liens internes) :
 - À propos d'Alice : https://www.leclubpilates.com/about
 - L'équipe : https://www.leclubpilates.com/profs
 
-Catégories de cours (app) :
-- Express : https://app.leclubpilates.com/categories/express
-- Haut du corps : https://app.leclubpilates.com/categories/haut-du-corps
-- Bas du corps : https://app.leclubpilates.com/categories/bas-du-corps
-- Abdos : https://app.leclubpilates.com/categories/abdos
-- Intense : https://app.leclubpilates.com/categories/intense
-- Doux : https://app.leclubpilates.com/categories/doux
-- Stretching : https://app.leclubpilates.com/categories/stretching
-- Accessoires : https://app.leclubpilates.com/categories/accessoires
-- Méditation : https://app.leclubpilates.com/categories/meditation
+Catégories de cours dans l'application (à citer sans lien) : Express, Haut du corps, Bas du corps, Abdos, Intense, Doux, Stretching, Accessoires, Méditation.
 
-Programmes (app) :
-- Fondamentaux du Pilates (6 semaines, Débutant) : https://app.leclubpilates.com/programs/debutant
-- Full Body Sculpt (4 semaines, Intermédiaire/Avancé) : https://app.leclubpilates.com/programs/pilates-sculpt
-- Pilates Mama (12 mois, Prénatal/Postnatal) : https://app.leclubpilates.com/programs/pilates-mama
-- Routine Express (4 semaines, Tous niveaux) : https://app.leclubpilates.com/programs/express-routine
+Programmes, à citer exactement avec ces noms, durées et nombres de séances (lien = page cours indiquée) :
+- Programme Pilates pour Débutant (4 semaines, 15 séances, aucun niveau requis) : https://www.leclubpilates.com/cours-de-pilates/debutant
+- Programme Pilates Sculpt (1 mois, 12 séances, pratiquantes ayant déjà une base) : https://www.leclubpilates.com/cours-de-pilates/full-body
+- Programme Pilates Mama (grossesse et post-partum, 26 séances, avec l'accord d'un professionnel de santé) : https://www.leclubpilates.com/cours-de-pilates/prenatal
+- Programme Express Routine (séances d'environ 10 minutes, 28 séances, déconseillé aux débutantes) : https://www.leclubpilates.com/cours-de-pilates
+Ne jamais inventer de chiffre sur le studio (nombre de membres, de cours, résultats) qui ne figure pas ici.
 `.trim()
 
 const TONE_GUIDE = `
@@ -46,6 +40,7 @@ Ton éditorial d'Alice :
 - Intertitres accrocheurs mais jamais clickbait
 - Maximum 2 liens internes, naturellement intégrés
 - Fin d'article : phrase d'invitation douce, jamais de CTA agressif
+- Sujets de santé (douleurs, grossesse, post-partum, pathologies) : jamais de diagnostic ni de promesse de guérison, rappeler de demander l'avis d'un professionnel de santé
 `.trim()
 
 export type FaqItem = { question: string; answer: string }

@@ -2,8 +2,12 @@ import type { Metadata } from 'next'
 import { SignupCTA } from '@/components/ui/CTAButton'
 import BreadcrumbJsonLd from '@/components/ui/BreadcrumbJsonLd'
 import RelatedCourses from '@/components/ui/RelatedCourses'
+import ArticlesLies from '@/components/ui/ArticlesLies'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.leclubpilates.com'
+
+// Revalidation : le bloc « À lire » suit les nouveaux articles du blog
+export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Pilates Full Body — Cours corps entier en ligne',
@@ -191,6 +195,7 @@ export default function PilatesFullBodyPage() {
         </div>
       </section>
 
+      <ArticlesLies cours="full-body" />
       <RelatedCourses current="/cours-de-pilates/full-body" />
     </>
   )

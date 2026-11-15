@@ -99,8 +99,10 @@ Scroll-reveal animations use `[data-animate]` attributes on elements — the `Sc
 
 - Sanity project ID: `71c7c0vz` (account: alice.pilates.paris@gmail.com)
 - Studio deployed at: https://leclubpilates.sanity.studio (Alice reviews and publishes drafts here)
-- AI pipeline: Claude (opus-4-6 planner + sonnet-4-6 writer) generates drafts 3×/week via **GitHub Actions** (`.github/workflows/generate-article.yml`, lun/mer/ven 7h Paris) → script `scripts/generate-article.ts` → Sanity draft
-- `lib/blog/topics.ts` — 44 subjects (general + internal linking to landing pages)
+- AI pipeline: Claude (opus-4-6 planner + sonnet-4-6 writer) generates drafts 3×/week via **GitHub Actions** (`.github/workflows/generate-article.yml`, lun/mer/ven 7h Paris) → script `scripts/generate-article.ts` → `lib/blog/generate.ts` → Sanity draft. (cron-job.org → `/api/generate-article` désactivé le 15/11/2026.)
+- `lib/blog/topics.ts` — 90 sujets traités **dans l'ordre de la liste** (calendrier éditorial, dernier sujet prévu le 13/02/2027). `pickTopic()` lève une erreur quand il n'y a plus de sujet libre (jamais de réutilisation : cause des doublons de sept.–nov. 2026). Ajouter des sujets avant épuisement.
+- `lib/blog/coursPourArticle.ts` — associe un article à sa page cours (titre + `topicSubject`). Utilisé par l'encadré `ArticleCoursCTA` (milieu d'article, position GA `blog-milieu`) et le bloc `ArticlesLies` (« À lire » sur les pages cours).
+- `lib/blog/liensApp.ts` — remplace les liens vers `app.leclubpilates.com/programs|categories` par les pages cours (les articles ne doivent jamais lier ces pages de l'app).
 - Blog pages use ISR; Sanity webhook triggers Vercel revalidation on publish/update/delete
 
 ### SEO
@@ -147,7 +149,9 @@ Copy `.env.example` to `.env.local` and fill in:
 ## What's done
 
 - Déploiement Vercel + domaine Infomaniak
-- Blog Sanity complet (studio, pipeline IA, webhook Vercel, cron-job.org)
+- Blog Sanity complet (studio, pipeline IA GitHub Actions, webhook Vercel)
+- Blog : encadré « Pour aller plus loin » au milieu des articles (page cours du thème + essai `blog-milieu`), bloc « À lire sur le blog » sur les 7 pages cours, doublons fusionnés en 301 (15/11/2026)
+- GA4 chargé uniquement sur `www.leclubpilates.com` (pas en local ni en prévisualisation)
 - Formulaires Brevo (contact + newsletter)
 - Security headers (HSTS, X-Frame-Options, nosniff, XSS, Referrer, Permissions)
 - GA4 + cookie banner RGPD
