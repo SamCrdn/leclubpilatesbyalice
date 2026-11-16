@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Blog Pilates — Conseils & bien-être · Le Club Pilates',
     description: 'Conseils Pilates, bien-être et santé féminine par nos expertes certifiées.',
     url: `${siteUrl}/blog`,
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Blog Le Club Pilates' }],
+    images: [{ url: `${siteUrl}/images/og-image.jpg?v=2`, width: 1200, height: 630, alt: 'Blog Le Club Pilates' }],
   },
   robots: { index: true, follow: true },
 }

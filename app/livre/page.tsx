@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: 'Le Club Pilates',
     locale: 'fr_FR',
     type: 'website',
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Mon cahier Pilates au mur, Alice Parquet' }],
+    images: [{ url: `${siteUrl}/images/og-image.jpg?v=2`, width: 1200, height: 630, alt: 'Mon cahier Pilates au mur, Alice Parquet' }],
   },
 }
 

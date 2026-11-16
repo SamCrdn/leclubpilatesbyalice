@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: 'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours, essai gratuit 7 jours.',
     url: siteUrl,
     siteName: 'Le Club Pilates',
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Le Club Pilates' }],
+    images: [{ url: `${siteUrl}/images/og-image.jpg?v=2`, width: 1200, height: 630, alt: 'Le Club Pilates' }],
     locale: 'fr_FR',
     type: 'website',
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cours de Pilates en ligne — Le Club Pilates',
     description: 'Cours de Pilates en ligne guidés par des expertes. Plus de 350 cours, essai gratuit 7 jours.',
-    images: [`${siteUrl}/images/og-image.jpg`],
+    images: [`${siteUrl}/images/og-image.jpg?v=2`],
   },
 }
 
@@ -58,7 +58,7 @@ const jsonLd = {
       url: siteUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/images/og-image.jpg`,
+        url: `${siteUrl}/images/og-image.jpg?v=2`,
         width: 512,
         height: 512,
       },
@@ -72,7 +72,7 @@ const jsonLd = {
       '@id': `${siteUrl}/#business`,
       name: 'Le Club Pilates',
       url: siteUrl,
-      image: `${siteUrl}/images/og-image.jpg`,
+      image: `${siteUrl}/images/og-image.jpg?v=2`,
       description: 'Studio de Pilates en ligne avec cours guidés par des expertes',
       priceRange: '€€',
       aggregateRating: {

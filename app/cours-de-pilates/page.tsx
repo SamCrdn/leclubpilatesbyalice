@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Cours de Pilates en ligne — Tous niveaux',
     description: '+350 cours de Pilates en ligne : débutant, dos, prénatal, Wall. Essai gratuit 7 jours.',
     url: `${siteUrl}/cours-de-pilates`,
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Cours de Pilates en ligne' }],
+    images: [{ url: `${siteUrl}/images/og-image.jpg?v=2`, width: 1200, height: 630, alt: 'Cours de Pilates en ligne' }],
   },
 }
 

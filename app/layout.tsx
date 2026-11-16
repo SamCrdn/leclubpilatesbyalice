@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     siteName: 'Le Club Pilates',
     title: 'Le Club Pilates — Studio de Pilates en ligne',
     description: 'Cours de Pilates en ligne, programmes personnalisés et abonnements flexibles.',
-    images: [{ url: `${siteUrl}/images/og-image.jpg`, width: 1200, height: 630, alt: 'Le Club Pilates' }],
+    images: [{ url: `${siteUrl}/images/og-image.jpg?v=2`, width: 1200, height: 630, alt: 'Le Club Pilates' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Le Club Pilates — Studio de Pilates en ligne',
     description: 'Cours de Pilates en ligne, programmes personnalisés et abonnements flexibles.',
-    images: [`${siteUrl}/images/og-image.jpg`],
+    images: [`${siteUrl}/images/og-image.jpg?v=2`],
   },
   robots: {
     index: true,
