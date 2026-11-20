@@ -149,6 +149,7 @@ Copy `.env.example` to `.env.local` and fill in:
 ## What's done
 
 - Déploiement Vercel + domaine Infomaniak
+- Bandeau Black Friday 2026 (`components/layout/PromoBanner.tsx`, dans le Header, donc absent de /essai) : s'affiche seul du 24/11 00 h au 01/12 00 h (Paris), code BLACKFRIDAY26, lien direct vers le paiement annuel, événement GA `clic_banniere` (séparé de `commencer_essai`). Aperçu : `?apercu-bf` (20/11/2026)
 - Blog Sanity complet (studio, pipeline IA GitHub Actions, webhook Vercel)
 - Blog : encadré « Pour aller plus loin » au milieu des articles (page cours du thème + essai `blog-milieu`), bloc « À lire sur le blog » sur les 7 pages cours, doublons fusionnés en 301 (15/11/2026)
 - GA4 chargé uniquement sur `www.leclubpilates.com` (pas en local ni en prévisualisation)

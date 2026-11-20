@@ -15,3 +15,13 @@ export function trackEssai(formule: Formule | 'join', position: string) {
     // ne jamais empêcher le clic
   }
 }
+
+/** Clic sur le bandeau promo du haut des pages. Événement séparé de commencer_essai,
+ *  pour ne pas changer le calcul du KPI 3 (clics sur les boutons d'essai). */
+export function trackBanniere(campagne: string, position: string) {
+  try {
+    window.gtag?.('event', 'clic_banniere', { campagne, position, transport_type: 'beacon' })
+  } catch {
+    // ne jamais empêcher le clic
+  }
+}
