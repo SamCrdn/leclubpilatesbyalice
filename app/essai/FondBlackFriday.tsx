@@ -1,11 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useBlackFriday } from '@/lib/blackFriday'
 
 // Fond Black Friday de la bannière de /essai : plus noir, avec « Black Friday » en filigrane très léger.
-// Même période que l'encart et le bandeau. Aperçu hors période : ?apercu-bf
-const DEBUT = Date.parse('2026-11-22T00:00:00+01:00')
-const FIN = Date.parse('2026-12-01T00:00:00+01:00')
 
 // Motif horizontal (rien n'est coupé au bord), incliné ensuite en CSS.
 const MOTIF = `url("data:image/svg+xml,${encodeURIComponent(
@@ -18,13 +15,7 @@ const MOTIF = `url("data:image/svg+xml,${encodeURIComponent(
 )}")`
 
 export default function FondBlackFriday() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const maintenant = Date.now()
-    const apercu = new URLSearchParams(window.location.search).has('apercu-bf')
-    setVisible((maintenant >= DEBUT && maintenant < FIN) || apercu)
-  }, [])
+  const visible = useBlackFriday()
 
   if (!visible) return null
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { trackEssai } from '@/lib/analytics'
+import { useBlackFriday } from '@/lib/blackFriday'
 
 type Formule = 'annuel' | 'mensuel'
 type Position = 'haut' | 'bas' | 'flottant'
@@ -19,6 +20,7 @@ interface EssaiCTAProps {
 
 export default function EssaiCTA({ position, lienAnnuel, lienMensuel, fond = 'clair', className = '' }: EssaiCTAProps) {
   const sombre = fond === 'sombre'
+  const blackFriday = useBlackFriday()
   return (
     <div className={`flex flex-col items-center text-center gap-3 ${className}`}>
       <a
@@ -29,7 +31,13 @@ export default function EssaiCTA({ position, lienAnnuel, lienMensuel, fond = 'cl
         Commencer mes 7 jours gratuits
       </a>
       <p className={`text-xs font-light leading-relaxed ${sombre ? 'text-cream/75' : 'text-mink'}`}>
-        <span className={`text-sm ${sombre ? 'text-cream' : 'text-cocoa/80'}`}>0 € aujourd&apos;hui, puis 229 €/an (environ 19 €/mois)</span>
+        <span className={`text-sm ${sombre ? 'text-cream' : 'text-cocoa/80'}`}>
+          {blackFriday
+            ? <>0 € aujourd&apos;hui, puis <strong className="font-medium">160,30 € la 1re année</strong> avec le code (environ 13 €/mois)</>
+            : <>0 € aujourd&apos;hui, puis 229 €/an (environ 19 €/mois)</>}
+        </span>
+        <br />
+        <span className={`text-sm ${sombre ? 'text-cream' : 'text-cocoa/80'}`}>+ <strong className="font-semibold">30 min de coaching privé</strong> avec Alice</span>
         <br />
         Carte demandée · annulable avant la fin de l&apos;essai
       </p>

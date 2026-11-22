@@ -48,6 +48,7 @@ const FAQ = [
   { q: 'J\'ai besoin de matériel ?', a: 'Non. Un tapis suffit, idéalement épais (plus de 8 mm). Les petits accessoires sont en option.' },
   { q: 'Il y a des cours en direct ?', a: 'Oui, plusieurs fois par mois sur Zoom (30 à 40 min). La prof te voit et te corrige. Les replays restent disponibles.' },
   { q: 'Combien ça coûte après ?', a: 'Rien pendant 7 jours. Ensuite 229 € l\'année, soit environ 19 € par mois, ou 26,90 € au mois.' },
+  { q: 'C\'est quoi, le coaching privé ?', a: 'Avec l\'abonnement à l\'année, 30 minutes en visio avec Alice : ton niveau, tes objectifs, tes douleurs éventuelles, et le parcours qui te convient dans le Club. Tu reçois le lien pour réserver une fois ton essai terminé et ton année commencée.' },
   { q: 'Comment j\'annule ?', a: 'Depuis ton espace membre. Avant la fin des 7 jours, tu ne paies rien. Après, tu peux résilier à tout moment et tu gardes l\'accès jusqu\'à la fin de la période payée. Les abonnements ne sont pas remboursés.' },
 ]
 

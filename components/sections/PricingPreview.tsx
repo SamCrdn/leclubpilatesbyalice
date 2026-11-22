@@ -13,6 +13,7 @@ type Plan = {
   detail: string
   conditions: string
   badge?: string
+  bonus?: React.ReactNode
   highlight: boolean
   imageUrl: string
 }
@@ -23,6 +24,7 @@ const PLANS: Plan[] = [
     formule: 'annuel', name: 'Annuel', price: '229', period: 'an',
     detail: "Soit environ 19 € par mois : près de 94 € d'économie sur l'année",
     conditions: "Payé une fois pour l'année, résiliable à tout moment : l'accès continue jusqu'à la fin de l'année payée",
+    bonus: <><strong className="font-semibold">30 minutes de coaching privé</strong> en visio avec Alice, après la période d’essai</>,
     badge: 'Le plus avantageux', highlight: true, imageUrl: '/images/class-3.jpg',
   },
   {
@@ -79,7 +81,12 @@ export default function PricingPreview() {
                   <span className={`font-display text-5xl font-light ${plan.highlight ? 'text-cream' : 'text-cocoa'}`}>{plan.price}€</span>
                   <span className={`text-sm font-light ${plan.highlight ? 'text-cream/50' : 'text-mink'}`}>/{plan.period}</span>
                 </div>
-                <p className={`mt-3 mb-8 text-sm font-light ${plan.highlight ? 'text-sand' : 'text-cocoa'}`}>{plan.detail}</p>
+                <p className={`mt-3 ${plan.bonus ? 'mb-5' : 'mb-8'} text-sm font-light ${plan.highlight ? 'text-sand' : 'text-cocoa'}`}>{plan.detail}</p>
+                {plan.bonus && (
+                  <p className="mb-8 rounded-sm border border-sand/40 px-4 py-3 text-sm font-light text-cream">
+                    <span className="font-medium text-sand">En plus : </span>{plan.bonus}
+                  </p>
+                )}
                 <ul className="flex flex-col gap-3 mb-10 flex-1">
                   {[...AVANTAGES, plan.conditions].map(f => (
                     <li key={f} className={`flex items-start gap-3 text-sm font-light ${plan.highlight ? 'text-cream/80' : 'text-cocoa/70'}`}>
