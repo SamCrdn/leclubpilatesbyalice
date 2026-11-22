@@ -19,7 +19,7 @@ export default function CGVPage() {
         <div className="section-wrapper max-w-3xl">
           <p className="eyebrow mb-6">Légal</p>
           <h1 className="font-display font-light text-cocoa mb-4">Conditions Générales de Vente</h1>
-          <p className="text-sm text-cocoa/50 font-light mb-12">Dernière mise à jour : mars 2025</p>
+          <p className="text-sm text-cocoa/50 font-light mb-12">Dernière mise à jour : novembre 2026</p>
 
           <div className="space-y-10 text-sm text-cocoa/70 font-light leading-relaxed">
 
@@ -45,6 +45,9 @@ export default function CGVPage() {
               <h2 className="font-display text-xl font-light text-cocoa mb-4">3. Abonnements et tarifs</h2>
               <p className="mb-3">Plusieurs formules d&apos;abonnement sont proposées. Les tarifs sont affichés en euros TTC sur la page de souscription et peuvent être modifiés à tout moment, sans effet sur les abonnements en cours.</p>
               <p>L&apos;accès au service est personnel et non transférable. Un compte correspond à un utilisateur.</p>
+              <p className="mt-3">
+                <strong className="font-normal text-cocoa">Coaching privé de l&apos;abonnement annuel.</strong> Chaque souscription à l&apos;abonnement annuel donne droit à une séance de coaching privé de 30 minutes en visio avec Alice. Le lien de réservation est envoyé par email une fois la période d&apos;essai terminée et la première année payée. La séance est à réserver et à réaliser dans les 3 mois suivant le début de l&apos;année payée ; passé ce délai, elle n&apos;est plus due. Une séance annulée moins de 24 heures à l&apos;avance, ou manquée, est considérée comme effectuée. Le coaching est personnel, non cessible, et ne donne lieu à aucun remboursement ni compensation s&apos;il n&apos;est pas utilisé.
+              </p>
             </div>
 
             <div>
