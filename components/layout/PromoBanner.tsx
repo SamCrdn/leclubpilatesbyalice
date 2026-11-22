@@ -48,9 +48,9 @@ export default function PromoBanner() {
       {/* ── Mobile ── */}
       <div className="flex md:hidden items-center justify-center gap-3">
         <div className="flex flex-col items-center leading-tight text-center">
-          <span className="text-xs font-medium tracking-wide">Black Friday : l’année à −30 %</span>
+          <span className="text-xs font-medium tracking-wide">🖤 Black Friday : l’année à −30 %</span>
           <span className="text-2xs text-cream/70 tracking-wide">
-            Code <span className="font-semibold text-cream select-all">{CODE}</span> · puis 229 €/an · jusqu’au 30/11
+            Code <span className="font-semibold text-cream select-all">{CODE}</span> · jusqu’au 30/11
           </span>
         </div>
         {lien(
@@ -63,10 +63,10 @@ export default function PromoBanner() {
       {/* ── Desktop ── */}
       <div className="hidden md:flex items-center justify-center gap-4">
         <p className="text-xs tracking-wide text-cream/90">
-          <span className="font-medium uppercase tracking-widest mr-2 text-cream">Black Friday</span>
+          <span className="font-medium uppercase tracking-widest mr-2 text-cream">🖤 Black Friday</span>
           L’année au Club à −30 % avec le code{' '}
-          <span className="font-semibold text-cream select-all">{CODE}</span>, 7 jours d’essai gratuits,
-          puis 229 €/an. Jusqu’au 30 novembre.
+          <span className="font-semibold text-cream select-all">{CODE}</span>, 7 jours d’essai gratuits.
+          Jusqu’au 30 novembre.
         </p>
         {lien(
           'desktop',
