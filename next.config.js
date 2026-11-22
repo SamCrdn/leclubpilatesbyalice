@@ -41,8 +41,11 @@ const nextConfig = {
       { source: '/dm',                                  destination: '/essai?utm_source=ig&utm_medium=social&utm_content=dm',          permanent: false },
       // Lien court newsletter vers /essai
       { source: '/email',                               destination: '/essai?utm_source=email&utm_medium=email&utm_content=newsletter', permanent: false },
-      // Black Friday 2026 (24–30 novembre) : paiement annuel direct, code BLACKFRIDAY26 à saisir
-      { source: '/bf',                                  destination: 'https://app.leclubpilates.com/r/buy/fc127c46-d962-47ff-94cb-2151870a3f2a?o=198383', permanent: false },
+      // Black Friday 2026 (22–30 novembre), code BLACKFRIDAY26 à saisir au paiement
+      // /bf : contacts et Instagram (emails contacts, stories, ManyChat, bio) → /essai, avec l'encart Black Friday
+      { source: '/bf',                                  destination: '/essai?utm_source=bf&utm_medium=promo&utm_campaign=black-friday-2026', permanent: false },
+      // /bf-abo : emails des abonnées (passage à l'année) → paiement annuel direct
+      { source: '/bf-abo',                              destination: 'https://app.leclubpilates.com/r/buy/fc127c46-d962-47ff-94cb-2151870a3f2a?o=198383', permanent: false },
       { source: '/pricing',                            destination: 'https://app.leclubpilates.com/join', permanent: true },
       { source: '/a-propos',                            destination: '/about',                             permanent: true },
       // Anciennes adresses en 404 dans Search Console (15/11/2026)

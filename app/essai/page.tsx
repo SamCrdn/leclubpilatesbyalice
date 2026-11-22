@@ -9,6 +9,7 @@ import EssaiCTA from './EssaiCTA'
 import StickyCTA from './StickyCTA'
 import EssaiVideo from './EssaiVideo'
 import SeanceOfferteLien from './SeanceOfferteLien'
+import EncartBlackFriday from './EncartBlackFriday'
 import { LIENS_PAIEMENT } from '@/lib/offres'
 
 // ── Liens et médias ────────────────────────────────────
@@ -122,6 +123,7 @@ export default async function EssaiPage() {
               <span className="tracking-[0.15em] text-[#E8A33D]" aria-hidden="true">★★★★★</span>
               <span>{NOTE_GOOGLE}/5 · {NB_AVIS_GOOGLE} avis Google</span>
             </p>
+            <EncartBlackFriday fond="sombre" className="mx-auto mb-6 max-w-sm lg:mx-0" />
             <EssaiCTA
               position="haut"
               lienAnnuel={LIEN_ANNUEL}
@@ -192,6 +194,7 @@ export default async function EssaiPage() {
         <section id="cta-bas" className="lg:sticky lg:top-10">
           <div className="rounded-3xl bg-chalk px-6 py-10 text-center lg:px-10 lg:py-12">
             <h2 className="mb-6 font-display font-light text-3xl text-cocoa md:text-4xl">Prête à commencer ?</h2>
+            <EncartBlackFriday className="mx-auto mb-6 max-w-sm" />
             <EssaiCTA position="bas" lienAnnuel={LIEN_ANNUEL} lienMensuel={LIEN_MENSUEL} />
           </div>
 
