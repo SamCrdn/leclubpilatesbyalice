@@ -16,10 +16,8 @@ const LIEN_MENSUEL = LIENS_PAIEMENT.mensuel
 const VIDEO_URL: string = '/videos/essai-alice-presentation.mp4'           // vidéo verticale, avec son (muette au départ)
 const VIDEO_POSTER: string = '/images/essai-alice-presentation-poster.jpg' // image affichée pendant le chargement
 const VIDEO_FOND: string = '/videos/essai-alice-fond.mp4'                  // même vidéo en très basse définition, floutée en fond
-// Lien du Giveaway Funnel « Séance offerte » ; vide = lien masqué.
-// Affiché à partir du 1er décembre 2026 : /essai ne change pas avant, pour fixer l'objectif du KPI 3 sur novembre.
+// Lien du Giveaway Funnel « Séance offerte » ; vide = lien masqué. En ligne depuis le 22 novembre 2026.
 const LIEN_SEANCE_OFFERTE: string = 'https://app.leclubpilates.com/get/pilates-full-body-doux'
-const SEANCE_OFFERTE_DEBUT = Date.parse('2026-12-01T00:00:00+01:00')
 
 // ── Avis Google (à tenir à jour, comme dans StatsBar) ──
 const NOTE_GOOGLE = '5'
@@ -197,7 +195,7 @@ export default async function EssaiPage() {
           </div>
 
           {/* 9. Séance offerte, masquée tant que le lien est vide */}
-          {LIEN_SEANCE_OFFERTE && Date.now() >= SEANCE_OFFERTE_DEBUT && (
+          {LIEN_SEANCE_OFFERTE && (
             <p className="mt-10 text-center">
               <a href={LIEN_SEANCE_OFFERTE} className="text-sm font-light text-cocoa/70 underline underline-offset-4 hover:text-cocoa">
                 Pas prête ? Reçois une séance offerte
