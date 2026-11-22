@@ -5,10 +5,10 @@ import { X } from 'lucide-react'
 import { LIENS_PAIEMENT } from '@/lib/offres'
 import { trackBanniere } from '@/lib/analytics'
 
-// Black Friday 2026 : l'annuel à −30 % la 1re année avec le code, du mardi 24 novembre 00 h
-// au lundi 30 novembre 23 h 59 (heure de Paris). Le bandeau s'affiche et disparaît tout seul.
-// Aperçu avant le 24 : ajouter ?apercu-bf à l'URL.
-const DEBUT = Date.parse('2026-11-24T00:00:00+01:00')
+// Black Friday 2026 : l'annuel à −30 % la 1re année avec le code, du dimanche 22 novembre
+// (avancé le 22, prévu le 24) au lundi 30 novembre 23 h 59 (heure de Paris).
+// Le bandeau s'affiche et disparaît tout seul. Aperçu avant le début : ajouter ?apercu-bf à l'URL.
+const DEBUT = Date.parse('2026-11-22T00:00:00+01:00')
 const FIN = Date.parse('2026-12-01T00:00:00+01:00')
 const CODE = 'BLACKFRIDAY26'
 const STORAGE_KEY = 'promo-black-friday-2026'
