@@ -10,6 +10,7 @@ import StickyCTA from './StickyCTA'
 import EssaiVideo from './EssaiVideo'
 import SeanceOfferteLien from './SeanceOfferteLien'
 import EncartBlackFriday from './EncartBlackFriday'
+import FondBlackFriday from './FondBlackFriday'
 import { LIENS_PAIEMENT } from '@/lib/offres'
 
 // ── Liens et médias ────────────────────────────────────
@@ -96,6 +97,7 @@ export default async function EssaiPage() {
           />
         )}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-cocoa/50 via-cocoa/30 to-cocoa/90" aria-hidden="true" />
+        <FondBlackFriday />
 
         {/* Logo, sans lien */}
         <p className="mx-auto max-w-6xl px-6 pt-5 pb-6 text-center font-body font-medium tracking-[0.2em] uppercase text-sm text-cream/90 md:px-10 lg:pt-10 lg:pb-6 lg:text-left">

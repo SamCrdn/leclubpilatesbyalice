@@ -23,11 +23,11 @@ export default function EncartBlackFriday({ fond = 'clair', className = '' }: { 
   return (
     <p
       className={`rounded-2xl border px-4 py-3 text-sm font-light leading-relaxed ${
-        sombre ? 'border-cream/30 bg-cream/10 text-cream' : 'border-cocoa/15 bg-chalk text-cocoa'
+        sombre ? 'border-[#C9A86A]/60 bg-black/30 text-cream' : 'border-cocoa/15 bg-chalk text-cocoa'
       } ${className}`}
     >
-      🖤 <span className="font-medium">Black Friday</span> : l’année à −30 % avec le code{' '}
-      <span className="font-semibold select-all">{CODE}</span>, à saisir au paiement. Jusqu’au 30 novembre.
+      🖤 <span className={`font-medium uppercase tracking-widest ${sombre ? 'text-[#D9BC85]' : ''}`}>Black Friday</span> : l’année à −30 % avec le code{' '}
+      <span className={`font-semibold select-all ${sombre ? 'text-[#D9BC85]' : ''}`}>{CODE}</span>, à saisir au paiement. Jusqu’au 30 novembre.
     </p>
   )
 }
