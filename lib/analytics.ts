@@ -25,3 +25,13 @@ export function trackBanniere(campagne: string, position: string) {
     // ne jamais empêcher le clic
   }
 }
+
+/** Clic sur « Pas prête ? Reçois une séance offerte » (lien vers le Giveaway Funnel).
+ *  Événement séparé de commencer_essai, pour ne pas changer le calcul du KPI 3. */
+export function trackSeanceOfferte(position: string) {
+  try {
+    window.gtag?.('event', 'clic_seance_offerte', { position, transport_type: 'beacon' })
+  } catch {
+    // ne jamais empêcher le clic
+  }
+}

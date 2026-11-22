@@ -8,6 +8,7 @@ import type { Testimonial } from '@/components/sections/TestimonialsCarousel'
 import EssaiCTA from './EssaiCTA'
 import StickyCTA from './StickyCTA'
 import EssaiVideo from './EssaiVideo'
+import SeanceOfferteLien from './SeanceOfferteLien'
 import { LIENS_PAIEMENT } from '@/lib/offres'
 
 // ── Liens et médias ────────────────────────────────────
@@ -197,9 +198,7 @@ export default async function EssaiPage() {
           {/* 9. Séance offerte, masquée tant que le lien est vide */}
           {LIEN_SEANCE_OFFERTE && (
             <p className="mt-10 text-center">
-              <a href={LIEN_SEANCE_OFFERTE} className="text-sm font-light text-cocoa/70 underline underline-offset-4 hover:text-cocoa">
-                Pas prête ? Reçois une séance offerte
-              </a>
+              <SeanceOfferteLien href={LIEN_SEANCE_OFFERTE} />
             </p>
           )}
         </section>
