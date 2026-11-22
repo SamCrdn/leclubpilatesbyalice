@@ -64,7 +64,7 @@ export default function PromoBanner() {
       <div className="hidden md:flex items-center justify-center gap-4">
         <p className="text-xs tracking-wide text-cream/90">
           <span className="font-medium uppercase tracking-widest mr-2 text-cream">🖤 Black Friday</span>
-          L’année au Club à −30 % <span className="font-semibold text-cream">+ 30 min de coaching privé</span> avec Alice. Code{' '}
+          L’année à −30 % <span className="font-semibold text-cream">+ 30 min de coaching privé</span> avec Alice. Code{' '}
           <span className="font-semibold text-cream select-all">{CODE}</span>, 7 jours d’essai gratuits, jusqu’au 30 novembre.
         </p>
         {lien(
